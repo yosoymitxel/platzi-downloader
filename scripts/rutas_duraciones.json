@@ -1,0 +1,3284 @@
+{
+  "desarrollo-wordpress": {
+    "title": "Curso de Entornos de Desarrollo y Deployment en WordPress",
+    "hours": 2.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "wordpress-profesional": {
+    "title": "Curso Profesional de WordPress",
+    "hours": 4.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "wordpress": {
+    "title": "Curso de Creación de Plugins para WordPress",
+    "hours": 2.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "wordpress-gutenberg": {
+    "title": "Curso de Creación de Bloques en Gutenberg para WordPress",
+    "hours": 3.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "woocommerce-mobile": {
+    "title": "Curso de App Mobile utilizando Woocommerce",
+    "hours": 4.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "html-practico": {
+    "title": "Curso Práctico de HTML y CSS",
+    "hours": 2.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "php": {
+    "title": "Curso Básico de PHP: Instalación, Fundamentos y Operadores",
+    "hours": 4.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "php-arreglos-funciones": {
+    "title": "Curso de PHP: Arreglos, Funciones y Estructuras de Control",
+    "hours": 4.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "wordpress-temas": {
+    "title": "Curso de Creación de Temas para WordPress",
+    "hours": 2.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "woocommerce": {
+    "title": "Curso de Creación de Tiendas en Línea con WooCommerce",
+    "hours": 3.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "woocommerce-temas": {
+    "title": "Curso de Creación de Temas para WooCommerce",
+    "hours": 1.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "fundamentos-ecommerce": {
+    "title": "Curso de E-Commerce",
+    "hours": 2.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "php-composer": {
+    "title": "Curso de PHP con Composer",
+    "hours": 2.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "php-poo": {
+    "title": "Curso de Programación Orientada a Objetos en PHP",
+    "hours": 2.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "mejor-codigo": {
+    "title": "Curso de Patrones de Diseño y Buenas Prácticas en PHP",
+    "hours": 2.0,
+    "route": "desarrollo-wordpress",
+    "route_pct": 100
+  },
+  "api-rest": {
+    "title": "Curso de API REST con PHP",
+    "hours": 2.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "laravel-api": {
+    "title": "Curso de API REST con Laravel",
+    "hours": 2.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "laravel-avanzado": {
+    "title": "Curso Avanzado de Laravel",
+    "hours": 4.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "laravel-tdd": {
+    "title": "Curso de Desarrollo en Laravel con Test Driven Development",
+    "hours": 3.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "despliegue-apps": {
+    "title": "Curso de Introducción al Despliegue de Aplicaciones",
+    "hours": 1.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "programacion-basica-2022": {
+    "title": "Curso Gratis de Programación Básica 2022",
+    "hours": 15.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "fundamentos-php": {
+    "title": "Curso de Fundamentos de PHP",
+    "hours": 2.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "php-html": {
+    "title": "Curso de PHP: Integración con HTML",
+    "hours": 4.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "php-entornos-funciones": {
+    "title": "Curso de PHP: Entornos Virtuales y Funciones Avanzadas",
+    "hours": 4.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "php-cookies-sesiones": {
+    "title": "Curso de PHP: Cookies, Sesiones y Modularización",
+    "hours": 5.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "php-frameworks": {
+    "title": "Curso de Introducción a Frameworks de PHP",
+    "hours": 1.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "php-yii-web": {
+    "title": "Curso de Desarrollo Web con PHP y Yii2",
+    "hours": 6.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "laravel": {
+    "title": "Curso de Introducción a Laravel 9",
+    "hours": 3.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "laravel-spa": {
+    "title": "Curso de Single Page Applications en Laravel con Inertia y Vue.js",
+    "hours": 2.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "laravel-testing": {
+    "title": "Curso Básico de Testing con PHP y Laravel",
+    "hours": 2.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "intro-laravel": {
+    "title": "Curso de Introducción a Laravel 8",
+    "hours": 2.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "curso-php-laravel": {
+    "title": "Curso de PHP con Laravel",
+    "hours": 3.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "programacion-basica": {
+    "title": "Curso Gratis de Programación Básica",
+    "hours": 4.0,
+    "route": "desarrollo-php",
+    "route_pct": 100
+  },
+  "estrategias-ingles": {
+    "title": "Curso Gratis de Estrategias para Aprender Inglés en Línea",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "linux": {
+    "title": "Curso de Introducción a la Administración de Servidores Linux",
+    "hours": 4.0,
+    "route": "administracion-de-servidores-linux",
+    "route_pct": 100
+  },
+  "servidores-linux": {
+    "title": "Curso de Administración de Servidores Linux: Manejo de Recursos",
+    "hours": 2.0,
+    "route": "administracion-de-servidores-linux",
+    "route_pct": 100
+  },
+  "basico-preguntas-respuestas": {
+    "title": "Curso de Inglés Básico A2: Preguntas y Respuestas Comunes",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "docker-fundamentos": {
+    "title": "Curso de Docker: Fundamentos",
+    "hours": 2.0,
+    "route": "contenerizacion-y-orquestacion",
+    "route_pct": 40
+  },
+  "docker-avanzado": {
+    "title": "Curso de Docker Avanzado",
+    "hours": 4.0,
+    "route": "contenerizacion-y-orquestacion",
+    "route_pct": 40
+  },
+  "docker-swarm": {
+    "title": "Curso de Swarm",
+    "hours": 4.0,
+    "route": "contenerizacion-y-orquestacion",
+    "route_pct": 40
+  },
+  "kubernetes": {
+    "title": "Curso de Kubernetes",
+    "hours": 6.0,
+    "route": "contenerizacion-y-orquestacion",
+    "route_pct": 40
+  },
+  "contenedores-gcp": {
+    "title": "Curso de Contenedores y Aplicaciones en la Nube con Google Cloud Platform",
+    "hours": 4.0,
+    "route": "contenerizacion-y-orquestacion",
+    "route_pct": 40
+  },
+  "iaac-aws": {
+    "title": "Curso de Infraestructura Como Código en AWS",
+    "hours": 4.0,
+    "route": "infraestructura-como-codigo-iac-y-ci-cd",
+    "route_pct": 30
+  },
+  "terraform": {
+    "title": "Curso de Terraform",
+    "hours": 4.0,
+    "route": "infraestructura-como-codigo-iac-y-ci-cd",
+    "route_pct": 30
+  },
+  "devops": {
+    "title": "Curso Profesional de DevOps",
+    "hours": 2.0,
+    "route": "infraestructura-como-codigo-iac-y-ci-cd",
+    "route_pct": 30
+  },
+  "azure-devops": {
+    "title": "Curso de Azure DevOps: Flujos de CI/CD",
+    "hours": 3.0,
+    "route": "infraestructura-como-codigo-iac-y-ci-cd",
+    "route_pct": 30
+  },
+  "github-actions": {
+    "title": "Curso de GitHub Actions",
+    "hours": 4.0,
+    "route": "infraestructura-como-codigo-iac-y-ci-cd",
+    "route_pct": 30
+  },
+  "blazor-3": {
+    "title": "Curso de Desarrollo Web con Blazor y .Net Core 3",
+    "hours": 6.0,
+    "route": "asp-net",
+    "route_pct": 25
+  },
+  "web-apps": {
+    "title": "Curso de Web Apps y Logic Apps en Azure",
+    "hours": 1.0,
+    "route": "asp-net",
+    "route_pct": 25
+  },
+  "csharp-introduccion": {
+    "title": "Curso de Introducción a C# con .NET 3.1",
+    "hours": 0.0,
+    "route": "asp-net",
+    "route_pct": 25
+  },
+  "csharp": {
+    "title": "Curso Básico de Programación con C#",
+    "hours": 4.0,
+    "route": "asp-net",
+    "route_pct": 25
+  },
+  "fundamentos-dotnet": {
+    "title": "Curso de Fundamentos de .NET",
+    "hours": 3.0,
+    "route": "asp-net",
+    "route_pct": 25
+  },
+  "fundamentos-csharp-2": {
+    "title": "Fundamentos de C# con NET Core 2.1",
+    "hours": 5.0,
+    "route": "asp-net",
+    "route_pct": 25
+  },
+  "c-sharp-2": {
+    "title": "Curso de C# con .Net Core 2.1",
+    "hours": 6.0,
+    "route": "asp-net",
+    "route_pct": 25
+  },
+  "entity-framework": {
+    "title": "Curso de Fundamentos de Entity Framework",
+    "hours": 3.0,
+    "route": "asp-net",
+    "route_pct": 25
+  },
+  "linq": {
+    "title": "Curso de Manejo de Datos en C# con LINQ",
+    "hours": 3.0,
+    "route": "asp-net",
+    "route_pct": 25
+  },
+  "computacion-basica": {
+    "title": "Curso Básico de Computadores e Informática",
+    "hours": 4.0,
+    "route": "fundamentos-de-cloud-y-devops",
+    "route_pct": 25
+  },
+  "terminal": {
+    "title": "Curso de Introducción a la Terminal y Línea de Comandos",
+    "hours": 4.0,
+    "route": "fundamentos-de-cloud-y-devops",
+    "route_pct": 25
+  },
+  "ingenieria": {
+    "title": "Curso de Fundamentos de Ingeniería de Software",
+    "hours": 4.0,
+    "route": "fundamentos-de-cloud-y-devops",
+    "route_pct": 25
+  },
+  "redes": {
+    "title": "Curso de Redes Informáticas de Internet",
+    "hours": 2.0,
+    "route": "fundamentos-de-cloud-y-devops",
+    "route_pct": 25
+  },
+  "avanzado-redes": {
+    "title": "Curso de Redes de Internet - Profesional",
+    "hours": 3.0,
+    "route": "fundamentos-de-cloud-y-devops",
+    "route_pct": 25
+  },
+  "gitgithub": {
+    "title": "Curso de Git y GitHub",
+    "hours": 6.0,
+    "route": "fundamentos-de-cloud-y-devops",
+    "route_pct": 25
+  },
+  "desarrollo-moderno-codestream": {
+    "title": "Curso de Flujo de Desarrollo Moderno CodeStream",
+    "hours": 2.0,
+    "route": "fundamentos-de-cloud-y-devops",
+    "route_pct": 25
+  },
+  "aws-fundamentos": {
+    "title": "Curso de Introducción a AWS: Fundamentos de Cloud Computing",
+    "hours": 2.0,
+    "route": "fundamentos-de-cloud-y-devops",
+    "route_pct": 25
+  },
+  "deploying-python": {
+    "title": "Curso de Despliegue de Aplicaciones Python en la Nube",
+    "hours": 3.0,
+    "route": "devops-y-cloud-para-desarrolladores-web",
+    "route_pct": 23
+  },
+  "serverless": {
+    "title": "Curso de Serverless Framework en AWS",
+    "hours": 5.0,
+    "route": "devops-y-cloud-para-desarrolladores-web",
+    "route_pct": 23
+  },
+  "serverless-avanzado": {
+    "title": "Curso Avanzado de Serverless Framework en AWS",
+    "hours": 4.0,
+    "route": "devops-y-cloud-para-desarrolladores-web",
+    "route_pct": 23
+  },
+  "aws-practitioner-certification": {
+    "title": "Curso AWS Cloud Practitioner Certification",
+    "hours": 10.0,
+    "route": "devops-y-cloud-para-desarrolladores-web",
+    "route_pct": 23
+  },
+  "fundamentos-google": {
+    "title": "Curso de Introducción a Google Cloud Platform",
+    "hours": 4.0,
+    "route": "devops-y-cloud-para-desarrolladores-web",
+    "route_pct": 23
+  },
+  "az-900": {
+    "title": "Curso de Fundamentos de Microsoft Azure (AZ-900)",
+    "hours": 5.0,
+    "route": "devops-y-cloud-para-desarrolladores-web",
+    "route_pct": 23
+  },
+  "cloudflare-workers": {
+    "title": "Curso de Cloudflare Workers",
+    "hours": 2.0,
+    "route": "devops-y-cloud-para-desarrolladores-web",
+    "route_pct": 23
+  },
+  "nextjs-jamstack": {
+    "title": "Curso de Next.js: Sitios Estáticos y Jamstack",
+    "hours": 3.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "nextjs-deploy": {
+    "title": "Curso de Next.js: Optimización y Deploy a Producción",
+    "hours": 2.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "nextjs-internacionalizacion": {
+    "title": "Curso de Next.js: Internacionalización de Aplicaciones Web con i18n",
+    "hours": 2.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "nextjs-grandes-datasets": {
+    "title": "Curso de Next.js: Optimización y Manejo de Grandes Datasets",
+    "hours": 1.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "nextjs-auth": {
+    "title": "Curso de Next.js: Autenticación",
+    "hours": 2.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "nextjs-owasp": {
+    "title": "Curso de Next.js: Seguridad Web con OWASP",
+    "hours": 2.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "react-native": {
+    "title": "Curso de Introducción a React Native",
+    "hours": 2.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "react-native-listas-apis": {
+    "title": "Curso de React Native: Manejo de Listas y Consumo de APIs",
+    "hours": 3.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "react-native-formularios-almacenamiento": {
+    "title": "Curso de React Native: Formularios, Almacenamiento y Deploy",
+    "hours": 2.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "frontend-developer": {
+    "title": "Curso de Frontend Developer",
+    "hours": 3.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "frontend-developer-practico": {
+    "title": "Curso Práctico de Frontend Developer",
+    "hours": 3.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "javascript-closures-scope": {
+    "title": "Curso de Closures y Scope en JavaScript",
+    "hours": 1.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "dom": {
+    "title": "Curso de Manipulación del DOM",
+    "hours": 4.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "frameworks-javascript": {
+    "title": "Curso de Frameworks y Librerías de JavaScript",
+    "hours": 5.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "nextjs15": {
+    "title": "Curso de Next.js Avanzado",
+    "hours": 5.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "react-patrones-render": {
+    "title": "Curso de React.js: Patrones de Render y Composición",
+    "hours": 3.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "react-estado": {
+    "title": "Curso de React.js: Manejo Profesional del Estado",
+    "hours": 4.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "react-router": {
+    "title": "Curso de React.js: Navegación con React Router",
+    "hours": 5.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "webpack": {
+    "title": "Curso de Webpack",
+    "hours": 3.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "react-redux-profesional": {
+    "title": "Curso Profesional de React.js y Redux",
+    "hours": 3.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "routing-react": {
+    "title": "Curso de Routing en React",
+    "hours": 2.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "react-js": {
+    "title": "Curso de ReactJS",
+    "hours": 2.0,
+    "route": "desarrollo-react",
+    "route_pct": 17
+  },
+  "vuejs": {
+    "title": "Curso de Vue.js",
+    "hours": 4.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "vuejs-old": {
+    "title": "Curso de Vue.js: Introducción y Fundamentos",
+    "hours": 4.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "vuejs-componentes-composition": {
+    "title": "Curso de Vue.js: Componentes y Composition API",
+    "hours": 3.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "vue-practico": {
+    "title": "Curso Práctico de Vue.js",
+    "hours": 4.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "vue-router": {
+    "title": "Curso de Vue.js: Navegación con Vue Router",
+    "hours": 2.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "vuex": {
+    "title": "Curso de Vue.js: Manejo del Estado con Vuex",
+    "hours": 4.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "pinia": {
+    "title": "Curso de Vue.js: Manejo del Estado con Pinia",
+    "hours": 1.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "vue-unit-testing": {
+    "title": "Curso de Unit Testing en Vue.js 3",
+    "hours": 1.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "reactividad-vuejs": {
+    "title": "Curso de Reactividad con Vue.js 3",
+    "hours": 4.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "vuejs2": {
+    "title": "Curso Básico de Vue.js 2",
+    "hours": 5.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "vuejs-profesional": {
+    "title": "Curso Profesional de Vue.js 2",
+    "hours": 9.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "avanzado-vue": {
+    "title": "Curso Avanzado de Vue.js 2",
+    "hours": 4.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "testing-vuejs": {
+    "title": "Curso de Testing con Vue.js 2",
+    "hours": 1.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "nuxt": {
+    "title": "Curso de Server Side Rendering con Nuxt 2",
+    "hours": 4.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "supabase": {
+    "title": "Curso de Supabase",
+    "hours": 2.0,
+    "route": "web-vue",
+    "route_pct": 16
+  },
+  "ingles-a1-principiantes": {
+    "title": "Curso de Inglés Básico A1 para Principiantes",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "verbo-tobe": {
+    "title": "Curso de Inglés Básico A1: Verbo To Be",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "presente-simple-vocabulario-comun": {
+    "title": "Curso de Inglés Básico A1: Presente Simple",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "verbos-comunes": {
+    "title": "Curso de Inglés Básico A1: Verbos Comunes",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "fechas-horas-expresiones-simples": {
+    "title": "Curso de Inglés Básico A1: Fechas, Horas y Expresiones Simples",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "taller-elementos-trabajo": {
+    "title": "Curso de Inglés Práctico sobre Elementos de Trabajo",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "descripcion-familia": {
+    "title": "Curso de Inglés Práctico sobre los Miembros de la Familia",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "articulos-verbosmodales": {
+    "title": "Curso de Inglés Básico A2: Conectores y Artículos",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "adverbios": {
+    "title": "Curso de Inglés Básico A2: Sustantivos e Intenciones Futuras",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "cantidad-gerundios": {
+    "title": "Curso de Inglés Básico A2: Cuantificadores y Superlativos",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "infinitivos": {
+    "title": "Curso de Inglés Básico A2: Infinitivos y Presente Continuo",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "conjunciones-superlativos": {
+    "title": "Curso de Inglés Básico A2: Conjunciones y Verbos",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "experiencias-pasadas": {
+    "title": "Curso de Inglés Básico A2: Experiencias Pasadas y Planes",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-basico-descripciones-comparativos": {
+    "title": "Curso de Inglés Básico A2: Descripciones y Comparaciones",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "english-shopping": {
+    "title": "Curso de Inglés Práctico para Compras",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "taller-practica-cocina": {
+    "title": "Curso de Inglés Práctico sobre Vocabulario de Cocina",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "viajes-turismo": {
+    "title": "Curso de Inglés Práctico para Viajes de Turismo",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "taller-partes-cuerpo": {
+    "title": "Curso de Inglés Práctico sobre las Partes del Cuerpo",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "basico-vocabulario-expresiones": {
+    "title": "Curso Básico de Vocabulario y Expresiones en Inglés",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "basico-pronunciacion": {
+    "title": "Curso Básico de Pronunciación en Inglés",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-basico-escritura": {
+    "title": "Curso Básico de Escritura en Inglés",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "parts-speech": {
+    "title": "Curso de Construcción de Oraciones en Inglés",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "origen-ingles": {
+    "title": "Audio Historia en Inglés: Origen del idioma",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-uso-cotidiano": {
+    "title": "Audio Historia en Inglés: Una Aventura en la Ciudad",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "misterio": {
+    "title": "Audio Historia en Inglés: Misterios sin Resolver",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "interactivo-atrapados-tecnologia": {
+    "title": "Audio Historia en Inglés: Atrapados en la Tecnología",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-viajes": {
+    "title": "Audio Curso de Inglés para Viajes",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "expresiones-tiempo-cantidad": {
+    "title": "Curso de Inglés Intermedio B1: Expresiones de Tiempo y Cantidad",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "conectores-preferencias": {
+    "title": "Curso de Inglés Intermedio B1: Descripción de Eventos y Preferencias",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "primer-condicional-pasado-continuo": {
+    "title": "Curso de Inglés Intermedio B1: Primer Condicional y Pasado Continuo",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "presente-perfecto": {
+    "title": "Curso de Inglés Intermedio B1: Presente Perfecto y Preposiciones",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "pronombres-clausulas": {
+    "title": "Curso de Inglés Intermedio B1: Pronombres y Cláusulas Relativas",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "adjectives": {
+    "title": "Curso de Inglés Intermedio B1: Adjetivos y Preguntas Indirectas",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "prefijos-adjetivos": {
+    "title": "Curso de Inglés Intermedio B1: Preguntas de Confirmación y Posibilidades",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "solicitudes": {
+    "title": "Curso de Inglés Intermedio B1: Solicitudes y Pronombres Reflexivos",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "palabras-interrogativas-propositos": {
+    "title": "Curso de Inglés Intermedio B1: Palabras Interrogativas y Propósitos",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "comparativos-paralelos": {
+    "title": "Curso de Inglés Intermedio B1: Comparativos y Planes Futuros",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "voz-pasiva": {
+    "title": "Curso de Inglés Intermedio B1: Voz Pasiva y Consejos",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "estructuras-paralelas": {
+    "title": "Curso de Inglés Intermedio B1: Preguntas Negativas y Recomendaciones",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "taller-ingles-visita-doctor": {
+    "title": "Curso de Inglés Práctico para Consultas Médicas",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "fitness-vocabulary": {
+    "title": "Curso de Inglés Práctico sobre Nutrición y Fitness",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-conversacional": {
+    "title": "Curso de Inglés Práctico y Conversacional",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "taller-conversaciones-trabajo": {
+    "title": "Curso de Inglés Práctico para Conversaciones de Trabajo",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "oraciones-relativas": {
+    "title": "Curso de Inglés Intermedio Alto B2: Suposiciones e Instrucciones",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "intenciones-comparaciones": {
+    "title": "Curso de Inglés Intermedio Alto B2: Comentarios y Opiniones",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "pasado-perfecto-frases-adverbiales": {
+    "title": "Curso de Inglés Intermedio Alto B2: Pasado Perfecto y Frases Adverbiales",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "condicionales-situaciones-hipoteticas": {
+    "title": "Curso de Inglés Intermedio Alto B2: Discurso Indirecto y Condicionales",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingleshabitos": {
+    "title": "Curso de Inglés Intermedio Alto B2: Hábitos y Aproximaciones",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "intermedio-vocabulario-expresiones": {
+    "title": "Curso Intermedio de Vocabulario y Expresiones en Inglés",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-intermedio-pronunciacion": {
+    "title": "Curso Intermedio de Pronunciación en Inglés",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "intermedio-escritura": {
+    "title": "Curso Intermedio de Escritura en Inglés",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ortografia-puntuacion-ingles": {
+    "title": "Curso de Ortografía y Puntuación en Inglés",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "frases-expresiones-comunes": {
+    "title": "Curso de Phrasal Verbs Comunes en Inglés",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-basico-trabajo": {
+    "title": "Curso de Vocabulario en Inglés para el Trabajo",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "reducciones-conectores": {
+    "title": "Curso de Conectores y Contracciones Informales en Inglés",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-musica": {
+    "title": "Curso de Inglés Práctico sobre Vocabulario de Música y Arte",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingleschatgpt": {
+    "title": "Curso de Inglés Práctico con ChatGPT",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "recursos-linguisticos": {
+    "title": "Curso de Inglés Avanzado C1: Recursos Conversacionales y Lingüísticos",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "comunicacion-persuasiva": {
+    "title": "Curso de Inglés Avanzado C1: Comunicación Persuasiva y Efectiva",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "expresiones-idiomaticas": {
+    "title": "Curso de Inglés Avanzado C1: Presentaciones y Expresión Oral",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-lenguaje-coloquial": {
+    "title": "Curso de Inglés Avanzado C1: Lenguaje Coloquial y Habitual",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-avanzado-argumentacion": {
+    "title": "Curso de Inglés Avanzado C1: Argumentos y Discusiones",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "avanzado-vocabulario-expresiones": {
+    "title": "Curso Avanzado de Vocabulario y Expresiones en Inglés",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-avanzado-pronunciacion": {
+    "title": "Curso Avanzado de Pronunciación en Inglés",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-avanzado-escritura": {
+    "title": "Curso Avanzado de Escritura en Inglés",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "frases-expresiones-negocios": {
+    "title": "Curso de Expresiones Idiomáticas de Negocios en Inglés",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "uso-preposiciones": {
+    "title": "Audio Curso de Inglés para el Uso de Preposiciones",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-intermedio-trabajo": {
+    "title": "Curso en Inglés para el Desarrollo Profesional",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "avanzado-trabajo": {
+    "title": "Curso de Inglés de Negocios para Managers",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-entrevistas": {
+    "title": "Curso de Inglés para Entrevistas de Trabajo",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "viajes-negocios": {
+    "title": "Curso de Inglés Práctico para Viajes de Negocios",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-ia": {
+    "title": "Curso de Inglés para el Uso de Inteligencia Artificial",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-developers": {
+    "title": "Curso de Inglés para Programadores",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-ciberseguridad": {
+    "title": "Curso de Inglés para Ciberseguridad",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "marketing-ingles": {
+    "title": "Curso de Inglés para Marketing",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "english-sales": {
+    "title": "Curso de Inglés para Ventas",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "ingles-startups": {
+    "title": "Curso de Inglés para Startups",
+    "hours": 2.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "toefl": {
+    "title": "Curso de Preparación para el Examen TOEFL",
+    "hours": 1.0,
+    "route": "idioma-ingles",
+    "route_pct": 14
+  },
+  "fundamentos-matematicas": {
+    "title": "Curso de Fundamentos de Matemáticas",
+    "hours": 1.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "estadistica-probabilidad": {
+    "title": "Curso de Estadística y Probabilidad",
+    "hours": 4.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "aprender-data-ia": {
+    "title": "Guía para Empezar una Carrera en Data Science e Inteligencia Artificial",
+    "hours": 1.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "data-science-negocio": {
+    "title": "Curso de Ciencia de Datos para Análisis de Negocio",
+    "hours": 2.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "chatgpt-2025": {
+    "title": "Curso de ChatGPT",
+    "hours": 4.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "gemini": {
+    "title": "Curso de Gemini",
+    "hours": 4.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "etica-ia-2022": {
+    "title": "Curso de Ética y Manejo de Datos para Data Science e Inteligencia Artificial",
+    "hours": 1.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "excel-basico": {
+    "title": "Curso de Excel Básico",
+    "hours": 3.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "claude-code-no-programadores": {
+    "title": "Curso de Claude Code para No Programadores",
+    "hours": 1.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "gemini-workspace": {
+    "title": "Curso de Gemini en Google Workspace",
+    "hours": 1.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "claude-ai": {
+    "title": "Curso de Claude AI",
+    "hours": 3.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "claude-api": {
+    "title": "Curso de Claude API",
+    "hours": 2.0,
+    "route": "fundamentos-data",
+    "route_pct": 12
+  },
+  "ciberseguridad": {
+    "title": "Curso de Ciberseguridad Preventiva",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "guia-seguridad-informatica": {
+    "title": "Guía para Aprender Seguridad Informática",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "taller-ciberseguridad": {
+    "title": "Curso de Introducción a Ciberseguridad: Prevención de Ataques Informáticos",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "fundamentos-criptografia": {
+    "title": "Curso de Fundamentos de Criptografía",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "seguridad-empresas": {
+    "title": "Curso de Seguridad Informática para Equipos Técnicos",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "ethical-hacking": {
+    "title": "Curso de Hacking Ético",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "intro-pentesting": {
+    "title": "Curso de Introducción al Pentesting",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "inteligencia-activa": {
+    "title": "Curso de Escaneo Activo y Análisis de Vulnerabilidades",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "pentesting-redes": {
+    "title": "Curso de Pentesting a Redes",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "hacking-servicios-red": {
+    "title": "Curso de Hacking: Servicios de Red",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "hacking-aplicaciones-web-server-side": {
+    "title": "Curso de Hacking: Aplicaciones Web Server Side",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "metasploit": {
+    "title": "Curso de Hacking: Pentesting con Metasploit",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "escalada-privilegios": {
+    "title": "Curso de Hacking: Escalada de Privilegios",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "ingenieria-social": {
+    "title": "Curso de Introducción a la Ingeniería Social: Técnicas, Ataques y Pretexting",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "introduccion-malware": {
+    "title": "Curso de Introducción al Análisis de Malware",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "malware-moviles": {
+    "title": "Curso de Análisis de Malware para Dispositivos Móviles",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "forense": {
+    "title": "Curso de Informática Forense",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "informatica-forense": {
+    "title": "Curso de Introducción a Informática Forense",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "dlp": {
+    "title": "Curso de DLP: Prevención de Pérdida de Datos",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "seguridad-en-redes-on-premise": {
+    "title": "Curso de Seguridad de Redes On-Premise",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "iso-27001": {
+    "title": "Curso de Certificación ISO 27001 para Empresas",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "owasp-top-10": {
+    "title": "Curso de OWASP Top 10: Riesgos en Aplicaciones",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "software-seguro": {
+    "title": "Curso de Ciberseguridad para Desarrollo Web",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "java-spring-security": {
+    "title": "Curso de Java Spring Security: Autenticación y Seguridad Web",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "ciberseguridad-en-empresas": {
+    "title": "Curso de Estrategia de Seguridad Informática para Empresas",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "comptia-security-plus": {
+    "title": "Curso de Preparación para la Certificación CompTIA Security+",
+    "hours": null,
+    "route": "seguridad-informatica-old",
+    "route_pct": 10
+  },
+  "react-state-machines": {
+    "title": "Curso de State Machines en React.js",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "angular16": {
+    "title": "Curso de Fundamentos de Angular",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "angular-componentes": {
+    "title": "Curso de Angular: Componentes y Servicios",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "angular-apis": {
+    "title": "Curso de Consumo de APIs REST con Angular",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "angular-modular": {
+    "title": "Curso de Angular Router: Lazy Loading y Programación Modular",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "angular-unit-testing-servicios": {
+    "title": "Curso de Angular: Unit Testing para Servicios",
+    "hours": 5.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "angular-unit-testing-componentes": {
+    "title": "Curso de Angular: Unit Testing para Componentes",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "angular-unit-testing-formularios": {
+    "title": "Curso de Angular: Unit Testing para Formularios",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "angular-unit-testing-routing": {
+    "title": "Curso de Angular: Unit Testing para Rutas",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "angular-performance": {
+    "title": "Curso de Rendimiento en Angular",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "angular-forms": {
+    "title": "Curso de Angular Forms: Creación y Optimización de Formularios Web",
+    "hours": 6.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "svelte": {
+    "title": "Curso de Svelte",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "jamstack": {
+    "title": "Curso de Introducción a Jamstack",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "conseguir-trabajo-frontend": {
+    "title": "Curso para Conseguir Trabajo como Frontend Developer",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "conseguir-trabajo-tech": {
+    "title": "Curso para Conseguir Trabajo en Tecnología",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "pensamiento-logico": {
+    "title": "Curso de Pensamiento Lógico",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "introweb": {
+    "title": "Curso de Introducción a la Web: Historia y Funcionamiento de Internet",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "entorno-linux": {
+    "title": "Curso de Configuración de Entorno en Linux",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "configuracion-windows": {
+    "title": "Curso de Configuración de Entorno de Desarrollo en Windows",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "prework-macos": {
+    "title": "Curso de Configuración de Entorno de Desarrollo en macOS",
+    "hours": 1.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "mobile-first-2020": {
+    "title": "Curso de Responsive Design: Maquetación Mobile First",
+    "hours": 5.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "diseno-programadores": {
+    "title": "Curso de Diseño para Developers",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "design-systems": {
+    "title": "Curso de Fundamentos de Design Systems",
+    "hours": 1.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "css-grid": {
+    "title": "Curso de CSS Grid Básico",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "practico-css": {
+    "title": "Curso Práctico de Maquetación en CSS",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "css-grid-layout": {
+    "title": "Curso Profesional de CSS Grid Layout",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "flexbox-css-grid": {
+    "title": "Curso de Diseño Web con CSS Grid y Flexbox",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "transformaciones-transiciones-css": {
+    "title": "Curso de Transformaciones y Transiciones en CSS",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "animaciones-css": {
+    "title": "Curso de Animaciones con CSS",
+    "hours": 1.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "javascript-practico-matematicas": {
+    "title": "Taller Práctico de JavaScript: Matemáticas y Estadística Básica",
+    "hours": 6.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "javascript-practico-videojuegos": {
+    "title": "Taller Práctico de JavaScript: ¡Crea tu Primer Videojuego!",
+    "hours": 5.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "javascript-poo": {
+    "title": "Curso Básico de Programación Orientada a Objetos con JavaScript",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "javascript-poo-intermedio": {
+    "title": "Curso Intermedio de Programación Orientada a Objetos en JavaScript",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "ecmascript-6": {
+    "title": "Curso de ECMAScript: Historia y Versiones de JavaScript",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "arrays": {
+    "title": "Curso de Manipulación de Arrays en JavaScript",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "javascript-navegador": {
+    "title": "Curso de JavaScript Engine (V8) y el Navegador",
+    "hours": 1.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "api": {
+    "title": "Curso de API REST con Javascript: Fundamentos",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "api-practico": {
+    "title": "Curso de API REST con Javascript: Ejemplos con APIs reales",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "api-profesional": {
+    "title": "Curso de API REST con Javascript: Performance y Usabilidad",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "npm": {
+    "title": "Curso de NPM: Gestión de Paquetes y Dependencias en JavaScript",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "typescript-tipos-avanzados": {
+    "title": "Curso de TypeScript: Tipos Avanzados y Funciones",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "typescript-poo": {
+    "title": "Curso de TypeScript: Programación Orientada a Objetos y Asincronismo",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "empaquetadores": {
+    "title": "Curso de Introducción a Empaquetadores Web",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "vitejs": {
+    "title": "Curso de Vite.js",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "spa-javascript": {
+    "title": "Curso de Single Page Application con JavaScript Vanilla",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "animaciones-css-practico": {
+    "title": "Curso Práctico de Maquetación y Animaciones con CSS",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "devtools": {
+    "title": "Curso de Debugging con Chrome DevTools",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "web-performance": {
+    "title": "Curso de Optimización Web",
+    "hours": 7.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "accesibilidad-casos-estudio": {
+    "title": "Audiocurso de Accesibilidad Web: Casos de Estudio",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "accesibilidad-web": {
+    "title": "Curso de Accesibilidad Web",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "web-components-javascript": {
+    "title": "Curso de JavaScript: Web Components",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "estructuras-datos": {
+    "title": "Curso de Estructuras de Datos con JavaScript",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "complejidad-js": {
+    "title": "Curso de Complejidad Algorítmica con JavaScript",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "pruebas-software": {
+    "title": "Curso de Fundamentos de Pruebas de Software",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "javascript-testing": {
+    "title": "Curso de Introducción al Testing con JavaScript",
+    "hours": 5.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "automatizacion-pruebas": {
+    "title": "Curso de Introducción a la Automatización de Pruebas",
+    "hours": 1.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "cypress-ui": {
+    "title": "Curso de Automatización de Pruebas UI con Cypress",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "puppeteer": {
+    "title": "Curso de Automatización de Pruebas con Puppeteer",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "puppeteer-avanzado": {
+    "title": "Curso Avanzado de Automatización de Pruebas con Puppeteer",
+    "hours": 5.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "sql-mysql2018": {
+    "title": "Curso de SQL y MySQL 2018",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "practico-sql": {
+    "title": "Curso Práctico de SQL",
+    "hours": 5.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "backend-nodejs-postgres": {
+    "title": "Curso de Backend con Node.js: Base de Datos con PostgreSQL",
+    "hours": 5.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "passport": {
+    "title": "Curso de Backend con Node.js: Autenticación con Passport.js y JWT",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "socket-io": {
+    "title": "Curso de Aplicaciones en Tiempo Real con Socket.io",
+    "hours": 5.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "webpack-practico": {
+    "title": "Curso de Webpack con Express.js, React.js y TypeScript",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "graphql": {
+    "title": "Curso Práctico de GraphQL con JavaScript",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "nodejs-graphql-avanzado": {
+    "title": "Curso Avanzado de Node.js con GraphQL, Apollo Server y Prisma",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "cypress-backend": {
+    "title": "Curso de Automatización de Pruebas de Backend con Cypress",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "fundamentos-arquitectura-software": {
+    "title": "Curso de Fundamentos de Arquitectura de Software",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "pro-arquitectura": {
+    "title": "Curso Profesional de Arquitectura de Software",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "nestjs": {
+    "title": "Curso de Backend con NestJS",
+    "hours": 10.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "nestjs-modular": {
+    "title": "Curso de NestJS: Programación Modular, Documentación con Swagger y Deploy",
+    "hours": 2.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "nestjs-mongodb": {
+    "title": "Curso de NestJS: Persistencia de Datos con MongoDB",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "nestjs-typeorm": {
+    "title": "Curso de NestJS: Persistencia de Datos con TypeORM",
+    "hours": 7.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "nestjs-auth": {
+    "title": "Curso de NestJS: Autenticación con Passport y JWT",
+    "hours": 4.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "nextjs-graphql": {
+    "title": "Curso de Next.js con GraphQL",
+    "hours": 3.0,
+    "route": "desarrollo-web",
+    "route_pct": 8
+  },
+  "estrategia-tiktok": {
+    "title": "Curso de Estrategia de Contenido de TikTok",
+    "hours": 4.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "estrategia-youtube": {
+    "title": "Curso de Estrategia de Contenido en YouTube",
+    "hours": 2.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "escritura-socialmedia": {
+    "title": "Taller de Escritura Estratégica para Redes Sociales",
+    "hours": 1.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "seo": {
+    "title": "Curso de Fundamentos de SEO y Posicionamiento Web",
+    "hours": 4.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "estrategia-creacion-contenido": {
+    "title": "Curso de Estrategia y Creación de Contenido para Redes Sociales",
+    "hours": 1.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "contenidos-digitales": {
+    "title": "Curso de Estrategia y Creación de Contenido Digital",
+    "hours": 4.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "estrategia-video": {
+    "title": "Curso de Planeación y Estrategia de Video",
+    "hours": 2.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "videos-tiktok": {
+    "title": "Curso para Crear Videos Creativos en TikTok",
+    "hours": 3.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "ig-stories": {
+    "title": "Curso de Diseño y Edición de Instagram Stories",
+    "hours": 4.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "ig-fundamentos": {
+    "title": "Curso de Fundamentos de Instagram",
+    "hours": 2.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "estrategia-instagram": {
+    "title": "Curso de Estrategia de Contenido para Instagram",
+    "hours": 4.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "optimizacion-instagram": {
+    "title": "Curso de Optimización de Perfil en Instagram",
+    "hours": 1.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "marcapersonalinstagram": {
+    "title": "Curso de Desarrollo de Marca Personal en Instagram",
+    "hours": 2.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "repositorio-estrategas": {
+    "title": "Repositorio de contenidos para estrategas",
+    "hours": 1.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "communitymanager": {
+    "title": "Curso de Community Manager",
+    "hours": 2.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "copy-storytelling": {
+    "title": "Curso de Copywriting con Técnicas de Storytelling",
+    "hours": 3.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "estrategia-seo": {
+    "title": "Curso de Estrategia de SEO",
+    "hours": 4.0,
+    "route": "estratega",
+    "route_pct": 8
+  },
+  "java": {
+    "title": "Curso de Java",
+    "hours": 4.0,
+    "route": "desarrollo-java",
+    "route_pct": 7
+  },
+  "testing-java": {
+    "title": "Curso Básico de Testing en Java",
+    "hours": 2.0,
+    "route": "desarrollo-java",
+    "route_pct": 7
+  },
+  "java-spring-boot": {
+    "title": "Curso de Java Spring Boot",
+    "hours": 3.0,
+    "route": "desarrollo-java",
+    "route_pct": 7
+  },
+  "java-funcional": {
+    "title": "Curso de Programación Funcional con Java SE",
+    "hours": 4.0,
+    "route": "desarrollo-java",
+    "route_pct": 7
+  },
+  "java-spring": {
+    "title": "Curso de Java Spring",
+    "hours": 4.0,
+    "route": "desarrollo-java",
+    "route_pct": 7
+  },
+  "java-avanzado": {
+    "title": "Curso Avanzado de Java SE",
+    "hours": 5.0,
+    "route": "desarrollo-java",
+    "route_pct": 7
+  },
+  "kotlin": {
+    "title": "Curso de Kotlin",
+    "hours": 10.0,
+    "route": "desarrollo-java",
+    "route_pct": 7
+  },
+  "java-persistencia": {
+    "title": "Curso de Java SE Persistencia de Datos",
+    "hours": 3.0,
+    "route": "desarrollo-java",
+    "route_pct": 7
+  },
+  "interfaces-android": {
+    "title": "Curso Básico de Diseño de Interfaces con Android Studio",
+    "hours": 2.0,
+    "route": "desarrollo-java",
+    "route_pct": 7
+  },
+  "obs": {
+    "title": "Curso de Streaming con OBS",
+    "hours": 3.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "titulares": {
+    "title": "Curso de Hacks para Redactar Titulares",
+    "hours": 1.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "influencer": {
+    "title": "Curso de Marketing con Influencers",
+    "hours": 2.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "discord": {
+    "title": "Curso de Discord: Comunicación para Comunidades",
+    "hours": 3.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "contenido-diversidad": {
+    "title": "Curso de Creación de Contenido Diverso e Inclusivo",
+    "hours": 2.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "intro-contenido": {
+    "title": "Curso de Introducción a la Creación de Contenidos Digitales",
+    "hours": 5.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "tiktok-marcas": {
+    "title": "Curso de Optimización de Estrategias de Marca en TikTok",
+    "hours": 1.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "contenidolinkedinemprendedores": {
+    "title": "Curso de Estrategia de Contenido en LinkedIn para Emprendedores",
+    "hours": 2.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "viral-marketing": {
+    "title": "Curso de Creación de Contenido Viral para Marketing con Jonah Berger",
+    "hours": 2.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "bites-ia-marketing": {
+    "title": "Bites de Inteligencia Artificial para Marketing y Contenidos",
+    "hours": 1.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "ia-marketing-contenido": {
+    "title": "Curso de Inteligencia Artificial para Content Marketing",
+    "hours": 1.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "instagram-reel": {
+    "title": "Curso de Creación de Videos para Instagram",
+    "hours": 1.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "creacion-documental": {
+    "title": "Curso para Crear Contenido con Enfoque Documental",
+    "hours": 2.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "capcut": {
+    "title": "Curso de Edición de Video con Capcut",
+    "hours": 2.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "subtitulacion": {
+    "title": "Curso de Subtitulación para Video",
+    "hours": 1.0,
+    "route": "content-creator",
+    "route_pct": 7
+  },
+  "trading-basico": {
+    "title": "Curso de Introducción al Trading",
+    "hours": 12.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "inversion-bolsa": {
+    "title": "Curso para Invertir en Bolsa: Análisis Fundamental",
+    "hours": 3.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "portafolio-inversion-vest": {
+    "title": "Curso de Cómo Armar un Portafolio de Inversión con Vest",
+    "hours": 2.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "analisis-tecnico-intro": {
+    "title": "Curso de Introducción al Análisis Técnico de Mercados Financieros",
+    "hours": 3.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "analisis-tecnico": {
+    "title": "Curso de Inversión Intermedio para el Análisis de Riesgo Bursátil y Toma de Decisiones",
+    "hours": 2.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "analisis-tecnico-practico": {
+    "title": "Curso Práctico de Análisis Técnico de Mercados Financieros",
+    "hours": 2.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "intro-finanzas": {
+    "title": "Curso de Introducción a Educación Financiera",
+    "hours": 2.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "finanzas": {
+    "title": "Curso de Educación Financiera y Finanzas Personales",
+    "hours": 4.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "manejo-deuda": {
+    "title": "Curso de Manejo de Crédito Personal y Deuda",
+    "hours": 3.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "presupuesto": {
+    "title": "Curso de Presupuesto y Flujo de Caja",
+    "hours": 4.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "ahorro-personal": {
+    "title": "Curso de Estrategias de Ahorro y Planificación Financiera",
+    "hours": 1.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "presupuesto-personal": {
+    "title": "Curso de Finanzas Personales: Cómo hacer un Presupuesto",
+    "hours": 1.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "credito-endeudamiento": {
+    "title": "Curso de Finanzas Personales: Cómo Gestionar Créditos y Deudas",
+    "hours": 1.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "economia-conductual": {
+    "title": "Audiocurso de Introducción a la Economía Conductual",
+    "hours": 1.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "creatividad-financiera": {
+    "title": "Curso para Generar Ingresos adicionales y diversificar tus finanzas",
+    "hours": 3.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "finanzas-futuro": {
+    "title": "Curso de Planificación Financiera para el Futuro",
+    "hours": 3.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "economia-del-comportamiento": {
+    "title": "Curso de Economía del Comportamiento",
+    "hours": 1.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "financiamiento": {
+    "title": "Curso de Finanzas para Emprendedores",
+    "hours": 4.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "excel-financiero": {
+    "title": "Curso de Análisis Financiero en Excel",
+    "hours": 3.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "contabilidad-basica": {
+    "title": "Curso de Contabilidad Básica con Siigo",
+    "hours": 1.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "planeacion-financiera": {
+    "title": "Curso de Planeación Financiera",
+    "hours": 2.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "evaluacion-financiera": {
+    "title": "Curso de Evaluación Financiera de Proyectos",
+    "hours": 2.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "indicadores-economicos": {
+    "title": "Curso de Indicadores Económicos",
+    "hours": 2.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "mercado-divisas": {
+    "title": "Curso de Mercado de Divisas",
+    "hours": 2.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "facturacion-electronica": {
+    "title": "Curso de Facturación Electrónica con Siigo para Colombia",
+    "hours": 1.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "declaracion-renta": {
+    "title": "Curso de Declaración de Renta y Planeación Tributaria para Colombia",
+    "hours": 2.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "sat": {
+    "title": "Curso de Impuestos ante el SAT para México",
+    "hours": 2.0,
+    "route": "finanzas-legacy",
+    "route_pct": 5
+  },
+  "fundamentos-bbdd-sql": {
+    "title": "Curso de Fundamentos de Bases de Datos y SQL",
+    "hours": 4.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "sql-azure": {
+    "title": "Curso de SQL en Azure",
+    "hours": 2.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "sql-server": {
+    "title": "Curso de Gestión de Bases de Datos con SQL Server",
+    "hours": 5.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "azure-bases-datos": {
+    "title": "Curso de Bases de Datos en Azure",
+    "hours": 3.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "firebase-web": {
+    "title": "Curso de Firebase 5 para Web",
+    "hours": 5.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "dynamodb": {
+    "title": "Curso de Amazon DynamoDB",
+    "hours": 3.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "azure-redis-cache": {
+    "title": "Curso de Azure Cache para Redis",
+    "hours": 4.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "bases-datos-2025": {
+    "title": "Curso de Fundamentos de Bases de Datos",
+    "hours": 6.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "mysql-mariadb": {
+    "title": "Curso de Bases de Datos con MySQL y MariaDB",
+    "hours": 5.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "intro-elasticsearch": {
+    "title": "Curso de Introducción a Elasticsearch",
+    "hours": 2.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "db-nosql": {
+    "title": "Curso de Base de Datos NoSQL",
+    "hours": 2.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "mongodb": {
+    "title": "Curso de Introducción a MongoDB",
+    "hours": 5.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "mongodb-modelado": {
+    "title": "Curso de Modelado de Datos en MongoDB",
+    "hours": 4.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "mongodb-aggregation": {
+    "title": "Curso de MongoDB: Aggregation Framework",
+    "hours": 3.0,
+    "route": "base-de-datos",
+    "route_pct": 0
+  },
+  "django": {
+    "title": "Curso de Django",
+    "hours": 4.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "django-rest-framework": {
+    "title": "Curso de Django Rest Framework",
+    "hours": 3.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "unit-testing-python": {
+    "title": "Curso de Unit Testing en Python",
+    "hours": 3.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "python-funciones": {
+    "title": "Curso de Python: Comprehensions, Funciones y Manejo de Errores",
+    "hours": 5.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "python-pip": {
+    "title": "Curso de Python: PIP y Entornos Virtuales",
+    "hours": 3.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "algoritmos-python": {
+    "title": "Curso de Complejidad Algorítmica con Python",
+    "hours": 3.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "estructuras-datos-python": {
+    "title": "Curso de Estructuras de Datos Lineales con Python",
+    "hours": 3.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "intro-selenium": {
+    "title": "Curso de Introducción a Selenium con Python",
+    "hours": 3.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "solid-python": {
+    "title": "Curso de Patrones de Diseño y SOLID en Python",
+    "hours": 3.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "python-practico": {
+    "title": "Curso Práctico de Python: Creación de un CRUD",
+    "hours": 7.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "flask": {
+    "title": "Curso de Flask",
+    "hours": 2.0,
+    "route": "backend-python",
+    "route_pct": 0
+  },
+  "backend": {
+    "title": "Curso de Introducción al Desarrollo Backend",
+    "hours": 2.0,
+    "route": "javascript-full-stack",
+    "route_pct": 0
+  },
+  "whatsapp-api": {
+    "title": "Curso de ChatBot con WhatsApp API",
+    "hours": 5.0,
+    "route": "javascript-full-stack",
+    "route_pct": 0
+  },
+  "javascript": {
+    "title": "Curso de Fundamentos de JavaScript",
+    "hours": 7.0,
+    "route": "javascript-full-stack",
+    "route_pct": 0
+  },
+  "laboratorio-react": {
+    "title": "Prueba Técnica: E-commerce Profesional con React.js",
+    "hours": 1.0,
+    "route": "javascript-full-stack",
+    "route_pct": 0
+  },
+  "monorepo": {
+    "title": "Curso de Monorepositorios con NX",
+    "hours": 2.0,
+    "route": "javascript-full-stack",
+    "route_pct": 0
+  },
+  "ux-avanzado": {
+    "title": "Curso de Gestión de Procesos UX",
+    "hours": 3.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "diseno-usuario": {
+    "title": "Curso de Diseño Centrado en Usuario",
+    "hours": 2.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "arquitectura-informacion": {
+    "title": "Curso de Arquitectura de Información con Usaria",
+    "hours": 3.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "psicologia-consumidor-2020": {
+    "title": "Curso de Psicología del Consumidor",
+    "hours": 3.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "uxempresas": {
+    "title": "Curso de Estrategias UX para Empresas",
+    "hours": 3.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "metodologias-diseno-producto": {
+    "title": "Curso de Metodologías de Diseño de Productos Digitales",
+    "hours": 4.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "design-thinking-practico": {
+    "title": "Curso de Design Thinking",
+    "hours": 1.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "ux-writing": {
+    "title": "Curso de UX Writing básico",
+    "hours": 4.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "ux-writing-avanzado": {
+    "title": "Curso de UX Writing Avanzado",
+    "hours": 6.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "darkpatterns-ux": {
+    "title": "Curso para Evitar Dark Patterns",
+    "hours": 1.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "ia-product-discovery": {
+    "title": "Curso de Inteligencia Artificial para Product Discovery y Product Design: Herramientas y Técnicas",
+    "hours": 1.0,
+    "route": "diseno-ux",
+    "route_pct": 0
+  },
+  "cine-movil": {
+    "title": "Curso de Cine Móvil",
+    "hours": 3.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "produccion-audiovisual-cinematografica": {
+    "title": "Curso de Introducción a la Producción Audiovisual",
+    "hours": 3.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "guion-series": {
+    "title": "Curso para escribir Series Web",
+    "hours": 4.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "narrativa-cinematografica": {
+    "title": "Curso de Estructuras Narrativas para guiones",
+    "hours": 2.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "construccion-personajes": {
+    "title": "Curso de Construcción de Personajes en Cine y TV",
+    "hours": 4.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "rol-productor": {
+    "title": "Curso de Roles en la Industria Audiovisual: El Productor",
+    "hours": 2.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "produccion-animacion": {
+    "title": "Curso de Producción para Cine y Televisión con Animación 2D y 3D",
+    "hours": 2.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "tecnicas-iluminacion": {
+    "title": "Curso de Iluminación y Fotografía para Producciones Audiovisuales",
+    "hours": 4.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "rol-montajista": {
+    "title": "Curso de Edición: Teoría de Montaje",
+    "hours": 1.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "adobe-premiere": {
+    "title": "Curso de Adobe Premiere Pro",
+    "hours": 3.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "premiere-avanzado": {
+    "title": "Curso de Premiere Avanzado",
+    "hours": 4.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "colorizacion-davinci": {
+    "title": "Curso de Colorización con DaVinci Resolve",
+    "hours": 4.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "creacion-reels": {
+    "title": "Curso de Creación de Reels",
+    "hours": 3.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "historia-innovacion": {
+    "title": "Curso de Historia de la Innovación y el Emprendimiento con Diana Uribe",
+    "hours": 2.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "bites-produccion-audiovisual": {
+    "title": "Bites de Producción Audiovisual",
+    "hours": 1.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "filtros-instagram-ar": {
+    "title": "Curso de Filtros de Instagram con Realidad Aumentada y Rastreo de Espacios",
+    "hours": 1.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "blender": {
+    "title": "Curso de Modelado 3D usando Blender",
+    "hours": 3.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "avanzado-aumentada": {
+    "title": "Curso Avanzado de Realidad Aumentada",
+    "hours": 3.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "repositorio-video": {
+    "title": "Repositorio de contenidos para creadores de video",
+    "hours": 2.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "locucion": {
+    "title": "Curso de Locución",
+    "hours": 2.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "audio-produccion": {
+    "title": "Curso de Audio para Producciones Audiovisuales",
+    "hours": 2.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "pro-tools": {
+    "title": "Curso de Pro Tools",
+    "hours": 3.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "composicion-canciones": {
+    "title": "Curso de Fundamentos de la Composición de Canciones",
+    "hours": 2.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "fundamentos-audio-videojuegos": {
+    "title": "Curso de Audio para Videojuegos: Fundamentos de Diseño Sonoro",
+    "hours": 1.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "tecnicas-audio-videojuegos": {
+    "title": "Curso de Audio para Videojuegos: Técnicas de Diseño Sonoro",
+    "hours": 4.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "implementacion-audio-videojuegos": {
+    "title": "Curso de Audio para Videojuegos: Implementación",
+    "hours": 3.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "repositorio-podcasters": {
+    "title": "Repositorio de contenidos para podcasters",
+    "hours": 1.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "fotografia": {
+    "title": "Curso de Fotografía: Principios y Técnicas",
+    "hours": 3.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "fotografia-redes": {
+    "title": "Curso de Técnicas Fotográficas para Producto y Retrato en Redes Sociales",
+    "hours": 5.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "fotoperiodismo": {
+    "title": "Curso de Fotoperiodismo",
+    "hours": 3.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "exposicion-creativa": {
+    "title": "Curso de Fotografía Creativa: Técnicas de Exposición",
+    "hours": 2.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "light-painting": {
+    "title": "Curso de Light Painting",
+    "hours": 1.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "fotografia-silvestre": {
+    "title": "Curso de Fotografía de Conservación y Naturaleza",
+    "hours": 1.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "repositorio-fotografo": {
+    "title": "Repositorio de contenidos para fotógrafos",
+    "hours": 1.0,
+    "route": "contenido-audiovisual",
+    "route_pct": 0
+  },
+  "diseno-marketing-avanzado": {
+    "title": "Curso de Diseño para Marketing en Redes Sociales",
+    "hours": 2.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "diseno-redes-sociales": {
+    "title": "Curso de Diseño para Redes Sociales",
+    "hours": 2.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "ilustracion-illustrator": {
+    "title": "Curso de Ilustración Vectorial Digital",
+    "hours": 4.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "personajes-2d": {
+    "title": "Curso de Arte en Personajes 2D Únicos",
+    "hours": 3.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "styleframes-paisajes-cinema-4d-redshift": {
+    "title": "Curso de Styleframes con Cinema 4D y Redshift",
+    "hours": 4.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "crear-portafolio-animacion-3d": {
+    "title": "Curso para Crear un Portafolio de Animación 3D",
+    "hours": 4.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "ilustracion-analoga": {
+    "title": "Curso de Ilustración a Mano: Técnicas y Metodologías",
+    "hours": 3.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "dibujo-figura": {
+    "title": "Curso de Dibujo Anatómico: Figura Humana",
+    "hours": 3.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "dibujo-retrato": {
+    "title": "Curso de Dibujo de Retrato",
+    "hours": 4.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "diseno-editorial": {
+    "title": "Curso de Fundamentos del Diseño Editorial: Publicaciones Impresas y Digitales",
+    "hours": 4.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "lettering": {
+    "title": "Curso de Lettering Creativo",
+    "hours": 3.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "humor-grafico": {
+    "title": "Curso de iniciación al Humor Gráfico",
+    "hours": 2.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "ilustracion-inclusion": {
+    "title": "Curso de Cómic e Ilustración Inclusiva",
+    "hours": 3.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "diseno-empaques": {
+    "title": "Curso de Diseño de Empaques Atractivos",
+    "hours": 5.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "serigrafia": {
+    "title": "Curso de Serigrafía Textil Creativa",
+    "hours": 2.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "serigrafia-impacto": {
+    "title": "Curso de Diseño para Serigrafía: Fortalece tu Marca",
+    "hours": 1.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "introduccion-diseno": {
+    "title": "Curso de Fundamentos de Diseño Gráfico",
+    "hours": 6.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "tecnicas-creatividad-2020": {
+    "title": "Curso para Desarrollar tu Creatividad: Técnicas y Hábitos",
+    "hours": 2.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "color": {
+    "title": "Curso de Uso y Manejo del Color",
+    "hours": 2.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "ilustracion-digital": {
+    "title": "Curso de Ilustración en Productos Digitales",
+    "hours": 4.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "glosario-diseno-grafico": {
+    "title": "Curso de Glosario de términos de Diseño Gráfico",
+    "hours": 1.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "visual": {
+    "title": "Curso de Composición Visual para Proyectos Gráficos",
+    "hours": 1.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "diseno-tipografia": {
+    "title": "Curso de Tipografía Creativa",
+    "hours": 3.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "analizar-disenos": {
+    "title": "Curso de Evaluación en Diseño",
+    "hours": 3.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "trabajo-diseno": {
+    "title": "Curso de Cómo Conseguir Trabajo en Diseño",
+    "hours": 2.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "illustrator": {
+    "title": "Curso de Illustrator para Diseño Gráfico",
+    "hours": 5.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "ilustracion-photoshop": {
+    "title": "Curso de Ilustración con Photoshop",
+    "hours": 3.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "indesign": {
+    "title": "Curso de Adobe InDesign",
+    "hours": 4.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "procreate": {
+    "title": "Curso de Procreate: Ilustración Digital",
+    "hours": 6.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "illustrator-avanzado": {
+    "title": "Curso de Illustrator Avanzado",
+    "hours": 2.0,
+    "route": "gd",
+    "route_pct": 0
+  },
+  "machine-learning": {
+    "title": "Curso de Fundamentos de Machine Learning",
+    "hours": 3.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "calculo-diferencial-ds": {
+    "title": "Curso Básico de Cálculo Diferencial para Data Science e Inteligencia Artificial",
+    "hours": 1.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "algebra-ml": {
+    "title": "Curso de Álgebra Lineal para Machine Learning",
+    "hours": 3.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "estadistica-inferencial-python": {
+    "title": "Curso de Estadística Inferencial para Data Science e Inteligencia Artificial",
+    "hours": 2.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "algebra-ml-avanzado": {
+    "title": "Curso Avanzado de Álgebra Lineal y Machine Learning: PCA y SVD",
+    "hours": 3.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "algebra-lineal-python-2019": {
+    "title": "Curso de Fundamentos de Álgebra Lineal con Python",
+    "hours": 4.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "algebra-ml-2019": {
+    "title": "Curso de Álgebra Lineal Aplicada para Machine Learning",
+    "hours": 2.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "regresion-lineal": {
+    "title": "Curso de Regresión Lineal con Python y scikit-learn",
+    "hours": 2.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "arboles-machine-learning": {
+    "title": "Curso de Decision Trees y Random Forest con Python y scikit-learn",
+    "hours": 2.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "scikitlearn": {
+    "title": "Curso Profesional de Machine Learning con scikit-learn",
+    "hours": 4.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "postgresql-datos": {
+    "title": "Curso de PostgreSQL Aplicado a Ciencia de Datos",
+    "hours": 4.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "proyectos-data-science": {
+    "title": "Curso para Crear tus Proyectos de Ciencia de Datos",
+    "hours": 3.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "mlops": {
+    "title": "Curso de MLOPS: Despliegue de Modelos de Machine Learning",
+    "hours": 5.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "laboratorio-machine-learning": {
+    "title": "Laboratorio de Machine Learning: Optimización de Modelos",
+    "hours": 1.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "laboratorio-machine-learning-prod": {
+    "title": "Laboratorio de Machine Learning: Puesta en Producción de Modelos",
+    "hours": 1.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "jupyter-notebook": {
+    "title": "Curso de Entorno de Trabajo para Ciencia de Datos con Jupyter Notebooks y Anaconda",
+    "hours": 2.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "visualizacion-datos-bi": {
+    "title": "Curso de Visualización de Datos para BI",
+    "hours": 3.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "python-data-science": {
+    "title": "Curso de Python para Ciencia de Datos",
+    "hours": 5.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "anaconda-jupyter": {
+    "title": "Curso de Entornos Virtuales con Anaconda y Jupyter",
+    "hours": 2.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "funciones-matematicas": {
+    "title": "Curso de Funciones Matemáticas para Data Science e Inteligencia Artificial",
+    "hours": 2.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "estadistica-descriptiva-2021": {
+    "title": "Curso de Matemáticas para Data Science: Estadística Descriptiva",
+    "hours": 4.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "ds-probabilidad": {
+    "title": "Curso de Matemáticas para Data Science: Probabilidad",
+    "hours": 4.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "analisis-exploratorio-datos": {
+    "title": "Curso de Análisis Exploratorio de Datos",
+    "hours": 5.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "entorno-ciencia-datos": {
+    "title": "Curso de Configuración Profesional de Entorno de Trabajo para Ciencia de Datos",
+    "hours": 2.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "datos-faltantes": {
+    "title": "Curso de Manejo de Datos Faltantes: Detección y Exploración",
+    "hours": 3.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "datos-faltantes-imputacion": {
+    "title": "Curso de Manejo de Datos Faltantes: Imputación",
+    "hours": 3.0,
+    "route": "data-scientist-python",
+    "route_pct": 0
+  },
+  "reactjs": {
+    "title": "Curso de React.js",
+    "hours": 3.0,
+    "route": "web-react",
+    "route_pct": 0
+  },
+  "react-typescript": {
+    "title": "Curso de React.js con TypeScript",
+    "hours": 2.0,
+    "route": "web-react",
+    "route_pct": 0
+  },
+  "react-ssr": {
+    "title": "Curso de Server Side Render o SSR con React.js",
+    "hours": 3.0,
+    "route": "web-react",
+    "route_pct": 0
+  },
+  "react-avanzado": {
+    "title": "Curso de React Avanzado",
+    "hours": 6.0,
+    "route": "web-react",
+    "route_pct": 0
+  },
+  "react-testing-library": {
+    "title": "Curso de React Testing Library",
+    "hours": 4.0,
+    "route": "web-react",
+    "route_pct": 0
+  },
+  "introduccion-godot": {
+    "title": "Curso Introductorio de Desarrollo de Videojuegos con Godot",
+    "hours": 3.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "documento-videojuegos": {
+    "title": "Curso de Diseño de Videojuegos: El Documento de Diseño",
+    "hours": 2.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "godot-videojuegos2d": {
+    "title": "Taller de Godot: Crear un Videojuego Shoot’em Up",
+    "hours": 4.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "introduccion-interfaz-unity": {
+    "title": "Curso de Introducción a Unity: Interfaz",
+    "hours": 4.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "unity-scripting": {
+    "title": "Curso de Introducción a Unity: Scripting",
+    "hours": 4.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "unity2dintermedio": {
+    "title": "Curso de Programación 2D con Unity: Intermedio",
+    "hours": 4.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "introduccion-moviles-unity": {
+    "title": "Curso de Desarrollo de Videojuegos Móviles con Unity",
+    "hours": 5.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "herramientas-unity": {
+    "title": "Curso de Herramientas de Unity",
+    "hours": 4.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "vfx-unity": {
+    "title": "Curso de Efectos Visuales para Videojuegos con Unity",
+    "hours": 4.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "videojuegos-multijugador": {
+    "title": "Curso de Fundamentos del Desarrollo de Videojuegos Multijugador Online",
+    "hours": 1.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "ui-unity-moviles": {
+    "title": "Curso de Creación de Interfaces de Usuario con Unity",
+    "hours": 4.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "game-maker": {
+    "title": "Curso de Game Maker Studio 2: Introducción a Creación de Videojuegos",
+    "hours": 2.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "game-maker-personajes": {
+    "title": "Curso de Game Maker Studio 2: Interacción y Ataque de los Personajes",
+    "hours": 2.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "game-maker-tecnicas": {
+    "title": "Curso de Game Maker Studio 2: Técnicas avanzadas para tu juego",
+    "hours": 1.0,
+    "route": "motores-videojuegos",
+    "route_pct": 0
+  },
+  "finanzas-ai": {
+    "title": "Curso de Finanzas Personales con Inteligencia Artificial",
+    "hours": 1.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "reto-ainative": {
+    "title": "Cómo funciona el reto AI-Native: Live Classes, Cursos y Proyecto",
+    "hours": 17.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "introduccion-ai-2025": {
+    "title": "Curso Gratis de Introducción a la Inteligencia Artificial",
+    "hours": 2.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "prompt-engineering": {
+    "title": "Curso de Prompt Engineering",
+    "hours": 3.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "copilot-365": {
+    "title": "Curso de Microsoft 365 Copilot",
+    "hours": 3.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "lovable": {
+    "title": "Curso Gratis de Lovable para Crear Páginas Web sin Programar",
+    "hours": 2.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "ai-datos": {
+    "title": "Curso de Fundamentos de AI para Manejo de Datos",
+    "hours": 3.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "estrategia-proyectos-ai": {
+    "title": "Curso de Estrategia y Liderazgo de Proyectos Empresariales de Gen AI",
+    "hours": 1.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "llms": {
+    "title": "Curso de Fundamentos de LLMs",
+    "hours": 5.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "cursor-2025": {
+    "title": "Curso de Cursor AI Code Editor",
+    "hours": 3.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "rag": {
+    "title": "Curso de RAG con Microsoft Azure",
+    "hours": 2.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "mcp": {
+    "title": "Curso de MCP con Microsoft Azure",
+    "hours": 3.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "claude-code": {
+    "title": "Curso de Claude Code",
+    "hours": 2.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "openai-api-23": {
+    "title": "Curso de Desarrollo de Chatbots con OpenAI",
+    "hours": 2.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "agentes-langgraph": {
+    "title": "Curso para Crear Agentes de AI con LangGraph",
+    "hours": 6.0,
+    "route": "ainative",
+    "route_pct": 0
+  },
+  "arquitecturas-limpias": {
+    "title": "Curso de Arquitecturas Limpias para Desarrollo de Software",
+    "hours": 3.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "practico-backend": {
+    "title": "Curso Práctico de Arquitectura Backend",
+    "hours": 4.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "arquitectura-alta-concurrencia": {
+    "title": "Audiocurso de Fundamentos de Arquitectura de Alta Concurrencia",
+    "hours": 1.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "arquitectura-frontend": {
+    "title": "Audiocurso de Frameworks y Arquitecturas Frontend: Casos de Estudio",
+    "hours": 1.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "arquitecturas-css": {
+    "title": "Curso de Arquitecturas CSS",
+    "hours": 2.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "astro": {
+    "title": "Curso de Creación de Páginas Web con Astro",
+    "hours": 4.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "angular-avanzado": {
+    "title": "Curso de Angular Avanzado",
+    "hours": 6.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "nodejs-microservicios": {
+    "title": "Curso de Node.js: Autenticación, Microservicios y Redis",
+    "hours": 5.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "go-eventos-cqrs": {
+    "title": "Curso de Go Avanzado: Arquitectura de Eventos y CQRS",
+    "hours": 3.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "go-protobuffers-grpc": {
+    "title": "Curso de Go Avanzado: Protobuffers y gRPC",
+    "hours": 3.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "nodejs-graphql": {
+    "title": "Curso de GraphQL con Node.js",
+    "hours": 4.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "new-relic": {
+    "title": "Curso de Fundamentos de Observabilidad con New Relic",
+    "hours": 1.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "ingeniero-observabilidad-newrelic": {
+    "title": "Curso de Ingeniería en Observabilidad con New Relic",
+    "hours": 1.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  },
+  "observabilidad-ai": {
+    "title": "Curso de Observabilidad de Agentes AI con LangSmith",
+    "hours": 2.0,
+    "route": "arquitecturas-web-modernas-y-escalabilidad",
+    "route_pct": 0
+  }
+}

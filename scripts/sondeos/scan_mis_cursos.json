@@ -1,0 +1,255 @@
+{
+  "title": "Platzi: Cursos online profesionales de tecnología",
+  "final_url": "https://platzi.com/mis-cursos/",
+  "n_links": 49,
+  "links": [
+    {
+      "href": "/cursos/",
+      "text": "Academy",
+      "card": "Academy"
+    },
+    {
+      "href": "/cursos/owasp-top-10/ataques-de-fuerza-bruta-y-como-detenerlo/",
+      "text": "Curso de OWASP Top 10: Riesgos en Aplicaciones\n\n5/15. Ataques de fuerza bruta y cómo detenerlos",
+      "card": "Curso de OWASP Top 10: Riesgos en Aplicaciones\n\n5/15. Ataques de fuerza bruta y cómo detenerlos\n\nclose"
+    },
+    {
+      "href": "/cursos/spec-driven-dev/comando-plan-de-spec-kit-de-especificaci/",
+      "text": "Curso de Spec Driven Development\n\n7/13. Comando Plan: de la Spec al código",
+      "card": "Curso de Spec Driven Development\n\n7/13. Comando Plan: de la Spec al código\n\nclose"
+    },
+    {
+      "href": "/cursos/ingenieria/como-funciona-una-red-neuronal-por-dentr/",
+      "text": "Curso de Fundamentos de Ingeniería de Software\n\n24/24. Cómo funciona una red neuronal por dentro",
+      "card": "Curso de Fundamentos de Ingeniería de Software\n\n24/24. Cómo funciona una red neuronal por dentro\n\nclose"
+    },
+    {
+      "href": "/cursos/unity2dintermedio/39957-observer/",
+      "text": "Curso de Programación 2D con Unity: Intermedio\n\n10/31. Observer",
+      "card": "Curso de Programación 2D con Unity: Intermedio\n\n10/31. Observer\n\nclose"
+    },
+    {
+      "href": "/cursos/buenas-practicas-api/testing-metodo-store/",
+      "text": "Curso de Estándares y Buenas Prácticas para API REST con Laravel\n\n4/29. Pruebas de Creación de Datos en Aplicaciones Web",
+      "card": "Curso de Estándares y Buenas Prácticas para API REST con Laravel\n\n4/29. Pruebas de Creación de Datos en Aplicaciones Web\n\nclose"
+    },
+    {
+      "href": "/cursos/pensamiento-critico-ia/como-definir-que-es-un-buen-resultado-co/",
+      "text": "Curso de Pensamiento Crítico para usar Inteligencia Artificial\n\n8/17. Define el resultado que esperas antes de pedirlo",
+      "card": "Curso de Pensamiento Crítico para usar Inteligencia Artificial\n\n8/17. Define el resultado que esperas antes de pedirlo\n\nclose"
+    },
+    {
+      "href": "/cursos/fundamentos-bbdd-sql/construir-el-diagrama-er-con-notacion-cr/",
+      "text": "Curso de Fundamentos de Bases de Datos y SQL\n\n2/25. Diagrama ER con notación crow's foot",
+      "card": "Curso de Fundamentos de Bases de Datos y SQL\n\n2/25. Diagrama ER con notación crow's foot\n\nclose"
+    },
+    {
+      "href": "/cursos/devs-ai-tools/como-generar-planes-tecnicos-con-cloud-c/",
+      "text": "Curso de Herramientas de AI para Developers\n\n3/13. Cómo generar planes técnicos con Claude Code, Cursor y Windsurf",
+      "card": "Curso de Herramientas de AI para Developers\n\n3/13. Cómo generar planes técnicos con Claude Code, Cursor y Windsurf\n\nclose"
+    },
+    {
+      "href": "/cursos/openclaw-2026/sesiones-y-memoria-en-openclaw/",
+      "text": "Curso de OpenClaw\n\n11/13. Sesiones y memoria en OpenClaw",
+      "card": "Curso de OpenClaw\n\n11/13. Sesiones y memoria en OpenClaw\n\nclose"
+    },
+    {
+      "href": "/cursos/introduccion-devops/las-ocho-etapas-del-proceso-devops/",
+      "text": "Curso de Introducción a DevOps\n\n19/22. Las ocho etapas del proceso DevOps",
+      "card": "Curso de Introducción a DevOps\n\n19/22. Las ocho etapas del proceso DevOps\n\nclose"
+    },
+    {
+      "href": "/cursos/gemini/como-personalizar-gemini-con-memoria-e-i/",
+      "text": "Curso de Gemini\n\n3/26. Cómo personalizar Gemini con memoria e instrucciones",
+      "card": "Curso de Gemini\n\n3/26. Cómo personalizar Gemini con memoria e instrucciones\n\nclose"
+    },
+    {
+      "href": "/cursos/desarrollo-laravel/guardar-comentarios-en-tiempo-real-con-l/",
+      "text": "Curso de Laravel\n\n15/25. Guardar comentarios en tiempo real con Livewire",
+      "card": "Curso de Laravel\n\n15/25. Guardar comentarios en tiempo real con Livewire\n\nclose"
+    },
+    {
+      "href": "/cursos/laravel-api/version-1-planificacion-y-configuracion-inicial/",
+      "text": "Curso de API REST con Laravel\n\n16/18. Planificación y Configuración de una API en PHP",
+      "card": "Curso de API REST con Laravel\n\n16/18. Planificación y Configuración de una API en PHP\n\nclose"
+    },
+    {
+      "href": "/cursos/laravel/que-es-un-framework-y-como-lo-usa-larave/",
+      "text": "Curso de Introducción a Laravel 9\n\n1/31. Qué es un framework y cómo lo usa Laravel",
+      "card": "Curso de Introducción a Laravel 9\n\n1/31. Qué es un framework y cómo lo usa Laravel\n\nclose"
+    },
+    {
+      "href": "/cursos/intro-laravel-2020/que-es-laravel/",
+      "text": "Curso de Introducción a Laravel 6\n\n7/37. Desarrollo web con Laravel: proyectos y funcionalidades clave",
+      "card": "Curso de Introducción a Laravel 6\n\n7/37. Desarrollo web con Laravel: proyectos y funcionalidades clave\n\nclose"
+    },
+    {
+      "href": "/cursos/nextjs-14/creando-componente-de-chatbot-de-ventas-con-la-sdk/",
+      "text": "Curso de Next.js 14\n\n2/57. Implementación de Chatbots con Next.js y Vercel AI SDK",
+      "card": "Curso de Next.js 14\n\n2/57. Implementación de Chatbots con Next.js y Vercel AI SDK\n\nclose"
+    },
+    {
+      "href": "/cursos/n8n-2025/mapping-receipt-data-to-google-sheets-wi/",
+      "text": "Curso de N8N\n\n23/23. Mapping Receipt Data to Google Sheets with AI",
+      "card": "Curso de N8N\n\n23/23. Mapping Receipt Data to Google Sheets with AI\n\nclose"
+    },
+    {
+      "href": "/cursos/introduccion-godot/crea-tu-primer-videojuego-con-godot/",
+      "text": "Curso Introductorio de Desarrollo de Videojuegos con Godot\n\n13/16. Crea tu primer videojuego con Godot",
+      "card": "Curso Introductorio de Desarrollo de Videojuegos con Godot\n\n13/16. Crea tu primer videojuego con Godot\n\nclose"
+    },
+    {
+      "href": "/cursos/basico-figma/tipografia-en-ui-jerarquia-con-manrope-y/",
+      "text": "Curso de Figma\n\n4/22. Tipografía en UI: jerarquía con Manrope y Figma",
+      "card": "Curso de Figma\n\n4/22. Tipografía en UI: jerarquía con Manrope y Figma\n\nclose"
+    },
+    {
+      "href": "/cursos/react-native/como-aprender-react-native-en-platzi/",
+      "text": "Curso de Introducción a React Native\n\n15/16. Desarrollo de Apps Móviles con React Native y Expo",
+      "card": "Curso de Introducción a React Native\n\n15/16. Desarrollo de Apps Móviles con React Native y Expo\n\nclose"
+    },
+    {
+      "href": "/cursos/azure-devops/crear-una-organizacion-en-azure-devops/",
+      "text": "Curso de Azure DevOps: Flujos de CI/CD\n\n7/20. Crear una organización en Azure DevOps",
+      "card": "Curso de Azure DevOps: Flujos de CI/CD\n\n7/20. Crear una organización en Azure DevOps\n\nclose"
+    },
+    {
+      "href": "/cursos/ethical-hacking/practica-cross-site-scripting-command-injection-y/",
+      "text": "Curso de Hacking Ético\n\n19/35. Explotación de Vulnerabilidades en Aplicaciones Web",
+      "card": "Curso de Hacking Ético\n\n19/35. Explotación de Vulnerabilidades en Aplicaciones Web\n\nclose"
+    },
+    {
+      "href": "/cursos/guia-seguridad-informatica/codigo-seguro/",
+      "text": "Guía para Aprender Seguridad Informática\n\n15/15. Código Seguro en el Ciclo de Vida del Desarrollo de Software",
+      "card": "Guía para Aprender Seguridad Informática\n\n15/15. Código Seguro en el Ciclo de Vida del Desarrollo de Software\n\nclose"
+    },
+    {
+      "href": "/cursos/software-seguro/principios-aaa-de-seguridad-con-aws-iam/",
+      "text": "Curso de Ciberseguridad para Desarrollo Web\n\n23/30. Principios AAA de seguridad con AWS IAM",
+      "card": "Curso de Ciberseguridad para Desarrollo Web\n\n23/30. Principios AAA de seguridad con AWS IAM\n\nclose"
+    },
+    {
+      "href": "/cursos/introduccion-moviles-unity/control-de-versiones/",
+      "text": "Curso de Desarrollo de Videojuegos Móviles con Unity\n\n32/34. Control de versiones",
+      "card": "Curso de Desarrollo de Videojuegos Móviles con Unity\n\n32/34. Control de versiones\n\nclose"
+    },
+    {
+      "href": "/cursos/gitgithub/git-tag-y-checkout-sin-romper-tu-proyect/",
+      "text": "Curso de Git y GitHub\n\n25/42. Git Tag y Checkout sin romper tu proyecto",
+      "card": "Curso de Git y GitHub\n\n25/42. Git Tag y Checkout sin romper tu proyecto\n\nclose"
+    },
+    {
+      "href": "/cursos/iaac-aws/bienvenido-al-curso/",
+      "text": "Curso de Infraestructura Como Código en AWS\n\n3/38. Infraestructura como Código en AWS: Despliegue Automatizado Seguro",
+      "card": "Curso de Infraestructura Como Código en AWS\n\n3/38. Infraestructura como Código en AWS: Despliegue Automatizado Seguro\n\nclose"
+    },
+    {
+      "href": "/cursos/web-performance/bloqueos-y-complejidad-en-selectores/",
+      "text": "Curso de Optimización Web\n\n16/38. Optimización de CSS: Reducir Complejidad y Mejorar Rendimiento",
+      "card": "Curso de Optimización Web\n\n16/38. Optimización de CSS: Reducir Complejidad y Mejorar Rendimiento\n\nclose"
+    },
+    {
+      "href": "/cursos/innovacion-producto/como-construir-tu-propuesta-de-valor/",
+      "text": "Curso de Innovación y Creación de Productos\n\n12/20. Cómo construir tu propuesta de valor",
+      "card": "Curso de Innovación y Creación de Productos\n\n12/20. Cómo construir tu propuesta de valor\n\nclose"
+    },
+    {
+      "href": "/cursos/consultoria-pitch/elevator-pitch/",
+      "text": "Curso de Creación de Pitch para Clientes\n\n2/4. Elevator Pitch",
+      "card": "Curso de Creación de Pitch para Clientes\n\n2/4. Elevator Pitch\n\nclose"
+    },
+    {
+      "href": "/cursos/investigacion-mercados-tendencias/que-es-un-insight-y-como-formularlo/",
+      "text": "Curso de Investigación de Mercados y Tendencias\n\n6/22. Qué es un insight y cómo formularlo",
+      "card": "Curso de Investigación de Mercados y Tendencias\n\n6/22. Qué es un insight y cómo formularlo\n\nclose"
+    },
+    {
+      "href": "/cursos/gtm-marketing/rastrear-el-nivel-de-lectura-de-pagina/",
+      "text": "Curso de Google Tag Manager para Marketing\n\n17/27. Seguimiento de Scroll en Google Analytics con Tag Manager",
+      "card": "Curso de Google Tag Manager para Marketing\n\n17/27. Seguimiento de Scroll en Google Analytics con Tag Manager\n\nclose"
+    },
+    {
+      "href": "/cursos/proyectos-pmbok/ejerciendo-la-gestion-de-proyectos/",
+      "text": "Curso de Project Management con PMBOK\n\n3/20. Gestión de Proyectos: Conceptos Clave y Habilidades Prácticas",
+      "card": "Curso de Project Management con PMBOK\n\n3/20. Gestión de Proyectos: Conceptos Clave y Habilidades Prácticas\n\nclose"
+    },
+    {
+      "href": "/cursos/managementtecnologia/de-cero-a-tech-lead-la-carrera-sin-atajo/",
+      "text": "Curso de Management en Tecnología\n\n15/17. De cero a tech lead: la carrera sin atajos",
+      "card": "Curso de Management en Tecnología\n\n15/17. De cero a tech lead: la carrera sin atajos\n\nclose"
+    },
+    {
+      "href": "/cursos/finanzas/como-evaluar-objetivamente-nuestra-situacion-finan/",
+      "text": "Curso de Educación Financiera y Finanzas Personales\n\n23/24. Evaluación Objetiva de Finanzas Personales: Ingresos, Deudas y Activos",
+      "card": "Curso de Educación Financiera y Finanzas Personales\n\n23/24. Evaluación Objetiva de Finanzas Personales: Ingresos, Deudas y Activos\n\nclose"
+    },
+    {
+      "href": "/cursos/excel-basico/interfaz-basica-de-excel-elementos-y-nav/",
+      "text": "Curso de Excel Básico\n\n5/23. Interfaz básica de Excel: elementos y navegación esencial",
+      "card": "Curso de Excel Básico\n\n5/23. Interfaz básica de Excel: elementos y navegación esencial\n\nclose"
+    },
+    {
+      "href": "/cursos/confbogota2025/que-nos-falta-para-ser-potencia-en-tecnologia-tipo/",
+      "text": "Platzi Conf Bogotá 2025\n\n14/33. Qué nos falta para ser potencia en tecnología - Freddy Vega y Christian Van der Henst",
+      "card": "Platzi Conf Bogotá 2025\n\n14/33. Qué nos falta para ser potencia en tecnología - Freddy Vega y Christian Van der Henst\n\nclose"
+    },
+    {
+      "href": "/cursos/composicion-canciones/letra-melodia-ritmo-armonia/",
+      "text": "Curso de Fundamentos de la Composición de Canciones\n\n16/16. Elementos Fundamentales de una Canción: Letra, Melodía, Ritmo y Armonía",
+      "card": "Curso de Fundamentos de la Composición de Canciones\n\n16/16. Elementos Fundamentales de una Canción: Letra, Melodía, Ritmo y Armonía\n\nclose"
+    },
+    {
+      "href": "/cursos/habilidades-blandas/que-son-las-habilidades-blandas-o-core-s/",
+      "text": "Curso de Habilidades Blandas para el Desarrollo Profesional\n\n6/15. Qué son las habilidades blandas o core skills",
+      "card": "Curso de Habilidades Blandas para el Desarrollo Profesional\n\n6/15. Qué son las habilidades blandas o core skills\n\nclose"
+    },
+    {
+      "href": "/cursos/microsoft-powerpoint/animaciones-transiciones-y-reproduccion-automatica/",
+      "text": "Curso de PowerPoint: Elementos Multimedia\n\n8/13. Animaciones y transiciones en PowerPoint paso a paso",
+      "card": "Curso de PowerPoint: Elementos Multimedia\n\n8/13. Animaciones y transiciones en PowerPoint paso a paso\n\nclose"
+    },
+    {
+      "href": "/cursos/tecnicas-negociacion/que-es-el-conflicto-conflicto-como-fuerza-positiva/",
+      "text": "Curso de Técnicas de Negociación\n\n20/25. Conflictos como Oportunidades de Crecimiento y Diversidad",
+      "card": "Curso de Técnicas de Negociación\n\n20/25. Conflictos como Oportunidades de Crecimiento y Diversidad\n\nclose"
+    },
+    {
+      "href": "/cursos/taller-de-pitch-para-startups/como-hacer-un-pitch-de-3-minutos-para-st/",
+      "text": "Taller de Pitch para Startups\n\n1/5. Cómo hacer un pitch de 3 minutos para startups exitoso",
+      "card": "Taller de Pitch para Startups\n\n1/5. Cómo hacer un pitch de 3 minutos para startups exitoso\n\nclose"
+    },
+    {
+      "href": "/cursos/ingles-a1-principiantes/preguntas-en-ingles-sobre-personas-y-sus/",
+      "text": "Curso de Inglés Básico A1 para Principiantes\n\n10/13. Preguntas en inglés sobre personas y sus roles",
+      "card": "Curso de Inglés Básico A1 para Principiantes\n\n10/13. Preguntas en inglés sobre personas y sus roles\n\nclose"
+    },
+    {
+      "href": "/cursos/basico-preguntas-respuestas/english-grammar-course-recap-before-your/",
+      "text": "Curso de Inglés Básico A2: Preguntas y Respuestas Comunes\n\n19/19. English Grammar Course Recap Before Your Final Exam",
+      "card": "Curso de Inglés Básico A2: Preguntas y Respuestas Comunes\n\n19/19. English Grammar Course Recap Before Your Final Exam\n\nclose"
+    },
+    {
+      "href": "/cursos/adverbios/repaso-de-ingles-a2-preguntas-sugerencia/",
+      "text": "Curso de Inglés Básico A2: Sustantivos e Intenciones Futuras\n\n13/20. Repaso de Inglés A2: Preguntas, Sugerencias y Futuro",
+      "card": "Curso de Inglés Básico A2: Sustantivos e Intenciones Futuras\n\n13/20. Repaso de Inglés A2: Preguntas, Sugerencias y Futuro\n\nclose"
+    },
+    {
+      "href": "/cursos/english-a2-basics-proposals-permissions/can-could-and-would-for-work-requests/",
+      "text": "Curso de Inglés Básico A2: Propuestas y Permisos\n\n11/12. Can, could, and would for work requests",
+      "card": "Curso de Inglés Básico A2: Propuestas y Permisos\n\n11/12. Can, could, and would for work requests\n\nclose"
+    },
+    {
+      "href": "/cursos/estrategias-ingles/ingles-como-habito-diario-no-como-examen/",
+      "text": "Curso Gratis de Estrategias para Aprender Inglés en Línea\n\n10/10. Inglés como hábito diario, no como examen",
+      "card": "Curso Gratis de Estrategias para Aprender Inglés en Línea\n\n10/10. Inglés como hábito diario, no como examen\n\nclose"
+    },
+    {
+      "href": "/cursos/oratoria-profesional/por-que-dar-menos-informacion-persuade-m/",
+      "text": "Curso de Oratoria Profesional\n\n5/15. Por qué dar menos información persuade más",
+      "card": "Curso de Oratoria Profesional\n\n5/15. Por qué dar menos información persuade más\n\nclose"
+    }
+  ],
+  "has_next_data": false,
+  "next_data_keys": null,
+  "body_snippet": "Inicio\nAcademy\nComunidad\nComentarios\nNotificaciones\nTU PROGRESO\nRutas\nProgreso\nCertificados\n\nHay empresas que le pagan Platzi a sus empleados 👀\n\nDescubre más\narrow_forward\nAyuda y feedback\n0\nconfirmation_number\n20.183pts\nexpand_more\nlanguage\nMis cursos recientes\nDesarrollo e Ingeniería\nCurso de OWASP Top 10: Riesgos en Aplicaciones\n\n5/15. Ataques de fuerza bruta y cómo detenerlos\n\nclose\nCurso de Spec Driven Development\n\n7/13. Comando Plan: de la Spec al código\n\nclose\nCurso de Fundamentos de Ingeniería de Software\n\n24/24. Cómo funciona una red neuronal por dentro\n\nclose\nCurso de Programación 2D con Unity: Intermedio\n\n10/31. Observer\n\nclose\nCurso de Estándares y Buenas Prácticas para API REST con Laravel\n\n4/29. Pruebas de Creación de Datos en Aplicaciones Web\n\nclose\nCurso de Pensamiento Crítico para usar Inteligencia Artificial\n\n8/17. Define el resultado que esperas antes de pedirlo\n\nclose\nCurso de Fundamentos de Bases de Datos y SQL\n\n2/25. Diagrama ER con notación crow's foot\n\nclose\nCurso de Herramientas de AI para Developers\n\n3/13. Cómo generar planes técnicos con Claude Code, Cursor y Windsurf\n\nclose\nCurso de OpenClaw\n\n11/13. Sesiones y memoria en OpenClaw\n\nclose\nCurso de Introducción a DevOps\n\n19/22. Las ocho etapas del proceso DevOps\n\nclose\nCurso de Gemini\n\n3/26. Cómo personalizar Gemini con memoria e instrucciones\n\nclose\nCurso de Laravel\n\n15/25. Guardar comentarios en tiempo real con Livewire\n\nclose\nCurso de API REST con Laravel\n\n16/18. Planificación y Configuración de una API en PHP\n\nclose\nCurso de Introducción a Laravel 9\n\n1/31. Qué es un framework y cómo lo usa Laravel\n\nclose\nCurso de Introducción a Laravel 6\n\n7/37. Desarrollo web con Laravel: proyectos y funcionalidades clave\n\nclose\nCurso de Next.js 14\n\n2/57. Implementación de Chatbots con Next.js y Vercel AI SDK\n\nclose\nCurso de N8N\n\n23/23. Mapping Receipt Data to Google Sheets with AI\n\nclose\nCurso Introductorio de Desarrollo de Videojuegos con Godot\n\n13/16. Crea tu primer videojuego con Godot\n\nclose\nCurso de Figma\n\n4/22. Tipografía en UI: jerarquía con Manrope y Figma\n\nclose\nCurso de Introducción a React Native\n\n15/16. Desarrollo de Apps Móviles con React Native y Expo\n\nclose\nCurso de Azure DevOps: Flujos de CI/CD\n\n7/20. Crear una organización en Azure DevOps\n\nclose\nCurso de Hacking Ético\n\n19/35. Explotación de Vulnerabilidades en Aplicaciones Web\n\nclose\nGuía para Aprender Seguridad Informática\n\n15/15. Código Seguro en el Ciclo de Vida del Desarrollo de Software\n\nclose\nCurso de Ciberseguridad para"
+}

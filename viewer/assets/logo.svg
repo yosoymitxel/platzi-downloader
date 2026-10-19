@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" role="img" aria-label="Platzi Local">
+  <rect x="2" y="4" width="32" height="32" rx="10" fill="#98ca3f"/>
+  <path d="M13.5 11.5v17l14-8.5z" fill="#12233f"/>
+  <text x="44" y="27" font-family="Segoe UI, system-ui, -apple-system, Roboto, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Platzi <tspan fill="#98ca3f">Local</tspan></text>
+</svg>

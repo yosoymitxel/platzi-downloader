@@ -1,0 +1,852 @@
+{
+  "api_hits": [
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v1/experiments/state/",
+      "ct": "application/json",
+      "body": {
+        "experiments": [
+          {
+            "name": "b2b_landing_full_page_price_form_and_checkout_August_04_2026",
+            "cookieName": "b2b_landing_v2",
+            "variants": {
+              "A": "control",
+              "B": "price_form_and_checkout"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "checkout_visual_refresh_august_2026",
+            "cookieName": "checkout_refresh",
+            "variants": {
+              "A": "control",
+              "B": "refresh"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "courses_explore_page_september_18_2026",
+            "cookieName": "new_courses_page",
+            "variants": {
+              "A": "control",
+              "B": "explora"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "email_gate_before_free_classes_august_12_2026",
+            "cookieName": "mv-free-preview",
+            "variants": {
+              "A": "control",
+              "B": "email_gate",
+              "B_unlocked": "email_gate"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "growth_banner_estudiante_precios_september_24_2026",
+            "cookieName": "student_banner_prices",
+            "variants": {
+              "A": "control",
+              "B": "no_student_banner"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "growth_home_search_bar_september_25_2026",
+            "cookieName": "home_search",
+            "variants": {
+              "A": "control",
+              "B": "search_bar"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "growth_thematic_course_hero_october_6_2026",
+            "cookieName": "thematic_courses",
+            "variants": {
+              "A": "control",
+              "B": "thematic_hero"
+            },
+            "paths": null,
+            "isActive": true,
+            "winnerVariant": null
+          },
+          {
+            "name": "home_explore_page_september_22_2026",
+            "cookieName": "home_redirect",
+            "variants": {
+              "A": "control",
+              "B": "explora"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "home_explore_page_september_23_2026",
+            "cookieName": "home_explore",
+            "variants": {
+              "A": "control",
+              "B": "explora"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "mv_paywall_gate_september_8_2026",
+            "cookieName": "mv_paywall",
+            "variants": {
+              "A": "control",
+              "A_unlocked": "control",
+              "B": "paywall_gate"
+            },
+            "paths": null,
+            "isActive": true,
+            "winnerVariant": null
+          },
+          {
+            "name": "pricing_visual_refresh_september_9_2026",
+            "cookieName": "price_refresh",
+            "variants": {
+              "A": "control",
+              "B": "refresh"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "public_home_redesign_august_26_2026",
+            "cookieName": "public_home_test",
+            "variants": {
+              "A": "control",
+              "B": "redesign"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "radiance_mv_redesign_september_10_2026",
+            "cookieName": "new-mv",
+            "variants": {
+              "A": "control",
+              "B": "redesign"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          }
+        ]
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v5/users/credentials/",
+      "ct": "application/json",
+      "body": {
+        "ok": "Token generated",
+        "token": {
+          "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxIiwiYXVkIjoiZWY1MjcyMWUtYzRmYS00MDRiLWE5OWQtY2IwZTE4MWExMDBjIiwic3ViIjoiNTE4MTA4IiwiYWN0IjoiNTA4NzI2IiwiY2lkIjoiMCIsImV4cCI6MTc5MjQyMTMzNiwianRpIjoiZWY1MjcyMWUtYzRmYS00MDRiLWE5OWQtY2IwZTE4MWExMDBjIiwiYWxsb3dlZC1yb2xlcyI6WyJhbm9ueW1vdXMiLCJzdHVkZW50Il0sImRlZmF1bHQtcm9sZSI6InN0dWRlbnQifQ.uPFugTAVqmM78JiNTA-O_U5HTUULVyZtZAQZdLw9dKE",
+          "exp": 1792421336,
+          "microservices": {
+            "sif_url": "https://api.platzi.com/sif/",
+            "enigma_url": "https://api.platzi.com/enigma/",
+            "gossip_url": "https://api.platzi.com/gossip/",
+            "b2b_auth_url": "https://api.platzi.com/b2b-auth/",
+            "search_url": "https://api.platzi.com/search/",
+            "challenges_url": "https://api.platzi.com/challenges/",
+            "forms_url": "https://api.platzi.com/forms/",
+            "ms_url": "https://api.platzi.com",
+            "sls_url": "https://api-sls.platzi.com/prod/",
+            "sls2_url": "https://api-sls.platzi.com/production"
+          },
+          "headers": {
+            "api-is-logged": "true"
+          }
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/api/v5/users/credentials/",
+      "ct": "application/json",
+      "body": {
+        "ok": "Token generated",
+        "token": {
+          "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxIiwiYXVkIjoiYTVjMjgzOTAtMjc1Zi00MGZmLWE5MmUtYTU4NTRhOWI4MWE5Iiwic3ViIjoiNTE4MTA4IiwiYWN0IjoiNTA4NzI2IiwiY2lkIjoiMCIsImV4cCI6MTc5MjQyMTMzNiwianRpIjoiYTVjMjgzOTAtMjc1Zi00MGZmLWE5MmUtYTU4NTRhOWI4MWE5IiwiYWxsb3dlZC1yb2xlcyI6WyJhbm9ueW1vdXMiLCJzdHVkZW50Il0sImRlZmF1bHQtcm9sZSI6InN0dWRlbnQifQ.YtnYO7Szv-4SFwa4TibCeiJ0_4XF2E3H_mo6jKg0nL8",
+          "exp": 1792421336,
+          "microservices": {
+            "sif_url": "https://api.platzi.com/sif/",
+            "enigma_url": "https://api.platzi.com/enigma/",
+            "gossip_url": "https://api.platzi.com/gossip/",
+            "b2b_auth_url": "https://api.platzi.com/b2b-auth/",
+            "search_url": "https://api.platzi.com/search/",
+            "challenges_url": "https://api.platzi.com/challenges/",
+            "forms_url": "https://api.platzi.com/forms/",
+            "ms_url": "https://api.platzi.com",
+            "sls_url": "https://api-sls.platzi.com/prod/",
+            "sls2_url": "https://api-sls.platzi.com/production"
+          },
+          "headers": {
+            "api-is-logged": "true"
+          }
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v5/banner-data/",
+      "ct": "application/json",
+      "body": {
+        "data": {
+          "status": "promo",
+          "end_date": "2026-10-29T04:29:39.887151+00:00",
+          "pricing": {
+            "flag": "https://static.platzi.com/media/flags/PY.png",
+            "price": "1.990.000"
+          },
+          "previous_price": {
+            "flag": "https://static.platzi.com/media/flags/PY.png",
+            "price": "1.990.000"
+          },
+          "saving": {
+            "flag": "https://static.platzi.com/media/flags/PY.png",
+            "price": ""
+          },
+          "url": "/quiero-renovar/?source=banner",
+          "secondary_logo": "",
+          "primary_logo": "",
+          "primary_logo_mobile": "https://static.platzi.com/media/banners/Logo_mobile.png",
+          "primary_color": "linear-gradient(90deg, #0CD482 0.24%, #0CA5D8 100%)",
+          "secondary_color": "#fff",
+          "tertiary_color": "#fff",
+          "font_color": "#1B1E24",
+          "cta_color": "#10161F",
+          "cta_font_color": "#fff",
+          "lang": "es",
+          "msi_banner": false,
+          "installments_banner": null,
+          "pre_banner_text": "",
+          "banner_text": "Sigue aprendiendo Inglés, Desarrollo Web, AI, y más.",
+          "promo": "",
+          "useWhitePaymentMethods": "https://static.platzi.com/static/images/blackfriday-2020/visa-mastercard@2x.122d838cad13.png",
+          "show_counter": true,
+          "has_pricing": false,
+          "is_platzi_day_registered": false,
+          "messages": {
+            "PromoBanner.cta": "Renueva ahora",
+            "countdown_text": "Termina en:",
+            "PromoBanner_details_previous_saving": "Ahorras:"
+          },
+          "mobile_cta_text": "",
+          "mobile_cta_color": "#FFF",
+          "mobile_cta_font_color": "#000",
+          "mobile_countdown_text": "",
+          "mobile_countdown_font_color": "#000",
+          "mobile_countdown_background_color": "#FFF",
+          "mobile_font_color": "#03091E",
+          "mobile_primary_color": "#CDEEDF",
+          "mobile_secondary_color": "#FFFFF",
+          "mobile_tertiary_color": "#FFFFF",
+          "phone_background_image": "",
+          "tablet_background_image": "",
+          "mobile_logo": "",
+          "active": true,
+          "theme": "default"
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/datars/v1/events/sourceConfig?p=npm&v=3.24.3&build=modern&writeKey=proxy-managed&lockIntegrationsVersion=true&lockPluginsVersion=true",
+      "ct": "application/json",
+      "body": {
+        "source": {
+          "id": "2zyavsXKl4WwVNAx7Iwktydd3nB",
+          "name": "Platzi-CF-Events",
+          "writeKey": "proxy-managed",
+          "config": {
+            "statsCollection": {
+              "errors": {
+                "enabled": false
+              },
+              "metrics": {
+                "enabled": false
+              }
+            }
+          },
+          "enabled": true,
+          "workspaceId": "2zyaHnMjQROzN9cQnIeWHTIwMqj",
+          "destinations": [
+            {
+              "id": "3FJtodMKYakGCOIvYpOMJCvRY4b",
+              "name": "Tag Manager",
+              "enabled": true,
+              "config": {
+                "containerID": "GTM-MRHH59DB",
+                "serverUrl": "https://platzi.com",
+                "blacklistedEvents": [],
+                "whitelistedEvents": [
+                  {
+                    "eventName": "payment_info_added"
+                  }
+                ],
+                "consentManagement": [],
+                "eventFilteringOption": "whitelistedEvents",
+                "environmentID": "env-1",
+                "authorizationToken": "zqTGoIP5vizRoJ_Qt04WZQ"
+              },
+              "destinationDefinitionId": "1X6kXapk8Sf8yZTJn1dYZO3OXFt",
+              "destinationDefinition": {
+                "name": "GTM",
+                "displayName": "Google Tag Manager"
+              },
+              "updatedAt": "2026-09-29T20:56:15.239Z",
+              "shouldApplyDeviceModeTransformation": false,
+              "propagateEventsUntransformedOnError": false,
+              "version": 1
+            }
+          ],
+          "updatedAt": "2026-10-16T17:17:10.278Z",
+          "dataplanes": {}
+        },
+        "updatedAt": "2026-10-18T14:54:19.258Z",
+        "consentManagementMetadata": {
+          "providers": [
+            {
+              "provider": "oneTrust",
+              "resolutionStrategy": "and"
+            },
+            {
+              "provider": "ketch",
+              "resolutionStrategy": "or"
+            },
+            {
+              "provider": "iubenda",
+              "resolutionStrategy": "or"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/tinkerbell/api/v3/notifications/?filter_by=default&offset=0",
+      "ct": "application/json",
+      "body": {
+        "data": [],
+        "metadata": {
+          "count": 0,
+          "limit": 20,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/api/v1/components/headerv2/user/",
+      "ct": "application/json",
+      "body": {
+        "lastCourse": [
+          {
+            "approved": false,
+            "badge": "https://static.platzi.com/media/achievements/badge-unity-1b60ab2d-2e8b-48e8-a59c-042a1f902554.png",
+            "career": null,
+            "completed": "9",
+            "id": 2431,
+            "exam_url": "",
+            "slug": "unity2dintermedio",
+            "title": "Curso de Programación 2D con Unity: Intermedio",
+            "url": "/cursos/unity2dintermedio/"
+          }
+        ],
+        "avatar": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+        "points": "20.210",
+        "name": "Miguel",
+        "username": "YosoyMitxel",
+        "email": "yosoymitxel@gmail.com",
+        "profileUrl": "/p/YosoyMitxel/",
+        "userId": 518108,
+        "plan": "Platzi Expert",
+        "subscriptionTime": "2026-10-28T18:29:39-05:00",
+        "installments": true,
+        "referalUrl": "https://platzi.com/r/YosoyMitxel/",
+        "isAuthenticated": true,
+        "userType": "pay_annual",
+        "phoneNumber": "991263062",
+        "phoneCode": "PY",
+        "country": "",
+        "isBundleUser": null,
+        "learningPathsAllowed": -1,
+        "publicName": "Miguel R. Leon",
+        "paymentSuccessful": false,
+        "pricePlan": "",
+        "pastDue": false,
+        "pastDueError": {},
+        "cardPending": false,
+        "nextBillingDate": "",
+        "emailNotValidated": false,
+        "role": "student",
+        "organizationSlug": "clases",
+        "showAcademyPlan": false,
+        "registeredForPlatziDay": true,
+        "isB2B": false,
+        "companyId": null,
+        "companyName": null,
+        "companySlug": null,
+        "companySegment": "",
+        "companyPlan": null,
+        "licenseEndDate": null,
+        "companyLogo": null,
+        "companySkillsSlug": null,
+        "referenced_data": null,
+        "subscription_months": 18,
+        "show_NPS": false,
+        "dateJoined": "2018-02-09T19:53:55+00:00",
+        "expiredCard": false,
+        "hasRenewalBanner": false,
+        "is_teacher": false,
+        "is_company_admin": false,
+        "is_company_manager": false
+      }
+    },
+    {
+      "status": 403,
+      "url": "https://platzi.com/api/bff/payments/my-subscription-perk/",
+      "ct": "application/json",
+      "body": {}
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/tinkerbell/api/v3/notifications/?filter_by=comment&filter_by_original_types=discussion,material,comment&only_unseen=1&limit=1&offset=0",
+      "ct": "application/json",
+      "body": {
+        "data": [],
+        "metadata": {
+          "count": 0,
+          "limit": 1,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/datars/v1/events/v1/identify",
+      "ct": "application/json",
+      "body": {
+        "success": true
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v4/lives/",
+      "ct": "application/json",
+      "body": {
+        "data": []
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v6/events/tickets/",
+      "ct": "application/json",
+      "body": {
+        "count": 0,
+        "next": null,
+        "previous": null,
+        "results": []
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/tinkerbell/api/v3/notifications/?filter_by=undefined&offset=0",
+      "ct": "application/json",
+      "body": {
+        "data": [],
+        "metadata": {
+          "count": 0,
+          "limit": 20,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/profile/v2/streaks/",
+      "ct": "application/json; charset=UTF-8",
+      "body": {
+        "data": {
+          "streak": 1,
+          "current_streak": 1,
+          "streak_completed": true,
+          "total_materials": 59,
+          "streak_message": "Estuvo fácil, ¿no?. El reto es mantener la racha. ¿Cuál es el plan para la siguiente semana?"
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/profile/v1/learning-paths/?page=1&page_size=9&only_approved=true",
+      "ct": "application/json",
+      "body": {
+        "data": {
+          "learning_paths": [
+            {
+              "id": 37,
+              "title": "Desarrollo con WordPress",
+              "badge_url": "https://static.platzi.com/media/learningpath/badges/badge-wordpress.png",
+              "slug": "desarrollo-wordpress",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/ruta/37-ruta/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/ruta/37-ruta/diploma-og/og.jpeg",
+                "approved_date": "2026-04-19T19:42:05.032Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé la Desarrollo con WordPress en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/ruta/37-ruta/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/ruta/37-ruta/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Desarrollo con WordPress&organizationId=2822346&issueYear=2026&issueMonth=4&certUrl=https://platzi.com/p/YosoyMitxel/ruta/37-ruta/diploma/detalle/&certId=20e3a0ad-c59a-4a1d-a081-8f8a8bf4b1fd&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "desarrollo-wordpress",
+                  "exam_type": "learning_path"
+                }
+              },
+              "can_request": false,
+              "certificate_id": "2c4cf7da-1aee-4f76-899e-cc34c373b4c7",
+              "session_id": "20e3a0ad-c59a-4a1d-a081-8f8a8bf4b1fd"
+            },
+            {
+              "id": 10,
+              "title": "Desarrollo Web Backend con PHP",
+              "badge_url": "https://static.platzi.com/media/learningpath/badges/6829a61e-5fdd-4855-9446-1304b22c9491.jpg",
+              "slug": "desarrollo-php",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/ruta/10-ruta/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/ruta/10-ruta/diploma-og/og.jpeg",
+                "approved_date": "2026-01-04T19:18:51.715Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé la Desarrollo Web Backend con PHP en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/ruta/10-ruta/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/ruta/10-ruta/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Desarrollo Web Backend con PHP&organizationId=2822346&issueYear=2026&issueMonth=1&certUrl=https://platzi.com/p/YosoyMitxel/ruta/10-ruta/diploma/detalle/&certId=5016bad5-9e4e-4fec-b45f-0c4352938138&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "desarrollo-php",
+                  "exam_type": "learning_path"
+                }
+              },
+              "can_request": false,
+              "certificate_id": "986cd1dd-8601-452a-a1c1-58a976bacc05",
+              "session_id": "5016bad5-9e4e-4fec-b45f-0c4352938138"
+            },
+            {
+              "id": 30096,
+              "title": "Administración de Servidores Linux",
+              "badge_url": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+              "slug": "administracion-de-servidores-linux",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/ruta/30096-ruta/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/ruta/30096-ruta/diploma-og/og.jpeg",
+                "approved_date": "2025-12-27T17:55:17.598Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé la Administraci%C3%B3n de Servidores Linux en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/ruta/30096-ruta/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/ruta/30096-ruta/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Administraci%C3%B3n de Servidores Linux&organizationId=2822346&issueYear=2025&issueMonth=12&certUrl=https://platzi.com/p/YosoyMitxel/ruta/30096-ruta/diploma/detalle/&certId=c74513b5-f1b6-4dc3-9f2f-61f78efcb4b0&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "administracion-de-servidores-linux",
+                  "exam_type": "learning_path"
+                }
+              },
+              "can_request": false,
+              "certificate_id": "106d7e6f-2e9b-4614-b8d4-6ce31c04d9a1",
+              "session_id": "c74513b5-f1b6-4dc3-9f2f-61f78efcb4b0"
+            },
+            {
+              "id": 8309,
+              "title": "Inglés Básico A1",
+              "badge_url": "https://static.platzi.com/media/learningpath/badges/3e3ec70f-141b-414a-9753-78aa93da23ad.jpg",
+              "slug": "beginner-core",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/ruta/8309-ruta/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/ruta/8309-ruta/diploma-og/og.jpeg",
+                "approved_date": "2025-11-14T18:18:55.809Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé la Ingl%C3%A9s B%C3%A1sico A1 en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/ruta/8309-ruta/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/ruta/8309-ruta/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Ingl%C3%A9s B%C3%A1sico A1&organizationId=2822346&issueYear=2025&issueMonth=11&certUrl=https://platzi.com/p/YosoyMitxel/ruta/8309-ruta/diploma/detalle/&certId=8d3aad26-fb0c-4fd6-a3c2-1d9799f65cd4&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "beginner-core",
+                  "exam_type": "learning_path"
+                }
+              },
+              "can_request": false,
+              "certificate_id": "00554da5-d6e9-47aa-95c4-982ab15f59b8",
+              "session_id": "8d3aad26-fb0c-4fd6-a3c2-1d9799f65cd4"
+            }
+          ],
+          "approved_learning_paths": 4
+        },
+        "metadata": {
+          "count": 4,
+          "pages": 1,
+          "current_page": 1
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/datars/v1/events/v1/page",
+      "ct": "application/json",
+      "body": {
+        "success": true
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/profile/v1/courses/?page=1&page_size=9&only_approved=true",
+      "ct": "application/json",
+      "body": {
+        "data": {
+          "courses": [
+            {
+              "id": 10629,
+              "title": "Curso de Inglés Básico A1 para Principiantes",
+              "badge_url": "https://static.platzi.com/media/achievements/badge-c9748016-2a80-4013-be2e-f744163e7fc9.png",
+              "slug": "ingles-a1-principiantes",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/10629-course/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/curso/10629-course/diploma-og/og.jpeg",
+                "approved_date": "2026-09-26T23:09:38.052Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé el Curso de Ingl%C3%A9s B%C3%A1sico A1 para Principiantes en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/curso/10629-course/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/curso/10629-course/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Curso de Ingl%C3%A9s B%C3%A1sico A1 para Principiantes&organizationId=2822346&issueYear=2026&issueMonth=9&certUrl=https://platzi.com/p/YosoyMitxel/curso/10629-course/diploma/detalle/&certId=4d49a67a-0aa2-4294-93d9-3a528e3a4f2f&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "ingles-a1-principiantes",
+                  "exam_type": "course"
+                },
+                "is_paywall_enabled": false
+              }
+            },
+            {
+              "id": 13808,
+              "title": "Curso de Spec Driven Development",
+              "badge_url": "https://static.platzi.com/media/achievements/a92d9f31-80d7-4900-9ff2-4ef686a5219a-4e498fba-942d-4c81-9e58-51048f45cd7c.png",
+              "slug": "spec-driven-dev",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/13808-course/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/curso/13808-course/diploma-og/og.jpeg",
+                "approved_date": "2026-09-16T16:43:23.527Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé el Curso de Spec Driven Development en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/curso/13808-course/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/curso/13808-course/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Curso de Spec Driven Development&organizationId=2822346&issueYear=2026&issueMonth=9&certUrl=https://platzi.com/p/YosoyMitxel/curso/13808-course/diploma/detalle/&certId=927cdd66-22b7-4a38-871b-0d7c0e8b1459&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "spec-driven-dev",
+                  "exam_type": "course"
+                },
+                "is_paywall_enabled": false
+              }
+            },
+            {
+              "id": 12672,
+              "title": "Curso de Inglés Básico A2: Propuestas y Permisos",
+              "badge_url": "https://static.platzi.com/media/achievements/4f75d6c2-6789-418a-895a-6f40683c13ab-57aecb4e-4f2b-435d-94b8-90cf2b1e09dd.png",
+              "slug": "english-a2-basics-proposals-permissions",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/12672-course/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/curso/12672-course/diploma-og/og.jpeg",
+                "approved_date": "2026-06-03T19:02:07.909Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé el Curso de Ingl%C3%A9s B%C3%A1sico A2%3A Propuestas y Permisos en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/curso/12672-course/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/curso/12672-course/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Curso de Ingl%C3%A9s B%C3%A1sico A2%3A Propuestas y Permisos&organizationId=2822346&issueYear=2026&issueMonth=6&certUrl=https://platzi.com/p/YosoyMitxel/curso/12672-course/diploma/detalle/&certId=a4f948ca-de77-4dfa-96e4-d20a1e522fc2&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "english-a2-basics-proposals-permissions",
+                  "exam_type": "course"
+                },
+                "is_paywall_enabled": false
+              }
+            },
+            {
+              "id": 12671,
+              "title": "Curso de Inglés Básico A2: Adverbios y Expresiones de Tiempo",
+              "badge_url": "https://static.platzi.com/media/achievements/3d9c2aa9-9a24-471f-9976-75e3b50e9e9b-14d94c02-d88d-4c1a-960b-4fca67e9fdb8.png",
+              "slug": "english-a2-basics-adverbs-time-expressions",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/12671-course/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/curso/12671-course/diploma-og/og.jpeg",
+                "approved_date": "2026-05-22T23:18:49.721Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé el Curso de Ingl%C3%A9s B%C3%A1sico A2%3A Adverbios y Expresiones de Tiempo en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/curso/12671-course/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/curso/12671-course/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Curso de Ingl%C3%A9s B%C3%A1sico A2%3A Adverbios y Expresiones de Tiempo&organizationId=2822346&issueYear=2026&issueMonth=5&certUrl=https://platzi.com/p/YosoyMitxel/curso/12671-course/diploma/detalle/&certId=8f08aeaa-aa11-4adf-8f09-7066ba212bc8&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "english-a2-basics-adverbs-time-expressions",
+                  "exam_type": "course"
+                },
+                "is_paywall_enabled": false
+              }
+            },
+            {
+              "id": 12290,
+              "title": "Curso Gratis de Estrategias para Aprender Inglés en Línea",
+              "badge_url": "https://static.platzi.com/media/achievements/piezas-curso-gratis-de-estrategias-2025_badge-29dbe44d-fd8a-4a68-b2cd-5f569db2a75a.png",
+              "slug": "estrategias-ingles",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/12290-course/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/curso/12290-course/diploma-og/og.jpeg",
+                "approved_date": "2026-04-26T12:41:31.892Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé el Curso Gratis de Estrategias para Aprender Ingl%C3%A9s en L%C3%ADnea en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/curso/12290-course/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/curso/12290-course/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Curso Gratis de Estrategias para Aprender Ingl%C3%A9s en L%C3%ADnea&organizationId=2822346&issueYear=2026&issueMonth=4&certUrl=https://platzi.com/p/YosoyMitxel/curso/12290-course/diploma/detalle/&certId=7ee6fdff-a8a9-4f0d-ae68-b5922bd798c3&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "estrategias-ingles",
+                  "exam_type": "course"
+                },
+                "is_paywall_enabled": false
+              }
+            },
+            {
+              "id": 4988,
+              "title": "Curso de Inglés Básico A2: Preguntas y Respuestas Comunes",
+              "badge_url": "https://static.platzi.com/media/achievements/badge-ingles-basico-preguntas-respuestas-c0b161f1-dc03-4a53-95fc-aa42e891aa54.png",
+              "slug": "basico-preguntas-respuestas",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/4988-course/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/curso/4988-course/diploma-og/og.jpeg",
+                "approved_date": "2026-04-19T14:12:10.906Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé el Curso de Ingl%C3%A9s B%C3%A1sico A2%3A Preguntas y Respuestas Comunes en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/curso/4988-course/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/curso/4988-course/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Curso de Ingl%C3%A9s B%C3%A1sico A2%3A Preguntas y Respuestas Comunes&organizationId=2822346&issueYear=2026&issueMonth=4&certUrl=https://platzi.com/p/YosoyMitxel/curso/4988-course/diploma/detalle/&certId=d0909062-7613-4add-9e1f-a026a5b8d9a1&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "basico-preguntas-respuestas",
+                  "exam_type": "course"
+                },
+                "is_paywall_enabled": false
+              }
+            },
+            {
+              "id": 2182,
+              "title": "Curso de Introducción a Laravel 8",
+              "badge_url": "https://static.platzi.com/media/achievements/badge-intro-lavarel-8-f99c60fc-9e2e-452e-b373-e8c1d042d391.png",
+              "slug": "intro-laravel",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2182-course/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/curso/2182-course/diploma-og/og.jpeg",
+                "approved_date": "2026-02-09T13:23:50.450Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé el Curso de Introducci%C3%B3n a Laravel 8 en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/curso/2182-course/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/curso/2182-course/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Curso de Introducci%C3%B3n a Laravel 8&organizationId=2822346&issueYear=2026&issueMonth=2&certUrl=https://platzi.com/p/YosoyMitxel/curso/2182-course/diploma/detalle/&certId=1e4e6f5b-19e7-48b7-8df6-144d43af7e5f&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "intro-laravel",
+                  "exam_type": "course"
+                },
+                "is_paywall_enabled": false
+              }
+            },
+            {
+              "id": 3039,
+              "title": "Curso de Introducción a Laravel 9",
+              "badge_url": "https://static.platzi.com/media/achievements/piezas-introduccion-laravel-9_badge-ae8f5224-b3e1-4dea-8ee6-bc727118d9fb.png",
+              "slug": "laravel",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/3039-course/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/curso/3039-course/diploma-og/og.jpeg",
+                "approved_date": "2026-02-01T10:54:59.077Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé el Curso de Introducci%C3%B3n a Laravel 9 en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/curso/3039-course/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/curso/3039-course/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Curso de Introducci%C3%B3n a Laravel 9&organizationId=2822346&issueYear=2026&issueMonth=2&certUrl=https://platzi.com/p/YosoyMitxel/curso/3039-course/diploma/detalle/&certId=9d0d8c58-8d69-4a3b-9457-dc17c17c7d2e&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "laravel",
+                  "exam_type": "course"
+                },
+                "is_paywall_enabled": false
+              }
+            },
+            {
+              "id": 11991,
+              "title": "Curso de tips y trucos de IA",
+              "badge_url": "https://static.platzi.com/media/achievements/badge_curso_platzi_conf_24_online-7f85acc2-c56b-43a8-aa53-f537136dd0be-fbe_1P1TyhC.webp",
+              "slug": "trucos-ia",
+              "progress": 100,
+              "diploma": {
+                "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/11991-course/diploma/detalle/",
+                "diploma_image": "https://platzi.com/YosoyMitxel/curso/11991-course/diploma-og/og.jpeg",
+                "approved_date": "2026-01-20T12:17:11.184Z",
+                "expiration_date": null,
+                "twitter_share": "https://twitter.com/intent/tweet?text=¡Aprobé el Curso de tips y trucos de IA en  @Platzi! %23NuncaParesDeAprender https://platzi.com/p/YosoyMitxel/curso/11991-course/diploma/detalle/",
+                "facebook_share": "https://www.facebook.com/sharer/sharer.php?u=https://platzi.com/p/YosoyMitxel/curso/11991-course/diploma/detalle/",
+                "linkedin_share": "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Curso de tips y trucos de IA&organizationId=2822346&issueYear=2026&issueMonth=1&certUrl=https://platzi.com/p/YosoyMitxel/curso/11991-course/diploma/detalle/&certId=72b16586-b4bb-4ed4-a2e0-48822c79c426&credentialDoesNotExpire=1",
+                "download_url": {
+                  "url": "/clases/exams/diplomas/create/pdf/",
+                  "slug": "trucos-ia",
+                  "exam_type": "course"
+                },
+                "is_paywall_enabled": false
+              }
+            }
+          ],
+          "approved_courses": 78
+        },
+        "metadata": {
+          "count": 78,
+          "pages": 9,
+          "current_page": 1
+        }
+      }
+    }
+  ],
+  "links_cursos": [
+    "/cursos/"
+  ],
+  "buttons": [
+    "1",
+    "confirmation_number",
+    "20.210pts\nexpand_more",
+    "language",
+    "Cursos",
+    "Rutas",
+    "link",
+    "download"
+  ],
+  "body": "Inicio\nAcademy\nComunidad\nComentarios\nNotificaciones\nTU PROGRESO\nRutas\nProgreso\nCertificados\n\nHay empresas que le pagan Platzi a sus empleados 👀\n\nDescubre más\narrow_forward\nAyuda y feedback\n1\nconfirmation_number\n20.210pts\nexpand_more\nlanguage\nMis certificados\nCursos\nRutas\nCurso de Inglés Básico A1 para Principiantes\n\nAprobado el 26 de septiembre, 2026\n\nCOMPARTIR EN:\n\nlink\ndownload\nCurso de Spec Driven Development\n\nAprobado el 16 de septiembre, 2026\n\nCOMPARTIR EN:\n\nlink\ndownload\nCurso de Inglés Básico A2: Propuestas y Permisos\n\nAprobado el 3 de junio, 2026\n\nCOMPARTIR EN:\n\nlink\ndownload\nCurso de Inglés Básico A2: Adverbios y Expresiones de Tiempo\n\nAprobado el 22 de mayo, 2026\n\nCOMPARTIR EN:\n\nlink\ndownload\nCurso Gratis de Estrategias para Aprender Inglés en Línea\n\nAprobado el 26 de abril, 2026\n\nCOMPARTIR EN:\n\nlink\ndownload\nCurso de Inglés Básico A2: Preguntas y Respuestas Comunes\n\nAprobado el 19 de abril, 2026\n\nCOMPARTIR EN:\n\nlink\ndownload\nCurso de Introducción a Laravel 8\n\nAprobado el 9 de febrero, 2026\n\nCOMPARTIR EN:\n\nlink\ndownload\nCurso de Introducción a Laravel 9\n\nAprobado el 1 de febrero, 2026\n\nCOMPARTIR EN:\n\nlink\ndownload\nCurso de tips y trucos de IA\n\nAprobado el 20 de enero, 2026\n\nCOMPARTIR EN:\n\nlink\ndownload"
+}

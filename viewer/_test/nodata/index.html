@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Platzi Local</title>
+<script>window.PROBE_MODE = "nodata";</script>
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+<header id="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#/" aria-label="Platzi Local">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M8.5 5.5v13l10.6-6.5z" fill="currentColor"/></svg>
+      </span>
+      <span class="brand-name">Platzi <span class="brand-local">Local</span></span>
+    </a>
+
+    <nav id="mainnav" aria-label="Principal">
+      <a href="#/" data-nav="inicio" aria-current="page">Inicio</a>
+      <a href="#/rutas" data-nav="rutas">Rutas</a>
+      <a href="#/cursos" data-nav="cursos">Mis cursos</a>
+    </nav>
+
+    <div id="searchbox" role="search">
+      <svg class="icon search-icon" aria-hidden="true"><use href="#ic-search"></use></svg>
+      <input id="search-input" type="search" placeholder="Buscar curso o clase…" aria-label="Buscar curso o clase" autocomplete="off" spellcheck="false">
+      <div id="search-results" hidden></div>
+    </div>
+
+    <button id="resume-chip" type="button" hidden></button>
+  </div>
+</header>
+
+<div id="banner-file" hidden>
+  <div class="banner-inner">
+    <p>Estás abriendo el visor como archivo local. Para subtítulos y mejor experiencia ejecuta viewer\start.cmd.</p>
+    <button class="btn-ghost" type="button" data-control="banner-dismiss">Entendido</button>
+  </div>
+</div>
+
+<main id="app" tabindex="-1"></main>
+
+<svg id="icons" style="display:none" aria-hidden="true">
+  <symbol id="ic-play" viewBox="0 0 24 24"><path d="M8 5.2v13.6L19.4 12z" fill="currentColor"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5L19.5 7"/></symbol>
+  <symbol id="ic-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5.5 6.5 6.5L9 18.5"/></symbol>
+  <symbol id="ic-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20.5 20.5-5.1-5.1"/></symbol>
+  <symbol id="ic-queue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5v9.5"/><path d="m8 10.5 4 4 4-4"/><path d="M5 19.5h14"/></symbol>
+  <symbol id="ic-diploma" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9.5" r="5.5"/><path d="M9 14.2 7.5 21l4.5-2.6L16.5 21 15 14.2"/></symbol>
+  <symbol id="ic-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5"/><path d="m11.5 5.5-6.5 6.5 6.5 6.5"/></symbol>
+</svg>
+
+<div id="templates" hidden>
+
+  <template id="tpl-home">
+    <section class="view view-home">
+      <h1 class="sr-only">Inicio</h1>
+      <div class="home-top">
+        <section class="resume-hero">
+          <h2 class="resume-heading">Continuar viendo</h2>
+          <p class="resume-title" data-slot="resume-title"></p>
+          <p class="resume-meta" data-slot="resume-meta"></p>
+          <a class="btn resume-cta" data-slot="resume-link" href="#/">
+            <svg class="icon" aria-hidden="true"><use href="#ic-play"></use></svg>
+            <span>Continuar</span>
+          </a>
+        </section>
+        <aside class="home-routes">
+          <div class="section-head">
+            <h2>Rutas activas</h2>
+            <a class="section-link" data-slot="all-routes" href="#/rutas">Ver todas las rutas</a>
+          </div>
+          <div class="route-list" data-list="routes"></div>
+        </aside>
+      </div>
+      <div class="empty-state resume-empty" data-slot="resume-empty" hidden>
+        <p>Elige una ruta para empezar</p>
+        <a class="btn" href="#/rutas">Explorar rutas</a>
+      </div>
+      <section class="home-courses">
+        <div class="section-head">
+          <h2>Tus cursos</h2>
+          <a class="section-link" data-slot="all-courses" href="#/cursos">Ver todos los cursos</a>
+        </div>
+        <div class="course-grid" data-list="courses"></div>
+      </section>
+    </section>
+  </template>
+
+  <template id="tpl-rutas">
+    <section class="view view-rutas">
+      <h1>Rutas</h1>
+      <div class="route-list" data-list="routes"></div>
+      <div class="empty-state" data-slot="empty" hidden></div>
+    </section>
+  </template>
+
+  <template id="tpl-ruta">
+    <section class="view view-ruta">
+      <div class="ruta-hero">
+        <div class="ruta-hero-text">
+          <a class="back-link" href="#/rutas">
+            <svg class="icon" aria-hidden="true"><use href="#ic-back"></use></svg>
+            <span>Rutas</span>
+          </a>
+          <h1 data-slot="title"></h1>
+          <p class="ruta-meta" data-slot="meta"></p>
+          <div class="ruta-progress">
+            <div class="progressbar" aria-hidden="true"><span class="progressbar-fill" data-slot="bar"></span></div>
+            <span class="pct" data-slot="pct"></span>
+          </div>
+          <a class="btn" data-slot="continue" href="#/">
+            <svg class="icon" aria-hidden="true"><use href="#ic-play"></use></svg>
+            <span>Continuar</span>
+          </a>
+        </div>
+        <div class="ruta-cover">
+          <span class="cover-fallback" data-slot="cover-fallback" aria-hidden="true"></span>
+          <img data-slot="cover" alt="">
+        </div>
+      </div>
+      <div class="course-grid" data-list="courses"></div>
+      <div class="empty-state" data-slot="empty" hidden></div>
+    </section>
+  </template>
+
+  <template id="tpl-cursos">
+    <section class="view view-cursos">
+      <div class="cursos-head">
+        <h1>Mis cursos</h1>
+        <p class="cursos-count" data-slot="count"></p>
+      </div>
+      <div class="filters" data-filters role="group" aria-label="Filtrar cursos">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">Todos</button>
+        <button class="filter" type="button" data-filter="progress" aria-pressed="false">En curso</button>
+        <button class="filter" type="button" data-filter="cert" aria-pressed="false">Aprobado</button>
+        <button class="filter" type="button" data-filter="downloaded" aria-pressed="false">Descargado</button>
+        <button class="filter" type="button" data-filter="queued" aria-pressed="false">En cola</button>
+        <button class="filter" type="button" data-filter="missing" aria-pressed="false">Sin descargar</button>
+      </div>
+      <div class="course-grid" data-list="courses"></div>
+      <div class="empty-state" data-slot="empty" hidden>Todavía no hay cursos en el catálogo</div>
+    </section>
+  </template>
+
+  <template id="tpl-curso">
+    <section class="view view-curso">
+      <div class="curso-hero">
+        <div class="curso-hero-text">
+          <a class="back-link" href="#/cursos">
+            <svg class="icon" aria-hidden="true"><use href="#ic-back"></use></svg>
+            <span>Mis cursos</span>
+          </a>
+          <h1 data-slot="title"></h1>
+          <div class="chip-row" data-slot="chips"></div>
+          <div class="curso-progress">
+            <div class="progressbar" aria-hidden="true"><span class="progressbar-fill" data-slot="bar"></span></div>
+            <span class="curso-progress-text" data-slot="progress-text"></span>
+          </div>
+          <div class="curso-actions">
+            <a class="btn" data-slot="continue" href="#/">
+              <svg class="icon" aria-hidden="true"><use href="#ic-play"></use></svg>
+              <span data-slot="continue-label">Continuar</span>
+            </a>
+            <a class="diploma-link" data-slot="diploma" href="#" target="_blank" rel="noopener" hidden>
+              <svg class="icon" aria-hidden="true"><use href="#ic-diploma"></use></svg>
+              <span>Ver diploma</span>
+            </a>
+          </div>
+          <p class="curso-platzi" data-slot="platzi"></p>
+        </div>
+        <div class="curso-cover">
+          <span class="cover-fallback" data-slot="cover-fallback" aria-hidden="true"></span>
+          <img data-slot="cover" alt="">
+        </div>
+      </div>
+      <div class="modules" data-list="modules"></div>
+      <div class="empty-state" data-slot="empty" hidden>
+        <p>Este curso aún no se ha descargado</p>
+      </div>
+    </section>
+  </template>
+
+  <template id="tpl-module">
+    <details class="module">
+      <summary class="module-summary">
+        <svg class="icon module-chev" aria-hidden="true"><use href="#ic-chevron"></use></svg>
+        <span class="module-name" data-slot="name"></span>
+        <span class="module-count" data-slot="count"></span>
+      </summary>
+      <ul class="class-list" data-list="classes"></ul>
+    </details>
+  </template>
+
+  <template id="tpl-aula">
+    <section class="view view-aula">
+      <div class="aula-layout">
+        <div class="aula-main">
+          <video id="player" controls playsinline preload="metadata"></video>
+          <p class="video-error" data-slot="error" hidden>No se pudo cargar el video. Revisa que el archivo exista en Courses/.</p>
+          <div class="aula-info">
+            <h1 class="aula-title" data-slot="class-title"></h1>
+            <p class="aula-meta"><span data-slot="module-name"></span></p>
+          </div>
+          <div class="aula-controls">
+            <div class="aula-nav">
+              <button class="btn-ghost" type="button" data-control="prev">
+                <svg class="icon" aria-hidden="true"><use href="#ic-back"></use></svg>
+                <span>Anterior</span>
+              </button>
+              <button class="btn-ghost" type="button" data-control="next">
+                <span>Siguiente</span>
+                <svg class="icon icon-flip" aria-hidden="true"><use href="#ic-back"></use></svg>
+              </button>
+            </div>
+            <button class="btn-ghost" type="button" data-control="mark">
+              <svg class="icon" aria-hidden="true"><use href="#ic-check"></use></svg>
+              <span data-slot="mark-label">Marcar como visto</span>
+            </button>
+            <label class="field">
+              <span>Velocidad</span>
+              <select data-control="speed">
+                <option value="0.75">0.75x</option>
+                <option value="1" selected>1x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+                <option value="1.75">1.75x</option>
+                <option value="2">2x</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Subtítulos</span>
+              <select data-control="captions">
+                <option value="off" selected>Desactivados</option>
+                <option value="es">Español</option>
+                <option value="en">English</option>
+                <option value="pt">Português</option>
+              </select>
+            </label>
+            <label class="check-field">
+              <input type="checkbox" data-control="autoplay" checked>
+              <span>Autoplay siguiente</span>
+            </label>
+          </div>
+        </div>
+        <aside class="aula-side" aria-label="Clases del curso">
+          <div class="aula-side-head">
+            <a class="aula-course-link" data-slot="course-link" href="#/cursos"></a>
+            <p class="aula-side-progress" data-slot="progress-text"></p>
+          </div>
+          <ul class="playlist" data-list="classes"></ul>
+        </aside>
+      </div>
+    </section>
+  </template>
+
+  <template id="tpl-buscar">
+    <section class="view view-buscar">
+      <h1 class="sr-only">Buscar</h1>
+      <p class="search-q">«<span data-slot="q"></span>»</p>
+      <div class="empty-state" data-slot="empty" hidden></div>
+      <section class="search-section">
+        <h2>Cursos</h2>
+        <div class="course-grid" data-list="courses"></div>
+      </section>
+      <section class="search-section">
+        <h2>Clases</h2>
+        <ul class="result-list" data-list="classes"></ul>
+      </section>
+    </section>
+  </template>
+
+  <template id="tpl-course-card">
+    <article class="course-card">
+      <a class="course-card-link" data-slot="link" href="#/">
+        <span class="course-card-media">
+          <span class="cover-fallback" data-slot="cover-fallback" aria-hidden="true"></span>
+          <img data-slot="cover" alt="" loading="lazy">
+        </span>
+        <span class="course-card-title" data-slot="title"></span>
+      </a>
+      <p class="course-card-meta" data-slot="meta"></p>
+      <p class="chip-row course-card-status" data-slot="status"></p>
+      <div class="progressbar course-card-bar" data-slot="progress" aria-hidden="true"><span class="progressbar-fill" data-slot="bar"></span></div>
+    </article>
+  </template>
+
+  <template id="tpl-route-card">
+    <a class="route-card" href="#/">
+      <span class="route-card-media">
+        <span class="cover-fallback" data-slot="cover-fallback" aria-hidden="true"></span>
+        <img data-slot="cover" alt="" loading="lazy">
+      </span>
+      <span class="route-card-body">
+        <span class="route-card-title" data-slot="title"></span>
+        <span class="route-card-meta" data-slot="meta"></span>
+        <span class="route-progress">
+          <span class="progressbar route-bar" aria-hidden="true"><span class="progressbar-fill" data-slot="bar"></span></span>
+          <span class="pct" data-slot="pct"></span>
+        </span>
+      </span>
+      <svg class="icon route-chev" aria-hidden="true"><use href="#ic-chevron"></use></svg>
+    </a>
+  </template>
+
+  <template id="tpl-class-row">
+    <li class="class-row">
+      <a class="class-link" data-slot="link" href="#/">
+        <span class="class-icon" aria-hidden="true">
+          <svg class="icon" data-slot="icon"><use href="#ic-play"></use></svg>
+        </span>
+        <span class="class-title" data-slot="title"></span>
+        <span class="class-time" data-slot="time"></span>
+      </a>
+      <span class="progressbar class-bar" aria-hidden="true"><span class="progressbar-fill" data-slot="bar"></span></span>
+    </li>
+  </template>
+
+  <template id="tpl-result-class">
+    <li class="result-class">
+      <a class="result-link" data-slot="link" href="#/">
+        <span class="result-title" data-slot="title"></span>
+        <span class="result-course" data-slot="course"></span>
+        <span class="result-time" data-slot="time"></span>
+      </a>
+    </li>
+  </template>
+
+</div>
+
+
+<script src="../../app.js" defer></script>
+<script src="../probe.js" defer></script>
+</body>
+</html>

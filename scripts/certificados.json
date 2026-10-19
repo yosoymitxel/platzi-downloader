@@ -1,0 +1,573 @@
+{
+  "total_certs": 78,
+  "certs": [
+    {
+      "slug": "ingles-a1-principiantes",
+      "title": "Curso de Inglés Básico A1 para Principiantes",
+      "progress": 100,
+      "approved_date": "2026-09-26T23:09:38.052Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/10629-course/diploma/detalle/"
+    },
+    {
+      "slug": "spec-driven-dev",
+      "title": "Curso de Spec Driven Development",
+      "progress": 100,
+      "approved_date": "2026-09-16T16:43:23.527Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/13808-course/diploma/detalle/"
+    },
+    {
+      "slug": "english-a2-basics-proposals-permissions",
+      "title": "Curso de Inglés Básico A2: Propuestas y Permisos",
+      "progress": 100,
+      "approved_date": "2026-06-03T19:02:07.909Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/12672-course/diploma/detalle/"
+    },
+    {
+      "slug": "english-a2-basics-adverbs-time-expressions",
+      "title": "Curso de Inglés Básico A2: Adverbios y Expresiones de Tiempo",
+      "progress": 100,
+      "approved_date": "2026-05-22T23:18:49.721Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/12671-course/diploma/detalle/"
+    },
+    {
+      "slug": "estrategias-ingles",
+      "title": "Curso Gratis de Estrategias para Aprender Inglés en Línea",
+      "progress": 100,
+      "approved_date": "2026-04-26T12:41:31.892Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/12290-course/diploma/detalle/"
+    },
+    {
+      "slug": "basico-preguntas-respuestas",
+      "title": "Curso de Inglés Básico A2: Preguntas y Respuestas Comunes",
+      "progress": 100,
+      "approved_date": "2026-04-19T14:12:10.906Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/4988-course/diploma/detalle/"
+    },
+    {
+      "slug": "intro-laravel",
+      "title": "Curso de Introducción a Laravel 8",
+      "progress": 100,
+      "approved_date": "2026-02-09T13:23:50.450Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2182-course/diploma/detalle/"
+    },
+    {
+      "slug": "laravel",
+      "title": "Curso de Introducción a Laravel 9",
+      "progress": 100,
+      "approved_date": "2026-02-01T10:54:59.077Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/3039-course/diploma/detalle/"
+    },
+    {
+      "slug": "trucos-ia",
+      "title": "Curso de tips y trucos de IA",
+      "progress": 100,
+      "approved_date": "2026-01-20T12:17:11.184Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/11991-course/diploma/detalle/"
+    },
+    {
+      "slug": "terminal",
+      "title": "Curso de Introducción a la Terminal y Línea de Comandos",
+      "progress": 100,
+      "approved_date": "2026-01-11T21:29:33.394Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/12040-course/diploma/detalle/"
+    },
+    {
+      "slug": "linux",
+      "title": "Curso de Introducción a la Administración de Servidores Linux",
+      "progress": 100,
+      "approved_date": "2025-12-27T18:05:44.221Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/5877-course/diploma/detalle/"
+    },
+    {
+      "slug": "fundamentos-criptografia",
+      "title": "Curso de Fundamentos de Criptografía",
+      "progress": 100,
+      "approved_date": "2025-12-05T14:06:43.700Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/9474-course/diploma/detalle/"
+    },
+    {
+      "slug": "fundamentos-php",
+      "title": "Curso de Fundamentos de PHP",
+      "progress": 100,
+      "approved_date": "2025-11-17T12:48:45.558Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/12123-course/diploma/detalle/"
+    },
+    {
+      "slug": "nextjs-owasp",
+      "title": "Curso de Next.js: Seguridad Web con OWASP",
+      "progress": 100,
+      "approved_date": "2025-11-14T18:58:40.989Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2429-course/diploma/detalle/"
+    },
+    {
+      "slug": "docker-avanzado",
+      "title": "Curso de Docker Avanzado",
+      "progress": 100,
+      "approved_date": "2025-09-25T12:33:32.888Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/11322-course/diploma/detalle/"
+    },
+    {
+      "slug": "devops",
+      "title": "Curso Profesional de DevOps",
+      "progress": 100,
+      "approved_date": "2025-09-05T19:12:42.116Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1431-course/diploma/detalle/"
+    },
+    {
+      "slug": "proyectos-pmbok",
+      "title": "Curso de Project Management con PMBOK",
+      "progress": 100,
+      "approved_date": "2025-07-21T20:08:34.578Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1974-course/diploma/detalle/"
+    },
+    {
+      "slug": "nextjs-auth",
+      "title": "Curso de Next.js: Autenticación",
+      "progress": 100,
+      "approved_date": "2025-05-13T01:05:06.443Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2428-course/diploma/detalle/"
+    },
+    {
+      "slug": "datos-php",
+      "title": "Curso de Manejo de Datos en PHP",
+      "progress": 100,
+      "approved_date": "2025-04-24T10:47:40.384Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2032-course/diploma/detalle/"
+    },
+    {
+      "slug": "chatgpt-2024",
+      "title": "Curso de ChatGPT",
+      "progress": 100,
+      "approved_date": "2025-03-02T12:04:41.488Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/9969-course/diploma/detalle/"
+    },
+    {
+      "slug": "git-github",
+      "title": "Curso Profesional de Git y GitHub",
+      "progress": 100,
+      "approved_date": "2024-11-05T15:27:02.478Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1557-course/diploma/detalle/"
+    },
+    {
+      "slug": "docker-fundamentos",
+      "title": "Curso de Docker: Fundamentos",
+      "progress": 100,
+      "approved_date": "2024-10-27T14:04:15.992Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/8781-course/diploma/detalle/"
+    },
+    {
+      "slug": "document-object-model",
+      "title": "Curso de JavaScript: Manipulación del DOM",
+      "progress": 100,
+      "approved_date": "2024-08-29T19:43:54.883Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/10135-course/diploma/detalle/"
+    },
+    {
+      "slug": "frameworks-javascript",
+      "title": "Curso de Frameworks y Librerías de JavaScript",
+      "progress": 100,
+      "approved_date": "2024-06-03T12:44:09.373Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2239-course/diploma/detalle/"
+    },
+    {
+      "slug": "vuejs-old",
+      "title": "Curso de Vue.js: Introducción y Fundamentos",
+      "progress": 100,
+      "approved_date": "2024-04-12T21:00:55.544Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2819-course/diploma/detalle/"
+    },
+    {
+      "slug": "paginas-web-2022",
+      "title": "Curso de Creación de Páginas Web con Wordpress y No-code",
+      "progress": 100,
+      "approved_date": "2024-03-31T17:02:08.129Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/4194-course/diploma/detalle/"
+    },
+    {
+      "slug": "pensamiento-logico-lenguajes-2022",
+      "title": "Curso de Pensamiento Lógico: Lenguajes de Programación",
+      "progress": 100,
+      "approved_date": "2024-03-30T22:30:37.124Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/3223-course/diploma/detalle/"
+    },
+    {
+      "slug": "ingenieria2017",
+      "title": "Fundamentos de Ingeniería de Software",
+      "progress": 100,
+      "approved_date": "2024-03-24T01:33:15.423Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1098-course/diploma/detalle/"
+    },
+    {
+      "slug": "programacion-basica-2022",
+      "title": "Curso Gratis de Programación Básica 2022",
+      "progress": 100,
+      "approved_date": "2024-03-23T13:18:35.006Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/3208-course/diploma/detalle/"
+    },
+    {
+      "slug": "ingles-basico-principiantes",
+      "title": "Curso de Inglés Básico para Principiantes - (2022)",
+      "progress": 100,
+      "approved_date": "2024-03-23T13:04:02.425Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/3093-course/diploma/detalle/"
+    },
+    {
+      "slug": "articulos-verbosmodales",
+      "title": "Curso de Inglés Básico A2: Conectores y Artículos",
+      "progress": 100,
+      "approved_date": "2024-03-23T12:49:58.883Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2396-course/diploma/detalle/"
+    },
+    {
+      "slug": "php-html",
+      "title": "Curso de PHP: Integración con HTML",
+      "progress": 100,
+      "approved_date": "2024-03-13T15:48:54.003Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2947-course/diploma/detalle/"
+    },
+    {
+      "slug": "php-arreglos-funciones",
+      "title": "Curso de PHP: Arreglos, Funciones y Estructuras de Control",
+      "progress": 100,
+      "approved_date": "2024-03-12T23:57:02.574Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2794-course/diploma/detalle/"
+    },
+    {
+      "slug": "terminos-marketing",
+      "title": "Audioglosario Términos  Básicos de Marketing Digital",
+      "progress": 100,
+      "approved_date": "2024-01-22T20:45:25.518Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2506-course/diploma/detalle/"
+    },
+    {
+      "slug": "estrategia-youtube",
+      "title": "Curso de Estrategia de Contenido en YouTube",
+      "progress": 100,
+      "approved_date": "2024-01-18T19:31:04.317Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/7993-course/diploma/detalle/"
+    },
+    {
+      "slug": "notion",
+      "title": "Curso de Notion",
+      "progress": 100,
+      "approved_date": "2023-09-18T11:59:13.700Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/4953-course/diploma/detalle/"
+    },
+    {
+      "slug": "sat",
+      "title": "Curso de Impuestos ante el SAT para México",
+      "progress": 100,
+      "approved_date": "2023-09-12T20:02:40.084Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2686-course/diploma/detalle/"
+    },
+    {
+      "slug": "etica-ia-2022",
+      "title": "Curso de Ética y Manejo de Datos para Data Science e Inteligencia Artificial",
+      "progress": 100,
+      "approved_date": "2023-09-08T20:09:13.988Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/3156-course/diploma/detalle/"
+    },
+    {
+      "slug": "aprender-data-ia",
+      "title": "Guía para Empezar una Carrera en Data Science e Inteligencia Artificial",
+      "progress": 100,
+      "approved_date": "2023-08-28T16:38:16.625Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2807-course/diploma/detalle/"
+    },
+    {
+      "slug": "expresiones-regulares-dep",
+      "title": "Curso de Expresiones Regulares",
+      "progress": 100,
+      "approved_date": "2023-08-17T11:52:55.678Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1301-course/diploma/detalle/"
+    },
+    {
+      "slug": "ia-marketing-contenido",
+      "title": "Curso de Inteligencia Artificial para Content Marketing",
+      "progress": 100,
+      "approved_date": "2023-08-03T14:18:33.675Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/7962-course/diploma/detalle/"
+    },
+    {
+      "slug": "investigacion-mercados-2020",
+      "title": "Curso de Investigación de Mercados Digitales",
+      "progress": 100,
+      "approved_date": "2023-06-30T19:06:39.718Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2049-course/diploma/detalle/"
+    },
+    {
+      "slug": "marketing-musical",
+      "title": "Curso de Marketing Musical",
+      "progress": 100,
+      "approved_date": "2023-05-22T13:57:21.351Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/3534-course/diploma/detalle/"
+    },
+    {
+      "slug": "prompt-engineering-chatgpt",
+      "title": "Curso de Prompt Engineering con ChatGPT",
+      "progress": 100,
+      "approved_date": "2023-05-17T21:17:15.540Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/7296-course/diploma/detalle/"
+    },
+    {
+      "slug": "api-rest",
+      "title": "Curso de API REST con PHP",
+      "progress": 100,
+      "approved_date": "2023-04-09T15:29:26.733Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1638-course/diploma/detalle/"
+    },
+    {
+      "slug": "java-avanzado",
+      "title": "Curso Avanzado de Java SE",
+      "progress": 100,
+      "approved_date": "2023-04-02T17:13:10.101Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1236-course/diploma/detalle/"
+    },
+    {
+      "slug": "php-cookies-sesiones",
+      "title": "Curso de PHP: Cookies, Sesiones y Modularización",
+      "progress": 100,
+      "approved_date": "2022-08-26T20:48:53.259Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/3144-course/diploma/detalle/"
+    },
+    {
+      "slug": "flutter-old",
+      "title": "Curso de Flutter",
+      "progress": 100,
+      "approved_date": "2022-08-17T15:29:12.313Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1386-course/diploma/detalle/"
+    },
+    {
+      "slug": "mejor-codigo",
+      "title": "Curso de Patrones de Diseño y Buenas Prácticas en PHP",
+      "progress": 100,
+      "approved_date": "2022-07-15T12:02:12.827Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1630-course/diploma/detalle/"
+    },
+    {
+      "slug": "api",
+      "title": "Curso de API REST con Javascript: Fundamentos",
+      "progress": 100,
+      "approved_date": "2022-05-13T13:40:29.543Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2985-course/diploma/detalle/"
+    },
+    {
+      "slug": "guia-seguridad-informatica",
+      "title": "Guía para Aprender Seguridad Informática",
+      "progress": 100,
+      "approved_date": "2022-05-13T11:56:43.248Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2241-course/diploma/detalle/"
+    },
+    {
+      "slug": "preguntas-respuestas",
+      "title": "Curso de Inglés Básico: Preguntas y Respuestas (2021)",
+      "progress": 100,
+      "approved_date": "2022-04-29T16:46:39.410Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2394-course/diploma/detalle/"
+    },
+    {
+      "slug": "fundamentos-csharp-2",
+      "title": "Fundamentos de C# con NET Core 2.1",
+      "progress": 100,
+      "approved_date": "2022-03-30T19:14:45.894Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1375-course/diploma/detalle/"
+    },
+    {
+      "slug": "php-poo",
+      "title": "Curso de Programación Orientada a Objetos en PHP",
+      "progress": 100,
+      "approved_date": "2022-03-21T11:46:47.962Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2034-course/diploma/detalle/"
+    },
+    {
+      "slug": "fechas-horas-expresiones-simples",
+      "title": "Curso de Inglés Básico A1: Fechas, Horas y Expresiones Simples",
+      "progress": 100,
+      "approved_date": "2022-03-18T18:28:49.714Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2395-course/diploma/detalle/"
+    },
+    {
+      "slug": "oop",
+      "title": "Curso de Programación Orientada a Objetos: POO",
+      "progress": 100,
+      "approved_date": "2022-03-11T14:31:34.375Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1474-course/diploma/detalle/"
+    },
+    {
+      "slug": "php-composer",
+      "title": "Curso de PHP con Composer",
+      "progress": 100,
+      "approved_date": "2022-03-05T12:18:45.193Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2024-course/diploma/detalle/"
+    },
+    {
+      "slug": "csharp-introduccion",
+      "title": "Curso de Introducción a C# con .NET 3.1",
+      "progress": 100,
+      "approved_date": "2022-02-23T12:16:26.475Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2198-course/diploma/detalle/"
+    },
+    {
+      "slug": "intro-finanzas",
+      "title": "Curso de Introducción a Educación Financiera",
+      "progress": 100,
+      "approved_date": "2022-02-07T11:19:32.521Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2166-course/diploma/detalle/"
+    },
+    {
+      "slug": "terminal-21",
+      "title": "Curso de Introducción a la Terminal y Línea de Comandos",
+      "progress": 100,
+      "approved_date": "2022-01-26T11:56:57.152Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2292-course/diploma/detalle/"
+    },
+    {
+      "slug": "postman",
+      "title": "Curso de Postman",
+      "progress": 100,
+      "approved_date": "2022-01-16T13:10:25.286Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1765-course/diploma/detalle/"
+    },
+    {
+      "slug": "taller-descripciones-personales",
+      "title": "Curso de Inglés Práctico para Descripciones Personales (2020=",
+      "progress": 100,
+      "approved_date": "2022-01-03T21:07:07.256Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2005-course/diploma/detalle/"
+    },
+    {
+      "slug": "ingles-principiantes-2020",
+      "title": "Curso de Inglés Básico A1: Conversaciones Cortas y Habituales (2020)",
+      "progress": 100,
+      "approved_date": "2022-01-03T20:57:47.613Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1945-course/diploma/detalle/"
+    },
+    {
+      "slug": "estrategias-ingles-2020",
+      "title": "Curso de Estrategias para Aprender Inglés Online 2020",
+      "progress": 100,
+      "approved_date": "2022-01-03T20:47:30.598Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1944-course/diploma/detalle/"
+    },
+    {
+      "slug": "curso-php-laravel",
+      "title": "Curso de PHP con Laravel",
+      "progress": 100,
+      "approved_date": "2021-12-28T20:32:43.547Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1467-course/diploma/detalle/"
+    },
+    {
+      "slug": "php",
+      "title": "Curso Básico de PHP: Instalación, Fundamentos y Operadores",
+      "progress": 100,
+      "approved_date": "2021-12-28T19:24:53.371Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2646-course/diploma/detalle/"
+    },
+    {
+      "slug": "html-practico",
+      "title": "Curso Práctico de HTML y CSS",
+      "progress": 100,
+      "approved_date": "2021-12-20T11:51:36.767Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1758-course/diploma/detalle/"
+    },
+    {
+      "slug": "pensamiento-logico-2020",
+      "title": "Curso Básico de Algoritmos y Pensamiento Lógico",
+      "progress": 100,
+      "approved_date": "2021-12-20T11:44:11.809Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2218-course/diploma/detalle/"
+    },
+    {
+      "slug": "fundamentos-appsco",
+      "title": "Fundamentos de Ingeniería de Software",
+      "progress": 100,
+      "approved_date": "2021-12-17T18:22:52.315Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1195-course/diploma/detalle/"
+    },
+    {
+      "slug": "presente-simple-vocabulario-comun-2021",
+      "title": "Curso de Inglés Básico A1: Presente Simple y Vocabulario Común (2021)",
+      "progress": 100,
+      "approved_date": "2021-12-07T09:24:59.187Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2393-course/diploma/detalle/"
+    },
+    {
+      "slug": "wordpress-blog-2021",
+      "title": "Curso de Creación de Blogs con WordPress",
+      "progress": 100,
+      "approved_date": "2021-12-07T09:14:25.694Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2534-course/diploma/detalle/"
+    },
+    {
+      "slug": "javascript-practico-2021",
+      "title": "Curso Práctico de JavaScript",
+      "progress": 100,
+      "approved_date": "2021-12-07T09:08:17.062Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2327-course/diploma/detalle/"
+    },
+    {
+      "slug": "basico-javascript",
+      "title": "Curso Básico de JavaScript",
+      "progress": 100,
+      "approved_date": "2021-12-06T11:55:58.994Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1814-course/diploma/detalle/"
+    },
+    {
+      "slug": "backend-introduccion",
+      "title": "Curso de Introducción al Desarrollo Backend",
+      "progress": 100,
+      "approved_date": "2021-12-06T11:41:10.607Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2508-course/diploma/detalle/"
+    },
+    {
+      "slug": "php-practico",
+      "title": "Curso Práctico de PHP",
+      "progress": 100,
+      "approved_date": "2021-12-03T23:57:37.615Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/2516-course/diploma/detalle/"
+    },
+    {
+      "slug": "teletrabajo-trabajo-remoto",
+      "title": "Curso de Trabajo Remoto para Gestionar el Cambio Organizacional",
+      "progress": 100,
+      "approved_date": "2020-04-14T20:09:27.062Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1872-course/diploma/detalle/"
+    },
+    {
+      "slug": "basico-programacion",
+      "title": "Curso Básico de Programación",
+      "progress": 100,
+      "approved_date": "2019-04-21T17:43:44.000Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1050-course/diploma/detalle/"
+    },
+    {
+      "slug": "marca-personal-2018",
+      "title": "Curso Gratis de Marca Personal 2018",
+      "progress": 100,
+      "approved_date": "2018-08-12T04:23:09.000Z",
+      "diploma_url": "https://platzi.com/p/YosoyMitxel/curso/1220-course/diploma/detalle/"
+    }
+  ],
+  "learning_paths": [
+    {
+      "slug": "desarrollo-wordpress",
+      "title": "Desarrollo con WordPress",
+      "approved_date": "2026-04-19T19:42:05.032Z"
+    },
+    {
+      "slug": "desarrollo-php",
+      "title": "Desarrollo Web Backend con PHP",
+      "approved_date": "2026-01-04T19:18:51.715Z"
+    },
+    {
+      "slug": "administracion-de-servidores-linux",
+      "title": "Administración de Servidores Linux",
+      "approved_date": "2025-12-27T17:55:17.598Z"
+    },
+    {
+      "slug": "beginner-core",
+      "title": "Inglés Básico A1",
+      "approved_date": "2025-11-14T18:18:55.809Z"
+    }
+  ]
+}

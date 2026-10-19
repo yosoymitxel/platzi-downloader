@@ -1,0 +1,97 @@
+{
+  "mb_per_hour_weighted": 390,
+  "folders": [
+    {
+      "folder": "Curso de API REST con Laravel",
+      "mb": 588,
+      "classes": 18,
+      "hours": 1.84,
+      "mb_per_hour": 319
+    },
+    {
+      "folder": "Curso de Claude AI",
+      "mb": 1252,
+      "classes": 14,
+      "hours": 3.04,
+      "mb_per_hour": 412
+    },
+    {
+      "folder": "Curso de Claude Code",
+      "mb": 817,
+      "classes": 18,
+      "hours": 2.22,
+      "mb_per_hour": 368
+    },
+    {
+      "folder": "Curso de Claude Code para No Programadores",
+      "mb": 283,
+      "classes": 7,
+      "hours": 0.74,
+      "mb_per_hour": 384
+    },
+    {
+      "folder": "Curso de Estándares y Buenas Prácticas para API REST con Laravel",
+      "mb": 97,
+      "classes": 3,
+      "hours": 0.26,
+      "mb_per_hour": 373
+    },
+    {
+      "folder": "Curso de Habilidades Blandas para el Desarrollo Profesional",
+      "mb": 831,
+      "classes": 14,
+      "hours": 1.71,
+      "mb_per_hour": 487
+    },
+    {
+      "folder": "Curso de Herramientas de AI para Developers",
+      "mb": 815,
+      "classes": 13,
+      "hours": 2.04,
+      "mb_per_hour": 400
+    },
+    {
+      "folder": "Curso de Inglés Básico A1 para Principiantes",
+      "mb": 328,
+      "classes": 12,
+      "hours": 0.68,
+      "mb_per_hour": 480
+    },
+    {
+      "folder": "Curso de Inglés Básico A2 Sustantivos e Intenciones Futuras",
+      "mb": 511,
+      "classes": 19,
+      "hours": 1.23,
+      "mb_per_hour": 416
+    },
+    {
+      "folder": "Curso de OpenClaw",
+      "mb": 775,
+      "classes": 13,
+      "hours": 1.88,
+      "mb_per_hour": 412
+    },
+    {
+      "folder": "Curso de OWASP Top 10 Riesgos en Aplicaciones",
+      "mb": 531,
+      "classes": 13,
+      "hours": 1.52,
+      "mb_per_hour": 350
+    },
+    {
+      "folder": "Curso de Programación 2D con Unity Intermedio",
+      "mb": 648,
+      "classes": 13,
+      "hours": 2.06,
+      "mb_per_hour": 315
+    },
+    {
+      "folder": "Curso de Spec Driven Development",
+      "mb": 499,
+      "classes": 13,
+      "hours": 1.21,
+      "mb_per_hour": 411
+    }
+  ],
+  "bad": []
+}

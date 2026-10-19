@@ -1,0 +1,180 @@
+{
+  "title": "Frontend a profundidad con React.js",
+  "final_url": "https://platzi.com/ruta/desarrollo-react/",
+  "n_links": 23,
+  "links": [
+    {
+      "href": "/cursos/",
+      "text": "Academy",
+      "card": "Academy"
+    },
+    {
+      "href": "/cursos/nextjs-jamstack/",
+      "text": "Curso de Next.js: Sitios Estáticos y Jamstack\nAvanzado\n3 horas de contenido",
+      "card": "Curso de Next.js: Sitios Estáticos y Jamstack\nAvanzado\n3 horas de contenido"
+    },
+    {
+      "href": "/cursos/nextjs-deploy/",
+      "text": "Curso de Next.js: Optimización y Deploy a Producción\nAvanzado\n2 horas de contenido",
+      "card": "Curso de Next.js: Optimización y Deploy a Producción\nAvanzado\n2 horas de contenido"
+    },
+    {
+      "href": "/cursos/nextjs-internacionalizacion/",
+      "text": "Curso de Next.js: Internacionalización de Aplicaciones Web con i18n\nAvanzado\n2 horas de contenido",
+      "card": "Curso de Next.js: Internacionalización de Aplicaciones Web con i18n\nAvanzado\n2 horas de contenido"
+    },
+    {
+      "href": "/cursos/nextjs-grandes-datasets/",
+      "text": "Curso de Next.js: Optimización y Manejo de Grandes Datasets\nAvanzado\n1 horas de contenido",
+      "card": "Curso de Next.js: Optimización y Manejo de Grandes Datasets\nAvanzado\n1 horas de contenido"
+    },
+    {
+      "href": "/cursos/nextjs-auth/",
+      "text": "Curso de Next.js: Autenticación\nAvanzado\n2 horas de contenido",
+      "card": "Curso de Next.js: Autenticación\nAvanzado\n2 horas de contenido"
+    },
+    {
+      "href": "/cursos/nextjs-owasp/",
+      "text": "Curso de Next.js: Seguridad Web con OWASP\nAvanzado\n2 horas de contenido",
+      "card": "Curso de Next.js: Seguridad Web con OWASP\nAvanzado\n2 horas de contenido"
+    },
+    {
+      "href": "/cursos/react-native/",
+      "text": "Curso de Introducción a React Native\nBásico\n2 horas de contenido",
+      "card": "Curso de Introducción a React Native\nBásico\n2 horas de contenido"
+    },
+    {
+      "href": "/cursos/react-native-listas-apis/",
+      "text": "Curso de React Native: Manejo de Listas y Consumo de APIs\nIntermedio\n3 horas de contenido",
+      "card": "Curso de React Native: Manejo de Listas y Consumo de APIs\nIntermedio\n3 horas de contenido"
+    },
+    {
+      "href": "/cursos/react-native-formularios-almacenamiento/",
+      "text": "Curso de React Native: Formularios, Almacenamiento y Deploy\nIntermedio\n2 horas de contenido",
+      "card": "Curso de React Native: Formularios, Almacenamiento y Deploy\nIntermedio\n2 horas de contenido"
+    },
+    {
+      "href": "/cursos/frontend-developer/",
+      "text": "Curso de Frontend Developer\nBásico\n3 horas de contenido",
+      "card": "Curso de Frontend Developer\nBásico\n3 horas de contenido"
+    },
+    {
+      "href": "/cursos/frontend-developer-practico/",
+      "text": "Curso Práctico de Frontend Developer\nBásico\n3 horas de contenido",
+      "card": "Curso Práctico de Frontend Developer\nBásico\n3 horas de contenido"
+    },
+    {
+      "href": "/cursos/javascript-closures-scope/",
+      "text": "Curso de Closures y Scope en JavaScript\nBásico\n1 horas de contenido",
+      "card": "Curso de Closures y Scope en JavaScript\nBásico\n1 horas de contenido"
+    },
+    {
+      "href": "/cursos/dom/",
+      "text": "Curso de Manipulación del DOM\nAvanzado\n4 horas de contenido",
+      "card": "Curso de Manipulación del DOM\nAvanzado\n4 horas de contenido"
+    },
+    {
+      "href": "/cursos/frameworks-javascript/",
+      "text": "Curso de Frameworks y Librerías de JavaScript\nBásico\n5 horas de contenido",
+      "card": "Curso de Frameworks y Librerías de JavaScript\nBásico\n5 horas de contenido"
+    },
+    {
+      "href": "/cursos/nextjs15/",
+      "text": "Curso de Next.js Avanzado\nAvanzado\n5 horas de contenido",
+      "card": "Curso de Next.js Avanzado\nAvanzado\n5 horas de contenido"
+    },
+    {
+      "href": "/cursos/react-patrones-render/",
+      "text": "Curso de React.js: Patrones de Render y Composición\nIntermedio\n3 horas de contenido",
+      "card": "Curso de React.js: Patrones de Render y Composición\nIntermedio\n3 horas de contenido"
+    },
+    {
+      "href": "/cursos/react-estado/",
+      "text": "Curso de React.js: Manejo Profesional del Estado\nIntermedio\n4 horas de contenido",
+      "card": "Curso de React.js: Manejo Profesional del Estado\nIntermedio\n4 horas de contenido"
+    },
+    {
+      "href": "/cursos/react-router/",
+      "text": "Curso de React.js: Navegación con React Router\nIntermedio\n5 horas de contenido",
+      "card": "Curso de React.js: Navegación con React Router\nIntermedio\n5 horas de contenido"
+    },
+    {
+      "href": "/cursos/webpack/",
+      "text": "Curso de Webpack\nBásico\n3 horas de contenido",
+      "card": "Curso de Webpack\nBásico\n3 horas de contenido"
+    },
+    {
+      "href": "/cursos/react-redux-profesional/",
+      "text": "Curso Profesional de React.js y Redux\nBásico\n3 horas de contenido",
+      "card": "Curso Profesional de React.js y Redux\nBásico\n3 horas de contenido"
+    },
+    {
+      "href": "/cursos/routing-react/",
+      "text": "Curso de Routing en React\nBásico\n2 horas de contenido",
+      "card": "Curso de Routing en React\nBásico\n2 horas de contenido"
+    },
+    {
+      "href": "/cursos/react-js/",
+      "text": "Curso de ReactJS\nBásico\n2 horas de contenido",
+      "card": "Curso de ReactJS\nBásico\n2 horas de contenido"
+    }
+  ],
+  "has_next_data": false,
+  "next_data_keys": null,
+  "body_snippet": "1\nconfirmation_number\n20.220pts\nexpand_more\nlanguage\nInicio\nAcademy\nComunidad\nComentarios\nNotificaciones\nTU PROGRESO\nRutas\nProgreso\nCertificados\n\nHay empresas que le pagan Platzi a sus empleados 👀\n\nDescubre más\narrow_forward\nAyuda y feedback\nSigue aprendiendo Inglés, Desarrollo Web, AI, y más.\nRenueva ahora\nTermina en:\n10\nd\n13\nh\n0\nm\n51\ns\nFrontend a profundidad con React.js\n\nAprende a desarrollar aplicaciones web, móviles y de escritorio con React.js. La librería JavaScript más popular en el mercado.\n\nPara tomar esta ruta necesitas saber:\nDesarrollo de Apps con React Native\nVer ruta \nFull Stack Developer con JavaScript\nVer ruta \nFrontend y Backend con Javascript para Desarrollo Web\nVer ruta \nCursos (22)\nCurso de Next.js: Sitios Estáticos y Jamstack\nAvanzado\n3 horas de contenido\nCurso de Next.js: Optimización y Deploy a Producción\nAvanzado\n2 horas de contenido\nCurso de Next.js: Internacionalización de Aplicaciones Web con i18n\nAvanzado\n2 horas de contenido\nCurso de Next.js: Optimización y Manejo de Grandes Datasets\nAvanzado\n1 horas de contenido\nCurso de Next.js: Autenticación\nAvanzado\n2 horas de contenido\nCurso de Next.js: Seguridad Web con OWASP\nAvanzado\n2 horas de contenido\nCurso de Introducción a React Native\nBásico\n2 horas de contenido\nCurso de React Native: Manejo de Listas y Consumo de APIs\nIntermedio\n3 horas de contenido\nCurso de React Native: Formularios, Almacenamiento y Deploy\nIntermedio\n2 horas de contenido\nCurso de Frontend Developer\nBásico\n3 horas de contenido\nCurso Práctico de Frontend Developer\nBásico\n3 horas de contenido\nCurso de Closures y Scope en JavaScript\nBásico\n1 horas de contenido\nCurso de Manipulación del DOM\nAvanzado\n4 horas de contenido\nCurso de Frameworks y Librerías de JavaScript\nBásico\n5 horas de contenido\nCurso de Next.js Avanzado\nAvanzado\n5 horas de contenido\nCurso de React.js: Patrones de Render y Composición\nIntermedio\n3 horas de contenido\nCurso de React.js: Manejo Profesional del Estado\nIntermedio\n4 horas de contenido\nCurso de React.js: Navegación con React Router\nIntermedio\n5 horas de contenido\nCurso de Webpack\nBásico\n3 horas de contenido\nCurso Profesional de React.js y Redux\nBásico\n3 horas de contenido\nCurso de Routing en React\nBásico\n2 horas de contenido\nCurso de ReactJS\nBásico\n2 horas de contenido\n\nPresentar examen de la ruta\n\nValida tu aprendizaje y obtén el certificado en físico.\n\nplay_arrow\nEmpezar Ruta\ndelete\nQuitar de Mis Rutas\nProfes de la ruta\nConoce quién enseña en esta Ruta\nRichard Kaufman\nEstefany Aguilar\nOscar",
+  "all_links": [
+    "/home/",
+    "/p/YosoyMitxel/",
+    "/buscar/",
+    "/mi-suscripcion/referidos/",
+    "/mi-suscripcion/",
+    "/contact/",
+    "/logout/",
+    "/cursos/",
+    "/comunidad/",
+    "/comentarios/",
+    "/mis-rutas/",
+    "/mi-progreso/",
+    "/mis-certificados/",
+    "/search/",
+    "https://platzi.com/business",
+    "https://docs.google.com/forms/d/e/1FAIpQLSditZjyhGdUriRYM8WhLroCtShL7YTa3CBrDUvrPInLKIfn9A/viewform",
+    "/ruta/react-native",
+    "/ruta/javascript-full-stack",
+    "/ruta/desarrollo-web",
+    "/cursos/nextjs-jamstack/",
+    "/cursos/nextjs-deploy/",
+    "/cursos/nextjs-internacionalizacion/",
+    "/cursos/nextjs-grandes-datasets/",
+    "/cursos/nextjs-auth/",
+    "/cursos/nextjs-owasp/",
+    "/cursos/react-native/",
+    "/cursos/react-native-listas-apis/",
+    "/cursos/react-native-formularios-almacenamiento/",
+    "/cursos/frontend-developer/",
+    "/cursos/frontend-developer-practico/",
+    "/cursos/javascript-closures-scope/",
+    "/cursos/dom/",
+    "/cursos/frameworks-javascript/",
+    "/cursos/nextjs15/",
+    "/cursos/react-patrones-render/",
+    "/cursos/react-estado/",
+    "/cursos/react-router/",
+    "/cursos/webpack/",
+    "/cursos/react-redux-profesional/",
+    "/cursos/routing-react/",
+    "/cursos/react-js/",
+    "/evaluacion/e886bda6-babb-49c6-a234-8faafc30e96f/",
+    "https://api.whatsapp.com/send?phone=14153419905&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Platzi"
+  ],
+  "buttons": [
+    "1",
+    "confirmation_number",
+    "20.220pts\nexpand_more",
+    "language",
+    "Sigue aprendiendo Inglés, Desarrollo Web, AI, y más.\nRenueva ahora\nTermina en:\n10\nd\n13\nh\n0\nm\n51\ns",
+    "Renueva ahora",
+    "play_arrow\nEmpezar Ruta",
+    "delete\nQuitar de Mis Rutas"
+  ]
+}

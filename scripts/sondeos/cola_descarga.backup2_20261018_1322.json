@@ -1,0 +1,811 @@
+{
+  "generado": "cruce cursos_progreso x certificados x rutas_cursos",
+  "queue_unfinished": [
+    {
+      "slug": "adverbios",
+      "title": "Curso de Inglés Básico A2: Sustantivos e Intenciones Futuras",
+      "group": "ingles",
+      "pos": 13,
+      "total": 20,
+      "watched_at": "2026-08-23 14:29:13.497572+00:00",
+      "cert_date": null,
+      "affinity": 41,
+      "routes": [
+        {
+          "slug": "beginner-core2",
+          "title": "Inglés Básico A2",
+          "percentage": 41
+        },
+        {
+          "slug": "idioma-ingles",
+          "title": "English Learning",
+          "percentage": 14
+        }
+      ]
+    },
+    {
+      "slug": "devs-ai-tools",
+      "title": "Curso de Herramientas de AI para Developers",
+      "group": "claude",
+      "pos": 3,
+      "total": 13,
+      "watched_at": "2026-05-01 21:11:14.847397+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "openclaw-2026",
+      "title": "Curso de OpenClaw",
+      "group": "claude",
+      "pos": 11,
+      "total": 13,
+      "watched_at": "2026-04-18 13:17:10.995851+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "claude-code",
+      "title": "claude-code (nuevo)",
+      "group": "claude",
+      "pos": null,
+      "total": null,
+      "watched_at": null,
+      "cert_date": null,
+      "affinity": 0,
+      "routes": [
+        {
+          "slug": "ainative",
+          "title": "AI‑Native: Productividad, Automatización y Agentes",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "claude-code-no-programadores",
+      "title": "claude-code-no-programadores (nuevo)",
+      "group": "claude",
+      "pos": null,
+      "total": null,
+      "watched_at": null,
+      "cert_date": null,
+      "affinity": 0,
+      "routes": [
+        {
+          "slug": "ainative",
+          "title": "AI‑Native: Productividad, Automatización y Agentes",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "claude-ai",
+      "title": "claude-ai (nuevo)",
+      "group": "claude",
+      "pos": null,
+      "total": null,
+      "watched_at": null,
+      "cert_date": null,
+      "affinity": 0,
+      "routes": [
+        {
+          "slug": "ainative",
+          "title": "AI‑Native: Productividad, Automatización y Agentes",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "laravel-api",
+      "title": "Curso de API REST con Laravel",
+      "group": "laravel/php",
+      "pos": 16,
+      "total": 18,
+      "watched_at": "2026-02-01 11:10:50.321580+00:00",
+      "cert_date": null,
+      "affinity": 100,
+      "routes": [
+        {
+          "slug": "desarrollo-php",
+          "title": "Desarrollo Web Backend con PHP",
+          "percentage": 100
+        }
+      ]
+    },
+    {
+      "slug": "buenas-practicas-api",
+      "title": "Curso de Estándares y  Buenas Prácticas para API REST con Laravel",
+      "group": "laravel/php",
+      "pos": 4,
+      "total": 29,
+      "watched_at": "2026-09-13 15:44:46.376398+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "desarrollo-laravel",
+      "title": "Curso de Laravel",
+      "group": "laravel/php",
+      "pos": 15,
+      "total": 25,
+      "watched_at": "2026-02-06 12:04:30.496786+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "intro-laravel-2020",
+      "title": "Curso de Introducción a Laravel 6",
+      "group": "laravel/php",
+      "pos": 7,
+      "total": 37,
+      "watched_at": "2026-01-30 17:25:33.876826+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "react-native",
+      "title": "Curso de Introducción a React Native",
+      "group": "react",
+      "pos": 15,
+      "total": 16,
+      "watched_at": "2025-11-14 18:59:11.684070+00:00",
+      "cert_date": null,
+      "affinity": 17,
+      "routes": [
+        {
+          "slug": "desarrollo-react",
+          "title": "Frontend a profundidad con React.js",
+          "percentage": 17
+        }
+      ]
+    },
+    {
+      "slug": "nextjs-14",
+      "title": "Curso de Next.js 14",
+      "group": "react",
+      "pos": 2,
+      "total": 57,
+      "watched_at": "2026-01-27 14:23:09.230832+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "azure-devops",
+      "title": "Curso de Azure DevOps: Flujos de CI/CD",
+      "group": "resto",
+      "pos": 7,
+      "total": 20,
+      "watched_at": "2025-09-24 23:16:06.323208+00:00",
+      "cert_date": null,
+      "affinity": 30,
+      "routes": [
+        {
+          "slug": "infraestructura-como-codigo-iac-y-ci-cd",
+          "title": "Infraestructura como Código (IaC) y CI/CD",
+          "percentage": 30
+        },
+        {
+          "slug": "asp-net",
+          "title": "Desarrollo con ASP.NET",
+          "percentage": 25
+        },
+        {
+          "slug": "devops-y-cloud-para-desarrolladores-web",
+          "title": "DevOps y Cloud para Desarrolladores Web",
+          "percentage": 23
+        }
+      ]
+    },
+    {
+      "slug": "iaac-aws",
+      "title": "Curso de Infraestructura Como Código en AWS",
+      "group": "resto",
+      "pos": 3,
+      "total": 38,
+      "watched_at": "2025-08-30 02:20:44.064347+00:00",
+      "cert_date": null,
+      "affinity": 30,
+      "routes": [
+        {
+          "slug": "infraestructura-como-codigo-iac-y-ci-cd",
+          "title": "Infraestructura como Código (IaC) y CI/CD",
+          "percentage": 30
+        },
+        {
+          "slug": "devops-y-cloud-para-desarrolladores-web",
+          "title": "DevOps y Cloud para Desarrolladores Web",
+          "percentage": 23
+        }
+      ]
+    },
+    {
+      "slug": "ingenieria",
+      "title": "Curso de Fundamentos de Ingeniería de Software",
+      "group": "resto",
+      "pos": 24,
+      "total": 24,
+      "watched_at": "2026-09-13 15:59:13.892168+00:00",
+      "cert_date": null,
+      "affinity": 25,
+      "routes": [
+        {
+          "slug": "fundamentos-de-cloud-y-devops",
+          "title": "Fundamentos de Cloud y DevOps",
+          "percentage": 25
+        },
+        {
+          "slug": "seguridad-informatica-old",
+          "title": "Seguridad Informática",
+          "percentage": 10
+        },
+        {
+          "slug": "desarrollo-web",
+          "title": "Frontend y Backend con Javascript para Desarrollo Web",
+          "percentage": 8
+        },
+        {
+          "slug": "base-de-datos",
+          "title": "Bases de datos desde cero",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "gitgithub",
+      "title": "Curso de Git y GitHub",
+      "group": "resto",
+      "pos": 25,
+      "total": 42,
+      "watched_at": "2025-09-14 12:40:01.583750+00:00",
+      "cert_date": null,
+      "affinity": 25,
+      "routes": [
+        {
+          "slug": "fundamentos-de-cloud-y-devops",
+          "title": "Fundamentos de Cloud y DevOps",
+          "percentage": 25
+        },
+        {
+          "slug": "seguridad-informatica-old",
+          "title": "Seguridad Informática",
+          "percentage": 10
+        },
+        {
+          "slug": "backend-python",
+          "title": "Desarrollo Backend con Python y Django",
+          "percentage": 0
+        },
+        {
+          "slug": "javascript-full-stack",
+          "title": "Full Stack Developer con JavaScript",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "gemini",
+      "title": "Curso de Gemini",
+      "group": "resto",
+      "pos": 3,
+      "total": 26,
+      "watched_at": "2026-02-07 16:42:43.870651+00:00",
+      "cert_date": null,
+      "affinity": 12,
+      "routes": [
+        {
+          "slug": "fundamentos-data",
+          "title": "Fundamentos de Data e Inteligencia Artificial",
+          "percentage": 12
+        },
+        {
+          "slug": "ainative",
+          "title": "AI‑Native: Productividad, Automatización y Agentes",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "excel-basico",
+      "title": "Curso de Excel Básico",
+      "group": "resto",
+      "pos": 5,
+      "total": 23,
+      "watched_at": "2025-08-03 14:08:53.080364+00:00",
+      "cert_date": null,
+      "affinity": 12,
+      "routes": [
+        {
+          "slug": "fundamentos-data",
+          "title": "Fundamentos de Data e Inteligencia Artificial",
+          "percentage": 12
+        }
+      ]
+    },
+    {
+      "slug": "owasp-top-10",
+      "title": "Curso de OWASP Top 10: Riesgos en Aplicaciones",
+      "group": "resto",
+      "pos": 5,
+      "total": 15,
+      "watched_at": "2026-09-28 15:28:18.289040+00:00",
+      "cert_date": null,
+      "affinity": 10,
+      "routes": [
+        {
+          "slug": "seguridad-informatica-old",
+          "title": "Seguridad Informática",
+          "percentage": 10
+        }
+      ]
+    },
+    {
+      "slug": "ethical-hacking",
+      "title": "Curso de Hacking Ético",
+      "group": "resto",
+      "pos": 19,
+      "total": 35,
+      "watched_at": "2025-09-17 14:22:44.778372+00:00",
+      "cert_date": null,
+      "affinity": 10,
+      "routes": [
+        {
+          "slug": "seguridad-informatica-old",
+          "title": "Seguridad Informática",
+          "percentage": 10
+        }
+      ]
+    },
+    {
+      "slug": "software-seguro",
+      "title": "Curso de Ciberseguridad para Desarrollo Web",
+      "group": "resto",
+      "pos": 23,
+      "total": 30,
+      "watched_at": "2025-09-17 12:36:54.053844+00:00",
+      "cert_date": null,
+      "affinity": 10,
+      "routes": [
+        {
+          "slug": "seguridad-informatica-old",
+          "title": "Seguridad Informática",
+          "percentage": 10
+        }
+      ]
+    },
+    {
+      "slug": "web-performance",
+      "title": "Curso de Optimización Web",
+      "group": "resto",
+      "pos": 16,
+      "total": 38,
+      "watched_at": "2025-06-02 02:02:38.226199+00:00",
+      "cert_date": null,
+      "affinity": 8,
+      "routes": [
+        {
+          "slug": "desarrollo-web",
+          "title": "Frontend y Backend con Javascript para Desarrollo Web",
+          "percentage": 8
+        }
+      ]
+    },
+    {
+      "slug": "finanzas",
+      "title": "Curso de Educación Financiera y Finanzas Personales",
+      "group": "resto",
+      "pos": 23,
+      "total": 24,
+      "watched_at": "2025-09-09 13:50:39.759786+00:00",
+      "cert_date": null,
+      "affinity": 5,
+      "routes": [
+        {
+          "slug": "finanzas-legacy",
+          "title": "Finanzas e Inversiones",
+          "percentage": 5
+        }
+      ]
+    },
+    {
+      "slug": "unity2dintermedio",
+      "title": "Curso de Programación 2D con Unity: Intermedio",
+      "group": "resto",
+      "pos": 10,
+      "total": 31,
+      "watched_at": "2026-09-13 15:45:49.531406+00:00",
+      "cert_date": null,
+      "affinity": 0,
+      "routes": [
+        {
+          "slug": "motores-videojuegos",
+          "title": "Desarrollo de videojuegos",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "fundamentos-bbdd-sql",
+      "title": "Curso de Fundamentos de Bases de Datos y SQL",
+      "group": "resto",
+      "pos": 2,
+      "total": 25,
+      "watched_at": "2026-06-13 22:57:19.210911+00:00",
+      "cert_date": null,
+      "affinity": 0,
+      "routes": [
+        {
+          "slug": "base-de-datos",
+          "title": "Bases de datos desde cero",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "introduccion-godot",
+      "title": "Curso Introductorio de Desarrollo de Videojuegos con Godot",
+      "group": "resto",
+      "pos": 13,
+      "total": 16,
+      "watched_at": "2026-01-04 19:11:29.771460+00:00",
+      "cert_date": null,
+      "affinity": 0,
+      "routes": [
+        {
+          "slug": "motores-videojuegos",
+          "title": "Desarrollo de videojuegos",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "composicion-canciones",
+      "title": "Curso de Fundamentos de la Composición de Canciones",
+      "group": "resto",
+      "pos": 16,
+      "total": 16,
+      "watched_at": "2025-12-10 14:14:00.546598+00:00",
+      "cert_date": null,
+      "affinity": 0,
+      "routes": [
+        {
+          "slug": "contenido-audiovisual",
+          "title": "Contenido Audiovisual",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "introduccion-moviles-unity",
+      "title": "Curso de Desarrollo de Videojuegos Móviles con Unity",
+      "group": "resto",
+      "pos": 32,
+      "total": 34,
+      "watched_at": "2025-09-14 13:07:48.722723+00:00",
+      "cert_date": null,
+      "affinity": 0,
+      "routes": [
+        {
+          "slug": "motores-videojuegos",
+          "title": "Desarrollo de videojuegos",
+          "percentage": 0
+        }
+      ]
+    },
+    {
+      "slug": "habilidades-blandas",
+      "title": "Curso de Habilidades Blandas para el Desarrollo Profesional",
+      "group": "resto",
+      "pos": 6,
+      "total": 15,
+      "watched_at": "2026-09-19 09:12:49.903544+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "consultoria-pitch",
+      "title": "Curso de Creación de Pitch para Clientes",
+      "group": "resto",
+      "pos": 2,
+      "total": 4,
+      "watched_at": "2026-07-16 21:55:50.924186+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "pensamiento-critico-ia",
+      "title": "Curso de Pensamiento Crítico para usar Inteligencia Artificial",
+      "group": "resto",
+      "pos": 8,
+      "total": 17,
+      "watched_at": "2026-06-14 14:14:47.017728+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "oratoria-profesional",
+      "title": "Curso de Oratoria Profesional",
+      "group": "resto",
+      "pos": 5,
+      "total": 15,
+      "watched_at": "2026-05-13 13:35:45.336446+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "microsoft-powerpoint",
+      "title": "Curso de PowerPoint: Elementos Multimedia",
+      "group": "resto",
+      "pos": 8,
+      "total": 13,
+      "watched_at": "2026-05-05 18:09:44.564711+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "taller-de-pitch-para-startups",
+      "title": "Taller de Pitch para Startups",
+      "group": "resto",
+      "pos": 1,
+      "total": 5,
+      "watched_at": "2026-04-29 14:23:26.239083+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "investigacion-mercados-tendencias",
+      "title": "Curso de Investigación de Mercados y Tendencias",
+      "group": "resto",
+      "pos": 6,
+      "total": 22,
+      "watched_at": "2026-04-12 15:06:52.500896+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "innovacion-producto",
+      "title": "Curso de Innovación y Creación de Productos",
+      "group": "resto",
+      "pos": 12,
+      "total": 20,
+      "watched_at": "2026-02-21 13:02:58.239407+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "introduccion-devops",
+      "title": "Curso de Introducción a DevOps",
+      "group": "resto",
+      "pos": 19,
+      "total": 22,
+      "watched_at": "2026-02-07 21:19:09.972327+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "n8n-2025",
+      "title": "Curso de N8N",
+      "group": "resto",
+      "pos": 23,
+      "total": 23,
+      "watched_at": "2026-01-26 15:47:07.443822+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "managementtecnologia",
+      "title": "Curso de Management en Tecnología",
+      "group": "resto",
+      "pos": 15,
+      "total": 17,
+      "watched_at": "2025-12-27 18:09:34.957059+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "basico-figma",
+      "title": "Curso de Figma",
+      "group": "resto",
+      "pos": 4,
+      "total": 22,
+      "watched_at": "2025-12-03 12:52:52.328592+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "tecnicas-negociacion",
+      "title": "Curso de Técnicas de Negociación",
+      "group": "resto",
+      "pos": 20,
+      "total": 25,
+      "watched_at": "2025-09-24 23:24:19.574808+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "confbogota2025",
+      "title": "Platzi Conf Bogotá 2025",
+      "group": "resto",
+      "pos": 14,
+      "total": 33,
+      "watched_at": "2025-09-15 23:50:15.314255+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "gtm-marketing",
+      "title": "Curso de Google Tag Manager para Marketing",
+      "group": "resto",
+      "pos": 17,
+      "total": 27,
+      "watched_at": "2025-06-19 11:38:36.698206+00:00",
+      "cert_date": null,
+      "affinity": null,
+      "routes": []
+    }
+  ],
+  "queue_certified": [
+    {
+      "slug": "ingles-a1-principiantes",
+      "title": "Curso de Inglés Básico A1 para Principiantes",
+      "group": "ingles",
+      "pos": 10,
+      "total": 13,
+      "watched_at": "2026-09-26 23:06:44.123258+00:00",
+      "cert_date": "2026-09-26",
+      "affinity": 100,
+      "routes": [
+        {
+          "slug": "beginner-core",
+          "title": "Inglés Básico A1",
+          "percentage": 100
+        },
+        {
+          "slug": "idioma-ingles",
+          "title": "English Learning",
+          "percentage": 14
+        }
+      ]
+    },
+    {
+      "slug": "estrategias-ingles",
+      "title": "Curso Gratis de Estrategias para Aprender Inglés en Línea",
+      "group": "ingles",
+      "pos": 10,
+      "total": 10,
+      "watched_at": "2026-04-26 12:35:41.743347+00:00",
+      "cert_date": "2026-04-26",
+      "affinity": 100,
+      "routes": [
+        {
+          "slug": "beginner-core",
+          "title": "Inglés Básico A1",
+          "percentage": 100
+        },
+        {
+          "slug": "beginner-core2",
+          "title": "Inglés Básico A2",
+          "percentage": 41
+        },
+        {
+          "slug": "idioma-ingles",
+          "title": "English Learning",
+          "percentage": 14
+        }
+      ]
+    },
+    {
+      "slug": "laravel",
+      "title": "Curso de Introducción a Laravel 9",
+      "group": "laravel/php",
+      "pos": 1,
+      "total": 31,
+      "watched_at": "2026-02-01 10:49:56.473931+00:00",
+      "cert_date": "2026-02-01",
+      "affinity": 100,
+      "routes": [
+        {
+          "slug": "desarrollo-php",
+          "title": "Desarrollo Web Backend con PHP",
+          "percentage": 100
+        }
+      ]
+    },
+    {
+      "slug": "basico-preguntas-respuestas",
+      "title": "Curso de Inglés Básico A2: Preguntas y Respuestas Comunes",
+      "group": "ingles",
+      "pos": 19,
+      "total": 19,
+      "watched_at": "2026-09-26 23:00:26.111696+00:00",
+      "cert_date": "2026-04-19",
+      "affinity": 41,
+      "routes": [
+        {
+          "slug": "beginner-core2",
+          "title": "Inglés Básico A2",
+          "percentage": 41
+        },
+        {
+          "slug": "idioma-ingles",
+          "title": "English Learning",
+          "percentage": 14
+        }
+      ]
+    },
+    {
+      "slug": "english-a2-basics-proposals-permissions",
+      "title": "Curso de Inglés Básico A2: Propuestas y Permisos",
+      "group": "ingles",
+      "pos": 11,
+      "total": 12,
+      "watched_at": "2026-06-03 18:55:59.330241+00:00",
+      "cert_date": "2026-06-03",
+      "affinity": 41,
+      "routes": [
+        {
+          "slug": "beginner-core2",
+          "title": "Inglés Básico A2",
+          "percentage": 41
+        }
+      ]
+    },
+    {
+      "slug": "guia-seguridad-informatica",
+      "title": "Guía para Aprender Seguridad Informática",
+      "group": "resto",
+      "pos": 15,
+      "total": 15,
+      "watched_at": "2025-09-17 14:18:46.541323+00:00",
+      "cert_date": "2022-05-13",
+      "affinity": 10,
+      "routes": [
+        {
+          "slug": "seguridad-informatica-old",
+          "title": "Seguridad Informática",
+          "percentage": 10
+        }
+      ]
+    },
+    {
+      "slug": "spec-driven-dev",
+      "title": "Curso de Spec Driven Development",
+      "group": "claude",
+      "pos": 7,
+      "total": 13,
+      "watched_at": "2026-09-17 13:54:52.847107+00:00",
+      "cert_date": "2026-09-16",
+      "affinity": null,
+      "routes": []
+    },
+    {
+      "slug": "proyectos-pmbok",
+      "title": "Curso de Project Management con PMBOK",
+      "group": "resto",
+      "pos": 3,
+      "total": 20,
+      "watched_at": "2026-01-19 11:54:10.021906+00:00",
+      "cert_date": "2025-07-21",
+      "affinity": null,
+      "routes": []
+    }
+  ]
+}

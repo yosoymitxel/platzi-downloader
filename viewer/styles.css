@@ -1,0 +1,1135 @@
+/* ============================================================
+   Platzi Local · styles.css
+   Sistema visual del visor offline. Tokens de SPEC §6.1.
+   ============================================================ */
+
+:root {
+  --bg: #0d1a33;
+  --surface: #14264a;
+  --surface-2: #1b305c;
+  --surface-3: #22406f;
+  --ink: #ffffff;
+  --ink-2: #aebbd9;
+  --accent: #98ca3f;
+  --accent-2: #7fb32e;
+  --accent-ink: #12233f;
+  --gold: #ffce00;
+  --danger: #ff6b6b;
+  --focus: #98ca3f;
+  --radius: 12px;
+  --radius-sm: 10px;
+  --maxw: 1200px;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html {
+  color-scheme: dark;
+  scrollbar-color: var(--surface-3) transparent;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3 { margin: 0; line-height: 1.2; }
+p { margin: 0; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+input, select, textarea { font: inherit; color: inherit; }
+svg { display: block; }
+
+.icon { width: 18px; height: 18px; flex: none; }
+.icon-flip { transform: scaleX(-1); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Superficies del navegador */
+
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#app:focus { outline: none; }
+
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+/* ============================================================
+   Botones
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: .9375rem;
+  cursor: pointer;
+  transition: background .15s ease-out, transform .15s ease-out;
+}
+
+.btn:hover { background: var(--accent-2); transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+  pointer-events: none;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: .9375rem;
+  transition: background .15s ease-out, transform .15s ease-out;
+}
+
+.btn-ghost:hover { background: var(--surface-2); transform: translateY(-1px); }
+.btn-ghost:active { transform: translateY(0); }
+
+.btn-ghost[disabled],
+.btn-ghost[aria-disabled="true"] {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================================
+   Barras de progreso · la firma: el ancho anima al aparecer
+   ============================================================ */
+
+.progressbar {
+  height: 6px;
+  background: var(--surface-3);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressbar-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  animation: bar-grow 300ms cubic-bezier(.2, .7, .25, 1);
+  transition: width 300ms cubic-bezier(.2, .7, .25, 1);
+}
+
+@keyframes bar-grow { from { width: 0; } }
+
+/* ============================================================
+   Chips
+   ============================================================ */
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip-row:empty { display: none; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: .8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chip-cert { background: var(--gold); color: #3a2f00; }
+.chip-progress { background: var(--surface-3); color: var(--accent); }
+
+.chip-queued,
+.chip-downloaded,
+.chip-missing { background: var(--surface-2); color: var(--ink-2); }
+
+/* ============================================================
+   Topbar
+   ============================================================ */
+
+#topbar { background: var(--surface); }
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 28px);
+  height: 56px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 24px);
+}
+
+.brand { display: inline-flex; align-items: center; gap: 10px; flex: none; }
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.brand-mark svg { width: 14px; height: 14px; }
+
+.brand-name { font-weight: 700; font-size: 1.0625rem; letter-spacing: -.01em; }
+.brand-local { color: var(--accent); }
+
+#mainnav { display: flex; align-items: stretch; height: 56px; }
+
+#mainnav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  color: var(--ink-2);
+  font-weight: 600;
+  font-size: .9375rem;
+  transition: color .15s ease-out;
+}
+
+#mainnav a:hover { color: var(--ink); }
+
+#mainnav a::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transform: scaleX(.5);
+  transition: opacity .15s ease-out, transform .15s ease-out;
+}
+
+#mainnav a[aria-current="page"] { color: var(--ink); }
+#mainnav a[aria-current="page"]::after { opacity: 1; transform: none; }
+
+/* Buscador */
+
+#searchbox { position: relative; margin-left: auto; width: clamp(200px, 30vw, 360px); flex: none; }
+
+.search-icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  color: var(--ink-2);
+  pointer-events: none;
+}
+
+#search-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 16px 0 38px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: .9375rem;
+  transition: background .15s ease-out;
+}
+
+#search-input::placeholder { color: var(--ink-2); }
+#search-input:focus { background: var(--surface-3); }
+
+#search-results {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 60;
+  min-width: 100%;
+  max-height: 60svh;
+  overflow-y: auto;
+  padding: 6px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  /* Única sombra del sistema: el dropdown flota de verdad (SPEC §6.1). */
+  box-shadow: 0 14px 34px rgba(4, 10, 24, .55); /* taste-skill-ignore: unica sombra del sistema; el dropdown flota de verdad (SPEC 6.1) */
+}
+
+#search-results ul { padding: 0; }
+
+#search-results li { list-style: none; }
+
+#search-results a,
+#search-results button {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--ink);
+  text-align: left;
+}
+
+#search-results .result-link {
+  display: flex;
+  padding: 10px 12px;
+  background: transparent;
+  border-radius: 8px;
+}
+
+#search-results a:hover,
+#search-results button:hover,
+#search-results [data-active],
+#search-results [aria-selected="true"] { background: var(--surface-2); }
+
+/* Chip de continuidad. El triángulo va en CSS para sobrevivir si la lógica
+   reescribe el texto del botón (único hook congelado: #resume-chip). */
+
+#resume-chip {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  height: 36px;
+  max-width: 240px;
+  padding: 0 15px 0 31px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 36px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: background .15s ease-out;
+}
+
+#resume-chip::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  width: 9px;
+  height: 11px;
+  transform: translateY(-50%);
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+#resume-chip:hover { background: var(--accent-2); }
+
+/* ============================================================
+   Banner de archivo local
+   ============================================================ */
+
+#banner-file { background: var(--surface-2); }
+
+.banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 12px clamp(16px, 3vw, 24px);
+}
+
+.banner-inner p { font-size: .9375rem; }
+
+#banner-file .btn-ghost { height: 34px; padding: 0 12px; font-size: .875rem; }
+#banner-file .btn-ghost:hover { background: var(--surface-3); }
+
+/* ============================================================
+   Estructura de vistas
+   ============================================================ */
+
+main#app { display: block; }
+
+.view {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(20px, 3vw, 32px) clamp(16px, 3vw, 24px) 72px;
+  animation: view-in 160ms ease-out;
+}
+
+@keyframes view-in { from { opacity: 0; transform: translateY(4px); } }
+
+.view > h1,
+.cursos-head h1,
+.ruta-hero h1,
+.curso-hero h1 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.view > h1 { margin-bottom: 24px; }
+
+.view-home,
+.view-rutas,
+.view-ruta,
+.view-cursos,
+.view-curso,
+.view-aula,
+.view-buscar { display: block; }
+
+.ruta-hero-text,
+.curso-hero-text { min-width: 0; }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.section-head h2 { font-size: 1.375rem; font-weight: 700; }
+
+.section-link {
+  color: var(--accent);
+  font-size: .9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.section-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 36px 28px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ============================================================
+   Inicio
+   ============================================================ */
+
+.home-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 24px;
+  align-items: start;
+}
+
+.resume-hero {
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.resume-heading { font-size: 1.125rem; font-weight: 700; }
+
+.resume-title {
+  margin-top: 14px;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  overflow-wrap: break-word;
+}
+
+.resume-meta { margin-top: 10px; color: var(--ink-2); font-size: .9375rem; }
+.resume-cta { margin-top: 24px; }
+.resume-empty {
+  margin-top: 24px;
+  align-items: flex-start;
+  padding: 0;
+  background: transparent;
+  text-align: left;
+}
+.resume-empty p {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.home-routes { min-width: 0; }
+
+.home-courses { margin-top: 44px; }
+
+.route-list { display: grid; gap: 10px; }
+
+/* ============================================================
+   Tarjeta de ruta (fila)
+   ============================================================ */
+
+.route-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  transition: background .15s ease-out, transform .15s ease-out;
+}
+
+.route-card:hover { background: var(--surface-2); transform: translateY(-1px); }
+.route-card:active { transform: translateY(0); }
+
+.route-card-media {
+  position: relative;
+  flex: none;
+  width: 96px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface-3);
+}
+
+.route-card-media img,
+.ruta-cover img,
+.curso-cover img,
+.course-card-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.route-card-media .cover-fallback { font-size: 1.25rem; }
+
+.route-card-body { flex: 1; min-width: 0; display: block; }
+
+.route-card-title {
+  display: block;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.route-card-meta { display: block; margin-top: 3px; color: var(--ink-2); font-size: .8125rem; }
+
+.route-progress { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.route-bar { flex: 1; max-width: 220px; }
+
+.pct {
+  min-width: 34px;
+  color: var(--ink-2);
+  font-size: .8125rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.route-chev { width: 16px; height: 16px; color: var(--ink-2); }
+
+.cover-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--surface-3);
+  color: var(--ink-2);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ============================================================
+   Cabeceras de ruta y curso
+   ============================================================ */
+
+.ruta-hero,
+.curso-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: clamp(24px, 3vw, 40px);
+  align-items: center;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.ruta-cover,
+.curso-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface-3);
+}
+
+.ruta-cover .cover-fallback,
+.curso-cover .cover-fallback { font-size: 4rem; }
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  color: var(--ink-2);
+  font-size: .875rem;
+  font-weight: 600;
+  transition: color .15s ease-out;
+}
+
+.back-link .icon { width: 16px; height: 16px; }
+.back-link:hover { color: var(--ink); }
+
+.ruta-meta { margin-top: 12px; color: var(--ink-2); font-size: .9375rem; }
+
+.ruta-progress,
+.curso-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  max-width: 420px;
+}
+
+.ruta-progress .progressbar,
+.curso-progress .progressbar { flex: 1; }
+
+.ruta-hero .btn,
+.curso-actions { margin-top: 22px; }
+
+.view-ruta .course-grid { margin-top: 32px; }
+
+/* ============================================================
+   Vista de curso
+   ============================================================ */
+
+.curso-hero h1 { overflow-wrap: break-word; }
+.curso-hero .chip-row { margin-top: 14px; }
+
+.curso-progress-text,
+.curso-platzi {
+  color: var(--ink-2);
+  font-size: .875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.curso-platzi { margin-top: 14px; }
+
+.curso-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.diploma-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold);
+  font-size: .9375rem;
+  font-weight: 600;
+}
+
+.diploma-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.modules {
+  display: grid;
+  gap: 12px;
+  max-width: 860px;
+  margin: 32px auto 0;
+}
+
+.module {
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.module-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .15s ease-out;
+}
+
+.module-summary::-webkit-details-marker { display: none; }
+.module-summary:hover { background: var(--surface-2); }
+
+.module-chev {
+  width: 16px;
+  height: 16px;
+  color: var(--ink-2);
+  transition: transform .18s ease-out;
+}
+
+.module[open] .module-chev { transform: rotate(90deg); }
+
+.module-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.module-count { color: var(--ink-2); font-size: .875rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.class-list { padding: 0 10px 10px; }
+
+/* ============================================================
+   Fila de clase (módulos y playlist del aula)
+   ============================================================ */
+
+.class-row { position: relative; }
+
+.class-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  transition: background .15s ease-out;
+}
+
+.class-link:hover { background: var(--surface-2); }
+
+.class-icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 999px;
+  background: var(--surface-3);
+  color: var(--ink-2);
+}
+
+.class-icon .icon { width: 15px; height: 15px; }
+
+.class-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: .9375rem;
+}
+
+.class-time {
+  color: var(--ink-2);
+  font-size: .8125rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.class-row[data-done="true"] .class-icon { color: var(--accent); }
+.class-row[data-done="true"] .class-title { color: var(--ink-2); }
+
+.class-row[data-current="true"] .class-link { background: var(--surface-2); }
+.class-row[data-current="true"] .class-icon { background: var(--accent); color: var(--accent-ink); }
+.class-row[data-current="true"] .class-title { color: var(--ink); font-weight: 600; }
+
+.class-bar {
+  display: block;
+  height: 3px;
+  margin: 0 12px 6px 54px;
+}
+
+/* ============================================================
+   Catálogo de cursos
+   ============================================================ */
+
+.cursos-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.cursos-count {
+  color: var(--ink-2);
+  font-size: .9375rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+
+.filter {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: .875rem;
+  font-weight: 600;
+  transition: background .15s ease-out, color .15s ease-out;
+}
+
+.filter:hover { background: var(--surface-2); color: var(--ink); }
+
+.filter[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* ============================================================
+   Tarjeta de curso
+   ============================================================ */
+
+.course-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 16px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  transition: background .15s ease-out, transform .15s ease-out;
+}
+
+.course-card:hover { background: var(--surface-2); transform: translateY(-2px); }
+
+.course-card-link { display: block; color: var(--ink); }
+.course-card-link::after { content: ""; position: absolute; inset: 0; }
+
+.course-card-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.course-card-media .cover-fallback { font-size: 2.5rem; }
+
+.course-card[data-state="missing"] .course-card-media { opacity: .55; }
+
+.course-card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding: 14px 16px 0;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.course-card-meta { padding: 6px 16px 0; color: var(--ink-2); font-size: .8125rem; }
+.course-card-status { padding: 12px 16px 14px; }
+
+.course-card-bar {
+  height: 4px;
+  margin: auto 16px 0;
+}
+
+/* ============================================================
+   Aula
+   ============================================================ */
+
+.aula-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 24px;
+  align-items: start;
+}
+
+.aula-main { min-width: 0; max-width: 900px; }
+
+#player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  background: #000;
+}
+
+.video-error {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.aula-info { margin-top: 16px; }
+
+.aula-title { font-size: 1.375rem; font-weight: 700; line-height: 1.3; }
+
+.aula-meta { margin-top: 6px; color: var(--ink-2); font-size: .875rem; }
+
+.aula-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.aula-nav { display: flex; gap: 4px; }
+
+.aula-controls [data-control="mark"][aria-pressed="true"] { color: var(--accent); }
+
+.field { display: inline-flex; align-items: center; gap: 8px; }
+
+.field > span {
+  color: var(--ink-2);
+  font-size: .8125rem;
+  font-weight: 600;
+}
+
+.field select {
+  height: 38px;
+  padding: 0 30px 0 12px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-3);
+  color: var(--ink);
+  font-size: .875rem;
+  font-weight: 600;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23aebbd9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+  cursor: pointer;
+}
+
+.check-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 6px;
+  font-size: .875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.check-field input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.aula-side {
+  position: sticky;
+  top: 16px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 16px;
+}
+
+.aula-side-head { margin-bottom: 12px; }
+
+.aula-course-link {
+  display: block;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color .15s ease-out;
+}
+
+.aula-course-link:hover { color: var(--accent); }
+
+.aula-side-progress {
+  margin-top: 4px;
+  color: var(--ink-2);
+  font-size: .875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.playlist {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  max-height: calc(100svh - 320px);
+  min-height: 180px;
+  overflow-y: auto;
+}
+
+/* ============================================================
+   Búsqueda
+   ============================================================ */
+
+.search-q {
+  margin-bottom: 20px;
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.search-section { margin-top: 28px; }
+
+.search-section h2 { margin-bottom: 16px; font-size: 1.375rem; font-weight: 700; }
+
+.result-list { display: grid; gap: 8px; }
+
+.result-class { min-width: 0; }
+
+.result-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  transition: background .15s ease-out;
+}
+
+.result-link:hover { background: var(--surface-2); }
+
+.result-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-course {
+  color: var(--ink-2);
+  font-size: .875rem;
+  white-space: nowrap;
+  max-width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.result-time {
+  color: var(--ink-2);
+  font-size: .8125rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 960px) {
+  .home-top,
+  .ruta-hero,
+  .curso-hero,
+  .aula-layout { grid-template-columns: 1fr; }
+
+  .ruta-cover,
+  .curso-cover { max-width: 520px; }
+
+  .aula-main { max-width: none; }
+
+  .aula-side { position: static; }
+
+  .playlist { max-height: 50svh; }
+}
+
+@media (max-width: 640px) {
+  .topbar-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    row-gap: 8px;
+  }
+
+  #mainnav { height: auto; }
+  #mainnav a { height: 44px; padding: 0 8px; }
+  #mainnav a::after { left: 8px; right: 8px; }
+
+  #searchbox { order: 9; flex-basis: 100%; width: 100%; margin-left: 0; }
+
+  #search-input { height: 44px; }
+
+  #resume-chip { max-width: 180px; margin-left: auto; }
+
+  .btn { height: 44px; }
+
+  .filter,
+  .field select { height: 44px; min-height: 44px; }
+
+  .course-grid { grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 14px; }
+
+  .course-card-title { padding: 12px 12px 0; }
+  .course-card-meta { padding: 4px 12px 0; }
+  .course-card-status { padding: 10px 12px 12px; }
+  .course-card-bar { margin-left: 12px; margin-right: 12px; }
+
+  .resume-hero { padding: 22px; }
+  .empty-state { padding: 28px 20px; }
+
+  .module-summary { padding: 13px 14px; }
+  .class-list { padding: 0 6px 8px; }
+}
+
+/* ============================================================
+   Movimiento reducido
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .view { animation: none; }
+  .progressbar-fill { animation: none; }
+
+  .btn:hover,
+  .btn-ghost:hover,
+  .route-card:hover,
+  .course-card:hover { transform: none; }
+}

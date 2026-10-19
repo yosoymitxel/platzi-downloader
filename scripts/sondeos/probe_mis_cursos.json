@@ -1,0 +1,1394 @@
+{
+  "api_hits": [
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v1/experiments/state/",
+      "ct": "application/json",
+      "body": {
+        "experiments": [
+          {
+            "name": "b2b_landing_full_page_price_form_and_checkout_August_04_2026",
+            "cookieName": "b2b_landing_v2",
+            "variants": {
+              "A": "control",
+              "B": "price_form_and_checkout"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "checkout_visual_refresh_august_2026",
+            "cookieName": "checkout_refresh",
+            "variants": {
+              "A": "control",
+              "B": "refresh"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "courses_explore_page_september_18_2026",
+            "cookieName": "new_courses_page",
+            "variants": {
+              "A": "control",
+              "B": "explora"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "email_gate_before_free_classes_august_12_2026",
+            "cookieName": "mv-free-preview",
+            "variants": {
+              "A": "control",
+              "B": "email_gate",
+              "B_unlocked": "email_gate"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "growth_banner_estudiante_precios_september_24_2026",
+            "cookieName": "student_banner_prices",
+            "variants": {
+              "A": "control",
+              "B": "no_student_banner"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "growth_home_search_bar_september_25_2026",
+            "cookieName": "home_search",
+            "variants": {
+              "A": "control",
+              "B": "search_bar"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "growth_thematic_course_hero_october_6_2026",
+            "cookieName": "thematic_courses",
+            "variants": {
+              "A": "control",
+              "B": "thematic_hero"
+            },
+            "paths": null,
+            "isActive": true,
+            "winnerVariant": null
+          },
+          {
+            "name": "home_explore_page_september_22_2026",
+            "cookieName": "home_redirect",
+            "variants": {
+              "A": "control",
+              "B": "explora"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "home_explore_page_september_23_2026",
+            "cookieName": "home_explore",
+            "variants": {
+              "A": "control",
+              "B": "explora"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "mv_paywall_gate_september_8_2026",
+            "cookieName": "mv_paywall",
+            "variants": {
+              "A": "control",
+              "A_unlocked": "control",
+              "B": "paywall_gate"
+            },
+            "paths": null,
+            "isActive": true,
+            "winnerVariant": null
+          },
+          {
+            "name": "pricing_visual_refresh_september_9_2026",
+            "cookieName": "price_refresh",
+            "variants": {
+              "A": "control",
+              "B": "refresh"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "public_home_redesign_august_26_2026",
+            "cookieName": "public_home_test",
+            "variants": {
+              "A": "control",
+              "B": "redesign"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "radiance_mv_redesign_september_10_2026",
+            "cookieName": "new-mv",
+            "variants": {
+              "A": "control",
+              "B": "redesign"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          }
+        ]
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/api/v5/users/credentials/",
+      "ct": "application/json",
+      "body": {
+        "ok": "Token generated",
+        "token": {
+          "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxIiwiYXVkIjoiYTVjMjgzOTAtMjc1Zi00MGZmLWE5MmUtYTU4NTRhOWI4MWE5Iiwic3ViIjoiNTE4MTA4IiwiYWN0IjoiNTA4NzI2IiwiY2lkIjoiMCIsImV4cCI6MTc5MjQyMTMzNiwianRpIjoiYTVjMjgzOTAtMjc1Zi00MGZmLWE5MmUtYTU4NTRhOWI4MWE5IiwiYWxsb3dlZC1yb2xlcyI6WyJhbm9ueW1vdXMiLCJzdHVkZW50Il0sImRlZmF1bHQtcm9sZSI6InN0dWRlbnQifQ.YtnYO7Szv-4SFwa4TibCeiJ0_4XF2E3H_mo6jKg0nL8",
+          "exp": 1792421336,
+          "microservices": {
+            "sif_url": "https://api.platzi.com/sif/",
+            "enigma_url": "https://api.platzi.com/enigma/",
+            "gossip_url": "https://api.platzi.com/gossip/",
+            "b2b_auth_url": "https://api.platzi.com/b2b-auth/",
+            "search_url": "https://api.platzi.com/search/",
+            "challenges_url": "https://api.platzi.com/challenges/",
+            "forms_url": "https://api.platzi.com/forms/",
+            "ms_url": "https://api.platzi.com",
+            "sls_url": "https://api-sls.platzi.com/prod/",
+            "sls2_url": "https://api-sls.platzi.com/production"
+          },
+          "headers": {
+            "api-is-logged": "true"
+          }
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v5/users/credentials/",
+      "ct": "application/json",
+      "body": {
+        "ok": "Token generated",
+        "token": {
+          "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxIiwiYXVkIjoiZWY1MjcyMWUtYzRmYS00MDRiLWE5OWQtY2IwZTE4MWExMDBjIiwic3ViIjoiNTE4MTA4IiwiYWN0IjoiNTA4NzI2IiwiY2lkIjoiMCIsImV4cCI6MTc5MjQyMTMzNiwianRpIjoiZWY1MjcyMWUtYzRmYS00MDRiLWE5OWQtY2IwZTE4MWExMDBjIiwiYWxsb3dlZC1yb2xlcyI6WyJhbm9ueW1vdXMiLCJzdHVkZW50Il0sImRlZmF1bHQtcm9sZSI6InN0dWRlbnQifQ.uPFugTAVqmM78JiNTA-O_U5HTUULVyZtZAQZdLw9dKE",
+          "exp": 1792421336,
+          "microservices": {
+            "sif_url": "https://api.platzi.com/sif/",
+            "enigma_url": "https://api.platzi.com/enigma/",
+            "gossip_url": "https://api.platzi.com/gossip/",
+            "b2b_auth_url": "https://api.platzi.com/b2b-auth/",
+            "search_url": "https://api.platzi.com/search/",
+            "challenges_url": "https://api.platzi.com/challenges/",
+            "forms_url": "https://api.platzi.com/forms/",
+            "ms_url": "https://api.platzi.com",
+            "sls_url": "https://api-sls.platzi.com/prod/",
+            "sls2_url": "https://api-sls.platzi.com/production"
+          },
+          "headers": {
+            "api-is-logged": "true"
+          }
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v5/banner-data/",
+      "ct": "application/json",
+      "body": {
+        "data": {
+          "status": "promo",
+          "end_date": "2026-10-29T04:29:39.887151+00:00",
+          "pricing": {
+            "flag": "https://static.platzi.com/media/flags/PY.png",
+            "price": "1.990.000"
+          },
+          "previous_price": {
+            "flag": "https://static.platzi.com/media/flags/PY.png",
+            "price": "1.990.000"
+          },
+          "saving": {
+            "flag": "https://static.platzi.com/media/flags/PY.png",
+            "price": ""
+          },
+          "url": "/quiero-renovar/?source=banner",
+          "secondary_logo": "",
+          "primary_logo": "",
+          "primary_logo_mobile": "https://static.platzi.com/media/banners/Logo_mobile.png",
+          "primary_color": "linear-gradient(90deg, #0CD482 0.24%, #0CA5D8 100%)",
+          "secondary_color": "#fff",
+          "tertiary_color": "#fff",
+          "font_color": "#1B1E24",
+          "cta_color": "#10161F",
+          "cta_font_color": "#fff",
+          "lang": "es",
+          "msi_banner": false,
+          "installments_banner": null,
+          "pre_banner_text": "",
+          "banner_text": "Sigue aprendiendo Inglés, Desarrollo Web, AI, y más.",
+          "promo": "",
+          "useWhitePaymentMethods": "https://static.platzi.com/static/images/blackfriday-2020/visa-mastercard@2x.122d838cad13.png",
+          "show_counter": true,
+          "has_pricing": false,
+          "is_platzi_day_registered": false,
+          "messages": {
+            "PromoBanner.cta": "Renueva ahora",
+            "countdown_text": "Termina en:",
+            "PromoBanner_details_previous_saving": "Ahorras:"
+          },
+          "mobile_cta_text": "",
+          "mobile_cta_color": "#FFF",
+          "mobile_cta_font_color": "#000",
+          "mobile_countdown_text": "",
+          "mobile_countdown_font_color": "#000",
+          "mobile_countdown_background_color": "#FFF",
+          "mobile_font_color": "#03091E",
+          "mobile_primary_color": "#CDEEDF",
+          "mobile_secondary_color": "#FFFFF",
+          "mobile_tertiary_color": "#FFFFF",
+          "phone_background_image": "",
+          "tablet_background_image": "",
+          "mobile_logo": "",
+          "active": true,
+          "theme": "default"
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/tinkerbell/api/v3/notifications/?filter_by=default&offset=0",
+      "ct": "application/json",
+      "body": {
+        "data": [],
+        "metadata": {
+          "count": 0,
+          "limit": 20,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/api/v1/components/headerv2/user/",
+      "ct": "application/json",
+      "body": {
+        "lastCourse": [
+          {
+            "approved": "",
+            "badge": "",
+            "career": "",
+            "completed": 0,
+            "id": "",
+            "exam_url": "",
+            "slug": "",
+            "title": "",
+            "url": ""
+          }
+        ],
+        "avatar": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+        "points": "20.183",
+        "name": "Miguel",
+        "username": "YosoyMitxel",
+        "email": "yosoymitxel@gmail.com",
+        "profileUrl": "/p/YosoyMitxel/",
+        "userId": 518108,
+        "plan": "Platzi Expert",
+        "subscriptionTime": "2026-10-28T18:29:39-05:00",
+        "installments": true,
+        "referalUrl": "https://platzi.com/r/YosoyMitxel/",
+        "isAuthenticated": true,
+        "userType": "pay_annual",
+        "phoneNumber": "991263062",
+        "phoneCode": "PY",
+        "country": "",
+        "isBundleUser": null,
+        "learningPathsAllowed": -1,
+        "publicName": "Miguel R. Leon",
+        "paymentSuccessful": false,
+        "pricePlan": "",
+        "pastDue": false,
+        "pastDueError": {},
+        "cardPending": false,
+        "nextBillingDate": "",
+        "emailNotValidated": false,
+        "role": "student",
+        "organizationSlug": "clases",
+        "showAcademyPlan": false,
+        "registeredForPlatziDay": true,
+        "isB2B": false,
+        "companyId": null,
+        "companyName": null,
+        "companySlug": null,
+        "companySegment": "",
+        "companyPlan": null,
+        "licenseEndDate": null,
+        "companyLogo": null,
+        "companySkillsSlug": null,
+        "referenced_data": null,
+        "subscription_months": 18,
+        "show_NPS": false,
+        "dateJoined": "2018-02-09T19:53:55+00:00",
+        "expiredCard": false,
+        "hasRenewalBanner": false,
+        "is_teacher": false,
+        "is_company_admin": false,
+        "is_company_manager": false
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/tinkerbell/api/v3/notifications/?filter_by=comment&filter_by_original_types=discussion,material,comment&only_unseen=1&limit=1&offset=0",
+      "ct": "application/json",
+      "body": {
+        "data": [],
+        "metadata": {
+          "count": 0,
+          "limit": 1,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/api/v4/materials/progress/all-courses/",
+      "ct": "application/json",
+      "body": {
+        "5": {
+          "category": "Desarrollo e Ingeniería",
+          "courses": [
+            {
+              "course_id": 9342,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de OWASP Top 10: Riesgos en Aplicaciones",
+              "badge": "https://static.platzi.com/media/achievements/badge_curso_owasp-c19ad408-0d77-4961-af14-24401fb0654b.png",
+              "watched_at": "2026-09-28 15:28:18.289040+00:00",
+              "material": {
+                "id": 68378,
+                "title": "Ataques de fuerza bruta y cómo detenerlos",
+                "url": "/cursos/owasp-top-10/ataques-de-fuerza-bruta-y-como-detenerlo/",
+                "duration": 443
+              },
+              "total_materials": 15,
+              "pos_material": 5
+            },
+            {
+              "course_id": 13808,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Spec Driven Development",
+              "badge": "https://static.platzi.com/media/achievements/a92d9f31-80d7-4900-9ff2-4ef686a5219a-4e498fba-942d-4c81-9e58-51048f45cd7c.png",
+              "watched_at": "2026-09-17 13:54:52.847107+00:00",
+              "material": {
+                "id": 105917,
+                "title": "Comando Plan: de la Spec al código",
+                "url": "/cursos/spec-driven-dev/comando-plan-de-spec-kit-de-especificaci/",
+                "duration": 255
+              },
+              "total_materials": 13,
+              "pos_material": 7
+            },
+            {
+              "course_id": 11997,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Fundamentos de Ingeniería de Software",
+              "badge": "https://static.platzi.com/media/achievements/piezas-fundamentosde-ingenieria-de-software_badge-d9c5b559-837f-44a3-8543-d_bkcvYTp.png",
+              "watched_at": "2026-09-13 15:59:13.892168+00:00",
+              "material": {
+                "id": 77417,
+                "title": "Cómo funciona una red neuronal por dentro",
+                "url": "/cursos/ingenieria/como-funciona-una-red-neuronal-por-dentr/",
+                "duration": 692
+              },
+              "total_materials": 24,
+              "pos_material": 24
+            },
+            {
+              "course_id": 2431,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Programación 2D con Unity: Intermedio",
+              "badge": "https://static.platzi.com/media/achievements/badge-unity-1b60ab2d-2e8b-48e8-a59c-042a1f902554.png",
+              "watched_at": "2026-09-13 15:45:49.531406+00:00",
+              "material": {
+                "id": 39957,
+                "title": "Observer",
+                "url": "/cursos/unity2dintermedio/39957-observer/",
+                "duration": 829
+              },
+              "total_materials": 31,
+              "pos_material": 10
+            },
+            {
+              "course_id": 8154,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Estándares y  Buenas Prácticas para API REST con Laravel",
+              "badge": "https://static.platzi.com/media/achievements/piezas-apis-desarrollo-estandares-practicas-badge-2cf12830-6e98-416a-a42c-d7ee26655.png",
+              "watched_at": "2026-09-13 15:44:46.376398+00:00",
+              "material": {
+                "id": 65181,
+                "title": "Pruebas de Creación de Datos en Aplicaciones Web",
+                "url": "/cursos/buenas-practicas-api/testing-metodo-store/",
+                "duration": 457
+              },
+              "total_materials": 29,
+              "pos_material": 4
+            },
+            {
+              "course_id": 13070,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Pensamiento Crítico para usar Inteligencia Artificial",
+              "badge": "https://static.platzi.com/media/achievements/piezas-pensamiento-critico-usar-inteligencia-artificial-badge-ad492d86-8c72_6ys3z8u.png",
+              "watched_at": "2026-06-14 14:14:47.017728+00:00",
+              "material": {
+                "id": 98867,
+                "title": "Define el resultado que esperas antes de pedirlo",
+                "url": "/cursos/pensamiento-critico-ia/como-definir-que-es-un-buen-resultado-co/",
+                "duration": 287
+              },
+              "total_materials": 17,
+              "pos_material": 8
+            },
+            {
+              "course_id": 13017,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Fundamentos de Bases de Datos y SQL",
+              "badge": "https://static.platzi.com/media/achievements/piezas-fundamentos-bases-datos-sql-server-badge-96faf80d-23cd-49bb-b7be-64f_dcUPgvP.png",
+              "watched_at": "2026-06-13 22:57:19.210911+00:00",
+              "material": {
+                "id": 98231,
+                "title": "Diagrama ER con notación crow's foot",
+                "url": "/cursos/fundamentos-bbdd-sql/construir-el-diagrama-er-con-notacion-cr/",
+                "duration": 462
+              },
+              "total_materials": 25,
+              "pos_material": 2
+            },
+            {
+              "course_id": 12852,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Herramientas de AI para Developers",
+              "badge": "https://static.platzi.com/media/achievements/piezas-ai-developers-badge-3188f4a8-86fb-4b3a-bd1f-bbe309ae6a8f.png",
+              "watched_at": "2026-05-01 21:11:14.847397+00:00",
+              "material": {
+                "id": 94945,
+                "title": "Cómo generar planes técnicos con Claude Code, Cursor y Windsurf",
+                "url": "/cursos/devs-ai-tools/como-generar-planes-tecnicos-con-cloud-c/",
+                "duration": 1100
+              },
+              "total_materials": 13,
+              "pos_material": 3
+            },
+            {
+              "course_id": 12851,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de OpenClaw",
+              "badge": "https://static.platzi.com/media/achievements/5138119d-5d99-47e7-97f1-3240ab3151ef-c0bf4ea2-b112-4a6b-85ac-1d3b5a689ecd.png",
+              "watched_at": "2026-04-18 13:17:10.995851+00:00",
+              "material": {
+                "id": 95859,
+                "title": "Sesiones y memoria en OpenClaw",
+                "url": "/cursos/openclaw-2026/sesiones-y-memoria-en-openclaw/",
+                "duration": 249
+              },
+              "total_materials": 13,
+              "pos_material": 11
+            },
+            {
+              "course_id": 12057,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Introducción a DevOps",
+              "badge": "https://static.platzi.com/media/achievements/piezas-introduccion-devops-badge-5c894ee6-1f2d-4861-85f3-fdc5ae1757fa.png",
+              "watched_at": "2026-02-07 21:19:09.972327+00:00",
+              "material": {
+                "id": 77928,
+                "title": "Las ocho etapas del proceso DevOps",
+                "url": "/cursos/introduccion-devops/las-ocho-etapas-del-proceso-devops/",
+                "duration": 287
+              },
+              "total_materials": 22,
+              "pos_material": 19
+            },
+            {
+              "course_id": 12546,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Gemini",
+              "badge": "https://static.platzi.com/media/achievements/a83591ca-8d6f-4ced-9dcd-7a39a9da4e59-1be3c029-3247-4f9c-b311-2020714cadaf.png",
+              "watched_at": "2026-02-07 16:42:43.870651+00:00",
+              "material": {
+                "id": 87574,
+                "title": "Cómo personalizar Gemini con memoria e instrucciones",
+                "url": "/cursos/gemini/como-personalizar-gemini-con-memoria-e-i/",
+                "duration": 633
+              },
+              "total_materials": 26,
+              "pos_material": 3
+            },
+            {
+              "course_id": 12187,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Laravel",
+              "badge": "https://static.platzi.com/media/achievements/laravel-badge-design-b4986ea1-3b55-4ca5-982d-2bbf0c08b0ff.png",
+              "watched_at": "2026-02-06 12:04:30.496786+00:00",
+              "material": {
+                "id": 81359,
+                "title": "Guardar comentarios en tiempo real con Livewire",
+                "url": "/cursos/desarrollo-laravel/guardar-comentarios-en-tiempo-real-con-l/",
+                "duration": 380
+              },
+              "total_materials": 25,
+              "pos_material": 15
+            },
+            {
+              "course_id": 2185,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de API REST con Laravel",
+              "badge": "https://static.platzi.com/media/achievements/badge-api-rest-laravel-b7b91364-00ac-4f2b-8b2a-e30a95211d4b.png",
+              "watched_at": "2026-02-01 11:10:50.321580+00:00",
+              "material": {
+                "id": 34821,
+                "title": "Planificación y Configuración de una API en PHP",
+                "url": "/cursos/laravel-api/version-1-planificacion-y-configuracion-inicial/",
+                "duration": 472
+              },
+              "total_materials": 18,
+              "pos_material": 16
+            },
+            {
+              "course_id": 3039,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Introducción a Laravel 9",
+              "badge": "https://static.platzi.com/media/achievements/piezas-introduccion-laravel-9_badge-ae8f5224-b3e1-4dea-8ee6-bc727118d9fb.png",
+              "watched_at": "2026-02-01 10:49:56.473931+00:00",
+              "material": {
+                "id": 49387,
+                "title": "Qué es un framework y cómo lo usa Laravel",
+                "url": "/cursos/laravel/que-es-un-framework-y-como-lo-usa-larave/",
+                "duration": 348
+              },
+              "total_materials": 31,
+              "pos_material": 1
+            },
+            {
+              "course_id": 1842,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Introducción a Laravel 6",
+              "badge": "https://static.platzi.com/media/achievements/badge-introduccion-laravel-d20f3aa8-53fc-4a0e-aa7f-69c750d4ccbb.png",
+              "watched_at": "2026-01-30 17:25:33.876826+00:00",
+              "material": {
+                "id": 27095,
+                "title": "Desarrollo web con Laravel: proyectos y funcionalidades clave",
+                "url": "/cursos/intro-laravel-2020/que-es-laravel/",
+                "duration": 331
+              },
+              "total_materials": 37,
+              "pos_material": 7
+            },
+            {
+              "course_id": 8847,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Next.js 14",
+              "badge": "https://static.platzi.com/media/achievements/piezas-next-js-14-badge-2b752e1b-0717-444a-9199-698ef5f4eb87.png",
+              "watched_at": "2026-01-27 14:23:09.230832+00:00",
+              "material": {
+                "id": 66963,
+                "title": "Implementación de Chatbots con Next.js y Vercel AI SDK",
+                "url": "/cursos/nextjs-14/creando-componente-de-chatbot-de-ventas-con-la-sdk/",
+                "duration": 644
+              },
+              "total_materials": 57,
+              "pos_material": 2
+            },
+            {
+              "course_id": 12028,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de N8N",
+              "badge": "https://static.platzi.com/media/achievements/piezas-n8n-badge-c0cdc7c6-25eb-4135-b183-c42ce1486d71.png",
+              "watched_at": "2026-01-26 15:47:07.443822+00:00",
+              "material": {
+                "id": 79176,
+                "title": "Mapping Receipt Data to Google Sheets with AI",
+                "url": "/cursos/n8n-2025/mapping-receipt-data-to-google-sheets-wi/",
+                "duration": 520
+              },
+              "total_materials": 23,
+              "pos_material": 23
+            },
+            {
+              "course_id": 3336,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso Introductorio de Desarrollo de Videojuegos con Godot",
+              "badge": "https://static.platzi.com/media/achievements/piezas-introduccion-godot_badge-e5f112c8-f56e-4d75-be52-88bb26a76cf7.png",
+              "watched_at": "2026-01-04 19:11:29.771460+00:00",
+              "material": {
+                "id": 53488,
+                "title": "Crea tu primer videojuego con Godot",
+                "url": "/cursos/introduccion-godot/crea-tu-primer-videojuego-con-godot/",
+                "duration": 157
+              },
+              "total_materials": 16,
+              "pos_material": 13
+            },
+            {
+              "course_id": 10992,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Figma",
+              "badge": "https://static.platzi.com/media/achievements/badge-5-9501581e-8659-4d2e-ad5f-40355c5bed1b.png",
+              "watched_at": "2025-12-03 12:52:52.328592+00:00",
+              "material": {
+                "id": 72403,
+                "title": "Tipografía en UI: jerarquía con Manrope y Figma",
+                "url": "/cursos/basico-figma/tipografia-en-ui-jerarquia-con-manrope-y/",
+                "duration": 475
+              },
+              "total_materials": 22,
+              "pos_material": 4
+            },
+            {
+              "course_id": 2556,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Introducción a React Native",
+              "badge": "https://static.platzi.com/media/achievements/badge-intro-react-native-076af124-2d8f-4d5f-a146-1340eb2b7a2b.png",
+              "watched_at": "2025-11-14 18:59:11.684070+00:00",
+              "material": {
+                "id": 43525,
+                "title": "Desarrollo de Apps Móviles con React Native y Expo",
+                "url": "/cursos/react-native/como-aprender-react-native-en-platzi/",
+                "duration": 50
+              },
+              "total_materials": 16,
+              "pos_material": 15
+            },
+            {
+              "course_id": 3275,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Azure DevOps: Flujos de CI/CD",
+              "badge": "https://static.platzi.com/media/achievements/badge-azure-devops-c56306b9-e235-4806-bbc6-753edaa9a6a0.png",
+              "watched_at": "2025-09-24 23:16:06.323208+00:00",
+              "material": {
+                "id": 51131,
+                "title": "Crear una organización en Azure DevOps",
+                "url": "/cursos/azure-devops/crear-una-organizacion-en-azure-devops/",
+                "duration": 395
+              },
+              "total_materials": 20,
+              "pos_material": 7
+            },
+            {
+              "course_id": 1583,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Hacking Ético",
+              "badge": "https://static.platzi.com/media/achievements/badge-ethical-hacking-7882aa60-a295-4abd-8891-b60c482700cf.png",
+              "watched_at": "2025-09-17 14:22:44.778372+00:00",
+              "material": {
+                "id": 19724,
+                "title": "Explotación de Vulnerabilidades en Aplicaciones Web",
+                "url": "/cursos/ethical-hacking/practica-cross-site-scripting-command-injection-y/",
+                "duration": 832
+              },
+              "total_materials": 35,
+              "pos_material": 19
+            },
+            {
+              "course_id": 2241,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Guía para Aprender Seguridad Informática",
+              "badge": "https://static.platzi.com/media/achievements/badge-guia-aprender-seguridad-informatica-48e36343-e90d-4efb-80b3-5d7ec22aab5e.png",
+              "watched_at": "2025-09-17 14:18:46.541323+00:00",
+              "material": {
+                "id": 36363,
+                "title": "Código Seguro en el Ciclo de Vida del Desarrollo de Software",
+                "url": "/cursos/guia-seguridad-informatica/codigo-seguro/",
+                "duration": 255
+              },
+              "total_materials": 15,
+              "pos_material": 15
+            },
+            {
+              "course_id": 9443,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Ciberseguridad para Desarrollo Web",
+              "badge": "https://static.platzi.com/media/achievements/og_curso_ciberseguridad_desarrollo_web-03-592e3054-10ec-4744-b607-e1b21e821208.png",
+              "watched_at": "2025-09-17 12:36:54.053844+00:00",
+              "material": {
+                "id": 68740,
+                "title": "Principios AAA de seguridad con AWS IAM",
+                "url": "/cursos/software-seguro/principios-aaa-de-seguridad-con-aws-iam/",
+                "duration": 661
+              },
+              "total_materials": 30,
+              "pos_material": 23
+            },
+            {
+              "course_id": 6339,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Desarrollo de Videojuegos Móviles con Unity",
+              "badge": "https://static.platzi.com/media/achievements/badgedes-videojuegos-unity-mov-e396b23e-5e40-4e81-ab64-9c27afad545d.png",
+              "watched_at": "2025-09-14 13:07:48.722723+00:00",
+              "material": {
+                "id": 59813,
+                "title": "Control de versiones",
+                "url": "/cursos/introduccion-moviles-unity/control-de-versiones/",
+                "duration": 382
+              },
+              "total_materials": 34,
+              "pos_material": 32
+            },
+            {
+              "course_id": 11059,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Git y GitHub",
+              "badge": "https://static.platzi.com/media/achievements/badge-8-738d990a-87e0-488a-b069-6ac164a2790c.png",
+              "watched_at": "2025-09-14 12:40:01.583750+00:00",
+              "material": {
+                "id": 71789,
+                "title": "Git Tag y Checkout sin romper tu proyecto",
+                "url": "/cursos/gitgithub/git-tag-y-checkout-sin-romper-tu-proyect/",
+                "duration": 619
+              },
+              "total_materials": 42,
+              "pos_material": 25
+            },
+            {
+              "course_id": 1717,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Infraestructura Como Código en AWS",
+              "badge": "https://static.platzi.com/media/achievements/badge-infraestructura-codigo-aws-523f9344-e19f-4d04-bd06-8b6c159e95e7.png",
+              "watched_at": "2025-08-30 02:20:44.064347+00:00",
+              "material": {
+                "id": 23536,
+                "title": "Infraestructura como Código en AWS: Despliegue Automatizado Seguro",
+                "url": "/cursos/iaac-aws/bienvenido-al-curso/",
+                "duration": 153
+              },
+              "total_materials": 38,
+              "pos_material": 3
+            },
+            {
+              "course_id": 1973,
+              "course_category": "Desarrollo e Ingeniería",
+              "course_category_id": 5,
+              "title": "Curso de Optimización Web",
+              "badge": "https://static.platzi.com/media/achievements/badge-optimizacion-web-183eef1c-d7e3-4f43-b680-f12f428c6484.png",
+              "watched_at": "2025-06-02 02:02:38.226199+00:00",
+              "material": {
+                "id": 30441,
+                "title": "Optimización de CSS: Reducir Complejidad y Mejorar Rendimiento",
+                "url": "/cursos/web-performance/bloqueos-y-complejidad-en-selectores/",
+                "duration": 819
+              },
+              "total_materials": 38,
+              "pos_material": 16
+            }
+          ]
+        },
+        "17": {
+          "category": "Inglés",
+          "courses": [
+            {
+              "course_id": 10629,
+              "course_category": "Inglés",
+              "course_category_id": 17,
+              "title": "Curso de Inglés Básico A1 para Principiantes",
+              "badge": "https://static.platzi.com/media/achievements/badge-c9748016-2a80-4013-be2e-f744163e7fc9.png",
+              "watched_at": "2026-09-26 23:06:44.123258+00:00",
+              "material": {
+                "id": 71375,
+                "title": "Preguntas en inglés sobre personas y sus roles",
+                "url": "/cursos/ingles-a1-principiantes/preguntas-en-ingles-sobre-personas-y-sus/",
+                "duration": 108
+              },
+              "total_materials": 13,
+              "pos_material": 10
+            },
+            {
+              "course_id": 4988,
+              "course_category": "Inglés",
+              "course_category_id": 17,
+              "title": "Curso de Inglés Básico A2: Preguntas y Respuestas Comunes",
+              "badge": "https://static.platzi.com/media/achievements/badge-ingles-basico-preguntas-respuestas-c0b161f1-dc03-4a53-95fc-aa42e891aa54.png",
+              "watched_at": "2026-09-26 23:00:26.111696+00:00",
+              "material": {
+                "id": 57298,
+                "title": "English Grammar Course Recap Before Your Final Exam",
+                "url": "/cursos/basico-preguntas-respuestas/english-grammar-course-recap-before-your/",
+                "duration": 97
+              },
+              "total_materials": 19,
+              "pos_material": 19
+            },
+            {
+              "course_id": 9243,
+              "course_category": "Inglés",
+              "course_category_id": 17,
+              "title": "Curso de Inglés Básico A2: Sustantivos e Intenciones Futuras",
+              "badge": "https://static.platzi.com/media/achievements/badgea2-adverbvios-ca5f2c5e-db71-4b20-89cd-d4557a6237f7.png",
+              "watched_at": "2026-08-23 14:29:13.497572+00:00",
+              "material": {
+                "id": 68101,
+                "title": "Repaso de Inglés A2: Preguntas, Sugerencias y Futuro",
+                "url": "/cursos/adverbios/repaso-de-ingles-a2-preguntas-sugerencia/",
+                "duration": 126
+              },
+              "total_materials": 20,
+              "pos_material": 13
+            },
+            {
+              "course_id": 12672,
+              "course_category": "Inglés",
+              "course_category_id": 17,
+              "title": "Curso de Inglés Básico A2: Propuestas y Permisos",
+              "badge": "https://static.platzi.com/media/achievements/4f75d6c2-6789-418a-895a-6f40683c13ab-57aecb4e-4f2b-435d-94b8-90cf2b1e09dd.png",
+              "watched_at": "2026-06-03 18:55:59.330241+00:00",
+              "material": {
+                "id": 94804,
+                "title": "Can, could, and would for work requests",
+                "url": "/cursos/english-a2-basics-proposals-permissions/can-could-and-would-for-work-requests/",
+                "duration": 33
+              },
+              "total_materials": 12,
+              "pos_material": 11
+            },
+            {
+              "course_id": 12290,
+              "course_category": "Inglés",
+              "course_category_id": 17,
+              "title": "Curso Gratis de Estrategias para Aprender Inglés en Línea",
+              "badge": "https://static.platzi.com/media/achievements/piezas-curso-gratis-de-estrategias-2025_badge-29dbe44d-fd8a-4a68-b2cd-5f569db2a75a.png",
+              "watched_at": "2026-04-26 12:35:41.743347+00:00",
+              "material": {
+                "id": 84350,
+                "title": "Inglés como hábito diario, no como examen",
+                "url": "/cursos/estrategias-ingles/ingles-como-habito-diario-no-como-examen/",
+                "duration": 85
+              },
+              "total_materials": 10,
+              "pos_material": 10
+            }
+          ]
+        },
+        "11": {
+          "category": "Liderazgo",
+          "courses": [
+            {
+              "course_id": 6570,
+              "course_category": "Liderazgo",
+              "course_category_id": 11,
+              "title": "Curso de Habilidades Blandas para el Desarrollo Profesional",
+              "badge": "https://static.platzi.com/media/achievements/desbloquea-tu-crecimiento-profesional-badge-8d8d6db6-ada4-4c22-ae73-87cb8a976d9a.png",
+              "watched_at": "2026-09-19 09:12:49.903544+00:00",
+              "material": {
+                "id": 59537,
+                "title": "Qué son las habilidades blandas o core skills",
+                "url": "/cursos/habilidades-blandas/que-son-las-habilidades-blandas-o-core-s/",
+                "duration": 463
+              },
+              "total_materials": 15,
+              "pos_material": 6
+            },
+            {
+              "course_id": 1720,
+              "course_category": "Liderazgo",
+              "course_category_id": 11,
+              "title": "Curso de PowerPoint: Elementos Multimedia",
+              "badge": "https://static.platzi.com/media/achievements/badge-powerpoint-064ac3a0-17b9-420c-9fc3-740689e6374d.png",
+              "watched_at": "2026-05-05 18:09:44.564711+00:00",
+              "material": {
+                "id": 23736,
+                "title": "Animaciones y transiciones en PowerPoint paso a paso",
+                "url": "/cursos/microsoft-powerpoint/animaciones-transiciones-y-reproduccion-automatica/",
+                "duration": 745
+              },
+              "total_materials": 13,
+              "pos_material": 8
+            },
+            {
+              "course_id": 1482,
+              "course_category": "Liderazgo",
+              "course_category_id": 11,
+              "title": "Curso de Técnicas de Negociación",
+              "badge": "https://static.platzi.com/media/achievements/badge-tecnicas-negociacion-71637158-019b-4618-8adf-779930797db0.png",
+              "watched_at": "2025-09-24 23:24:19.574808+00:00",
+              "material": {
+                "id": 18323,
+                "title": "Conflictos como Oportunidades de Crecimiento y Diversidad",
+                "url": "/cursos/tecnicas-negociacion/que-es-el-conflicto-conflicto-como-fuerza-positiva/",
+                "duration": 352
+              },
+              "total_materials": 25,
+              "pos_material": 20
+            }
+          ]
+        },
+        "7": {
+          "category": "Marketing",
+          "courses": [
+            {
+              "course_id": 2634,
+              "course_category": "Marketing",
+              "course_category_id": 7,
+              "title": "Curso de Creación de Pitch para Clientes",
+              "badge": "https://static.platzi.com/media/achievements/piezas-creacion-pitch-clientes_badge-ef6e5994-65cc-4567-b00a-41ecee73f73c.png",
+              "watched_at": "2026-07-16 21:55:50.924186+00:00",
+              "material": {
+                "id": 43857,
+                "title": "Elevator Pitch",
+                "url": "/cursos/consultoria-pitch/elevator-pitch/",
+                "duration": 302
+              },
+              "total_materials": 4,
+              "pos_material": 2
+            },
+            {
+              "course_id": 12308,
+              "course_category": "Marketing",
+              "course_category_id": 7,
+              "title": "Curso de Investigación de Mercados y Tendencias",
+              "badge": "https://static.platzi.com/media/achievements/5be8ffed-c617-4fe8-b138-6ab368334f31-38eef026-64de-4028-9404-8ed69ebcc852.png",
+              "watched_at": "2026-04-12 15:06:52.500896+00:00",
+              "material": {
+                "id": 86599,
+                "title": "Qué es un insight y cómo formularlo",
+                "url": "/cursos/investigacion-mercados-tendencias/que-es-un-insight-y-como-formularlo/",
+                "duration": 424
+              },
+              "total_materials": 22,
+              "pos_material": 6
+            },
+            {
+              "course_id": 2191,
+              "course_category": "Marketing",
+              "course_category_id": 7,
+              "title": "Curso de Google Tag Manager para Marketing",
+              "badge": "https://static.platzi.com/media/achievements/badge-google-tag-manager-marketing-b357ad2e-17b0-456b-a7de-149d0a10e3cf.png",
+              "watched_at": "2025-06-19 11:38:36.698206+00:00",
+              "material": {
+                "id": 35567,
+                "title": "Seguimiento de Scroll en Google Analytics con Tag Manager",
+                "url": "/cursos/gtm-marketing/rastrear-el-nivel-de-lectura-de-pagina/",
+                "duration": 695
+              },
+              "total_materials": 27,
+              "pos_material": 17
+            }
+          ]
+        },
+        "120": {
+          "category": "Habilidades Blandas",
+          "courses": [
+            {
+              "course_id": 12966,
+              "course_category": "Habilidades Blandas",
+              "course_category_id": 120,
+              "title": "Curso de Oratoria Profesional",
+              "badge": "https://static.platzi.com/media/achievements/85390739-3c00-4144-a8d3-1873c3d59cec-6b46609b-b88c-4008-9e65-3fd02af3d130.png",
+              "watched_at": "2026-05-13 13:35:45.336446+00:00",
+              "material": {
+                "id": 97385,
+                "title": "Por qué dar menos información persuade más",
+                "url": "/cursos/oratoria-profesional/por-que-dar-menos-informacion-persuade-m/",
+                "duration": 309
+              },
+              "total_materials": 15,
+              "pos_material": 5
+            }
+          ]
+        },
+        "16": {
+          "category": "Startups",
+          "courses": [
+            {
+              "course_id": 4887,
+              "course_category": "Startups",
+              "course_category_id": 16,
+              "title": "Taller de Pitch para Startups",
+              "badge": "https://static.platzi.com/media/achievements/piezas-pitch-startups-badge-ddd6a7d3-f92f-4aec-a383-b28a4a15e36e.png",
+              "watched_at": "2026-04-29 14:23:26.239083+00:00",
+              "material": {
+                "id": 56614,
+                "title": "Cómo hacer un pitch de 3 minutos para startups exitoso",
+                "url": "/cursos/taller-de-pitch-para-startups/como-hacer-un-pitch-de-3-minutos-para-st/",
+                "duration": 305
+              },
+              "total_materials": 5,
+              "pos_material": 1
+            }
+          ]
+        },
+        "6": {
+          "category": "Diseño y UX",
+          "courses": [
+            {
+              "course_id": 3309,
+              "course_category": "Diseño y UX",
+              "course_category_id": 6,
+              "title": "Curso de Innovación y Creación de Productos",
+              "badge": "https://static.platzi.com/media/achievements/badge-innovacion-productos-1-2f54828f-7888-4dd4-81b5-55a99bc98b34.png",
+              "watched_at": "2026-02-21 13:02:58.239407+00:00",
+              "material": {
+                "id": 52513,
+                "title": "Cómo construir tu propuesta de valor",
+                "url": "/cursos/innovacion-producto/como-construir-tu-propuesta-de-valor/",
+                "duration": 804
+              },
+              "total_materials": 20,
+              "pos_material": 12
+            }
+          ]
+        },
+        "8": {
+          "category": "Negocios y Emprendimiento",
+          "courses": [
+            {
+              "course_id": 1974,
+              "course_category": "Negocios y Emprendimiento",
+              "course_category_id": 8,
+              "title": "Curso de Project Management con PMBOK",
+              "badge": "https://static.platzi.com/media/achievements/badge_-gestion-proyecto-pmbok_-c7a3b763-cca7-4bec-8ecc-73371f1aa49d.png",
+              "watched_at": "2026-01-19 11:54:10.021906+00:00",
+              "material": {
+                "id": 30273,
+                "title": "Gestión de Proyectos: Conceptos Clave y Habilidades Prácticas",
+                "url": "/cursos/proyectos-pmbok/ejerciendo-la-gestion-de-proyectos/",
+                "duration": 317
+              },
+              "total_materials": 20,
+              "pos_material": 3
+            },
+            {
+              "course_id": 3148,
+              "course_category": "Negocios y Emprendimiento",
+              "course_category_id": 8,
+              "title": "Curso de Management en Tecnología",
+              "badge": "https://static.platzi.com/media/achievements/badge-manage-tech-9b28973a-97bb-4d67-9169-7d8a5717683f.png",
+              "watched_at": "2025-12-27 18:09:34.957059+00:00",
+              "material": {
+                "id": 49713,
+                "title": "De cero a tech lead: la carrera sin atajos",
+                "url": "/cursos/managementtecnologia/de-cero-a-tech-lead-la-carrera-sin-atajo/",
+                "duration": 193
+              },
+              "total_materials": 17,
+              "pos_material": 15
+            },
+            {
+              "course_id": 1940,
+              "course_category": "Negocios y Emprendimiento",
+              "course_category_id": 8,
+              "title": "Curso de Educación Financiera y Finanzas Personales",
+              "badge": "https://static.platzi.com/media/achievements/badge-finanzas-personales-75328b67-b53d-405d-80dc-a100a22008ce.png",
+              "watched_at": "2025-09-09 13:50:39.759786+00:00",
+              "material": {
+                "id": 29255,
+                "title": "Evaluación Objetiva de Finanzas Personales: Ingresos, Deudas y Activos",
+                "url": "/cursos/finanzas/como-evaluar-objetivamente-nuestra-situacion-finan/",
+                "duration": 754
+              },
+              "total_materials": 24,
+              "pos_material": 23
+            },
+            {
+              "course_id": 12191,
+              "course_category": "Negocios y Emprendimiento",
+              "course_category_id": 8,
+              "title": "Curso de Excel Básico",
+              "badge": "https://static.platzi.com/media/achievements/piezas-curso-excel-basico-badge-3471057d-5e76-487f-b511-9ec4dff425e8.png",
+              "watched_at": "2025-08-03 14:08:53.080364+00:00",
+              "material": {
+                "id": 81741,
+                "title": "Interfaz básica de Excel: elementos y navegación esencial",
+                "url": "/cursos/excel-basico/interfaz-basica-de-excel-elementos-y-nav/",
+                "duration": 503
+              },
+              "total_materials": 23,
+              "pos_material": 5
+            }
+          ]
+        },
+        "10": {
+          "category": "Contenido Digital",
+          "courses": [
+            {
+              "course_id": 2453,
+              "course_category": "Contenido Digital",
+              "course_category_id": 10,
+              "title": "Curso de Fundamentos de la Composición de Canciones",
+              "badge": "https://static.platzi.com/media/achievements/badge-curso-como-componer-canciones-43e06c79-8529-4ebf-b547-e86b56f3065d.png",
+              "watched_at": "2025-12-10 14:14:00.546598+00:00",
+              "material": {
+                "id": 41147,
+                "title": "Elementos Fundamentales de una Canción: Letra, Melodía, Ritmo y Armonía",
+                "url": "/cursos/composicion-canciones/letra-melodia-ritmo-armonia/",
+                "duration": 515
+              },
+              "total_materials": 16,
+              "pos_material": 16
+            }
+          ]
+        },
+        "9": {
+          "category": "Comunidad",
+          "courses": [
+            {
+              "course_id": 12277,
+              "course_category": "Comunidad",
+              "course_category_id": 9,
+              "title": "Platzi Conf Bogotá 2025",
+              "badge": "https://static.platzi.com/media/achievements/piezas-conf-bogota_2025_badge-699c55c8-642a-4561-9faa-f745810ee390.png",
+              "watched_at": "2025-09-15 23:50:15.314255+00:00",
+              "material": {
+                "id": 83376,
+                "title": "Qué nos falta para ser potencia en tecnología - Freddy Vega y Christian Van der Henst",
+                "url": "/cursos/confbogota2025/que-nos-falta-para-ser-potencia-en-tecnologia-tipo/",
+                "duration": 3222
+              },
+              "total_materials": 33,
+              "pos_material": 14
+            }
+          ]
+        }
+      }
+    },
+    {
+      "status": 403,
+      "url": "https://platzi.com/api/bff/payments/my-subscription-perk/",
+      "ct": "application/json",
+      "body": {}
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/datars/v1/events/sourceConfig?p=npm&v=3.24.3&build=modern&writeKey=proxy-managed&lockIntegrationsVersion=true&lockPluginsVersion=true",
+      "ct": "application/json",
+      "body": {
+        "source": {
+          "id": "2zyavsXKl4WwVNAx7Iwktydd3nB",
+          "name": "Platzi-CF-Events",
+          "writeKey": "proxy-managed",
+          "config": {
+            "statsCollection": {
+              "errors": {
+                "enabled": false
+              },
+              "metrics": {
+                "enabled": false
+              }
+            }
+          },
+          "enabled": true,
+          "workspaceId": "2zyaHnMjQROzN9cQnIeWHTIwMqj",
+          "destinations": [
+            {
+              "id": "3FJtodMKYakGCOIvYpOMJCvRY4b",
+              "name": "Tag Manager",
+              "enabled": true,
+              "config": {
+                "containerID": "GTM-MRHH59DB",
+                "serverUrl": "https://platzi.com",
+                "blacklistedEvents": [],
+                "whitelistedEvents": [
+                  {
+                    "eventName": "payment_info_added"
+                  }
+                ],
+                "consentManagement": [],
+                "eventFilteringOption": "whitelistedEvents",
+                "environmentID": "env-1",
+                "authorizationToken": "zqTGoIP5vizRoJ_Qt04WZQ"
+              },
+              "destinationDefinitionId": "1X6kXapk8Sf8yZTJn1dYZO3OXFt",
+              "destinationDefinition": {
+                "name": "GTM",
+                "displayName": "Google Tag Manager"
+              },
+              "updatedAt": "2026-09-29T20:56:15.239Z",
+              "shouldApplyDeviceModeTransformation": false,
+              "propagateEventsUntransformedOnError": false,
+              "version": 1
+            }
+          ],
+          "updatedAt": "2026-10-16T17:17:10.278Z",
+          "dataplanes": {}
+        },
+        "updatedAt": "2026-10-18T14:54:19.258Z",
+        "consentManagementMetadata": {
+          "providers": [
+            {
+              "provider": "oneTrust",
+              "resolutionStrategy": "and"
+            },
+            {
+              "provider": "ketch",
+              "resolutionStrategy": "or"
+            },
+            {
+              "provider": "iubenda",
+              "resolutionStrategy": "or"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/profile/v2/streaks/",
+      "ct": "application/json; charset=UTF-8",
+      "body": {
+        "data": {
+          "streak": 0,
+          "current_streak": 1,
+          "streak_completed": false,
+          "total_materials": 0,
+          "streak_message": ""
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v4/lives/",
+      "ct": "application/json",
+      "body": {
+        "data": []
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v6/events/tickets/",
+      "ct": "application/json",
+      "body": {
+        "count": 0,
+        "next": null,
+        "previous": null,
+        "results": []
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/tinkerbell/api/v3/notifications/?filter_by=undefined&offset=0",
+      "ct": "application/json",
+      "body": {
+        "data": [],
+        "metadata": {
+          "count": 0,
+          "limit": 20,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/datars/v1/events/v1/identify",
+      "ct": "application/json",
+      "body": {
+        "success": true
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/datars/v1/events/v1/page",
+      "ct": "application/json",
+      "body": {
+        "success": true
+      }
+    }
+  ],
+  "links_cursos": [
+    "/cursos/",
+    "/cursos/owasp-top-10/ataques-de-fuerza-bruta-y-como-detenerlo/",
+    "/cursos/spec-driven-dev/comando-plan-de-spec-kit-de-especificaci/",
+    "/cursos/ingenieria/como-funciona-una-red-neuronal-por-dentr/",
+    "/cursos/unity2dintermedio/39957-observer/",
+    "/cursos/buenas-practicas-api/testing-metodo-store/",
+    "/cursos/pensamiento-critico-ia/como-definir-que-es-un-buen-resultado-co/",
+    "/cursos/fundamentos-bbdd-sql/construir-el-diagrama-er-con-notacion-cr/",
+    "/cursos/devs-ai-tools/como-generar-planes-tecnicos-con-cloud-c/",
+    "/cursos/openclaw-2026/sesiones-y-memoria-en-openclaw/",
+    "/cursos/introduccion-devops/las-ocho-etapas-del-proceso-devops/",
+    "/cursos/gemini/como-personalizar-gemini-con-memoria-e-i/",
+    "/cursos/desarrollo-laravel/guardar-comentarios-en-tiempo-real-con-l/",
+    "/cursos/laravel-api/version-1-planificacion-y-configuracion-inicial/",
+    "/cursos/laravel/que-es-un-framework-y-como-lo-usa-larave/",
+    "/cursos/intro-laravel-2020/que-es-laravel/",
+    "/cursos/nextjs-14/creando-componente-de-chatbot-de-ventas-con-la-sdk/",
+    "/cursos/n8n-2025/mapping-receipt-data-to-google-sheets-wi/",
+    "/cursos/introduccion-godot/crea-tu-primer-videojuego-con-godot/",
+    "/cursos/basico-figma/tipografia-en-ui-jerarquia-con-manrope-y/",
+    "/cursos/react-native/como-aprender-react-native-en-platzi/",
+    "/cursos/azure-devops/crear-una-organizacion-en-azure-devops/",
+    "/cursos/ethical-hacking/practica-cross-site-scripting-command-injection-y/",
+    "/cursos/guia-seguridad-informatica/codigo-seguro/",
+    "/cursos/software-seguro/principios-aaa-de-seguridad-con-aws-iam/",
+    "/cursos/introduccion-moviles-unity/control-de-versiones/",
+    "/cursos/gitgithub/git-tag-y-checkout-sin-romper-tu-proyect/",
+    "/cursos/iaac-aws/bienvenido-al-curso/",
+    "/cursos/web-performance/bloqueos-y-complejidad-en-selectores/",
+    "/cursos/innovacion-producto/como-construir-tu-propuesta-de-valor/",
+    "/cursos/consultoria-pitch/elevator-pitch/",
+    "/cursos/investigacion-mercados-tendencias/que-es-un-insight-y-como-formularlo/",
+    "/cursos/gtm-marketing/rastrear-el-nivel-de-lectura-de-pagina/",
+    "/cursos/proyectos-pmbok/ejerciendo-la-gestion-de-proyectos/",
+    "/cursos/managementtecnologia/de-cero-a-tech-lead-la-carrera-sin-atajo/",
+    "/cursos/finanzas/como-evaluar-objetivamente-nuestra-situacion-finan/",
+    "/cursos/excel-basico/interfaz-basica-de-excel-elementos-y-nav/",
+    "/cursos/confbogota2025/que-nos-falta-para-ser-potencia-en-tecnologia-tipo/",
+    "/cursos/composicion-canciones/letra-melodia-ritmo-armonia/",
+    "/cursos/habilidades-blandas/que-son-las-habilidades-blandas-o-core-s/",
+    "/cursos/microsoft-powerpoint/animaciones-transiciones-y-reproduccion-automatica/",
+    "/cursos/tecnicas-negociacion/que-es-el-conflicto-conflicto-como-fuerza-positiva/",
+    "/cursos/taller-de-pitch-para-startups/como-hacer-un-pitch-de-3-minutos-para-st/",
+    "/cursos/ingles-a1-principiantes/preguntas-en-ingles-sobre-personas-y-sus/",
+    "/cursos/basico-preguntas-respuestas/english-grammar-course-recap-before-your/",
+    "/cursos/adverbios/repaso-de-ingles-a2-preguntas-sugerencia/",
+    "/cursos/english-a2-basics-proposals-permissions/can-could-and-would-for-work-requests/",
+    "/cursos/estrategias-ingles/ingles-como-habito-diario-no-como-examen/",
+    "/cursos/oratoria-profesional/por-que-dar-menos-informacion-persuade-m/"
+  ],
+  "buttons": [
+    "0",
+    "confirmation_number",
+    "20.183pts\nexpand_more",
+    "language",
+    "close"
+  ],
+  "body": "Inicio\nAcademy\nComunidad\nComentarios\nNotificaciones\nTU PROGRESO\nRutas\nProgreso\nCertificados\n\nHay empresas que le pagan Platzi a sus empleados 👀\n\nDescubre más\narrow_forward\nAyuda y feedback\n0\nconfirmation_number\n20.183pts\nexpand_more\nlanguage\nMis cursos recientes\nDesarrollo e Ingeniería\nCurso de OWASP Top 10: Riesgos en Aplicaciones\n\n5/15. Ataques de fuerza bruta y cómo detenerlos\n\nclose\nCurso de Spec Driven Development\n\n7/13. Comando Plan: de la Spec al código\n\nclose\nCurso de Fundamentos de Ingeniería de Software\n\n24/24. Cómo funciona una red neuronal por dentro\n\nclose\nCurso de Programación 2D con Unity: Intermedio\n\n10/31. Observer\n\nclose\nCurso de Estándares y Buenas Prácticas para API REST con Laravel\n\n4/29. Pruebas de Creación de Datos en Aplicaciones Web\n\nclose\nCurso de Pensamiento Crítico para usar Inteligencia Artificial\n\n8/17. Define el resultado que esperas antes de pedirlo\n\nclose\nCurso de Fundamentos de Bases de Datos y SQL\n\n2/25. Diagrama ER con notación crow's foot\n\nclose\nCurso de Herramientas de AI para Developers\n\n3/13. Cómo generar planes técnicos con Claude Code, Cursor y Windsurf\n\nclose\nCurso de OpenClaw\n\n11/13. Sesiones y memoria en OpenClaw\n\nclose\nCurso de Introducción a DevOps\n\n19/22. Las ocho etapas del proceso DevOps\n\nclose\nCurso de Gemini\n\n3/26. Cómo personalizar Gemini con memoria e instrucciones\n\nclose\nCurso de Laravel\n\n15/25. Guardar comentarios en tiempo real con Livewire\n\nclose\nCurso de API REST con Laravel\n\n16/18. Planificación y Configuración de una API en PHP\n\nclose\nCurso de Introducción a Laravel 9\n\n1/31. Qué es un framework y cómo lo usa Laravel\n\nclose\nCurso de Introducción a Laravel 6\n\n7/37. Desarrollo web con Laravel: proyectos y funcionalidades clave\n\nclose\nCurso de Next.js 14\n\n2/57. Implementación de Chatbots con Next.js y Vercel AI SDK\n\nclose\nCurso de N8N\n\n23/23. Mapping Receipt Data to Google Sheets with AI\n\nclose\nCurso Introductorio de Desarrollo de Videojuegos con Godot\n\n13/16. Crea tu primer videojuego con Godot\n\nclose\nCurso de Figma\n\n4/22. Tipografía en UI: jerarquía con Manrope y Figma\n\nclose\nCurso de Introducción a React Native\n\n15/16. Desarrollo de Apps Móviles con React Native y Expo\n\nclose\nCurso de Azure DevOps: Flujos de CI/CD\n\n7/20. Crear una organización en Azure DevOps\n\nclose\nCurso de Hacking Ético\n\n19/35. Explotación de Vulnerabilidades en Aplicaciones Web\n\nclose\nGuía para Aprender Seguridad Informática\n\n15/15. Código Seguro en el Ciclo de Vida del Desarrollo de Software\n\nclose\nCurso de Ciberseguridad para Desarrollo Web\n\n23/30. Principios AAA de seguridad con AWS IAM\n\nclose\nCurso de Desarrollo de Videojuegos Móviles con Unity\n\n32/34. Control de versiones\n\nclose\nCurso de Git y GitHub\n\n25/42. Git Tag y Checkout sin romper tu proyecto\n\nclose\nCurso de Infraestructura Como Código en AWS\n\n3/38. Infraestructura como Código en AWS: Despliegue Automatizado Seguro\n\nclose\nCurso de Optimización Web\n\n16/38. Optimización de CSS: Reducir Complejidad y Mejorar Rendimiento\n\nclose\nDiseño y UX\nCurso de Innovación y Creación de Productos\n\n12/20. Cómo construir tu propuesta de valor\n\nclose\nMarketing\nCurso de Creación de Pitch para Clientes\n\n2/4. Elevator Pitch\n\nclose\nCurso de Investigación de Mercados y Tendencias\n\n6/22. Qué es un insight y cómo formularlo\n\nclose\nCurso de Google Tag Manager para Marketing\n\n17/27. Seguimiento de Scroll en Google Analytics con Tag Manager\n\nclose\nNegocios y Emprendimiento\nCurso de Project Management con PMBOK\n\n3/20. Gestión de Proyectos: Conceptos Clave y Habilidades Prácticas\n\nclose\nCurso de Management en Tecnología\n\n15/17. De cero a tech lead: la carrera sin atajos\n\nclose\nCurso de Educación Financiera y Finanzas Personales\n\n23/24. Evaluación Objetiva de Finanzas Personales: Ingresos, Deudas y Activos\n\nclose\nCurso de Excel Básico\n\n5/23. Interfaz básica de Excel: elementos y navegación esencial\n\nclose\nComunidad\nPlatzi Conf Bogotá 2025\n\n14/33. Qué nos falta para ser potencia en tecnología - Freddy Vega y Christian Van der Henst\n\nclose\nContenido Digital\nCurso de Fundamentos de la Composición de Canciones\n\n16/16. Elementos Fundamentales de una Canción: Letra, Melodía, Ritmo y Armonía\n\nclose\nLiderazgo\nCurso de Habilidades Blandas para el Desarrollo Profesional\n\n6/15. Qué son las habilidades blandas o core skills\n\nclose\nCurso de PowerPoint: Elementos Multimedia\n\n8/13. Animaciones y transiciones en PowerPoint paso a paso\n\nclose\nCurso de Técnicas de Negociación\n\n20/25. Conflictos como Oportunidades de Crecimiento y Diversidad\n\nclose\nStartups\nTaller de Pitch para Startups\n\n1/5. Cómo hacer un pitch de 3 minutos para startups exitoso\n\nclose\nInglés\nCurso de Inglés Básico A1 para Principiantes\n\n10/13. Preguntas en inglés sobre personas y sus roles\n\nclose\nCurso de Inglés Básico A2: Preguntas y Respuestas Comunes\n\n19/19. English Grammar Course Recap Before Your Final Exam\n\nclose\nCurso de Inglés Básico A2: Sustantivos e Intenciones Futuras\n\n13/20. Repaso de Inglés A2: Preguntas, Sugerencias y Futuro\n\nclose\nCurso de Inglés Básico A2: Propuestas y Permisos\n\n11/12. Can, could, and would for work requests\n\nclose\nCurso Gratis de Estrategias para Aprender Inglés en Línea\n\n10/10. Inglés como hábito diario, no como examen\n\nclose\nHabilidades Blandas\nCurso de Oratoria Profesional\n\n5/15. Por qué dar menos información persuade más\n\nclose"
+}

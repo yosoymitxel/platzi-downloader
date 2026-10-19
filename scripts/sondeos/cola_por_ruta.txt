@@ -1,0 +1,79 @@
+## idioma-ingles (5 cursos, ~3 GB)
+- cantidad-gerundios — Curso de Inglés Básico A2: Cuantificadores y Superlativos
+- infinitivos — Curso de Inglés Básico A2: Infinitivos y Presente Continuo
+- conjunciones-superlativos — Curso de Inglés Básico A2: Conjunciones y Verbos
+- experiencias-pasadas — Curso de Inglés Básico A2: Experiencias Pasadas y Planes
+- ingles-basico-descripciones-comparativos — Curso de Inglés Básico A2: Descripciones y Comparaciones
+
+## ainative (15 cursos, ~22 GB)
+- finanzas-ai — Curso de Finanzas Personales con Inteligencia Artificial
+- reto-ainative — Cómo funciona el reto AI-Native: Live Classes, Cursos y Proyecto
+- introduccion-ai-2025 — Curso Gratis de Introducción a la Inteligencia Artificial
+- prompt-engineering — Curso de Prompt Engineering
+- chatgpt-2025 — Curso de ChatGPT
+- copilot-365 — Curso de Microsoft 365 Copilot
+- lovable — Curso Gratis de Lovable para Crear Páginas Web sin Programar
+- ai-datos — Curso de Fundamentos de AI para Manejo de Datos
+- estrategia-proyectos-ai — Curso de Estrategia y Liderazgo de Proyectos Empresariales de Gen AI
+- llms — Curso de Fundamentos de LLMs
+- cursor-2025 — Curso de Cursor AI Code Editor
+- rag — Curso de RAG con Microsoft Azure
+- mcp — Curso de MCP con Microsoft Azure
+- openai-api-23 — Curso de Desarrollo de Chatbots con OpenAI
+- agentes-langgraph — Curso para Crear Agentes de AI con LangGraph
+
+## desarrollo-react (16 cursos, ~18 GB)
+- nextjs-jamstack — Curso de Next.js: Sitios Estáticos y Jamstack
+- nextjs-deploy — Curso de Next.js: Optimización y Deploy a Producción
+- nextjs-internacionalizacion — Curso de Next.js: Internacionalización de Aplicaciones Web con i18n
+- nextjs-grandes-datasets — Curso de Next.js: Optimización y Manejo de Grandes Datasets
+- frontend-developer — Curso de Frontend Developer
+- frontend-developer-practico — Curso Práctico de Frontend Developer
+- javascript-closures-scope — Curso de Closures y Scope en JavaScript
+- dom — Curso de Manipulación del DOM
+- nextjs15 — Curso de Next.js Avanzado
+- react-patrones-render — Curso de React.js: Patrones de Render y Composición
+- react-estado — Curso de React.js: Manejo Profesional del Estado
+- react-router — Curso de React.js: Navegación con React Router
+- webpack — Curso de Webpack
+- react-redux-profesional — Curso Profesional de React.js y Redux
+- routing-react — Curso de Routing en React
+- react-js — Curso de ReactJS
+
+## web-react (7 cursos, ~8 GB)
+- react-state-machines — Curso de State Machines en React.js
+- reactjs — Curso de React.js
+- laboratorio-react — Prueba Técnica: E-commerce Profesional con React.js
+- react-typescript — Curso de React.js con TypeScript
+- react-ssr — Curso de Server Side Render o SSR con React.js
+- react-avanzado — Curso de React Avanzado
+- react-testing-library — Curso de React Testing Library
+
+## desarrollo-php (8 cursos, ~10 GB)
+- laravel-avanzado — Curso Avanzado de Laravel
+- laravel-tdd — Curso de Desarrollo en Laravel con Test Driven Development
+- despliegue-apps — Curso de Introducción al Despliegue de Aplicaciones
+- php-entornos-funciones — Curso de PHP: Entornos Virtuales y Funciones Avanzadas
+- php-frameworks — Curso de Introducción a Frameworks de PHP
+- php-yii-web — Curso de Desarrollo Web con PHP y Yii2
+- laravel-testing — Curso Básico de Testing con PHP y Laravel
+- programacion-basica — Curso Gratis de Programación Básica
+
+## infraestructura-como-codigo-iac-y-ci-cd (1 cursos, ~2 GB)
+- github-actions — Curso de GitHub Actions
+
+## devops-y-cloud-para-desarrolladores-web (7 cursos, ~13 GB)
+- deploying-python — Curso de Despliegue de Aplicaciones Python en la Nube
+- serverless — Curso de Serverless Framework en AWS
+- serverless-avanzado — Curso Avanzado de Serverless Framework en AWS
+- aws-practitioner-certification — Curso AWS Cloud Practitioner Certification
+- fundamentos-google — Curso de Introducción a Google Cloud Platform
+- az-900 — Curso de Fundamentos de Microsoft Azure (AZ-900)
+- cloudflare-workers — Curso de Cloudflare Workers
+
+## seguridad-informatica-old (1 cursos, ~1 GB)
+- hacking-aplicaciones-web-server-side — Curso de Hacking: Aplicaciones Web Server Side
+
+## desarrollo-web (2 cursos, ~2 GB)
+- webpack-practico — Curso de Webpack con Express.js, React.js y TypeScript
+- nextjs-graphql — Curso de Next.js con GraphQL

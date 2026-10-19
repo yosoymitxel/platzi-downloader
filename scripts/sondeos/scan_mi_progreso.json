@@ -1,0 +1,43 @@
+{
+  "title": "Platzi: Cursos online profesionales de tecnología",
+  "final_url": "https://platzi.com/mi-progreso/",
+  "n_links": 2,
+  "links": [
+    {
+      "href": "/cursos/",
+      "text": "Academy",
+      "card": "Academy"
+    },
+    {
+      "href": "/cursos/",
+      "text": "Ver mis cursos\narrow_forward",
+      "card": "Tu posición semanal\nDel 12 - 18 de octubre\n\nÚnete al top de estudiantes de esta semana tomando una clase o aportando a la comunidad.\n\nVer mis cursos\narrow_forward"
+    }
+  ],
+  "has_next_data": false,
+  "next_data_keys": null,
+  "body_snippet": "Inicio\nAcademy\nComunidad\nComentarios\nNotificaciones\nTU PROGRESO\nRutas\nProgreso\nCertificados\n\nHay empresas que le pagan Platzi a sus empleados 👀\n\nDescubre más\narrow_forward\nAyuda y feedback\n0\nconfirmation_number\n20.183pts\nexpand_more\nlanguage\nMi Progreso\nProgreso\nClases vistas\n0\nTu posición semanal\nDel 12 - 18 de octubre\n\nÚnete al top de estudiantes de esta semana tomando una clase o aportando a la comunidad.\n\nVer mis cursos\narrow_forward",
+  "all_links": [
+    "/home/",
+    "/cursos/",
+    "/comunidad/",
+    "/comentarios/",
+    "/mis-rutas/",
+    "/mi-progreso/",
+    "/mis-certificados/",
+    "/search/",
+    "https://platzi.com/business",
+    "https://docs.google.com/forms/d/e/1FAIpQLSditZjyhGdUriRYM8WhLroCtShL7YTa3CBrDUvrPInLKIfn9A/viewform",
+    "/p/YosoyMitxel/",
+    "/mi-suscripcion/referidos/",
+    "/mi-suscripcion/",
+    "/contact/",
+    "/logout/"
+  ],
+  "buttons": [
+    "0",
+    "confirmation_number",
+    "20.183pts\nexpand_more",
+    "language"
+  ]
+}

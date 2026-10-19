@@ -1,0 +1,29 @@
+{
+ "url": "http://127.0.0.1:8787/viewer/_test/nodata/index.html",
+ "report": {
+  "mode": "nodata",
+  "errors": [],
+  "warnings": [],
+  "steps": [
+   {
+    "name": "nodata",
+    "data": {
+     "title": "Platzi Local",
+     "appText": "Catálogo no generado aúnEjecuta scripts/viewer_data.py para crear viewer/data.js y recarga la página.",
+     "appChildren": 1,
+     "chipHidden": true,
+     "searchExists": true
+    }
+   },
+   {
+    "name": "nodata-nav",
+    "data": {
+     "hash": "#/rutas",
+     "appText": "Catálogo no generado aúnEjecuta scripts/viewer_data.py para crear viewer/data.js y recarga la página."
+    }
+   }
+  ],
+  "missingHooks": []
+ },
+ "events": []
+}

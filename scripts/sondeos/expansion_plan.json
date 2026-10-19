@@ -1,0 +1,709 @@
+{
+  "computed_at": "2026-10-18T13:17:45",
+  "ratio_mb_per_hour": 396.0,
+  "ratio_source": "ffprobe ponderado (real)",
+  "ratio_samples": [
+    {
+      "slug": "laravel-api",
+      "folder": "Curso de API REST con Laravel",
+      "mb": 174,
+      "hours": 2.0,
+      "mb_per_hour": 87
+    },
+    {
+      "slug": "claude-ai",
+      "folder": "Curso de Claude AI",
+      "mb": 1252,
+      "hours": 3.0,
+      "mb_per_hour": 417
+    },
+    {
+      "slug": "claude-code",
+      "folder": "Curso de Claude Code",
+      "mb": 817,
+      "hours": 2.0,
+      "mb_per_hour": 409
+    },
+    {
+      "slug": "claude-code-no-programadores",
+      "folder": "Curso de Claude Code para No Programadores",
+      "mb": 283,
+      "hours": 1.0,
+      "mb_per_hour": 283
+    },
+    {
+      "slug": "ingles-a1-principiantes",
+      "folder": "Curso de Inglés Básico A1 para Principiantes",
+      "mb": 328,
+      "hours": 1.0,
+      "mb_per_hour": 328
+    },
+    {
+      "slug": "adverbios",
+      "folder": "Curso de Inglés Básico A2 Sustantivos e Intenciones Futuras",
+      "mb": 511,
+      "hours": 1.0,
+      "mb_per_hour": 511
+    },
+    {
+      "slug": "unity2dintermedio",
+      "folder": "Curso de Programación 2D con Unity Intermedio",
+      "mb": 648,
+      "hours": 4.0,
+      "mb_per_hour": 162
+    }
+  ],
+  "median_hours_fallback": 2.0,
+  "disk": {
+    "free_gb": 343.4,
+    "queue_remaining_est_gb": 30.6,
+    "queue_remaining_courses": 29,
+    "margin_gb": 25.0,
+    "available_for_new_gb": 287.9
+  },
+  "counts": {
+    "routes": 34,
+    "universe": 551,
+    "candidates": 62,
+    "selected": 62,
+    "skipped_budget": 0,
+    "skipped_cert": 34,
+    "skipped_queue": 15,
+    "skipped_downloaded": 0,
+    "skipped_nointeres": 261,
+    "skipped_poda": 16,
+    "skipped_fino_bloque": 163,
+    "sin_titulo": [],
+    "candidatos_sin_horas": 1
+  },
+  "totals_gb": {
+    "candidates": 78.1,
+    "selected": 78.1,
+    "skipped": 0.0,
+    "projected_free_after_gb": 234.8
+  },
+  "selected": [
+    {
+      "slug": "cantidad-gerundios",
+      "title": "Curso de Inglés Básico A2: Cuantificadores y Superlativos",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "idioma-ingles",
+      "route_title": "English Learning",
+      "route_pct": 14,
+      "hours_est": false
+    },
+    {
+      "slug": "infinitivos",
+      "title": "Curso de Inglés Básico A2: Infinitivos y Presente Continuo",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "idioma-ingles",
+      "route_title": "English Learning",
+      "route_pct": 14,
+      "hours_est": false
+    },
+    {
+      "slug": "conjunciones-superlativos",
+      "title": "Curso de Inglés Básico A2: Conjunciones y Verbos",
+      "hours": 1.0,
+      "est_gb": 0.387,
+      "route": "idioma-ingles",
+      "route_title": "English Learning",
+      "route_pct": 14,
+      "hours_est": false
+    },
+    {
+      "slug": "experiencias-pasadas",
+      "title": "Curso de Inglés Básico A2: Experiencias Pasadas y Planes",
+      "hours": 1.0,
+      "est_gb": 0.387,
+      "route": "idioma-ingles",
+      "route_title": "English Learning",
+      "route_pct": 14,
+      "hours_est": false
+    },
+    {
+      "slug": "ingles-basico-descripciones-comparativos",
+      "title": "Curso de Inglés Básico A2: Descripciones y Comparaciones",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "idioma-ingles",
+      "route_title": "English Learning",
+      "route_pct": 14,
+      "hours_est": false
+    },
+    {
+      "slug": "finanzas-ai",
+      "title": "Curso de Finanzas Personales con Inteligencia Artificial",
+      "hours": 1.0,
+      "est_gb": 0.387,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "reto-ainative",
+      "title": "Cómo funciona el reto AI-Native: Live Classes, Cursos y Proyecto",
+      "hours": 17.0,
+      "est_gb": 6.574,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "introduccion-ai-2025",
+      "title": "Curso Gratis de Introducción a la Inteligencia Artificial",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "prompt-engineering",
+      "title": "Curso de Prompt Engineering",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "chatgpt-2025",
+      "title": "Curso de ChatGPT",
+      "hours": 4.0,
+      "est_gb": 1.547,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "copilot-365",
+      "title": "Curso de Microsoft 365 Copilot",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "lovable",
+      "title": "Curso Gratis de Lovable para Crear Páginas Web sin Programar",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "ai-datos",
+      "title": "Curso de Fundamentos de AI para Manejo de Datos",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "estrategia-proyectos-ai",
+      "title": "Curso de Estrategia y Liderazgo de Proyectos Empresariales de Gen AI",
+      "hours": 1.0,
+      "est_gb": 0.387,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "llms",
+      "title": "Curso de Fundamentos de LLMs",
+      "hours": 5.0,
+      "est_gb": 1.934,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "cursor-2025",
+      "title": "Curso de Cursor AI Code Editor",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "rag",
+      "title": "Curso de RAG con Microsoft Azure",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "mcp",
+      "title": "Curso de MCP con Microsoft Azure",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "openai-api-23",
+      "title": "Curso de Desarrollo de Chatbots con OpenAI",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "agentes-langgraph",
+      "title": "Curso para Crear Agentes de AI con LangGraph",
+      "hours": 6.0,
+      "est_gb": 2.32,
+      "route": "ainative",
+      "route_title": "AI‑Native: Productividad, Automatización y Agentes",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "nextjs-jamstack",
+      "title": "Curso de Next.js: Sitios Estáticos y Jamstack",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "nextjs-deploy",
+      "title": "Curso de Next.js: Optimización y Deploy a Producción",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "nextjs-internacionalizacion",
+      "title": "Curso de Next.js: Internacionalización de Aplicaciones Web con i18n",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "nextjs-grandes-datasets",
+      "title": "Curso de Next.js: Optimización y Manejo de Grandes Datasets",
+      "hours": 1.0,
+      "est_gb": 0.387,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "frontend-developer",
+      "title": "Curso de Frontend Developer",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "frontend-developer-practico",
+      "title": "Curso Práctico de Frontend Developer",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "javascript-closures-scope",
+      "title": "Curso de Closures y Scope en JavaScript",
+      "hours": 1.0,
+      "est_gb": 0.387,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "dom",
+      "title": "Curso de Manipulación del DOM",
+      "hours": 4.0,
+      "est_gb": 1.547,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "nextjs15",
+      "title": "Curso de Next.js Avanzado",
+      "hours": 5.0,
+      "est_gb": 1.934,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "react-patrones-render",
+      "title": "Curso de React.js: Patrones de Render y Composición",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "react-estado",
+      "title": "Curso de React.js: Manejo Profesional del Estado",
+      "hours": 4.0,
+      "est_gb": 1.547,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "react-router",
+      "title": "Curso de React.js: Navegación con React Router",
+      "hours": 5.0,
+      "est_gb": 1.934,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "webpack",
+      "title": "Curso de Webpack",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "react-redux-profesional",
+      "title": "Curso Profesional de React.js y Redux",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "routing-react",
+      "title": "Curso de Routing en React",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "react-js",
+      "title": "Curso de ReactJS",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "desarrollo-react",
+      "route_title": "Frontend a profundidad con React.js",
+      "route_pct": 17,
+      "hours_est": false
+    },
+    {
+      "slug": "react-state-machines",
+      "title": "Curso de State Machines en React.js",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "web-react",
+      "route_title": "Frontend con React.js",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "reactjs",
+      "title": "Curso de React.js",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "web-react",
+      "route_title": "Frontend con React.js",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "laboratorio-react",
+      "title": "Prueba Técnica: E-commerce Profesional con React.js",
+      "hours": 1.0,
+      "est_gb": 0.387,
+      "route": "web-react",
+      "route_title": "Frontend con React.js",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "react-typescript",
+      "title": "Curso de React.js con TypeScript",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "web-react",
+      "route_title": "Frontend con React.js",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "react-ssr",
+      "title": "Curso de Server Side Render o SSR con React.js",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "web-react",
+      "route_title": "Frontend con React.js",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "react-avanzado",
+      "title": "Curso de React Avanzado",
+      "hours": 6.0,
+      "est_gb": 2.32,
+      "route": "web-react",
+      "route_title": "Frontend con React.js",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "react-testing-library",
+      "title": "Curso de React Testing Library",
+      "hours": 4.0,
+      "est_gb": 1.547,
+      "route": "web-react",
+      "route_title": "Frontend con React.js",
+      "route_pct": 0,
+      "hours_est": false
+    },
+    {
+      "slug": "laravel-avanzado",
+      "title": "Curso Avanzado de Laravel",
+      "hours": 4.0,
+      "est_gb": 1.547,
+      "route": "desarrollo-php",
+      "route_title": "Desarrollo Web Backend con PHP",
+      "route_pct": 100,
+      "hours_est": false
+    },
+    {
+      "slug": "laravel-tdd",
+      "title": "Curso de Desarrollo en Laravel con Test Driven Development",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "desarrollo-php",
+      "route_title": "Desarrollo Web Backend con PHP",
+      "route_pct": 100,
+      "hours_est": false
+    },
+    {
+      "slug": "despliegue-apps",
+      "title": "Curso de Introducción al Despliegue de Aplicaciones",
+      "hours": 1.0,
+      "est_gb": 0.387,
+      "route": "desarrollo-php",
+      "route_title": "Desarrollo Web Backend con PHP",
+      "route_pct": 100,
+      "hours_est": false
+    },
+    {
+      "slug": "php-entornos-funciones",
+      "title": "Curso de PHP: Entornos Virtuales y Funciones Avanzadas",
+      "hours": 4.0,
+      "est_gb": 1.547,
+      "route": "desarrollo-php",
+      "route_title": "Desarrollo Web Backend con PHP",
+      "route_pct": 100,
+      "hours_est": false
+    },
+    {
+      "slug": "php-frameworks",
+      "title": "Curso de Introducción a Frameworks de PHP",
+      "hours": 1.0,
+      "est_gb": 0.387,
+      "route": "desarrollo-php",
+      "route_title": "Desarrollo Web Backend con PHP",
+      "route_pct": 100,
+      "hours_est": false
+    },
+    {
+      "slug": "php-yii-web",
+      "title": "Curso de Desarrollo Web con PHP y Yii2",
+      "hours": 6.0,
+      "est_gb": 2.32,
+      "route": "desarrollo-php",
+      "route_title": "Desarrollo Web Backend con PHP",
+      "route_pct": 100,
+      "hours_est": false
+    },
+    {
+      "slug": "laravel-testing",
+      "title": "Curso Básico de Testing con PHP y Laravel",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "desarrollo-php",
+      "route_title": "Desarrollo Web Backend con PHP",
+      "route_pct": 100,
+      "hours_est": false
+    },
+    {
+      "slug": "programacion-basica",
+      "title": "Curso Gratis de Programación Básica",
+      "hours": 4.0,
+      "est_gb": 1.547,
+      "route": "desarrollo-php",
+      "route_title": "Desarrollo Web Backend con PHP",
+      "route_pct": 100,
+      "hours_est": false
+    },
+    {
+      "slug": "github-actions",
+      "title": "Curso de GitHub Actions",
+      "hours": 4.0,
+      "est_gb": 1.547,
+      "route": "infraestructura-como-codigo-iac-y-ci-cd",
+      "route_title": "Infraestructura como Código (IaC) y CI/CD",
+      "route_pct": 30,
+      "hours_est": false
+    },
+    {
+      "slug": "deploying-python",
+      "title": "Curso de Despliegue de Aplicaciones Python en la Nube",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "devops-y-cloud-para-desarrolladores-web",
+      "route_title": "DevOps y Cloud para Desarrolladores Web",
+      "route_pct": 23,
+      "hours_est": false
+    },
+    {
+      "slug": "serverless",
+      "title": "Curso de Serverless Framework en AWS",
+      "hours": 5.0,
+      "est_gb": 1.934,
+      "route": "devops-y-cloud-para-desarrolladores-web",
+      "route_title": "DevOps y Cloud para Desarrolladores Web",
+      "route_pct": 23,
+      "hours_est": false
+    },
+    {
+      "slug": "serverless-avanzado",
+      "title": "Curso Avanzado de Serverless Framework en AWS",
+      "hours": 4.0,
+      "est_gb": 1.547,
+      "route": "devops-y-cloud-para-desarrolladores-web",
+      "route_title": "DevOps y Cloud para Desarrolladores Web",
+      "route_pct": 23,
+      "hours_est": false
+    },
+    {
+      "slug": "aws-practitioner-certification",
+      "title": "Curso AWS Cloud Practitioner Certification",
+      "hours": 10.0,
+      "est_gb": 3.867,
+      "route": "devops-y-cloud-para-desarrolladores-web",
+      "route_title": "DevOps y Cloud para Desarrolladores Web",
+      "route_pct": 23,
+      "hours_est": false
+    },
+    {
+      "slug": "fundamentos-google",
+      "title": "Curso de Introducción a Google Cloud Platform",
+      "hours": 4.0,
+      "est_gb": 1.547,
+      "route": "devops-y-cloud-para-desarrolladores-web",
+      "route_title": "DevOps y Cloud para Desarrolladores Web",
+      "route_pct": 23,
+      "hours_est": false
+    },
+    {
+      "slug": "az-900",
+      "title": "Curso de Fundamentos de Microsoft Azure (AZ-900)",
+      "hours": 5.0,
+      "est_gb": 1.934,
+      "route": "devops-y-cloud-para-desarrolladores-web",
+      "route_title": "DevOps y Cloud para Desarrolladores Web",
+      "route_pct": 23,
+      "hours_est": false
+    },
+    {
+      "slug": "cloudflare-workers",
+      "title": "Curso de Cloudflare Workers",
+      "hours": 2.0,
+      "est_gb": 0.773,
+      "route": "devops-y-cloud-para-desarrolladores-web",
+      "route_title": "DevOps y Cloud para Desarrolladores Web",
+      "route_pct": 23,
+      "hours_est": false
+    },
+    {
+      "slug": "hacking-aplicaciones-web-server-side",
+      "title": "Curso de Hacking: Aplicaciones Web Server Side",
+      "hours": null,
+      "est_gb": 0.773,
+      "route": "seguridad-informatica-old",
+      "route_title": "Seguridad Informática",
+      "route_pct": 10,
+      "hours_est": true
+    },
+    {
+      "slug": "webpack-practico",
+      "title": "Curso de Webpack con Express.js, React.js y TypeScript",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "desarrollo-web",
+      "route_title": "Frontend y Backend con Javascript para Desarrollo Web",
+      "route_pct": 8,
+      "hours_est": false
+    },
+    {
+      "slug": "nextjs-graphql",
+      "title": "Curso de Next.js con GraphQL",
+      "hours": 3.0,
+      "est_gb": 1.16,
+      "route": "desarrollo-web",
+      "route_title": "Frontend y Backend con Javascript para Desarrollo Web",
+      "route_pct": 8,
+      "hours_est": false
+    }
+  ],
+  "skipped": [],
+  "unmatched_folders": []
+}

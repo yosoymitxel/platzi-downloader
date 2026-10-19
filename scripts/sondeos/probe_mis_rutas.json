@@ -1,0 +1,3231 @@
+{
+  "api_hits": [
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v1/experiments/state/",
+      "ct": "application/json",
+      "body": {
+        "experiments": [
+          {
+            "name": "b2b_landing_full_page_price_form_and_checkout_August_04_2026",
+            "cookieName": "b2b_landing_v2",
+            "variants": {
+              "A": "control",
+              "B": "price_form_and_checkout"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "checkout_visual_refresh_august_2026",
+            "cookieName": "checkout_refresh",
+            "variants": {
+              "A": "control",
+              "B": "refresh"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "courses_explore_page_september_18_2026",
+            "cookieName": "new_courses_page",
+            "variants": {
+              "A": "control",
+              "B": "explora"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "email_gate_before_free_classes_august_12_2026",
+            "cookieName": "mv-free-preview",
+            "variants": {
+              "A": "control",
+              "B": "email_gate",
+              "B_unlocked": "email_gate"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "growth_banner_estudiante_precios_september_24_2026",
+            "cookieName": "student_banner_prices",
+            "variants": {
+              "A": "control",
+              "B": "no_student_banner"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "growth_home_search_bar_september_25_2026",
+            "cookieName": "home_search",
+            "variants": {
+              "A": "control",
+              "B": "search_bar"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "growth_thematic_course_hero_october_6_2026",
+            "cookieName": "thematic_courses",
+            "variants": {
+              "A": "control",
+              "B": "thematic_hero"
+            },
+            "paths": null,
+            "isActive": true,
+            "winnerVariant": null
+          },
+          {
+            "name": "home_explore_page_september_22_2026",
+            "cookieName": "home_redirect",
+            "variants": {
+              "A": "control",
+              "B": "explora"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "home_explore_page_september_23_2026",
+            "cookieName": "home_explore",
+            "variants": {
+              "A": "control",
+              "B": "explora"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "mv_paywall_gate_september_8_2026",
+            "cookieName": "mv_paywall",
+            "variants": {
+              "A": "control",
+              "A_unlocked": "control",
+              "B": "paywall_gate"
+            },
+            "paths": null,
+            "isActive": true,
+            "winnerVariant": null
+          },
+          {
+            "name": "pricing_visual_refresh_september_9_2026",
+            "cookieName": "price_refresh",
+            "variants": {
+              "A": "control",
+              "B": "refresh"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "public_home_redesign_august_26_2026",
+            "cookieName": "public_home_test",
+            "variants": {
+              "A": "control",
+              "B": "redesign"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          },
+          {
+            "name": "radiance_mv_redesign_september_10_2026",
+            "cookieName": "new-mv",
+            "variants": {
+              "A": "control",
+              "B": "redesign"
+            },
+            "paths": null,
+            "isActive": false,
+            "winnerVariant": null
+          }
+        ]
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v5/users/credentials/",
+      "ct": "application/json",
+      "body": {
+        "ok": "Token generated",
+        "token": {
+          "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxIiwiYXVkIjoiZWY1MjcyMWUtYzRmYS00MDRiLWE5OWQtY2IwZTE4MWExMDBjIiwic3ViIjoiNTE4MTA4IiwiYWN0IjoiNTA4NzI2IiwiY2lkIjoiMCIsImV4cCI6MTc5MjQyMzEzOSwianRpIjoiZWY1MjcyMWUtYzRmYS00MDRiLWE5OWQtY2IwZTE4MWExMDBjIiwiYWxsb3dlZC1yb2xlcyI6WyJhbm9ueW1vdXMiLCJzdHVkZW50Il0sImRlZmF1bHQtcm9sZSI6InN0dWRlbnQifQ.eAbSZKU6MwLdXoPd6KaBtfGM9bGWr9SjCuKBPFyCY6Q",
+          "exp": 1792423139,
+          "microservices": {
+            "sif_url": "https://api.platzi.com/sif/",
+            "enigma_url": "https://api.platzi.com/enigma/",
+            "gossip_url": "https://api.platzi.com/gossip/",
+            "b2b_auth_url": "https://api.platzi.com/b2b-auth/",
+            "search_url": "https://api.platzi.com/search/",
+            "challenges_url": "https://api.platzi.com/challenges/",
+            "forms_url": "https://api.platzi.com/forms/",
+            "ms_url": "https://api.platzi.com",
+            "sls_url": "https://api-sls.platzi.com/prod/",
+            "sls2_url": "https://api-sls.platzi.com/production"
+          },
+          "headers": {
+            "api-is-logged": "true"
+          }
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/api/v5/users/credentials/",
+      "ct": "application/json",
+      "body": {
+        "ok": "Token generated",
+        "token": {
+          "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxIiwiYXVkIjoiZmMxMGI5MWUtZmMxYi00MDQ2LTljMjMtOWJiZGRjNTc1Mzk3Iiwic3ViIjoiNTE4MTA4IiwiYWN0IjoiNTA4NzI2IiwiY2lkIjoiMCIsImV4cCI6MTc5MjQyMzEzOSwianRpIjoiZmMxMGI5MWUtZmMxYi00MDQ2LTljMjMtOWJiZGRjNTc1Mzk3IiwiYWxsb3dlZC1yb2xlcyI6WyJhbm9ueW1vdXMiLCJzdHVkZW50Il0sImRlZmF1bHQtcm9sZSI6InN0dWRlbnQifQ.Os50KtyiM1ltk4ieVivePdCJLH9k2DemrQcgl48YGLY",
+          "exp": 1792423139,
+          "microservices": {
+            "sif_url": "https://api.platzi.com/sif/",
+            "enigma_url": "https://api.platzi.com/enigma/",
+            "gossip_url": "https://api.platzi.com/gossip/",
+            "b2b_auth_url": "https://api.platzi.com/b2b-auth/",
+            "search_url": "https://api.platzi.com/search/",
+            "challenges_url": "https://api.platzi.com/challenges/",
+            "forms_url": "https://api.platzi.com/forms/",
+            "ms_url": "https://api.platzi.com",
+            "sls_url": "https://api-sls.platzi.com/prod/",
+            "sls2_url": "https://api-sls.platzi.com/production"
+          },
+          "headers": {
+            "api-is-logged": "true"
+          }
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v5/banner-data/",
+      "ct": "application/json",
+      "body": {
+        "data": {
+          "status": "promo",
+          "end_date": "2026-10-29T04:29:39.887151+00:00",
+          "pricing": {
+            "flag": "https://static.platzi.com/media/flags/PY.png",
+            "price": "1.990.000"
+          },
+          "previous_price": {
+            "flag": "https://static.platzi.com/media/flags/PY.png",
+            "price": "1.990.000"
+          },
+          "saving": {
+            "flag": "https://static.platzi.com/media/flags/PY.png",
+            "price": ""
+          },
+          "url": "/quiero-renovar/?source=banner",
+          "secondary_logo": "",
+          "primary_logo": "",
+          "primary_logo_mobile": "https://static.platzi.com/media/banners/Logo_mobile.png",
+          "primary_color": "linear-gradient(90deg, #0CD482 0.24%, #0CA5D8 100%)",
+          "secondary_color": "#fff",
+          "tertiary_color": "#fff",
+          "font_color": "#1B1E24",
+          "cta_color": "#10161F",
+          "cta_font_color": "#fff",
+          "lang": "es",
+          "msi_banner": false,
+          "installments_banner": null,
+          "pre_banner_text": "",
+          "banner_text": "Sigue aprendiendo Inglés, Desarrollo Web, AI, y más.",
+          "promo": "",
+          "useWhitePaymentMethods": "https://static.platzi.com/static/images/blackfriday-2020/visa-mastercard@2x.122d838cad13.png",
+          "show_counter": true,
+          "has_pricing": false,
+          "is_platzi_day_registered": false,
+          "messages": {
+            "PromoBanner.cta": "Renueva ahora",
+            "countdown_text": "Termina en:",
+            "PromoBanner_details_previous_saving": "Ahorras:"
+          },
+          "mobile_cta_text": "",
+          "mobile_cta_color": "#FFF",
+          "mobile_cta_font_color": "#000",
+          "mobile_countdown_text": "",
+          "mobile_countdown_font_color": "#000",
+          "mobile_countdown_background_color": "#FFF",
+          "mobile_font_color": "#03091E",
+          "mobile_primary_color": "#CDEEDF",
+          "mobile_secondary_color": "#FFFFF",
+          "mobile_tertiary_color": "#FFFFF",
+          "phone_background_image": "",
+          "tablet_background_image": "",
+          "mobile_logo": "",
+          "active": true,
+          "theme": "default"
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/datars/v1/events/sourceConfig?p=npm&v=3.24.3&build=modern&writeKey=proxy-managed&lockIntegrationsVersion=true&lockPluginsVersion=true",
+      "ct": "application/json",
+      "body": {
+        "source": {
+          "id": "2zyavsXKl4WwVNAx7Iwktydd3nB",
+          "name": "Platzi-CF-Events",
+          "writeKey": "proxy-managed",
+          "config": {
+            "statsCollection": {
+              "errors": {
+                "enabled": false
+              },
+              "metrics": {
+                "enabled": false
+              }
+            }
+          },
+          "enabled": true,
+          "workspaceId": "2zyaHnMjQROzN9cQnIeWHTIwMqj",
+          "destinations": [
+            {
+              "id": "3FJtodMKYakGCOIvYpOMJCvRY4b",
+              "name": "Tag Manager",
+              "enabled": true,
+              "config": {
+                "containerID": "GTM-MRHH59DB",
+                "serverUrl": "https://platzi.com",
+                "blacklistedEvents": [],
+                "whitelistedEvents": [
+                  {
+                    "eventName": "payment_info_added"
+                  }
+                ],
+                "consentManagement": [],
+                "eventFilteringOption": "whitelistedEvents",
+                "environmentID": "env-1",
+                "authorizationToken": "zqTGoIP5vizRoJ_Qt04WZQ"
+              },
+              "destinationDefinitionId": "1X6kXapk8Sf8yZTJn1dYZO3OXFt",
+              "destinationDefinition": {
+                "name": "GTM",
+                "displayName": "Google Tag Manager"
+              },
+              "updatedAt": "2026-09-29T20:56:15.239Z",
+              "shouldApplyDeviceModeTransformation": false,
+              "propagateEventsUntransformedOnError": false,
+              "version": 1
+            }
+          ],
+          "updatedAt": "2026-10-16T17:17:10.278Z",
+          "dataplanes": {}
+        },
+        "updatedAt": "2026-10-18T14:54:19.258Z",
+        "consentManagementMetadata": {
+          "providers": [
+            {
+              "provider": "oneTrust",
+              "resolutionStrategy": "and"
+            },
+            {
+              "provider": "ketch",
+              "resolutionStrategy": "or"
+            },
+            {
+              "provider": "iubenda",
+              "resolutionStrategy": "or"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/tinkerbell/api/v3/notifications/?filter_by=comment&filter_by_original_types=discussion,material,comment&only_unseen=1&limit=1&offset=0",
+      "ct": "application/json",
+      "body": {
+        "data": [],
+        "metadata": {
+          "count": 0,
+          "limit": 1,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/api/v1/components/headerv2/user/",
+      "ct": "application/json",
+      "body": {
+        "lastCourse": [
+          {
+            "approved": false,
+            "badge": "https://static.platzi.com/media/achievements/badge-unity-1b60ab2d-2e8b-48e8-a59c-042a1f902554.png",
+            "career": null,
+            "completed": "41",
+            "id": 2431,
+            "exam_url": "",
+            "slug": "unity2dintermedio",
+            "title": "Curso de Programación 2D con Unity: Intermedio",
+            "url": "/cursos/unity2dintermedio/"
+          }
+        ],
+        "avatar": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+        "points": "20.220",
+        "name": "Miguel",
+        "username": "YosoyMitxel",
+        "email": "yosoymitxel@gmail.com",
+        "profileUrl": "/p/YosoyMitxel/",
+        "userId": 518108,
+        "plan": "Platzi Expert",
+        "subscriptionTime": "2026-10-28T18:29:39-05:00",
+        "installments": true,
+        "referalUrl": "https://platzi.com/r/YosoyMitxel/",
+        "isAuthenticated": true,
+        "userType": "pay_annual",
+        "phoneNumber": "991263062",
+        "phoneCode": "PY",
+        "country": "",
+        "isBundleUser": null,
+        "learningPathsAllowed": -1,
+        "publicName": "Miguel R. Leon",
+        "paymentSuccessful": false,
+        "pricePlan": "",
+        "pastDue": false,
+        "pastDueError": {},
+        "cardPending": false,
+        "nextBillingDate": "",
+        "emailNotValidated": false,
+        "role": "student",
+        "organizationSlug": "clases",
+        "showAcademyPlan": false,
+        "registeredForPlatziDay": true,
+        "isB2B": false,
+        "companyId": null,
+        "companyName": null,
+        "companySlug": null,
+        "companySegment": "",
+        "companyPlan": null,
+        "licenseEndDate": null,
+        "companyLogo": null,
+        "companySkillsSlug": null,
+        "referenced_data": null,
+        "subscription_months": 18,
+        "show_NPS": false,
+        "dateJoined": "2018-02-09T19:53:55+00:00",
+        "expiredCard": false,
+        "hasRenewalBanner": false,
+        "is_teacher": false,
+        "is_company_admin": false,
+        "is_company_manager": false
+      }
+    },
+    {
+      "status": 403,
+      "url": "https://platzi.com/api/bff/payments/my-subscription-perk/",
+      "ct": "application/json",
+      "body": {}
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/tinkerbell/api/v3/notifications/?filter_by=default&offset=0",
+      "ct": "application/json",
+      "body": {
+        "data": [],
+        "metadata": {
+          "count": 0,
+          "limit": 20,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/datars/v1/events/v1/identify",
+      "ct": "application/json",
+      "body": {
+        "success": true
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v4/lives/",
+      "ct": "application/json",
+      "body": {
+        "data": []
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/tinkerbell/api/v3/notifications/?filter_by=undefined&offset=0",
+      "ct": "application/json",
+      "body": {
+        "data": [],
+        "metadata": {
+          "count": 0,
+          "limit": 20,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://platzi.com/api/v6/events/tickets/",
+      "ct": "application/json",
+      "body": {
+        "count": 0,
+        "next": null,
+        "previous": null,
+        "results": []
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/api/v4/user-learning-paths/",
+      "ct": "application/json",
+      "body": [
+        {
+          "id": 774593,
+          "learningPathId": null,
+          "title": "Mis Cursos",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 47,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#1476B8",
+          "darkColor": "#6CC3EF",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/774593/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/1220-da04fca8-8561-40ce-a678-3585bde8d899.png",
+            "https://static.platzi.com/media/achievements/badges-categorias-negocios-emprendimiento-1-90ace212-529a-4741-8a55-6a56d0d48f0f-b3.png",
+            "https://static.platzi.com/media/achievements/badges-marca-personal-be5ca4b6-bf0a-4275-a0c2-8b31f5f72552.png"
+          ]
+        },
+        {
+          "id": 6929120,
+          "learningPathId": 37,
+          "title": "Desarrollo con WordPress",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/badge-wordpress.png",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/badge-wordpress.png",
+          "coursesCount": 15,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/desarrollo-wordpress/",
+          "url": "/clases/learning-path/desarrollo-wordpress/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-basico-php-1226e062-0c34-40fc-b00f-1cf704d6704c.png",
+            "https://static.platzi.com/media/achievements/piezas-app-mobile-utilizando-woocommerce_badge-8db96c37-49db-4bb2-bd43-0fc63ec40723.png",
+            "https://static.platzi.com/media/achievements/piezas-bloques-gutenberg-wordpress_badge-ec757676-960b-4f60-a902-02dcafd1d74c.png"
+          ]
+        },
+        {
+          "id": 6929121,
+          "learningPathId": 38,
+          "title": "Seguridad Informática",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/Badge-seguridad-informatica.png",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/Badge-seguridad-informatica.png",
+          "coursesCount": 19,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/seguridad-informatica-old/",
+          "url": "/clases/learning-path/seguridad-informatica-old/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-admin-servidores-linux2-1-9ee5d59f-559d-451a-a7ea-6bae8c6bf47b.png",
+            "https://static.platzi.com/media/achievements/badge-analisis-malware-dispositivos-moviles-e9bd1dd4-2010-45c2-81b0-33a4359d78c6.png",
+            "https://static.platzi.com/media/achievements/badge_curso_ciberseguridad_empresarial-277a4900-47ff-43a2-856e-9ae733faf47f.png"
+          ]
+        },
+        {
+          "id": 6929129,
+          "learningPathId": 10,
+          "title": "Desarrollo Web Backend con PHP",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/6829a61e-5fdd-4855-9446-1304b22c9491.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/6829a61e-5fdd-4855-9446-1304b22c9491.jpg",
+          "coursesCount": 23,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/desarrollo-php/",
+          "url": "/clases/learning-path/desarrollo-php/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-avanzado-laravel-22288f0d-5664-4a52-beb0-3ee871508028.png",
+            "https://static.platzi.com/media/achievements/badge-configurar-eloquent-model-laravel-68179995-fe12-4709-a62e-9a03d1483a20.png",
+            "https://static.platzi.com/media/achievements/badge-basico-php-1226e062-0c34-40fc-b00f-1cf704d6704c.png"
+          ]
+        },
+        {
+          "id": 6929130,
+          "learningPathId": 8,
+          "title": "Frontend a profundidad con React.js",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/fc491fa0-c1ca-448b-8262-629406154dfc.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/fc491fa0-c1ca-448b-8262-629406154dfc.jpg",
+          "coursesCount": 22,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/desarrollo-react/",
+          "url": "/clases/learning-path/desarrollo-react/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-piezas-clousures-scope-javascript-af54a63d-00d6-42e3-96c3-731028480418.png",
+            "https://static.platzi.com/media/achievements/badge-introduccion-frameworks-javascript-72c0e3a6-a4e9-4d6d-a13a-a3f0bc17d607.png",
+            "https://static.platzi.com/media/achievements/badge-curso-frontend-developer-825407d1-49b1-4c9b-90c4-eee793720ede.png"
+          ]
+        },
+        {
+          "id": 6929131,
+          "learningPathId": 6,
+          "title": "Bases de datos desde cero",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/10.png",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/10.png",
+          "coursesCount": 16,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/base-de-datos/",
+          "url": "/clases/learning-path/base-de-datos/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-amazon-dynamodb_badge-a78b395d-0f82-4e08-a108-dcba9c0d122d.png",
+            "https://static.platzi.com/media/achievements/badge-azure-chache-redis-6b2e6f4c-5267-460f-b5ed-44c3d22b5e3f.png",
+            "https://static.platzi.com/media/achievements/badge-fundamentos-de-bases-de-datos-cc5eff2a-a7e0-4110-af5d-a47b628611da-42_vrW7zSq.png"
+          ]
+        },
+        {
+          "id": 6929133,
+          "learningPathId": 3,
+          "title": "Desarrollo Backend con Python y Django",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/1318-9835c3f1-72e7-42c9-a87c-44605904d7ba.png",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/1318-9835c3f1-72e7-42c9-a87c-44605904d7ba.png",
+          "coursesCount": 12,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/backend-python/",
+          "url": "/clases/learning-path/backend-python/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-basico-django_badge-b37090dc-8812-45dd-876d-374e878b9b8d.png",
+            "https://static.platzi.com/media/achievements/piezas-complejidad-algoritmica-python_badge-ff69b19d-dbc5-4bf8-a2be-d985e9f45932.png",
+            "https://static.platzi.com/media/achievements/badge_curso_django-7e6cf222-a74c-4ded-bf42-5151e904db8e.png"
+          ]
+        },
+        {
+          "id": 6933087,
+          "learningPathId": 100,
+          "title": "Full Stack Developer con JavaScript",
+          "level": "custom",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/0e509f8c-72f0-4064-a6bf-18dc9e667f63.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/0e509f8c-72f0-4064-a6bf-18dc9e667f63.jpg",
+          "coursesCount": 15,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/javascript-full-stack/",
+          "url": "/clases/learning-path/javascript-full-stack/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-backend-nodejs-autenticacion-passportjs-jwt-3425c859-2f69-49a5-849a-792049d24.png",
+            "https://static.platzi.com/media/achievements/backend-node-82a9a4bf-7ce4-4437-86f6-c39dcce17d15.png",
+            "https://static.platzi.com/media/achievements/badge-7f8a5eb4-0bf2-4e36-ac31-adeba103ea4a.png"
+          ]
+        },
+        {
+          "id": 6933088,
+          "learningPathId": 13,
+          "title": "English Learning",
+          "level": "custom",
+          "learningPathType": "platzi",
+          "categoryId": 17,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/ae5b71f4-17a4-42c0-bdf7-128eb6f6368b.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/ae5b71f4-17a4-42c0-bdf7-128eb6f6368b.jpg",
+          "coursesCount": 80,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C92387",
+          "darkColor": "#ED82C2",
+          "schoolUrl": "/idioma-ingles/",
+          "url": "/clases/learning-path/idioma-ingles/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-audiocurso-ingles-uso-preposiciones_badge-a07e6571-8751-4988-89bc-3c48958360.png",
+            "https://static.platzi.com/media/achievements/badge-ingles-viajes-audiocurso-79c79637-0902-4378-82bc-f3554ca587cf.png",
+            "https://static.platzi.com/media/achievements/badge-audiocurso-interactivo-en-f4cea3ca-72ea-4aea-9018-7b59a81e085b.png"
+          ]
+        },
+        {
+          "id": 7064725,
+          "learningPathId": 6727,
+          "title": "Frontend y Backend con Javascript para Desarrollo Web",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/6475ba11-ef6a-401f-9144-d40f615e0cfc.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/6475ba11-ef6a-401f-9144-d40f615e0cfc.jpg",
+          "coursesCount": 110,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/desarrollo-web/",
+          "url": "/clases/learning-path/desarrollo-web/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badgeaudio-accesibilidad-web-1dced0c3-ef28-4adc-a3a7-4159ee78f996.png",
+            "https://static.platzi.com/media/achievements/piezas-avanzado-automatizacion-pruebas-puppeteer_badge-01853455-de94-4f0f-9c20-cfe8.png",
+            "https://static.platzi.com/media/achievements/piezas-nodejs-graphql-apollo-server-prisma-cms_badge-5995d28d-302e-4bdd-bd86-e49a1b.png"
+          ]
+        },
+        {
+          "id": 7477445,
+          "learningPathId": 6842,
+          "title": "Finanzas e Inversiones",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 8,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/402797b7-6f9d-455c-b408-16892b7b5f34.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/402797b7-6f9d-455c-b408-16892b7b5f34.jpg",
+          "coursesCount": 27,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#FFBB00",
+          "darkColor": "#F7D064",
+          "schoolUrl": "/finanzas-legacy/",
+          "url": "/clases/learning-path/finanzas-legacy/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-introduccion-economia-conductual_badge-e69a45f9-1667-4fea-ac9e-de96fd43da26.png",
+            "https://static.platzi.com/media/achievements/badge-excel-financiero-cc798af1-325a-4e31-9866-3c3479183129.png",
+            "https://static.platzi.com/media/achievements/armar-portafolio-inversion-vest_piezas_badge-e38144e6-aca0-48d2-b242-5b745f13287e.png"
+          ]
+        },
+        {
+          "id": 7628648,
+          "learningPathId": 28,
+          "title": "Desarrollo con ASP.NET",
+          "level": "custom",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/7475d8ab-c62f-416f-b262-e5caf8ce96cb.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/7475d8ab-c62f-416f-b262-e5caf8ce96cb.jpg",
+          "coursesCount": 12,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/asp-net/",
+          "url": "/clases/learning-path/asp-net/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-basico-c-fundamentos-variables-operadores_badge-437629eb-7aa1-472d-a69b-82ea.png",
+            "https://static.platzi.com/media/achievements/badge-azure-devops-c56306b9-e235-4806-bbc6-753edaa9a6a0.png",
+            "https://static.platzi.com/media/achievements/1359-c2172b91-9378-4db4-ba81-91aa8413770c.png"
+          ]
+        },
+        {
+          "id": 7743096,
+          "learningPathId": 48,
+          "title": "Diseño de Experiencia de Usuario (UX Design)",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 6,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/ca3c0d9c-b62e-4294-a451-689003c7930f.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/ca3c0d9c-b62e-4294-a451-689003c7930f.jpg",
+          "coursesCount": 18,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#81439D",
+          "darkColor": "#CC8EE7",
+          "schoolUrl": "/diseno-ux/",
+          "url": "/clases/learning-path/diseno-ux/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-taller-resolucion-problemas-5ec0b940-e0dc-4d0a-915b-2fb8bd99adb3.png",
+            "https://static.platzi.com/media/achievements/badgeaccesibilidad-web-478d9593-87f8-4af1-9e02-401f5fd2d946.png",
+            "https://static.platzi.com/media/achievements/badge-arquitectura-informacion-c237b5f1-8525-42f8-b889-020b8d95bd63.png"
+          ]
+        },
+        {
+          "id": 7743097,
+          "learningPathId": 44,
+          "title": "Desarrollo Backend con Java",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/04675956-0287-4850-a1bb-99834adbb448.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/04675956-0287-4850-a1bb-99834adbb448.jpg",
+          "coursesCount": 10,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/desarrollo-java/",
+          "url": "/clases/learning-path/desarrollo-java/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/1236-21df15a8-5fb9-4c82-81df-187ce86367be.png",
+            "https://static.platzi.com/media/achievements/badge-diseno-interfaces-android-studio-43aeaa88-f9ec-482d-9a40-2795b2936096.png",
+            "https://static.platzi.com/media/achievements/badges-basico-testing-java-29e71f98-06e3-4ce3-8417-218ee0cfaf4a.png"
+          ]
+        },
+        {
+          "id": 7743098,
+          "learningPathId": 19,
+          "title": "Diseño de Interfaces (UI)",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 6,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/a8680f68-3407-4813-b92e-7d99b8f498ff.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/a8680f68-3407-4813-b92e-7d99b8f498ff.jpg",
+          "coursesCount": 14,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#81439D",
+          "darkColor": "#CC8EE7",
+          "schoolUrl": "/interfaces-ui/",
+          "url": "/clases/learning-path/interfaces-ui/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-xd-b04f6bcb-e995-4b20-8b7c-213c9f657b42.png",
+            "https://static.platzi.com/media/achievements/badge-arquitectura-informacion-c237b5f1-8525-42f8-b889-020b8d95bd63.png",
+            "https://static.platzi.com/media/achievements/badge-colaboracion-diseno-desarrollo-1-be2835a4-46c9-4b5e-b5ad-81388ab6d19c.png"
+          ]
+        },
+        {
+          "id": 9444277,
+          "learningPathId": 14,
+          "title": "Contenido Audiovisual",
+          "level": "custom",
+          "learningPathType": "platzi",
+          "categoryId": 10,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/772d13ac-8105-486b-9227-184a31c3655c.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/772d13ac-8105-486b-9227-184a31c3655c.jpg",
+          "coursesCount": 41,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#FF8D0A",
+          "darkColor": "#F79564",
+          "schoolUrl": "/contenido-audiovisual/",
+          "url": "/clases/learning-path/contenido-audiovisual/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-bites-produccion-audiovisual-8d3348e3-ba86-40aa-939c-469d2bebab97.png",
+            "https://static.platzi.com/media/achievements/badge-piezas-avanzado-realidad-aumentada-4225608d-750f-4455-93a9-fe46ee339937.png",
+            "https://static.platzi.com/media/achievements/badge-adobe-premiere-pro-26b1665d-4c55-4262-87bd-5a6a5bfa4edf.png"
+          ]
+        },
+        {
+          "id": 14067021,
+          "learningPathId": 7766,
+          "title": "Diseño Gráfico Profesional",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 6,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/b7990c93-b8bc-4904-a969-262722e1e4b6.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/b7990c93-b8bc-4904-a969-262722e1e4b6.jpg",
+          "coursesCount": 31,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#81439D",
+          "darkColor": "#CC8EE7",
+          "schoolUrl": "/gd/",
+          "url": "/clases/learning-path/gd/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badges-indesign-480f5869-0b53-423f-9273-675de29db1d6.png",
+            "https://static.platzi.com/media/achievements/badge-arte-personajes-2d-c2171119-e268-46a3-a512-93c13f9f5313.png",
+            "https://static.platzi.com/media/achievements/piezas-landing-comic-ilustracion-diversidad-inclusion_badge-9b7e98d0-e0b3-43cf-8012.png"
+          ]
+        },
+        {
+          "id": 14340248,
+          "learningPathId": 8263,
+          "title": "Fundamentos de Data e Inteligencia Artificial",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/709c1693-690f-4eab-8342-0d9bfd7b64ae.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/709c1693-690f-4eab-8342-0d9bfd7b64ae.jpg",
+          "coursesCount": 12,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/fundamentos-data/",
+          "url": "/clases/learning-path/fundamentos-data/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-curso-chatgpt-25-badge-5feef4cd-616a-4234-9282-f88c1bac62a3.png",
+            "https://static.platzi.com/media/achievements/piezas-ciencia-datos-analisis-negocio-badge-2a63cd35-6ed0-418c-908c-c19046b8377f.png",
+            "https://static.platzi.com/media/achievements/acb0c251-790c-4445-b59b-d996316bb455-8d018cb3-a8d9-4777-ac30-bca7c378f465.png"
+          ]
+        },
+        {
+          "id": 14340249,
+          "learningPathId": 8307,
+          "title": "Data Scientist con Python",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/55ae85a0-6956-4b72-b7fd-babefb03e640.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/55ae85a0-6956-4b72-b7fd-babefb03e640.jpg",
+          "coursesCount": 29,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/data-scientist-python/",
+          "url": "/clases/learning-path/data-scientist-python/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/29177a65-bb9f-4707-930c-7a221badb534-07bd09ed-1010-4ea8-8ee4-4f94a1747a1f.png",
+            "https://static.platzi.com/media/achievements/badge-piezas-calculo-basico-diferencial-data-science-e8061332-d062-4ce1-ac6f-f94683.png",
+            "https://static.platzi.com/media/achievements/bagde-algebra-lineal-machine-learning-dc3c7317-aaca-4320-b327-2986e965715f.png"
+          ]
+        },
+        {
+          "id": 14599676,
+          "learningPathId": 7337,
+          "title": "Estratega de contenidos",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 10,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/ea60612b-96a8-4203-bac8-7d8c1529281f.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/ea60612b-96a8-4203-bac8-7d8c1529281f.jpg",
+          "coursesCount": 17,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#FF8D0A",
+          "darkColor": "#F79564",
+          "schoolUrl": "/estratega/",
+          "url": "/clases/learning-path/estratega/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-community-manager-422f5fa7-b570-424a-ac60-4b82e6f121bc.png",
+            "https://static.platzi.com/media/achievements/badge-copy-storytelling-7b2ab3dc-2250-4ac8-b4be-3ccb1338d198.png",
+            "https://static.platzi.com/media/achievements/piezas-marca-personal-creacion-contenido-instagram_badge-5028ba25-b81e-45f5-aab4-6c.png"
+          ]
+        },
+        {
+          "id": 14599677,
+          "learningPathId": 7834,
+          "title": "Creación de Contenido Digital para Redes Sociales",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 10,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/6fb6be23-ce2c-4229-b0ec-3da4d927d7e7.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/6fb6be23-ce2c-4229-b0ec-3da4d927d7e7.jpg",
+          "coursesCount": 28,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#FF8D0A",
+          "darkColor": "#F79564",
+          "schoolUrl": "/content-creator/",
+          "url": "/clases/learning-path/content-creator/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-lab-desafios-371412fb-dd76-440d-a790-c7d846941236.png",
+            "https://static.platzi.com/media/achievements/piezas-community-manager-422f5fa7-b570-424a-ac60-4b82e6f121bc.png",
+            "https://static.platzi.com/media/achievements/badge-copy-storytelling-7b2ab3dc-2250-4ac8-b4be-3ccb1338d198.png"
+          ]
+        },
+        {
+          "id": 14930261,
+          "learningPathId": 8309,
+          "title": "Inglés Básico A1",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 17,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/3e3ec70f-141b-414a-9753-78aa93da23ad.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/3e3ec70f-141b-414a-9753-78aa93da23ad.jpg",
+          "coursesCount": 16,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C92387",
+          "darkColor": "#ED82C2",
+          "schoolUrl": "/beginner-core/",
+          "url": "/clases/learning-path/beginner-core/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-audiocurso-ingles-uso-preposiciones_badge-a07e6571-8751-4988-89bc-3c48958360.png",
+            "https://static.platzi.com/media/achievements/badge-ingles-viajes-audiocurso-79c79637-0902-4378-82bc-f3554ca587cf.png",
+            "https://static.platzi.com/media/achievements/badge-piezas-inglesescritura-br-be4b1790-76aa-4312-bca4-f6b1f98574b1.png"
+          ]
+        },
+        {
+          "id": 14969383,
+          "learningPathId": 7044,
+          "title": "Frontend con Vue.js",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/fefb2841-6f82-416f-9943-f4f1855c7cbb.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/fefb2841-6f82-416f-9943-f4f1855c7cbb.jpg",
+          "coursesCount": 16,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/web-vue/",
+          "url": "/clases/learning-path/web-vue/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-avanzado-vuejs-aefbebf5-a606-4ea1-bc12-5115de2cdf53.png",
+            "https://static.platzi.com/media/achievements/badge-basico-vue-js-a86950de-232c-4ebe-b635-a0bba62f87ae.png",
+            "https://static.platzi.com/media/achievements/badge-vue-3-4b4c3cb0-ea25-4eac-957f-28eb09339383.png"
+          ]
+        },
+        {
+          "id": 14983317,
+          "learningPathId": 7043,
+          "title": "Frontend con React.js",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/1690f090-fcce-4456-9e56-2882c2e68a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/1690f090-fcce-4456-9e56-2882c2e68a8d.jpg",
+          "coursesCount": 12,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/web-react/",
+          "url": "/clases/learning-path/web-react/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-next-js-14-badge-2b752e1b-0717-444a-9199-698ef5f4eb87-eeef2e9c-5886-_mMunK3o.png",
+            "https://static.platzi.com/media/achievements/badge-reactjs-avanzado-bc9f61e9-9a1a-485b-b0ad-43a172cdb0aa-a922c0c2-ac5d-_nywhmsg.webp",
+            "https://static.platzi.com/media/achievements/reactjs-patrones-render_badge-3c77e155-b04a-4c95-ac61-e2b6d2d5b92e-00753ce_R9qSoA6.webp"
+          ]
+        },
+        {
+          "id": 15422556,
+          "learningPathId": null,
+          "title": "Mis cursos vistos en 2024",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 7,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/15422556/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-next-js-14-badge-2b752e1b-0717-444a-9199-698ef5f4eb87.png",
+            "https://static.platzi.com/media/achievements/badge_curso_fundamentoscriptografia-04e501a3-4bc4-43f5-921f-ba8b7a75247a.png",
+            "https://static.platzi.com/media/achievements/badge-gestion-tiempo-5368aa24-4418-4e10-b6c3-c8775b849bf9.png"
+          ]
+        },
+        {
+          "id": 15929116,
+          "learningPathId": 30096,
+          "title": "Administración de Servidores Linux",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 2,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/administracion-de-servidores-linux/",
+          "url": "/clases/learning-path/administracion-de-servidores-linux/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-admin-servidores-linux2-1-9ee5d59f-559d-451a-a7ea-6bae8c6bf47b.png",
+            "https://static.platzi.com/media/achievements/badge-intro-admin-servidores-linux1-2b8e4cfd-e434-482a-be0d-b76b39e3e677.png"
+          ]
+        },
+        {
+          "id": 16076048,
+          "learningPathId": null,
+          "title": "Excel",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 12,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#FFBB00",
+          "darkColor": "#F7D064",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/16076048/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-curso-excel-basico-badge-3471057d-5e76-487f-b511-9ec4dff425e8.png",
+            "https://static.platzi.com/media/achievements/1275-275c632f-cdf5-45d4-a520-d95aa111d015.png",
+            "https://static.platzi.com/media/achievements/badge-excel-intermedio-9e3b78e9-fe25-46b4-af5f-f5f24f1dcc1b.png"
+          ]
+        },
+        {
+          "id": 16076052,
+          "learningPathId": null,
+          "title": "Juan",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 1,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#CE3B3E",
+          "darkColor": "#F17E80",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/16076052/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/1285-4cf709f2-7905-4e4b-95fb-409d8d83b68d.png"
+          ]
+        },
+        {
+          "id": 16164516,
+          "learningPathId": 30098,
+          "title": "Infraestructura como Código (IaC) y CI/CD",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 5,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/infraestructura-como-codigo-iac-y-ci-cd/",
+          "url": "/clases/learning-path/infraestructura-como-codigo-iac-y-ci-cd/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-azure-devops-c56306b9-e235-4806-bbc6-753edaa9a6a0.png",
+            "https://static.platzi.com/media/achievements/piezas-github-action_badge-07073acc-7e5e-447b-8b3b-ed7b7aecf793.png",
+            "https://static.platzi.com/media/achievements/badge-infraestructura-codigo-aws-523f9344-e19f-4d04-bd06-8b6c159e95e7.png"
+          ]
+        },
+        {
+          "id": 16187136,
+          "learningPathId": 30081,
+          "title": "DevOps y Cloud para Desarrolladores Web",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 17,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/devops-y-cloud-para-desarrolladores-web/",
+          "url": "/clases/learning-path/devops-y-cloud-para-desarrolladores-web/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-avanzado-serverless-framework-aws_badge-da059794-2a01-4f64-bde9-13cdae5c9d05.png",
+            "https://static.platzi.com/media/achievements/badge-4-29bcbe36-3b2e-4065-b5ad-72110126b991.png",
+            "https://static.platzi.com/media/achievements/badge-azure-devops-c56306b9-e235-4806-bbc6-753edaa9a6a0.png"
+          ]
+        },
+        {
+          "id": 16187138,
+          "learningPathId": 30095,
+          "title": "Fundamentos de Cloud y DevOps",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 9,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/fundamentos-de-cloud-y-devops/",
+          "url": "/clases/learning-path/fundamentos-de-cloud-y-devops/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-computacion-basica_badge-930099c0-50d7-45ae-8043-802170eb5d55.png",
+            "https://static.platzi.com/media/achievements/badge-flujo-desarrollo-codestream-5a0492d0-ab21-4e33-925f-b74bd7ce4c20.png",
+            "https://static.platzi.com/media/achievements/piezas-fundamentosde-ingenieria-de-software_badge-d9c5b559-837f-44a3-8543-d_bkcvYTp.png"
+          ]
+        },
+        {
+          "id": 16216483,
+          "learningPathId": 30097,
+          "title": "Contenerización y Orquestación",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 5,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/contenerizacion-y-orquestacion/",
+          "url": "/clases/learning-path/contenerizacion-y-orquestacion/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-contenedores-aplicaciones-nube-google-cloud-platform_badge-1-c1f2e34e-8606-4.png",
+            "https://static.platzi.com/media/achievements/piezas-docker-avanzado-badge-56272b38-f98f-4356-9248-534a22afa1be.png",
+            "https://static.platzi.com/media/achievements/docker-fundamentos-badge-f4ad90e2-69b6-4211-b1aa-58a035c1edbf.png"
+          ]
+        },
+        {
+          "id": 16343419,
+          "learningPathId": 12050,
+          "title": "Inglés Básico A2",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 17,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/e81c95d2-dff9-4469-9cce-04d330b3f49d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/e81c95d2-dff9-4469-9cce-04d330b3f49d.jpg",
+          "coursesCount": 15,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C92387",
+          "darkColor": "#ED82C2",
+          "schoolUrl": "/beginner-core2/",
+          "url": "/clases/learning-path/beginner-core2/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-audiocurso-ingles-cotidiano-piezas-62d4106a-a75f-4069-a9be-502bc66393e8.png",
+            "https://static.platzi.com/media/achievements/3d9c2aa9-9a24-471f-9976-75e3b50e9e9b-14d94c02-d88d-4c1a-960b-4fca67e9fdb8.png",
+            "https://static.platzi.com/media/achievements/piezas-a2-verb-to-be-adjevtives-superlatives_badge-722f89bb-3107-4d1e-b8eb-ef533581.png"
+          ]
+        },
+        {
+          "id": 16490300,
+          "learningPathId": 10558,
+          "title": "Desarrollo de videojuegos",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/73609b82-a0d2-4998-b93b-140cbe81b37b.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/73609b82-a0d2-4998-b93b-140cbe81b37b.jpg",
+          "coursesCount": 14,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/motores-videojuegos/",
+          "url": "/clases/learning-path/motores-videojuegos/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-creacion-interfaces-usuario-unity-badge-ba9356eb-b8aa-4989-819a-c9700c5d5d5c.png",
+            "https://static.platzi.com/media/achievements/badgedes-videojuegos-unity-mov-e396b23e-5e40-4e81-ab64-9c27afad545d.png",
+            "https://static.platzi.com/media/achievements/documento-diseno-juego-badge-9ae2fabf-90fb-4639-9066-393182f69506.png"
+          ]
+        },
+        {
+          "id": 16516657,
+          "learningPathId": 36417,
+          "title": "AI‑Native: Productividad, Automatización y Agentes",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/a419c9fb-5007-4a8c-919e-3c5300d327cc.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/a419c9fb-5007-4a8c-919e-3c5300d327cc.jpg",
+          "coursesCount": 19,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/ainative/",
+          "url": "/clases/learning-path/ainative/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-ruta-ai-reto-badge-1d6a983b-c3d3-42f7-9891-c212ad7b7fd8.png",
+            "https://static.platzi.com/media/achievements/piezas-curso-chatgpt-25-badge-5feef4cd-616a-4234-9282-f88c1bac62a3.png",
+            "https://static.platzi.com/media/achievements/acb0c251-790c-4445-b59b-d996316bb455-8d018cb3-a8d9-4777-ac30-bca7c378f465.png"
+          ]
+        },
+        {
+          "id": 16601994,
+          "learningPathId": null,
+          "title": "Tesis",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 6,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#218371",
+          "darkColor": "#74E7D1",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/16601994/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-pensamiento-disruptivo-startups-ce27f932-fe40-485f-976f-be098213d6d0.png",
+            "https://static.platzi.com/media/achievements/piezas-curso-de-cursor-ai-code-editor_badge-5e6c3aff-7f28-4643-b8ec-4d2e8e85bcdd.png",
+            "https://static.platzi.com/media/achievements/badge_agentes_ai-1a83464a-c328-4d56-ad65-1b4aba7a1d86.png"
+          ]
+        },
+        {
+          "id": 16602023,
+          "learningPathId": 30080,
+          "title": "Arquitecturas Web Modernas y Escalabilidad",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 24,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/arquitecturas-web-modernas-y-escalabilidad/",
+          "url": "/clases/learning-path/arquitecturas-web-modernas-y-escalabilidad/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-frameworks-arquitecturas-04df5c74-333f-48fc-8322-4d842b19d5fb.png",
+            "https://static.platzi.com/media/achievements/piezas-arquitectura-alta-concurrencia_badge-873e20d1-6957-49f5-83d5-67de75890b49.png",
+            "https://static.platzi.com/media/achievements/piezas-nodejs-graphql-apollo-server-prisma-cms_badge-5995d28d-302e-4bdd-bd86-e49a1b.png"
+          ]
+        },
+        {
+          "id": 16610247,
+          "learningPathId": null,
+          "title": "Tesis 1",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 0,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/16610247/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": []
+        },
+        {
+          "id": 6720,
+          "learningPathId": 6720,
+          "title": "Cursos Exclusivos",
+          "level": "basic",
+          "learningPathType": "static",
+          "categoryId": null,
+          "current": false,
+          "removable": false,
+          "draggable": false,
+          "image": "https://static.platzi.com/media/learningpath/badges/1476321b-19a3-4f3e-9b66-3654207ceb7c.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/1476321b-19a3-4f3e-9b66-3654207ceb7c.jpg",
+          "coursesCount": 2,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/manual-es/",
+          "url": "/clases/learning-path/manual-es/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-ing-basico-a1-fechas-cca042ae-b01f-45aa-bc0f-5469ff035e5a.png",
+            "https://static.platzi.com/media/achievements/badge-escuela-ing-e2e19fa3-d696-4960-bcd7-d1fe37a6b9df.png"
+          ]
+        },
+        {
+          "id": 6773,
+          "learningPathId": 6773,
+          "title": "Cursos APPS.CO - Platzi",
+          "level": "basic",
+          "learningPathType": "static",
+          "categoryId": 5,
+          "current": false,
+          "removable": false,
+          "draggable": false,
+          "image": "https://static.platzi.com/media/achievements/apps-4fb51e0e-787d-4447-a51b-61ff5f16cf9f.png",
+          "badgeUrl": "https://static.platzi.com/media/achievements/apps-4fb51e0e-787d-4447-a51b-61ff5f16cf9f.png",
+          "coursesCount": 14,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/appsco-convenio/",
+          "url": "/clases/learning-path/appsco-convenio/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-marca-personal-2023_badge-15ebc3ef-0e5a-4d1a-a935-e450da8f462c.png",
+            "https://static.platzi.com/media/achievements/badgewom-78dace1e-c5e8-4f74-86dc-f3add5653769.png",
+            "https://static.platzi.com/media/achievements/badge-fintech-emprendedores-5740a69c-dfec-4c0a-885b-0316ebc765fd.png"
+          ]
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/profile/v2/streaks/",
+      "ct": "application/json; charset=UTF-8",
+      "body": {
+        "data": {
+          "streak": 1,
+          "current_streak": 1,
+          "streak_completed": true,
+          "total_materials": 82,
+          "streak_message": "Estuvo fácil, ¿no?. El reto es mantener la racha. ¿Cuál es el plan para la siguiente semana?"
+        }
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/datars/v1/events/v1/page",
+      "ct": "application/json",
+      "body": {
+        "success": true
+      }
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/api/v4/user-learning-paths/",
+      "ct": "application/json",
+      "body": [
+        {
+          "id": 774593,
+          "learningPathId": null,
+          "title": "Mis Cursos",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 47,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#1476B8",
+          "darkColor": "#6CC3EF",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/774593/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/1220-da04fca8-8561-40ce-a678-3585bde8d899.png",
+            "https://static.platzi.com/media/achievements/badges-categorias-negocios-emprendimiento-1-90ace212-529a-4741-8a55-6a56d0d48f0f-b3.png",
+            "https://static.platzi.com/media/achievements/badges-marca-personal-be5ca4b6-bf0a-4275-a0c2-8b31f5f72552.png"
+          ]
+        },
+        {
+          "id": 6929120,
+          "learningPathId": 37,
+          "title": "Desarrollo con WordPress",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/badge-wordpress.png",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/badge-wordpress.png",
+          "coursesCount": 15,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/desarrollo-wordpress/",
+          "url": "/clases/learning-path/desarrollo-wordpress/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-basico-php-1226e062-0c34-40fc-b00f-1cf704d6704c.png",
+            "https://static.platzi.com/media/achievements/piezas-app-mobile-utilizando-woocommerce_badge-8db96c37-49db-4bb2-bd43-0fc63ec40723.png",
+            "https://static.platzi.com/media/achievements/piezas-bloques-gutenberg-wordpress_badge-ec757676-960b-4f60-a902-02dcafd1d74c.png"
+          ]
+        },
+        {
+          "id": 6929121,
+          "learningPathId": 38,
+          "title": "Seguridad Informática",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/Badge-seguridad-informatica.png",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/Badge-seguridad-informatica.png",
+          "coursesCount": 19,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/seguridad-informatica-old/",
+          "url": "/clases/learning-path/seguridad-informatica-old/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-admin-servidores-linux2-1-9ee5d59f-559d-451a-a7ea-6bae8c6bf47b.png",
+            "https://static.platzi.com/media/achievements/badge-analisis-malware-dispositivos-moviles-e9bd1dd4-2010-45c2-81b0-33a4359d78c6.png",
+            "https://static.platzi.com/media/achievements/badge_curso_ciberseguridad_empresarial-277a4900-47ff-43a2-856e-9ae733faf47f.png"
+          ]
+        },
+        {
+          "id": 6929129,
+          "learningPathId": 10,
+          "title": "Desarrollo Web Backend con PHP",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/6829a61e-5fdd-4855-9446-1304b22c9491.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/6829a61e-5fdd-4855-9446-1304b22c9491.jpg",
+          "coursesCount": 23,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/desarrollo-php/",
+          "url": "/clases/learning-path/desarrollo-php/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-avanzado-laravel-22288f0d-5664-4a52-beb0-3ee871508028.png",
+            "https://static.platzi.com/media/achievements/badge-configurar-eloquent-model-laravel-68179995-fe12-4709-a62e-9a03d1483a20.png",
+            "https://static.platzi.com/media/achievements/badge-basico-php-1226e062-0c34-40fc-b00f-1cf704d6704c.png"
+          ]
+        },
+        {
+          "id": 6929130,
+          "learningPathId": 8,
+          "title": "Frontend a profundidad con React.js",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/fc491fa0-c1ca-448b-8262-629406154dfc.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/fc491fa0-c1ca-448b-8262-629406154dfc.jpg",
+          "coursesCount": 22,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/desarrollo-react/",
+          "url": "/clases/learning-path/desarrollo-react/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-piezas-clousures-scope-javascript-af54a63d-00d6-42e3-96c3-731028480418.png",
+            "https://static.platzi.com/media/achievements/badge-introduccion-frameworks-javascript-72c0e3a6-a4e9-4d6d-a13a-a3f0bc17d607.png",
+            "https://static.platzi.com/media/achievements/badge-curso-frontend-developer-825407d1-49b1-4c9b-90c4-eee793720ede.png"
+          ]
+        },
+        {
+          "id": 6929131,
+          "learningPathId": 6,
+          "title": "Bases de datos desde cero",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/10.png",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/10.png",
+          "coursesCount": 16,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/base-de-datos/",
+          "url": "/clases/learning-path/base-de-datos/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-amazon-dynamodb_badge-a78b395d-0f82-4e08-a108-dcba9c0d122d.png",
+            "https://static.platzi.com/media/achievements/badge-azure-chache-redis-6b2e6f4c-5267-460f-b5ed-44c3d22b5e3f.png",
+            "https://static.platzi.com/media/achievements/badge-fundamentos-de-bases-de-datos-cc5eff2a-a7e0-4110-af5d-a47b628611da-42_vrW7zSq.png"
+          ]
+        },
+        {
+          "id": 6929133,
+          "learningPathId": 3,
+          "title": "Desarrollo Backend con Python y Django",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/1318-9835c3f1-72e7-42c9-a87c-44605904d7ba.png",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/1318-9835c3f1-72e7-42c9-a87c-44605904d7ba.png",
+          "coursesCount": 12,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/backend-python/",
+          "url": "/clases/learning-path/backend-python/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-basico-django_badge-b37090dc-8812-45dd-876d-374e878b9b8d.png",
+            "https://static.platzi.com/media/achievements/piezas-complejidad-algoritmica-python_badge-ff69b19d-dbc5-4bf8-a2be-d985e9f45932.png",
+            "https://static.platzi.com/media/achievements/badge_curso_django-7e6cf222-a74c-4ded-bf42-5151e904db8e.png"
+          ]
+        },
+        {
+          "id": 6933087,
+          "learningPathId": 100,
+          "title": "Full Stack Developer con JavaScript",
+          "level": "custom",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/0e509f8c-72f0-4064-a6bf-18dc9e667f63.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/0e509f8c-72f0-4064-a6bf-18dc9e667f63.jpg",
+          "coursesCount": 15,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/javascript-full-stack/",
+          "url": "/clases/learning-path/javascript-full-stack/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-backend-nodejs-autenticacion-passportjs-jwt-3425c859-2f69-49a5-849a-792049d24.png",
+            "https://static.platzi.com/media/achievements/backend-node-82a9a4bf-7ce4-4437-86f6-c39dcce17d15.png",
+            "https://static.platzi.com/media/achievements/badge-7f8a5eb4-0bf2-4e36-ac31-adeba103ea4a.png"
+          ]
+        },
+        {
+          "id": 6933088,
+          "learningPathId": 13,
+          "title": "English Learning",
+          "level": "custom",
+          "learningPathType": "platzi",
+          "categoryId": 17,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/ae5b71f4-17a4-42c0-bdf7-128eb6f6368b.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/ae5b71f4-17a4-42c0-bdf7-128eb6f6368b.jpg",
+          "coursesCount": 80,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C92387",
+          "darkColor": "#ED82C2",
+          "schoolUrl": "/idioma-ingles/",
+          "url": "/clases/learning-path/idioma-ingles/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-audiocurso-ingles-uso-preposiciones_badge-a07e6571-8751-4988-89bc-3c48958360.png",
+            "https://static.platzi.com/media/achievements/badge-ingles-viajes-audiocurso-79c79637-0902-4378-82bc-f3554ca587cf.png",
+            "https://static.platzi.com/media/achievements/badge-audiocurso-interactivo-en-f4cea3ca-72ea-4aea-9018-7b59a81e085b.png"
+          ]
+        },
+        {
+          "id": 7064725,
+          "learningPathId": 6727,
+          "title": "Frontend y Backend con Javascript para Desarrollo Web",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/6475ba11-ef6a-401f-9144-d40f615e0cfc.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/6475ba11-ef6a-401f-9144-d40f615e0cfc.jpg",
+          "coursesCount": 110,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/desarrollo-web/",
+          "url": "/clases/learning-path/desarrollo-web/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badgeaudio-accesibilidad-web-1dced0c3-ef28-4adc-a3a7-4159ee78f996.png",
+            "https://static.platzi.com/media/achievements/piezas-avanzado-automatizacion-pruebas-puppeteer_badge-01853455-de94-4f0f-9c20-cfe8.png",
+            "https://static.platzi.com/media/achievements/piezas-nodejs-graphql-apollo-server-prisma-cms_badge-5995d28d-302e-4bdd-bd86-e49a1b.png"
+          ]
+        },
+        {
+          "id": 7477445,
+          "learningPathId": 6842,
+          "title": "Finanzas e Inversiones",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 8,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/402797b7-6f9d-455c-b408-16892b7b5f34.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/402797b7-6f9d-455c-b408-16892b7b5f34.jpg",
+          "coursesCount": 27,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#FFBB00",
+          "darkColor": "#F7D064",
+          "schoolUrl": "/finanzas-legacy/",
+          "url": "/clases/learning-path/finanzas-legacy/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-introduccion-economia-conductual_badge-e69a45f9-1667-4fea-ac9e-de96fd43da26.png",
+            "https://static.platzi.com/media/achievements/badge-excel-financiero-cc798af1-325a-4e31-9866-3c3479183129.png",
+            "https://static.platzi.com/media/achievements/armar-portafolio-inversion-vest_piezas_badge-e38144e6-aca0-48d2-b242-5b745f13287e.png"
+          ]
+        },
+        {
+          "id": 7628648,
+          "learningPathId": 28,
+          "title": "Desarrollo con ASP.NET",
+          "level": "custom",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/7475d8ab-c62f-416f-b262-e5caf8ce96cb.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/7475d8ab-c62f-416f-b262-e5caf8ce96cb.jpg",
+          "coursesCount": 12,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/asp-net/",
+          "url": "/clases/learning-path/asp-net/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-basico-c-fundamentos-variables-operadores_badge-437629eb-7aa1-472d-a69b-82ea.png",
+            "https://static.platzi.com/media/achievements/badge-azure-devops-c56306b9-e235-4806-bbc6-753edaa9a6a0.png",
+            "https://static.platzi.com/media/achievements/1359-c2172b91-9378-4db4-ba81-91aa8413770c.png"
+          ]
+        },
+        {
+          "id": 7743096,
+          "learningPathId": 48,
+          "title": "Diseño de Experiencia de Usuario (UX Design)",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 6,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/ca3c0d9c-b62e-4294-a451-689003c7930f.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/ca3c0d9c-b62e-4294-a451-689003c7930f.jpg",
+          "coursesCount": 18,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#81439D",
+          "darkColor": "#CC8EE7",
+          "schoolUrl": "/diseno-ux/",
+          "url": "/clases/learning-path/diseno-ux/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-taller-resolucion-problemas-5ec0b940-e0dc-4d0a-915b-2fb8bd99adb3.png",
+            "https://static.platzi.com/media/achievements/badgeaccesibilidad-web-478d9593-87f8-4af1-9e02-401f5fd2d946.png",
+            "https://static.platzi.com/media/achievements/badge-arquitectura-informacion-c237b5f1-8525-42f8-b889-020b8d95bd63.png"
+          ]
+        },
+        {
+          "id": 7743097,
+          "learningPathId": 44,
+          "title": "Desarrollo Backend con Java",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/04675956-0287-4850-a1bb-99834adbb448.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/04675956-0287-4850-a1bb-99834adbb448.jpg",
+          "coursesCount": 10,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/desarrollo-java/",
+          "url": "/clases/learning-path/desarrollo-java/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/1236-21df15a8-5fb9-4c82-81df-187ce86367be.png",
+            "https://static.platzi.com/media/achievements/badge-diseno-interfaces-android-studio-43aeaa88-f9ec-482d-9a40-2795b2936096.png",
+            "https://static.platzi.com/media/achievements/badges-basico-testing-java-29e71f98-06e3-4ce3-8417-218ee0cfaf4a.png"
+          ]
+        },
+        {
+          "id": 7743098,
+          "learningPathId": 19,
+          "title": "Diseño de Interfaces (UI)",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 6,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/a8680f68-3407-4813-b92e-7d99b8f498ff.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/a8680f68-3407-4813-b92e-7d99b8f498ff.jpg",
+          "coursesCount": 14,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#81439D",
+          "darkColor": "#CC8EE7",
+          "schoolUrl": "/interfaces-ui/",
+          "url": "/clases/learning-path/interfaces-ui/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-xd-b04f6bcb-e995-4b20-8b7c-213c9f657b42.png",
+            "https://static.platzi.com/media/achievements/badge-arquitectura-informacion-c237b5f1-8525-42f8-b889-020b8d95bd63.png",
+            "https://static.platzi.com/media/achievements/badge-colaboracion-diseno-desarrollo-1-be2835a4-46c9-4b5e-b5ad-81388ab6d19c.png"
+          ]
+        },
+        {
+          "id": 9444277,
+          "learningPathId": 14,
+          "title": "Contenido Audiovisual",
+          "level": "custom",
+          "learningPathType": "platzi",
+          "categoryId": 10,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/772d13ac-8105-486b-9227-184a31c3655c.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/772d13ac-8105-486b-9227-184a31c3655c.jpg",
+          "coursesCount": 41,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#FF8D0A",
+          "darkColor": "#F79564",
+          "schoolUrl": "/contenido-audiovisual/",
+          "url": "/clases/learning-path/contenido-audiovisual/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-bites-produccion-audiovisual-8d3348e3-ba86-40aa-939c-469d2bebab97.png",
+            "https://static.platzi.com/media/achievements/badge-piezas-avanzado-realidad-aumentada-4225608d-750f-4455-93a9-fe46ee339937.png",
+            "https://static.platzi.com/media/achievements/badge-adobe-premiere-pro-26b1665d-4c55-4262-87bd-5a6a5bfa4edf.png"
+          ]
+        },
+        {
+          "id": 14067021,
+          "learningPathId": 7766,
+          "title": "Diseño Gráfico Profesional",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 6,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/b7990c93-b8bc-4904-a969-262722e1e4b6.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/b7990c93-b8bc-4904-a969-262722e1e4b6.jpg",
+          "coursesCount": 31,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#81439D",
+          "darkColor": "#CC8EE7",
+          "schoolUrl": "/gd/",
+          "url": "/clases/learning-path/gd/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badges-indesign-480f5869-0b53-423f-9273-675de29db1d6.png",
+            "https://static.platzi.com/media/achievements/badge-arte-personajes-2d-c2171119-e268-46a3-a512-93c13f9f5313.png",
+            "https://static.platzi.com/media/achievements/piezas-landing-comic-ilustracion-diversidad-inclusion_badge-9b7e98d0-e0b3-43cf-8012.png"
+          ]
+        },
+        {
+          "id": 14340248,
+          "learningPathId": 8263,
+          "title": "Fundamentos de Data e Inteligencia Artificial",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/709c1693-690f-4eab-8342-0d9bfd7b64ae.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/709c1693-690f-4eab-8342-0d9bfd7b64ae.jpg",
+          "coursesCount": 12,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/fundamentos-data/",
+          "url": "/clases/learning-path/fundamentos-data/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-curso-chatgpt-25-badge-5feef4cd-616a-4234-9282-f88c1bac62a3.png",
+            "https://static.platzi.com/media/achievements/piezas-ciencia-datos-analisis-negocio-badge-2a63cd35-6ed0-418c-908c-c19046b8377f.png",
+            "https://static.platzi.com/media/achievements/acb0c251-790c-4445-b59b-d996316bb455-8d018cb3-a8d9-4777-ac30-bca7c378f465.png"
+          ]
+        },
+        {
+          "id": 14340249,
+          "learningPathId": 8307,
+          "title": "Data Scientist con Python",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/55ae85a0-6956-4b72-b7fd-babefb03e640.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/55ae85a0-6956-4b72-b7fd-babefb03e640.jpg",
+          "coursesCount": 29,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/data-scientist-python/",
+          "url": "/clases/learning-path/data-scientist-python/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/29177a65-bb9f-4707-930c-7a221badb534-07bd09ed-1010-4ea8-8ee4-4f94a1747a1f.png",
+            "https://static.platzi.com/media/achievements/badge-piezas-calculo-basico-diferencial-data-science-e8061332-d062-4ce1-ac6f-f94683.png",
+            "https://static.platzi.com/media/achievements/bagde-algebra-lineal-machine-learning-dc3c7317-aaca-4320-b327-2986e965715f.png"
+          ]
+        },
+        {
+          "id": 14599676,
+          "learningPathId": 7337,
+          "title": "Estratega de contenidos",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 10,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/ea60612b-96a8-4203-bac8-7d8c1529281f.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/ea60612b-96a8-4203-bac8-7d8c1529281f.jpg",
+          "coursesCount": 17,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#FF8D0A",
+          "darkColor": "#F79564",
+          "schoolUrl": "/estratega/",
+          "url": "/clases/learning-path/estratega/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-community-manager-422f5fa7-b570-424a-ac60-4b82e6f121bc.png",
+            "https://static.platzi.com/media/achievements/badge-copy-storytelling-7b2ab3dc-2250-4ac8-b4be-3ccb1338d198.png",
+            "https://static.platzi.com/media/achievements/piezas-marca-personal-creacion-contenido-instagram_badge-5028ba25-b81e-45f5-aab4-6c.png"
+          ]
+        },
+        {
+          "id": 14599677,
+          "learningPathId": 7834,
+          "title": "Creación de Contenido Digital para Redes Sociales",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 10,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/6fb6be23-ce2c-4229-b0ec-3da4d927d7e7.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/6fb6be23-ce2c-4229-b0ec-3da4d927d7e7.jpg",
+          "coursesCount": 28,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#FF8D0A",
+          "darkColor": "#F79564",
+          "schoolUrl": "/content-creator/",
+          "url": "/clases/learning-path/content-creator/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-lab-desafios-371412fb-dd76-440d-a790-c7d846941236.png",
+            "https://static.platzi.com/media/achievements/piezas-community-manager-422f5fa7-b570-424a-ac60-4b82e6f121bc.png",
+            "https://static.platzi.com/media/achievements/badge-copy-storytelling-7b2ab3dc-2250-4ac8-b4be-3ccb1338d198.png"
+          ]
+        },
+        {
+          "id": 14930261,
+          "learningPathId": 8309,
+          "title": "Inglés Básico A1",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 17,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/3e3ec70f-141b-414a-9753-78aa93da23ad.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/3e3ec70f-141b-414a-9753-78aa93da23ad.jpg",
+          "coursesCount": 16,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C92387",
+          "darkColor": "#ED82C2",
+          "schoolUrl": "/beginner-core/",
+          "url": "/clases/learning-path/beginner-core/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-audiocurso-ingles-uso-preposiciones_badge-a07e6571-8751-4988-89bc-3c48958360.png",
+            "https://static.platzi.com/media/achievements/badge-ingles-viajes-audiocurso-79c79637-0902-4378-82bc-f3554ca587cf.png",
+            "https://static.platzi.com/media/achievements/badge-piezas-inglesescritura-br-be4b1790-76aa-4312-bca4-f6b1f98574b1.png"
+          ]
+        },
+        {
+          "id": 14969383,
+          "learningPathId": 7044,
+          "title": "Frontend con Vue.js",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/fefb2841-6f82-416f-9943-f4f1855c7cbb.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/fefb2841-6f82-416f-9943-f4f1855c7cbb.jpg",
+          "coursesCount": 16,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/web-vue/",
+          "url": "/clases/learning-path/web-vue/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-avanzado-vuejs-aefbebf5-a606-4ea1-bc12-5115de2cdf53.png",
+            "https://static.platzi.com/media/achievements/badge-basico-vue-js-a86950de-232c-4ebe-b635-a0bba62f87ae.png",
+            "https://static.platzi.com/media/achievements/badge-vue-3-4b4c3cb0-ea25-4eac-957f-28eb09339383.png"
+          ]
+        },
+        {
+          "id": 14983317,
+          "learningPathId": 7043,
+          "title": "Frontend con React.js",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/1690f090-fcce-4456-9e56-2882c2e68a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/1690f090-fcce-4456-9e56-2882c2e68a8d.jpg",
+          "coursesCount": 12,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/web-react/",
+          "url": "/clases/learning-path/web-react/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-next-js-14-badge-2b752e1b-0717-444a-9199-698ef5f4eb87-eeef2e9c-5886-_mMunK3o.png",
+            "https://static.platzi.com/media/achievements/badge-reactjs-avanzado-bc9f61e9-9a1a-485b-b0ad-43a172cdb0aa-a922c0c2-ac5d-_nywhmsg.webp",
+            "https://static.platzi.com/media/achievements/reactjs-patrones-render_badge-3c77e155-b04a-4c95-ac61-e2b6d2d5b92e-00753ce_R9qSoA6.webp"
+          ]
+        },
+        {
+          "id": 15422556,
+          "learningPathId": null,
+          "title": "Mis cursos vistos en 2024",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 7,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/15422556/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-next-js-14-badge-2b752e1b-0717-444a-9199-698ef5f4eb87.png",
+            "https://static.platzi.com/media/achievements/badge_curso_fundamentoscriptografia-04e501a3-4bc4-43f5-921f-ba8b7a75247a.png",
+            "https://static.platzi.com/media/achievements/badge-gestion-tiempo-5368aa24-4418-4e10-b6c3-c8775b849bf9.png"
+          ]
+        },
+        {
+          "id": 15929116,
+          "learningPathId": 30096,
+          "title": "Administración de Servidores Linux",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 2,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/administracion-de-servidores-linux/",
+          "url": "/clases/learning-path/administracion-de-servidores-linux/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-admin-servidores-linux2-1-9ee5d59f-559d-451a-a7ea-6bae8c6bf47b.png",
+            "https://static.platzi.com/media/achievements/badge-intro-admin-servidores-linux1-2b8e4cfd-e434-482a-be0d-b76b39e3e677.png"
+          ]
+        },
+        {
+          "id": 16076048,
+          "learningPathId": null,
+          "title": "Excel",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 12,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#FFBB00",
+          "darkColor": "#F7D064",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/16076048/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-curso-excel-basico-badge-3471057d-5e76-487f-b511-9ec4dff425e8.png",
+            "https://static.platzi.com/media/achievements/1275-275c632f-cdf5-45d4-a520-d95aa111d015.png",
+            "https://static.platzi.com/media/achievements/badge-excel-intermedio-9e3b78e9-fe25-46b4-af5f-f5f24f1dcc1b.png"
+          ]
+        },
+        {
+          "id": 16076052,
+          "learningPathId": null,
+          "title": "Juan",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 1,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#CE3B3E",
+          "darkColor": "#F17E80",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/16076052/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/1285-4cf709f2-7905-4e4b-95fb-409d8d83b68d.png"
+          ]
+        },
+        {
+          "id": 16164516,
+          "learningPathId": 30098,
+          "title": "Infraestructura como Código (IaC) y CI/CD",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 5,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/infraestructura-como-codigo-iac-y-ci-cd/",
+          "url": "/clases/learning-path/infraestructura-como-codigo-iac-y-ci-cd/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-azure-devops-c56306b9-e235-4806-bbc6-753edaa9a6a0.png",
+            "https://static.platzi.com/media/achievements/piezas-github-action_badge-07073acc-7e5e-447b-8b3b-ed7b7aecf793.png",
+            "https://static.platzi.com/media/achievements/badge-infraestructura-codigo-aws-523f9344-e19f-4d04-bd06-8b6c159e95e7.png"
+          ]
+        },
+        {
+          "id": 16187136,
+          "learningPathId": 30081,
+          "title": "DevOps y Cloud para Desarrolladores Web",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 17,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/devops-y-cloud-para-desarrolladores-web/",
+          "url": "/clases/learning-path/devops-y-cloud-para-desarrolladores-web/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-avanzado-serverless-framework-aws_badge-da059794-2a01-4f64-bde9-13cdae5c9d05.png",
+            "https://static.platzi.com/media/achievements/badge-4-29bcbe36-3b2e-4065-b5ad-72110126b991.png",
+            "https://static.platzi.com/media/achievements/badge-azure-devops-c56306b9-e235-4806-bbc6-753edaa9a6a0.png"
+          ]
+        },
+        {
+          "id": 16187138,
+          "learningPathId": 30095,
+          "title": "Fundamentos de Cloud y DevOps",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 9,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/fundamentos-de-cloud-y-devops/",
+          "url": "/clases/learning-path/fundamentos-de-cloud-y-devops/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-computacion-basica_badge-930099c0-50d7-45ae-8043-802170eb5d55.png",
+            "https://static.platzi.com/media/achievements/badge-flujo-desarrollo-codestream-5a0492d0-ab21-4e33-925f-b74bd7ce4c20.png",
+            "https://static.platzi.com/media/achievements/piezas-fundamentosde-ingenieria-de-software_badge-d9c5b559-837f-44a3-8543-d_bkcvYTp.png"
+          ]
+        },
+        {
+          "id": 16216483,
+          "learningPathId": 30097,
+          "title": "Contenerización y Orquestación",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 5,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/contenerizacion-y-orquestacion/",
+          "url": "/clases/learning-path/contenerizacion-y-orquestacion/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-contenedores-aplicaciones-nube-google-cloud-platform_badge-1-c1f2e34e-8606-4.png",
+            "https://static.platzi.com/media/achievements/piezas-docker-avanzado-badge-56272b38-f98f-4356-9248-534a22afa1be.png",
+            "https://static.platzi.com/media/achievements/docker-fundamentos-badge-f4ad90e2-69b6-4211-b1aa-58a035c1edbf.png"
+          ]
+        },
+        {
+          "id": 16343419,
+          "learningPathId": 12050,
+          "title": "Inglés Básico A2",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 17,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/e81c95d2-dff9-4469-9cce-04d330b3f49d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/e81c95d2-dff9-4469-9cce-04d330b3f49d.jpg",
+          "coursesCount": 15,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C92387",
+          "darkColor": "#ED82C2",
+          "schoolUrl": "/beginner-core2/",
+          "url": "/clases/learning-path/beginner-core2/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-audiocurso-ingles-cotidiano-piezas-62d4106a-a75f-4069-a9be-502bc66393e8.png",
+            "https://static.platzi.com/media/achievements/3d9c2aa9-9a24-471f-9976-75e3b50e9e9b-14d94c02-d88d-4c1a-960b-4fca67e9fdb8.png",
+            "https://static.platzi.com/media/achievements/piezas-a2-verb-to-be-adjevtives-superlatives_badge-722f89bb-3107-4d1e-b8eb-ef533581.png"
+          ]
+        },
+        {
+          "id": 16490300,
+          "learningPathId": 10558,
+          "title": "Desarrollo de videojuegos",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": 5,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/73609b82-a0d2-4998-b93b-140cbe81b37b.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/73609b82-a0d2-4998-b93b-140cbe81b37b.jpg",
+          "coursesCount": 14,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/motores-videojuegos/",
+          "url": "/clases/learning-path/motores-videojuegos/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-creacion-interfaces-usuario-unity-badge-ba9356eb-b8aa-4989-819a-c9700c5d5d5c.png",
+            "https://static.platzi.com/media/achievements/badgedes-videojuegos-unity-mov-e396b23e-5e40-4e81-ab64-9c27afad545d.png",
+            "https://static.platzi.com/media/achievements/documento-diseno-juego-badge-9ae2fabf-90fb-4639-9066-393182f69506.png"
+          ]
+        },
+        {
+          "id": 16516657,
+          "learningPathId": 36417,
+          "title": "AI‑Native: Productividad, Automatización y Agentes",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/a419c9fb-5007-4a8c-919e-3c5300d327cc.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/a419c9fb-5007-4a8c-919e-3c5300d327cc.jpg",
+          "coursesCount": 19,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/ainative/",
+          "url": "/clases/learning-path/ainative/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-ruta-ai-reto-badge-1d6a983b-c3d3-42f7-9891-c212ad7b7fd8.png",
+            "https://static.platzi.com/media/achievements/piezas-curso-chatgpt-25-badge-5feef4cd-616a-4234-9282-f88c1bac62a3.png",
+            "https://static.platzi.com/media/achievements/acb0c251-790c-4445-b59b-d996316bb455-8d018cb3-a8d9-4777-ac30-bca7c378f465.png"
+          ]
+        },
+        {
+          "id": 16601994,
+          "learningPathId": null,
+          "title": "Tesis",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 6,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#218371",
+          "darkColor": "#74E7D1",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/16601994/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-pensamiento-disruptivo-startups-ce27f932-fe40-485f-976f-be098213d6d0.png",
+            "https://static.platzi.com/media/achievements/piezas-curso-de-cursor-ai-code-editor_badge-5e6c3aff-7f28-4643-b8ec-4d2e8e85bcdd.png",
+            "https://static.platzi.com/media/achievements/badge_agentes_ai-1a83464a-c328-4d56-ad65-1b4aba7a1d86.png"
+          ]
+        },
+        {
+          "id": 16602023,
+          "learningPathId": 30080,
+          "title": "Arquitecturas Web Modernas y Escalabilidad",
+          "level": "basic",
+          "learningPathType": "platzi",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/270ea81d-ac6e-45ae-8d70-2596bbb45a8d.jpg",
+          "coursesCount": 24,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/arquitecturas-web-modernas-y-escalabilidad/",
+          "url": "/clases/learning-path/arquitecturas-web-modernas-y-escalabilidad/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-frameworks-arquitecturas-04df5c74-333f-48fc-8322-4d842b19d5fb.png",
+            "https://static.platzi.com/media/achievements/piezas-arquitectura-alta-concurrencia_badge-873e20d1-6957-49f5-83d5-67de75890b49.png",
+            "https://static.platzi.com/media/achievements/piezas-nodejs-graphql-apollo-server-prisma-cms_badge-5995d28d-302e-4bdd-bd86-e49a1b.png"
+          ]
+        },
+        {
+          "id": 16610247,
+          "learningPathId": null,
+          "title": "Tesis 1",
+          "level": "custom",
+          "learningPathType": "custom",
+          "categoryId": null,
+          "current": false,
+          "removable": true,
+          "draggable": true,
+          "image": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "badgeUrl": "https://static.platzi.com/media/avatars/avatars/YosoyMitxel_28692b03-dfd8-42fa-a968-7877cb82aabd.jpg",
+          "coursesCount": 0,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "",
+          "url": "/clases/learning_path_custom_detail/16610247/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": []
+        },
+        {
+          "id": 6720,
+          "learningPathId": 6720,
+          "title": "Cursos Exclusivos",
+          "level": "basic",
+          "learningPathType": "static",
+          "categoryId": null,
+          "current": false,
+          "removable": false,
+          "draggable": false,
+          "image": "https://static.platzi.com/media/learningpath/badges/1476321b-19a3-4f3e-9b66-3654207ceb7c.jpg",
+          "badgeUrl": "https://static.platzi.com/media/learningpath/badges/1476321b-19a3-4f3e-9b66-3654207ceb7c.jpg",
+          "coursesCount": 2,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#C1DF8B",
+          "darkColor": "#C1DF8B",
+          "schoolUrl": "/manual-es/",
+          "url": "/clases/learning-path/manual-es/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/badge-ing-basico-a1-fechas-cca042ae-b01f-45aa-bc0f-5469ff035e5a.png",
+            "https://static.platzi.com/media/achievements/badge-escuela-ing-e2e19fa3-d696-4960-bcd7-d1fe37a6b9df.png"
+          ]
+        },
+        {
+          "id": 6773,
+          "learningPathId": 6773,
+          "title": "Cursos APPS.CO - Platzi",
+          "level": "basic",
+          "learningPathType": "static",
+          "categoryId": 5,
+          "current": false,
+          "removable": false,
+          "draggable": false,
+          "image": "https://static.platzi.com/media/achievements/apps-4fb51e0e-787d-4447-a51b-61ff5f16cf9f.png",
+          "badgeUrl": "https://static.platzi.com/media/achievements/apps-4fb51e0e-787d-4447-a51b-61ff5f16cf9f.png",
+          "coursesCount": 14,
+          "progress": {
+            "approvedCoursesCount": 0,
+            "percentage": 0,
+            "approved": false
+          },
+          "color": "#17871D",
+          "darkColor": "#83D988",
+          "schoolUrl": "/appsco-convenio/",
+          "url": "/clases/learning-path/appsco-convenio/",
+          "schoolGhost": "",
+          "isSchool": false,
+          "isCustomizable": false,
+          "schoolImages": [
+            "https://static.platzi.com/media/achievements/piezas-marca-personal-2023_badge-15ebc3ef-0e5a-4d1a-a935-e450da8f462c.png",
+            "https://static.platzi.com/media/achievements/badgewom-78dace1e-c5e8-4f74-86dc-f3add5653769.png",
+            "https://static.platzi.com/media/achievements/badge-fintech-emprendedores-5740a69c-dfec-4c0a-885b-0316ebc765fd.png"
+          ]
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "url": "https://api.platzi.com/user-learning-path/v1/progress/?ulps_ids=774593,6929120,6929121,6929129,6929130,6929131,6929133,6933087,6933088,7064725,7477445,7628648,7743096,7743097,7743098,9444277,14067021,14340248,14340249,14599676,14599677,14930261,14969383,14983317,15422556,15929116,16076048,16076052,16164516,16187136,16187138,16216483,16343419,16490300,16516657,16601994,16602023,16610247,6720,6773",
+      "ct": "application/json; charset=UTF-8",
+      "body": {
+        "data": [
+          {
+            "learning_path_id": 7337,
+            "id": 14599676,
+            "duration_hours": 8,
+            "percentage": 8
+          },
+          {
+            "learning_path_id": 6,
+            "id": 6929131,
+            "duration_hours": 52,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 44,
+            "id": 7743097,
+            "duration_hours": 37,
+            "percentage": 7
+          },
+          {
+            "learning_path_id": 48,
+            "id": 7743096,
+            "duration_hours": 60,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 30081,
+            "id": 16187136,
+            "duration_hours": 38,
+            "percentage": 23
+          },
+          {
+            "learning_path_id": 28,
+            "id": 7628648,
+            "duration_hours": 35,
+            "percentage": 25
+          },
+          {
+            "learning_path_id": 7766,
+            "id": 14067021,
+            "duration_hours": 103,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 30080,
+            "id": 16602023,
+            "duration_hours": 104,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 3,
+            "id": 6929133,
+            "duration_hours": 33,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 6727,
+            "id": 7064725,
+            "duration_hours": 401,
+            "percentage": 8
+          },
+          {
+            "learning_path_id": 7044,
+            "id": 14969383,
+            "duration_hours": 90,
+            "percentage": 16
+          },
+          {
+            "learning_path_id": 7043,
+            "id": 14983317,
+            "duration_hours": 54,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 30096,
+            "id": 15929116,
+            "duration_hours": 14,
+            "percentage": 100
+          },
+          {
+            "learning_path_id": 38,
+            "id": 6929121,
+            "duration_hours": 41,
+            "percentage": 10
+          },
+          {
+            "learning_path_id": 6842,
+            "id": 7477445,
+            "duration_hours": 68,
+            "percentage": 5
+          },
+          {
+            "learning_path_id": 30097,
+            "id": 16216483,
+            "duration_hours": 35,
+            "percentage": 40
+          },
+          {
+            "learning_path_id": 8263,
+            "id": 14340248,
+            "duration_hours": 15,
+            "percentage": 12
+          },
+          {
+            "learning_path_id": 10,
+            "id": 6929129,
+            "duration_hours": 44,
+            "percentage": 100
+          },
+          {
+            "learning_path_id": 13,
+            "id": 6933088,
+            "duration_hours": 78,
+            "percentage": 14
+          },
+          {
+            "learning_path_id": 12050,
+            "id": 16343419,
+            "duration_hours": 34,
+            "percentage": 41
+          },
+          {
+            "learning_path_id": 30098,
+            "id": 16164516,
+            "duration_hours": 44,
+            "percentage": 30
+          },
+          {
+            "learning_path_id": 8309,
+            "id": 14930261,
+            "duration_hours": 34,
+            "percentage": 100
+          },
+          {
+            "learning_path_id": 36417,
+            "id": 16516657,
+            "duration_hours": 79,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 10558,
+            "id": 16490300,
+            "duration_hours": 43,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 7834,
+            "id": 14599677,
+            "duration_hours": 117,
+            "percentage": 7
+          },
+          {
+            "learning_path_id": 14,
+            "id": 9444277,
+            "duration_hours": 84,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 100,
+            "id": 6933087,
+            "duration_hours": 14,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 30095,
+            "id": 16187138,
+            "duration_hours": 61,
+            "percentage": 25
+          },
+          {
+            "learning_path_id": 8307,
+            "id": 14340249,
+            "duration_hours": 106,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 37,
+            "id": 6929120,
+            "duration_hours": 48,
+            "percentage": 100
+          },
+          {
+            "learning_path_id": 19,
+            "id": 7743098,
+            "duration_hours": 22,
+            "percentage": 0
+          },
+          {
+            "learning_path_id": 8,
+            "id": 6929130,
+            "duration_hours": 8,
+            "percentage": 17
+          },
+          {
+            "percentage": 36,
+            "id": 774593,
+            "duration_hours": 125
+          },
+          {
+            "percentage": 61,
+            "id": 15422556,
+            "duration_hours": 27
+          },
+          {
+            "percentage": 0,
+            "id": 16076048,
+            "duration_hours": 38
+          },
+          {
+            "percentage": 0,
+            "id": 16076052,
+            "duration_hours": 4
+          },
+          {
+            "percentage": 0,
+            "id": 16601994,
+            "duration_hours": 22
+          },
+          {
+            "percentage": 100,
+            "id": 6718,
+            "duration_hours": 0
+          }
+        ]
+      }
+    }
+  ],
+  "links_cursos": [
+    "/cursos/"
+  ],
+  "buttons": [
+    "1",
+    "confirmation_number",
+    "20.220pts\nexpand_more",
+    "language",
+    "Crear una ruta",
+    "delete"
+  ],
+  "body": "Inicio\nAcademy\nComunidad\nComentarios\nNotificaciones\nTU PROGRESO\nRutas\nProgreso\nCertificados\n\nHay empresas que le pagan Platzi a sus empleados 👀\n\nDescubre más\narrow_forward\nAyuda y feedback\n1\nconfirmation_number\n20.220pts\nexpand_more\nlanguage\nMis Rutas\nCrear una ruta\nMis Cursos\n\nRuta Personalizada | 47 Cursos\n\n36%\ndelete\nDesarrollo con WordPress\n\nRuta de Platzi | 15 Cursos\n\nCompletado\ndelete\nSeguridad Informática\n\nRuta de Platzi | 19 Cursos\n\n10%\ndelete\nDesarrollo Web Backend con PHP\n\nRuta de Platzi | 23 Cursos\n\nCompletado\ndelete\nFrontend a profundidad con React.js\n\nRuta de Platzi | 22 Cursos\n\n17%\ndelete\nBases de datos desde cero\n\nRuta de Platzi | 16 Cursos\n\n0%\ndelete\nDesarrollo Backend con Python y Django\n\nRuta de Platzi | 12 Cursos\n\n0%\ndelete\nFull Stack Developer con JavaScript\n\nRuta de Platzi | 15 Cursos\n\n0%\ndelete\nEnglish Learning\n\nRuta de Platzi | 80 Cursos\n\n14%\ndelete\nFrontend y Backend con Javascript para Desarrollo Web\n\nRuta de Platzi | 110 Cursos\n\n8%\ndelete\nFinanzas e Inversiones\n\nRuta de Platzi | 27 Cursos\n\n5%\ndelete\nDesarrollo con ASP.NET\n\nRuta de Platzi | 12 Cursos\n\n25%\ndelete\nDiseño de Experiencia de Usuario (UX Design)\n\nRuta de Platzi | 18 Cursos\n\n0%\ndelete\nDesarrollo Backend con Java\n\nRuta de Platzi | 10 Cursos\n\n7%\ndelete\nDiseño de Interfaces (UI)\n\nRuta de Platzi | 14 Cursos\n\n0%\ndelete\nContenido Audiovisual\n\nRuta de Platzi | 41 Cursos\n\n0%\ndelete\nDiseño Gráfico Profesional\n\nRuta de Platzi | 31 Cursos\n\n0%\ndelete\nFundamentos de Data e Inteligencia Artificial\n\nRuta de Platzi | 12 Cursos\n\n12%\ndelete\nData Scientist con Python\n\nRuta de Platzi | 29 Cursos\n\n0%\ndelete\nEstratega de contenidos\n\nRuta de Platzi | 17 Cursos\n\n8%\ndelete\nCreación de Contenido Digital para Redes Sociales\n\nRuta de Platzi | 28 Cursos\n\n7%\ndelete\nInglés Básico A1\n\nRuta de Platzi | 16 Cursos\n\nCompletado\ndelete\nFrontend con Vue.js\n\nRuta de Platzi | 16 Cursos\n\n16%\ndelete\nFrontend con React.js\n\nRuta de Platzi | 12 Cursos\n\n0%\ndelete\nMis cursos vistos en 2024\n\nRuta Personalizada | 7 Cursos\n\n61%\ndelete\nAdministración de Servidores Linux\n\nRuta de Platzi | 2 Cursos\n\nCompletado\ndelete\nExcel\n\nRuta Personalizada | 12 Cursos\n\n0%\ndelete\nJuan\n\nRuta Personalizada | 1 Cursos\n\n0%\ndelete\nInfraestructura como Código (IaC) y CI/CD\n\nRuta de Platzi | 5 Cursos\n\n30%\ndelete\nDevOps y Cloud para Desarrolladores Web\n\nRuta de Platzi | 17 Cursos\n\n23%\ndelete\nFundamentos de Cloud y DevOps\n\nRuta de Platzi | 9 Cursos\n\n25%\ndelete\nContenerización y Orquestación\n\nRuta de Platzi | 5 Cursos\n\n40%\ndelete\nInglés Básico A2\n\nRuta de Platzi | 15 Cursos\n\n41%\ndelete\nDesarrollo de videojuegos\n\nRuta de Platzi | 14 Cursos\n\n0%\ndelete\nAI‑Native: Productividad, Automatización y Agentes\n\nRuta de Platzi | 19 Cursos\n\n0%\ndelete\nTesis\n\nRuta Personalizada | 6 Cursos\n\n0%\ndelete\nArquitecturas Web Modernas y Escalabilidad\n\nRuta de Platzi | 24 Cursos\n\n0%\ndelete\nTesis 1\n\nRuta Personalizada | 0 Cursos\n\n0%\ndelete\nCursos Exclusivos\n\nRuta de Platzi | 2 Cursos\n\n0%\nCursos APPS.CO - Platzi\n\nRuta de Platzi | 14 Cursos\n\n0%"
+}

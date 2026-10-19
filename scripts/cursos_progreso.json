@@ -1,0 +1,908 @@
+{
+  "total": 48,
+  "pending": 42,
+  "courses": [
+    {
+      "slug": "owasp-top-10",
+      "title": "Curso de OWASP Top 10: Riesgos en Aplicaciones",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 9342,
+      "total_materials": 15,
+      "pos_material": 5,
+      "watched_at": "2026-09-28 15:28:18.289040+00:00",
+      "last_material": "Ataques de fuerza bruta y cómo detenerlos"
+    },
+    {
+      "slug": "spec-driven-dev",
+      "title": "Curso de Spec Driven Development",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 13808,
+      "total_materials": 13,
+      "pos_material": 7,
+      "watched_at": "2026-09-17 13:54:52.847107+00:00",
+      "last_material": "Comando Plan: de la Spec al código"
+    },
+    {
+      "slug": "ingenieria",
+      "title": "Curso de Fundamentos de Ingeniería de Software",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 11997,
+      "total_materials": 24,
+      "pos_material": 24,
+      "watched_at": "2026-09-13 15:59:13.892168+00:00",
+      "last_material": "Cómo funciona una red neuronal por dentro"
+    },
+    {
+      "slug": "unity2dintermedio",
+      "title": "Curso de Programación 2D con Unity: Intermedio",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 2431,
+      "total_materials": 31,
+      "pos_material": 10,
+      "watched_at": "2026-09-13 15:45:49.531406+00:00",
+      "last_material": "Observer"
+    },
+    {
+      "slug": "buenas-practicas-api",
+      "title": "Curso de Estándares y  Buenas Prácticas para API REST con Laravel",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 8154,
+      "total_materials": 29,
+      "pos_material": 4,
+      "watched_at": "2026-09-13 15:44:46.376398+00:00",
+      "last_material": "Pruebas de Creación de Datos en Aplicaciones Web"
+    },
+    {
+      "slug": "pensamiento-critico-ia",
+      "title": "Curso de Pensamiento Crítico para usar Inteligencia Artificial",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 13070,
+      "total_materials": 17,
+      "pos_material": 8,
+      "watched_at": "2026-06-14 14:14:47.017728+00:00",
+      "last_material": "Define el resultado que esperas antes de pedirlo"
+    },
+    {
+      "slug": "fundamentos-bbdd-sql",
+      "title": "Curso de Fundamentos de Bases de Datos y SQL",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 13017,
+      "total_materials": 25,
+      "pos_material": 2,
+      "watched_at": "2026-06-13 22:57:19.210911+00:00",
+      "last_material": "Diagrama ER con notación crow's foot"
+    },
+    {
+      "slug": "devs-ai-tools",
+      "title": "Curso de Herramientas de AI para Developers",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12852,
+      "total_materials": 13,
+      "pos_material": 3,
+      "watched_at": "2026-05-01 21:11:14.847397+00:00",
+      "last_material": "Cómo generar planes técnicos con Claude Code, Cursor y Windsurf"
+    },
+    {
+      "slug": "openclaw-2026",
+      "title": "Curso de OpenClaw",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12851,
+      "total_materials": 13,
+      "pos_material": 11,
+      "watched_at": "2026-04-18 13:17:10.995851+00:00",
+      "last_material": "Sesiones y memoria en OpenClaw"
+    },
+    {
+      "slug": "introduccion-devops",
+      "title": "Curso de Introducción a DevOps",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12057,
+      "total_materials": 22,
+      "pos_material": 19,
+      "watched_at": "2026-02-07 21:19:09.972327+00:00",
+      "last_material": "Las ocho etapas del proceso DevOps"
+    },
+    {
+      "slug": "gemini",
+      "title": "Curso de Gemini",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12546,
+      "total_materials": 26,
+      "pos_material": 3,
+      "watched_at": "2026-02-07 16:42:43.870651+00:00",
+      "last_material": "Cómo personalizar Gemini con memoria e instrucciones"
+    },
+    {
+      "slug": "desarrollo-laravel",
+      "title": "Curso de Laravel",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12187,
+      "total_materials": 25,
+      "pos_material": 15,
+      "watched_at": "2026-02-06 12:04:30.496786+00:00",
+      "last_material": "Guardar comentarios en tiempo real con Livewire"
+    },
+    {
+      "slug": "laravel-api",
+      "title": "Curso de API REST con Laravel",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 2185,
+      "total_materials": 18,
+      "pos_material": 16,
+      "watched_at": "2026-02-01 11:10:50.321580+00:00",
+      "last_material": "Planificación y Configuración de una API en PHP"
+    },
+    {
+      "slug": "laravel",
+      "title": "Curso de Introducción a Laravel 9",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 3039,
+      "total_materials": 31,
+      "pos_material": 1,
+      "watched_at": "2026-02-01 10:49:56.473931+00:00",
+      "last_material": "Qué es un framework y cómo lo usa Laravel"
+    },
+    {
+      "slug": "intro-laravel-2020",
+      "title": "Curso de Introducción a Laravel 6",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 1842,
+      "total_materials": 37,
+      "pos_material": 7,
+      "watched_at": "2026-01-30 17:25:33.876826+00:00",
+      "last_material": "Desarrollo web con Laravel: proyectos y funcionalidades clave"
+    },
+    {
+      "slug": "nextjs-14",
+      "title": "Curso de Next.js 14",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 8847,
+      "total_materials": 57,
+      "pos_material": 2,
+      "watched_at": "2026-01-27 14:23:09.230832+00:00",
+      "last_material": "Implementación de Chatbots con Next.js y Vercel AI SDK"
+    },
+    {
+      "slug": "n8n-2025",
+      "title": "Curso de N8N",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12028,
+      "total_materials": 23,
+      "pos_material": 23,
+      "watched_at": "2026-01-26 15:47:07.443822+00:00",
+      "last_material": "Mapping Receipt Data to Google Sheets with AI"
+    },
+    {
+      "slug": "introduccion-godot",
+      "title": "Curso Introductorio de Desarrollo de Videojuegos con Godot",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 3336,
+      "total_materials": 16,
+      "pos_material": 13,
+      "watched_at": "2026-01-04 19:11:29.771460+00:00",
+      "last_material": "Crea tu primer videojuego con Godot"
+    },
+    {
+      "slug": "basico-figma",
+      "title": "Curso de Figma",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 10992,
+      "total_materials": 22,
+      "pos_material": 4,
+      "watched_at": "2025-12-03 12:52:52.328592+00:00",
+      "last_material": "Tipografía en UI: jerarquía con Manrope y Figma"
+    },
+    {
+      "slug": "react-native",
+      "title": "Curso de Introducción a React Native",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 2556,
+      "total_materials": 16,
+      "pos_material": 15,
+      "watched_at": "2025-11-14 18:59:11.684070+00:00",
+      "last_material": "Desarrollo de Apps Móviles con React Native y Expo"
+    },
+    {
+      "slug": "azure-devops",
+      "title": "Curso de Azure DevOps: Flujos de CI/CD",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 3275,
+      "total_materials": 20,
+      "pos_material": 7,
+      "watched_at": "2025-09-24 23:16:06.323208+00:00",
+      "last_material": "Crear una organización en Azure DevOps"
+    },
+    {
+      "slug": "ethical-hacking",
+      "title": "Curso de Hacking Ético",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 1583,
+      "total_materials": 35,
+      "pos_material": 19,
+      "watched_at": "2025-09-17 14:22:44.778372+00:00",
+      "last_material": "Explotación de Vulnerabilidades en Aplicaciones Web"
+    },
+    {
+      "slug": "guia-seguridad-informatica",
+      "title": "Guía para Aprender Seguridad Informática",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 2241,
+      "total_materials": 15,
+      "pos_material": 15,
+      "watched_at": "2025-09-17 14:18:46.541323+00:00",
+      "last_material": "Código Seguro en el Ciclo de Vida del Desarrollo de Software"
+    },
+    {
+      "slug": "software-seguro",
+      "title": "Curso de Ciberseguridad para Desarrollo Web",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 9443,
+      "total_materials": 30,
+      "pos_material": 23,
+      "watched_at": "2025-09-17 12:36:54.053844+00:00",
+      "last_material": "Principios AAA de seguridad con AWS IAM"
+    },
+    {
+      "slug": "introduccion-moviles-unity",
+      "title": "Curso de Desarrollo de Videojuegos Móviles con Unity",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 6339,
+      "total_materials": 34,
+      "pos_material": 32,
+      "watched_at": "2025-09-14 13:07:48.722723+00:00",
+      "last_material": "Control de versiones"
+    },
+    {
+      "slug": "gitgithub",
+      "title": "Curso de Git y GitHub",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 11059,
+      "total_materials": 42,
+      "pos_material": 25,
+      "watched_at": "2025-09-14 12:40:01.583750+00:00",
+      "last_material": "Git Tag y Checkout sin romper tu proyecto"
+    },
+    {
+      "slug": "iaac-aws",
+      "title": "Curso de Infraestructura Como Código en AWS",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 1717,
+      "total_materials": 38,
+      "pos_material": 3,
+      "watched_at": "2025-08-30 02:20:44.064347+00:00",
+      "last_material": "Infraestructura como Código en AWS: Despliegue Automatizado Seguro"
+    },
+    {
+      "slug": "web-performance",
+      "title": "Curso de Optimización Web",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 1973,
+      "total_materials": 38,
+      "pos_material": 16,
+      "watched_at": "2025-06-02 02:02:38.226199+00:00",
+      "last_material": "Optimización de CSS: Reducir Complejidad y Mejorar Rendimiento"
+    },
+    {
+      "slug": "innovacion-producto",
+      "title": "Curso de Innovación y Creación de Productos",
+      "category": "Diseño y UX",
+      "course_id": 3309,
+      "total_materials": 20,
+      "pos_material": 12,
+      "watched_at": "2026-02-21 13:02:58.239407+00:00",
+      "last_material": "Cómo construir tu propuesta de valor"
+    },
+    {
+      "slug": "consultoria-pitch",
+      "title": "Curso de Creación de Pitch para Clientes",
+      "category": "Marketing",
+      "course_id": 2634,
+      "total_materials": 4,
+      "pos_material": 2,
+      "watched_at": "2026-07-16 21:55:50.924186+00:00",
+      "last_material": "Elevator Pitch"
+    },
+    {
+      "slug": "investigacion-mercados-tendencias",
+      "title": "Curso de Investigación de Mercados y Tendencias",
+      "category": "Marketing",
+      "course_id": 12308,
+      "total_materials": 22,
+      "pos_material": 6,
+      "watched_at": "2026-04-12 15:06:52.500896+00:00",
+      "last_material": "Qué es un insight y cómo formularlo"
+    },
+    {
+      "slug": "gtm-marketing",
+      "title": "Curso de Google Tag Manager para Marketing",
+      "category": "Marketing",
+      "course_id": 2191,
+      "total_materials": 27,
+      "pos_material": 17,
+      "watched_at": "2025-06-19 11:38:36.698206+00:00",
+      "last_material": "Seguimiento de Scroll en Google Analytics con Tag Manager"
+    },
+    {
+      "slug": "proyectos-pmbok",
+      "title": "Curso de Project Management con PMBOK",
+      "category": "Negocios y Emprendimiento",
+      "course_id": 1974,
+      "total_materials": 20,
+      "pos_material": 3,
+      "watched_at": "2026-01-19 11:54:10.021906+00:00",
+      "last_material": "Gestión de Proyectos: Conceptos Clave y Habilidades Prácticas"
+    },
+    {
+      "slug": "managementtecnologia",
+      "title": "Curso de Management en Tecnología",
+      "category": "Negocios y Emprendimiento",
+      "course_id": 3148,
+      "total_materials": 17,
+      "pos_material": 15,
+      "watched_at": "2025-12-27 18:09:34.957059+00:00",
+      "last_material": "De cero a tech lead: la carrera sin atajos"
+    },
+    {
+      "slug": "finanzas",
+      "title": "Curso de Educación Financiera y Finanzas Personales",
+      "category": "Negocios y Emprendimiento",
+      "course_id": 1940,
+      "total_materials": 24,
+      "pos_material": 23,
+      "watched_at": "2025-09-09 13:50:39.759786+00:00",
+      "last_material": "Evaluación Objetiva de Finanzas Personales: Ingresos, Deudas y Activos"
+    },
+    {
+      "slug": "excel-basico",
+      "title": "Curso de Excel Básico",
+      "category": "Negocios y Emprendimiento",
+      "course_id": 12191,
+      "total_materials": 23,
+      "pos_material": 5,
+      "watched_at": "2025-08-03 14:08:53.080364+00:00",
+      "last_material": "Interfaz básica de Excel: elementos y navegación esencial"
+    },
+    {
+      "slug": "confbogota2025",
+      "title": "Platzi Conf Bogotá 2025",
+      "category": "Comunidad",
+      "course_id": 12277,
+      "total_materials": 33,
+      "pos_material": 14,
+      "watched_at": "2025-09-15 23:50:15.314255+00:00",
+      "last_material": "Qué nos falta para ser potencia en tecnología - Freddy Vega y Christian Van der Henst"
+    },
+    {
+      "slug": "composicion-canciones",
+      "title": "Curso de Fundamentos de la Composición de Canciones",
+      "category": "Contenido Digital",
+      "course_id": 2453,
+      "total_materials": 16,
+      "pos_material": 16,
+      "watched_at": "2025-12-10 14:14:00.546598+00:00",
+      "last_material": "Elementos Fundamentales de una Canción: Letra, Melodía, Ritmo y Armonía"
+    },
+    {
+      "slug": "habilidades-blandas",
+      "title": "Curso de Habilidades Blandas para el Desarrollo Profesional",
+      "category": "Liderazgo",
+      "course_id": 6570,
+      "total_materials": 15,
+      "pos_material": 6,
+      "watched_at": "2026-09-19 09:12:49.903544+00:00",
+      "last_material": "Qué son las habilidades blandas o core skills"
+    },
+    {
+      "slug": "microsoft-powerpoint",
+      "title": "Curso de PowerPoint: Elementos Multimedia",
+      "category": "Liderazgo",
+      "course_id": 1720,
+      "total_materials": 13,
+      "pos_material": 8,
+      "watched_at": "2026-05-05 18:09:44.564711+00:00",
+      "last_material": "Animaciones y transiciones en PowerPoint paso a paso"
+    },
+    {
+      "slug": "tecnicas-negociacion",
+      "title": "Curso de Técnicas de Negociación",
+      "category": "Liderazgo",
+      "course_id": 1482,
+      "total_materials": 25,
+      "pos_material": 20,
+      "watched_at": "2025-09-24 23:24:19.574808+00:00",
+      "last_material": "Conflictos como Oportunidades de Crecimiento y Diversidad"
+    },
+    {
+      "slug": "taller-de-pitch-para-startups",
+      "title": "Taller de Pitch para Startups",
+      "category": "Startups",
+      "course_id": 4887,
+      "total_materials": 5,
+      "pos_material": 1,
+      "watched_at": "2026-04-29 14:23:26.239083+00:00",
+      "last_material": "Cómo hacer un pitch de 3 minutos para startups exitoso"
+    },
+    {
+      "slug": "ingles-a1-principiantes",
+      "title": "Curso de Inglés Básico A1 para Principiantes",
+      "category": "Inglés",
+      "course_id": 10629,
+      "total_materials": 13,
+      "pos_material": 10,
+      "watched_at": "2026-09-26 23:06:44.123258+00:00",
+      "last_material": "Preguntas en inglés sobre personas y sus roles"
+    },
+    {
+      "slug": "basico-preguntas-respuestas",
+      "title": "Curso de Inglés Básico A2: Preguntas y Respuestas Comunes",
+      "category": "Inglés",
+      "course_id": 4988,
+      "total_materials": 19,
+      "pos_material": 19,
+      "watched_at": "2026-09-26 23:00:26.111696+00:00",
+      "last_material": "English Grammar Course Recap Before Your Final Exam"
+    },
+    {
+      "slug": "adverbios",
+      "title": "Curso de Inglés Básico A2: Sustantivos e Intenciones Futuras",
+      "category": "Inglés",
+      "course_id": 9243,
+      "total_materials": 20,
+      "pos_material": 13,
+      "watched_at": "2026-08-23 14:29:13.497572+00:00",
+      "last_material": "Repaso de Inglés A2: Preguntas, Sugerencias y Futuro"
+    },
+    {
+      "slug": "english-a2-basics-proposals-permissions",
+      "title": "Curso de Inglés Básico A2: Propuestas y Permisos",
+      "category": "Inglés",
+      "course_id": 12672,
+      "total_materials": 12,
+      "pos_material": 11,
+      "watched_at": "2026-06-03 18:55:59.330241+00:00",
+      "last_material": "Can, could, and would for work requests"
+    },
+    {
+      "slug": "estrategias-ingles",
+      "title": "Curso Gratis de Estrategias para Aprender Inglés en Línea",
+      "category": "Inglés",
+      "course_id": 12290,
+      "total_materials": 10,
+      "pos_material": 10,
+      "watched_at": "2026-04-26 12:35:41.743347+00:00",
+      "last_material": "Inglés como hábito diario, no como examen"
+    },
+    {
+      "slug": "oratoria-profesional",
+      "title": "Curso de Oratoria Profesional",
+      "category": "Habilidades Blandas",
+      "course_id": 12966,
+      "total_materials": 15,
+      "pos_material": 5,
+      "watched_at": "2026-05-13 13:35:45.336446+00:00",
+      "last_material": "Por qué dar menos información persuade más"
+    }
+  ],
+  "pending_courses": [
+    {
+      "slug": "owasp-top-10",
+      "title": "Curso de OWASP Top 10: Riesgos en Aplicaciones",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 9342,
+      "total_materials": 15,
+      "pos_material": 5,
+      "watched_at": "2026-09-28 15:28:18.289040+00:00",
+      "last_material": "Ataques de fuerza bruta y cómo detenerlos"
+    },
+    {
+      "slug": "ingles-a1-principiantes",
+      "title": "Curso de Inglés Básico A1 para Principiantes",
+      "category": "Inglés",
+      "course_id": 10629,
+      "total_materials": 13,
+      "pos_material": 10,
+      "watched_at": "2026-09-26 23:06:44.123258+00:00",
+      "last_material": "Preguntas en inglés sobre personas y sus roles"
+    },
+    {
+      "slug": "habilidades-blandas",
+      "title": "Curso de Habilidades Blandas para el Desarrollo Profesional",
+      "category": "Liderazgo",
+      "course_id": 6570,
+      "total_materials": 15,
+      "pos_material": 6,
+      "watched_at": "2026-09-19 09:12:49.903544+00:00",
+      "last_material": "Qué son las habilidades blandas o core skills"
+    },
+    {
+      "slug": "spec-driven-dev",
+      "title": "Curso de Spec Driven Development",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 13808,
+      "total_materials": 13,
+      "pos_material": 7,
+      "watched_at": "2026-09-17 13:54:52.847107+00:00",
+      "last_material": "Comando Plan: de la Spec al código"
+    },
+    {
+      "slug": "unity2dintermedio",
+      "title": "Curso de Programación 2D con Unity: Intermedio",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 2431,
+      "total_materials": 31,
+      "pos_material": 10,
+      "watched_at": "2026-09-13 15:45:49.531406+00:00",
+      "last_material": "Observer"
+    },
+    {
+      "slug": "buenas-practicas-api",
+      "title": "Curso de Estándares y  Buenas Prácticas para API REST con Laravel",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 8154,
+      "total_materials": 29,
+      "pos_material": 4,
+      "watched_at": "2026-09-13 15:44:46.376398+00:00",
+      "last_material": "Pruebas de Creación de Datos en Aplicaciones Web"
+    },
+    {
+      "slug": "adverbios",
+      "title": "Curso de Inglés Básico A2: Sustantivos e Intenciones Futuras",
+      "category": "Inglés",
+      "course_id": 9243,
+      "total_materials": 20,
+      "pos_material": 13,
+      "watched_at": "2026-08-23 14:29:13.497572+00:00",
+      "last_material": "Repaso de Inglés A2: Preguntas, Sugerencias y Futuro"
+    },
+    {
+      "slug": "consultoria-pitch",
+      "title": "Curso de Creación de Pitch para Clientes",
+      "category": "Marketing",
+      "course_id": 2634,
+      "total_materials": 4,
+      "pos_material": 2,
+      "watched_at": "2026-07-16 21:55:50.924186+00:00",
+      "last_material": "Elevator Pitch"
+    },
+    {
+      "slug": "pensamiento-critico-ia",
+      "title": "Curso de Pensamiento Crítico para usar Inteligencia Artificial",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 13070,
+      "total_materials": 17,
+      "pos_material": 8,
+      "watched_at": "2026-06-14 14:14:47.017728+00:00",
+      "last_material": "Define el resultado que esperas antes de pedirlo"
+    },
+    {
+      "slug": "fundamentos-bbdd-sql",
+      "title": "Curso de Fundamentos de Bases de Datos y SQL",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 13017,
+      "total_materials": 25,
+      "pos_material": 2,
+      "watched_at": "2026-06-13 22:57:19.210911+00:00",
+      "last_material": "Diagrama ER con notación crow's foot"
+    },
+    {
+      "slug": "english-a2-basics-proposals-permissions",
+      "title": "Curso de Inglés Básico A2: Propuestas y Permisos",
+      "category": "Inglés",
+      "course_id": 12672,
+      "total_materials": 12,
+      "pos_material": 11,
+      "watched_at": "2026-06-03 18:55:59.330241+00:00",
+      "last_material": "Can, could, and would for work requests"
+    },
+    {
+      "slug": "oratoria-profesional",
+      "title": "Curso de Oratoria Profesional",
+      "category": "Habilidades Blandas",
+      "course_id": 12966,
+      "total_materials": 15,
+      "pos_material": 5,
+      "watched_at": "2026-05-13 13:35:45.336446+00:00",
+      "last_material": "Por qué dar menos información persuade más"
+    },
+    {
+      "slug": "microsoft-powerpoint",
+      "title": "Curso de PowerPoint: Elementos Multimedia",
+      "category": "Liderazgo",
+      "course_id": 1720,
+      "total_materials": 13,
+      "pos_material": 8,
+      "watched_at": "2026-05-05 18:09:44.564711+00:00",
+      "last_material": "Animaciones y transiciones en PowerPoint paso a paso"
+    },
+    {
+      "slug": "devs-ai-tools",
+      "title": "Curso de Herramientas de AI para Developers",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12852,
+      "total_materials": 13,
+      "pos_material": 3,
+      "watched_at": "2026-05-01 21:11:14.847397+00:00",
+      "last_material": "Cómo generar planes técnicos con Claude Code, Cursor y Windsurf"
+    },
+    {
+      "slug": "taller-de-pitch-para-startups",
+      "title": "Taller de Pitch para Startups",
+      "category": "Startups",
+      "course_id": 4887,
+      "total_materials": 5,
+      "pos_material": 1,
+      "watched_at": "2026-04-29 14:23:26.239083+00:00",
+      "last_material": "Cómo hacer un pitch de 3 minutos para startups exitoso"
+    },
+    {
+      "slug": "openclaw-2026",
+      "title": "Curso de OpenClaw",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12851,
+      "total_materials": 13,
+      "pos_material": 11,
+      "watched_at": "2026-04-18 13:17:10.995851+00:00",
+      "last_material": "Sesiones y memoria en OpenClaw"
+    },
+    {
+      "slug": "investigacion-mercados-tendencias",
+      "title": "Curso de Investigación de Mercados y Tendencias",
+      "category": "Marketing",
+      "course_id": 12308,
+      "total_materials": 22,
+      "pos_material": 6,
+      "watched_at": "2026-04-12 15:06:52.500896+00:00",
+      "last_material": "Qué es un insight y cómo formularlo"
+    },
+    {
+      "slug": "innovacion-producto",
+      "title": "Curso de Innovación y Creación de Productos",
+      "category": "Diseño y UX",
+      "course_id": 3309,
+      "total_materials": 20,
+      "pos_material": 12,
+      "watched_at": "2026-02-21 13:02:58.239407+00:00",
+      "last_material": "Cómo construir tu propuesta de valor"
+    },
+    {
+      "slug": "introduccion-devops",
+      "title": "Curso de Introducción a DevOps",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12057,
+      "total_materials": 22,
+      "pos_material": 19,
+      "watched_at": "2026-02-07 21:19:09.972327+00:00",
+      "last_material": "Las ocho etapas del proceso DevOps"
+    },
+    {
+      "slug": "gemini",
+      "title": "Curso de Gemini",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12546,
+      "total_materials": 26,
+      "pos_material": 3,
+      "watched_at": "2026-02-07 16:42:43.870651+00:00",
+      "last_material": "Cómo personalizar Gemini con memoria e instrucciones"
+    },
+    {
+      "slug": "desarrollo-laravel",
+      "title": "Curso de Laravel",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 12187,
+      "total_materials": 25,
+      "pos_material": 15,
+      "watched_at": "2026-02-06 12:04:30.496786+00:00",
+      "last_material": "Guardar comentarios en tiempo real con Livewire"
+    },
+    {
+      "slug": "laravel-api",
+      "title": "Curso de API REST con Laravel",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 2185,
+      "total_materials": 18,
+      "pos_material": 16,
+      "watched_at": "2026-02-01 11:10:50.321580+00:00",
+      "last_material": "Planificación y Configuración de una API en PHP"
+    },
+    {
+      "slug": "laravel",
+      "title": "Curso de Introducción a Laravel 9",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 3039,
+      "total_materials": 31,
+      "pos_material": 1,
+      "watched_at": "2026-02-01 10:49:56.473931+00:00",
+      "last_material": "Qué es un framework y cómo lo usa Laravel"
+    },
+    {
+      "slug": "intro-laravel-2020",
+      "title": "Curso de Introducción a Laravel 6",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 1842,
+      "total_materials": 37,
+      "pos_material": 7,
+      "watched_at": "2026-01-30 17:25:33.876826+00:00",
+      "last_material": "Desarrollo web con Laravel: proyectos y funcionalidades clave"
+    },
+    {
+      "slug": "nextjs-14",
+      "title": "Curso de Next.js 14",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 8847,
+      "total_materials": 57,
+      "pos_material": 2,
+      "watched_at": "2026-01-27 14:23:09.230832+00:00",
+      "last_material": "Implementación de Chatbots con Next.js y Vercel AI SDK"
+    },
+    {
+      "slug": "proyectos-pmbok",
+      "title": "Curso de Project Management con PMBOK",
+      "category": "Negocios y Emprendimiento",
+      "course_id": 1974,
+      "total_materials": 20,
+      "pos_material": 3,
+      "watched_at": "2026-01-19 11:54:10.021906+00:00",
+      "last_material": "Gestión de Proyectos: Conceptos Clave y Habilidades Prácticas"
+    },
+    {
+      "slug": "introduccion-godot",
+      "title": "Curso Introductorio de Desarrollo de Videojuegos con Godot",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 3336,
+      "total_materials": 16,
+      "pos_material": 13,
+      "watched_at": "2026-01-04 19:11:29.771460+00:00",
+      "last_material": "Crea tu primer videojuego con Godot"
+    },
+    {
+      "slug": "managementtecnologia",
+      "title": "Curso de Management en Tecnología",
+      "category": "Negocios y Emprendimiento",
+      "course_id": 3148,
+      "total_materials": 17,
+      "pos_material": 15,
+      "watched_at": "2025-12-27 18:09:34.957059+00:00",
+      "last_material": "De cero a tech lead: la carrera sin atajos"
+    },
+    {
+      "slug": "basico-figma",
+      "title": "Curso de Figma",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 10992,
+      "total_materials": 22,
+      "pos_material": 4,
+      "watched_at": "2025-12-03 12:52:52.328592+00:00",
+      "last_material": "Tipografía en UI: jerarquía con Manrope y Figma"
+    },
+    {
+      "slug": "react-native",
+      "title": "Curso de Introducción a React Native",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 2556,
+      "total_materials": 16,
+      "pos_material": 15,
+      "watched_at": "2025-11-14 18:59:11.684070+00:00",
+      "last_material": "Desarrollo de Apps Móviles con React Native y Expo"
+    },
+    {
+      "slug": "tecnicas-negociacion",
+      "title": "Curso de Técnicas de Negociación",
+      "category": "Liderazgo",
+      "course_id": 1482,
+      "total_materials": 25,
+      "pos_material": 20,
+      "watched_at": "2025-09-24 23:24:19.574808+00:00",
+      "last_material": "Conflictos como Oportunidades de Crecimiento y Diversidad"
+    },
+    {
+      "slug": "azure-devops",
+      "title": "Curso de Azure DevOps: Flujos de CI/CD",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 3275,
+      "total_materials": 20,
+      "pos_material": 7,
+      "watched_at": "2025-09-24 23:16:06.323208+00:00",
+      "last_material": "Crear una organización en Azure DevOps"
+    },
+    {
+      "slug": "ethical-hacking",
+      "title": "Curso de Hacking Ético",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 1583,
+      "total_materials": 35,
+      "pos_material": 19,
+      "watched_at": "2025-09-17 14:22:44.778372+00:00",
+      "last_material": "Explotación de Vulnerabilidades en Aplicaciones Web"
+    },
+    {
+      "slug": "software-seguro",
+      "title": "Curso de Ciberseguridad para Desarrollo Web",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 9443,
+      "total_materials": 30,
+      "pos_material": 23,
+      "watched_at": "2025-09-17 12:36:54.053844+00:00",
+      "last_material": "Principios AAA de seguridad con AWS IAM"
+    },
+    {
+      "slug": "confbogota2025",
+      "title": "Platzi Conf Bogotá 2025",
+      "category": "Comunidad",
+      "course_id": 12277,
+      "total_materials": 33,
+      "pos_material": 14,
+      "watched_at": "2025-09-15 23:50:15.314255+00:00",
+      "last_material": "Qué nos falta para ser potencia en tecnología - Freddy Vega y Christian Van der Henst"
+    },
+    {
+      "slug": "introduccion-moviles-unity",
+      "title": "Curso de Desarrollo de Videojuegos Móviles con Unity",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 6339,
+      "total_materials": 34,
+      "pos_material": 32,
+      "watched_at": "2025-09-14 13:07:48.722723+00:00",
+      "last_material": "Control de versiones"
+    },
+    {
+      "slug": "gitgithub",
+      "title": "Curso de Git y GitHub",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 11059,
+      "total_materials": 42,
+      "pos_material": 25,
+      "watched_at": "2025-09-14 12:40:01.583750+00:00",
+      "last_material": "Git Tag y Checkout sin romper tu proyecto"
+    },
+    {
+      "slug": "finanzas",
+      "title": "Curso de Educación Financiera y Finanzas Personales",
+      "category": "Negocios y Emprendimiento",
+      "course_id": 1940,
+      "total_materials": 24,
+      "pos_material": 23,
+      "watched_at": "2025-09-09 13:50:39.759786+00:00",
+      "last_material": "Evaluación Objetiva de Finanzas Personales: Ingresos, Deudas y Activos"
+    },
+    {
+      "slug": "iaac-aws",
+      "title": "Curso de Infraestructura Como Código en AWS",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 1717,
+      "total_materials": 38,
+      "pos_material": 3,
+      "watched_at": "2025-08-30 02:20:44.064347+00:00",
+      "last_material": "Infraestructura como Código en AWS: Despliegue Automatizado Seguro"
+    },
+    {
+      "slug": "excel-basico",
+      "title": "Curso de Excel Básico",
+      "category": "Negocios y Emprendimiento",
+      "course_id": 12191,
+      "total_materials": 23,
+      "pos_material": 5,
+      "watched_at": "2025-08-03 14:08:53.080364+00:00",
+      "last_material": "Interfaz básica de Excel: elementos y navegación esencial"
+    },
+    {
+      "slug": "gtm-marketing",
+      "title": "Curso de Google Tag Manager para Marketing",
+      "category": "Marketing",
+      "course_id": 2191,
+      "total_materials": 27,
+      "pos_material": 17,
+      "watched_at": "2025-06-19 11:38:36.698206+00:00",
+      "last_material": "Seguimiento de Scroll en Google Analytics con Tag Manager"
+    },
+    {
+      "slug": "web-performance",
+      "title": "Curso de Optimización Web",
+      "category": "Desarrollo e Ingeniería",
+      "course_id": 1973,
+      "total_materials": 38,
+      "pos_material": 16,
+      "watched_at": "2025-06-02 02:02:38.226199+00:00",
+      "last_material": "Optimización de CSS: Reducir Complejidad y Mejorar Rendimiento"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Biblioteca de video descargada (14+ GB)
+Courses/
+
+# Logs de descarga
+logs/
+
+# Temporales de descarga y artefactos de herramientas
+.tmp/
+*.part
+*.ytdl
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+
+# Artefactos de skills de diseño (locales, no forman parte del producto)
+.impeccable/
+.taste-skill/
+graphify-out/

@@ -1,0 +1,65 @@
+{
+ "url": "http://127.0.0.1:8787/viewer/_test/nostorage/index.html",
+ "report": {
+  "mode": "nostorage",
+  "errors": [],
+  "warnings": [],
+  "steps": [
+   {
+    "name": "nostorage",
+    "data": {
+     "title": "Inicio · Platzi Local",
+     "noticeExists": true,
+     "noticeText": "Tu progreso no se guardará en esta sesión",
+     "noticeHidden": false,
+     "appChildren": 1,
+     "homeCourses": 5,
+     "chipHidden": true
+    }
+   },
+   {
+    "name": "nostorage-course",
+    "data": {
+     "hash": "#/curso/claude-code",
+     "rows": 11
+    }
+   },
+   {
+    "name": "nostorage-mark",
+    "data": {
+     "labelBefore": "Marcar como visto",
+     "labelAfter": "Visto ✓",
+     "store": "THROWS",
+     "hash": "#/aula/claude-code/1"
+    }
+   }
+  ],
+  "missingHooks": []
+ },
+ "events": [
+  {
+   "type": "log:network",
+   "level": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+   "url": "http://127.0.0.1:8787/viewer/_test/styles.css"
+  },
+  {
+   "type": "log:intervention",
+   "level": "info",
+   "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113",
+   "url": "http://127.0.0.1:8787/viewer/_test/nostorage/index.html"
+  },
+  {
+   "type": "log:network",
+   "level": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+   "url": "http://127.0.0.1:8787/viewer/_test/assets/logo.svg"
+  },
+  {
+   "type": "log:network",
+   "level": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+   "url": "http://127.0.0.1:8787/viewer/Courses/Curso%20de%20Claude%20Code/01-M%C3%B3dulo%201%20DiscoveryAn%C3%A1lisisPlanning/01-Qu%C3%A9%20hace%20%C3%BAnico%20a%20Claude%20Code.mp4"
+  }
+ ]
+}
