@@ -120,7 +120,7 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 
 ### §5.2 Rutas y ruta
 - `#/rutas`: `tpl-route-card` por ruta (orden: pct desc). Barra = pct. Meta: "N cursos · H h" (omitir h si null).
-- `#/ruta/<id>`: cabecera + lista de `tpl-course-card` en el **orden de `route.courses`** (orden de aprendizaje). `[data-slot=continue]` → curso descargado con actividad local más reciente, o primero descargado; oculto si ninguno.
+- `#/ruta/<id>`: cabecera + lista de `tpl-course-card` en el **orden de `route.courses`** (orden de aprendizaje). Si hay descargados, la meta añade "· N de M descargados". Los no descargados se ven apagados (portada y título) sin reordenar. `[data-slot=continue]` → curso descargado con actividad local más reciente, o primero descargado; oculto si ninguno.
 
 ### §5.3 Curso
 - Chips (pueden coexistir, en este orden): `Aprobado` (cert), `En curso` (platzi.done>0 o local>0), `Descargado`, `En cola`, `Sin descargar`.
@@ -146,8 +146,8 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 
 ### §5.5 Cursos (catálogo) y búsqueda
 - Filtros: all (todo), progress (`platzi.done>0` o local>0 y sin cert), cert, downloaded, queued, missing. Filtro activo: `aria-pressed="true"`.
-- Orden del catálogo: certificados al final; resto por título alfabético. Contador "N cursos".
-- Búsqueda: `#search-input` con dropdown (`#search-results`): máx 8 resultados mezclando cursos (título) y clases (título de clase), con navegación ↑/↓/Enter/Escape; Enter con texto → `#/buscar/<q>`. Vista `#/buscar/<q>`: sección "Cursos" (cards) + "Clases" (result-class, máx 100). Normalización para buscar: minúsculas y sin acentos (NFD + strip diacríticos). Sin resultados → `[data-slot=empty]`.
+- Orden del catálogo: certificados al final; antes, descargados primero; dentro de cada grupo, título alfabético. Contador "N cursos".
+- Búsqueda: `#search-input` con dropdown (`#search-results`): máx 8 resultados mezclando cursos (título) y clases (título de clase), con navegación ↑/↓/Enter/Escape; Enter con texto → `#/buscar/<q>`. Los resultados de cursos descargados van primero (relevancia como desempate). Vista `#/buscar/<q>`: sección "Cursos" (cards) + "Clases" (result-class, máx 100). Normalización para buscar: minúsculas y sin acentos (NFD + strip diacríticos). Sin resultados → `[data-slot=empty]`.
 - `#/cursos`: `[data-slot=count]`; grid con todos.
 
 ### §5.6 Utilidades de la lógica
@@ -185,7 +185,7 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 - **Curso**: banda héroe (portada a la derecha 16:9 ~380px, texto a la izquierda: título, chips, progreso, CTA) y debajo la lista de módulos a 860px centrados; aside no — una columna.
 - **Aula**: video 16:9 en columna izquierda (flex 1, máx ~900px) + barra de controles secundaria (prev/next/mark/velocidad/subs/autoplay) **debajo del video**; sidebar derecha 360px con cabecera del curso (progreso) y playlist scrolleable; en <960px la sidebar pasa debajo.
 - **Cursos/buscar**: fila de filtros (pills `aria-pressed`) + grilla de cards; resultados de búsqueda en filas.
-- **Course card**: portada 16:9 arriba (o fallback tipográfico con la inicial en `--surface-3`), título 2 líneas máx, meta, chips, progreso local fino. Hover: `--surface-2` + translateY(-2px) suave. `data-state="missing"` → portada atenuada.
+- **Course card**: portada 16:9 arriba (o fallback tipográfico con la inicial en `--surface-3`), título 2 líneas máx, meta, chips, progreso local fino. Hover: `--surface-2` + translateY(-2px) suave. `data-state="missing"` → portada y título atenuados (el descargado destaca).
 
 ### §6.3 Fallback de portada
 Sin imagen: bloque `--surface-3` con la inicial del curso grande en `--ink-2` (nunca icono ni placeholder gris).
@@ -211,7 +211,7 @@ Inicio · Rutas · Mis cursos · Descargas · Buscar curso o clase… · Continu
 - Descargas sin servidor: "Las descargas necesitan el servidor local" + "Abre el visor con viewer\\start.cmd".
 - Descargas sin CLI: "No encontré el comando platzi" + "Instálalo o define PLATZI_BIN antes de arrancar el servidor".
 - Cola vacía: "No hay descargas en cola" + "Elige una ruta o añade un curso para empezar." + acciones "Elegir una ruta" (baja a Mis rutas) y "Añadir un curso" (enfoca el buscador).
-- Sin cursos pendientes: "No quedan cursos sin descargar." Rutas completas: "Todas tus rutas están descargadas."
+- Sin cursos pendientes: "Todos tus cursos están descargados o en cola." Sin rutas con cursos: "No hay rutas con cursos en el catálogo."
 - Historial: chips "Completado" · "Error" · "Cancelado"; meta con la fecha o el mensaje de error.
 - Catálogo: "Actualizando el catálogo…" · "Catálogo actualizado. Recarga el visor para verlo." · resumen "… · catálogo pendiente de actualizar".
 
@@ -220,7 +220,7 @@ Aprobado · En curso · Descargado · En cola · Sin descargar.
 
 ### §7.4 Textos de meta
 - Curso: "13 clases · 3 h 20 min" (omitir duration si null). 
-- Ruta: "23 cursos · 44 h".
+- Ruta: "23 cursos · 44 h"; en el detalle, "· 8 de 23 descargados" si hay descargados.
 - Platzi snapshot: "En Platzi: 7/13 · sep 2026". Diploma: "Ver diploma".
 - Continuar (home): "Continuar viendo" + meta "Curso · Clase". Resume chip: "Retomar".
 
@@ -232,7 +232,7 @@ Aprobado · En curso · Descargado · En cola · Sin descargar.
 - Alt de portadas: título del curso (o `alt=""` si hay texto adyacente idéntico).
 
 ## §9 Integración y pruebas
-- `viewer/start.cmd` (lo escribe el integrador): `cd` a la raíz del proyecto, `python scripts/server.py` y abre `http://localhost:8787/viewer/`. La raíz se sirve completa (salvo `scripts/`, `logs/` y `.git/`) para que `../Courses/…` resuelva.
+- `viewer/start.cmd` (lo escribe el integrador): `cd` a la raíz del proyecto, `python scripts/server.py` y abre `http://localhost:8787/viewer/`. La raíz se sirve completa (salvo `scripts/`, `logs/` y `.git/`) para que `../Courses/…` resuelva. Solo un servidor a la vez: si el puerto ya está en uso, `server.py` avisa y no arranca (un segundo worker competiría por la misma cola).
 - Con `file://` (abrir `viewer/index.html`): todo debe funcionar salvo subtítulos (CORS) y descargas → banners §7.2.
 - Criterios de aceptación del conjunto:
   1. Con el server: Home renderiza (con o sin last), navegación por las 8 vistas sin errores de consola.
@@ -253,8 +253,8 @@ La vista `#/descargas` requiere `scripts/server.py`, que arranca `viewer/start.c
 - Hooks: `summary`, `notice`/`notice-text`, `offline`, `cli-warning`, `active`/`active-title`/`active-bar`/`active-fill`/`active-pct`/`active-phase`, listas `queue`, `routes`, `courses`, `history`, `queue-empty`, `routes-empty`, `add-empty` y región viva `live`.
 - Sondeo de `/api/state` cada 1.5 s; se pausa con `document.hidden` y se detiene al salir de la vista.
 - Foco: cada control lleva `data-focus`; tras cada render se restaura el foco y, si el control desapareció, cae al siguiente del mismo grupo.
-- Rutas: cada una muestra descargados/total de sus cursos y encola solo los pendientes que no estén ya en la cola.
-- Cursos manuales: buscador sobre los no descargados; "Añadir" va al final y "al frente" (icono) después del que corre.
+- Rutas: cada una muestra descargados/total de sus cursos y encola solo los pendientes que no estén ya en la cola. Las completas también se listan (arriba, con "Sin pendientes"); el resto después, por pendientes desc.
+- Cursos manuales: buscador sobre todo el catálogo, descargados primero y marcados con el chip "Descargado" (sin botones); "Añadir" va al final y "al frente" (icono) después del que corre. Contador: "N descargados · M sin descargar" (omitir el 0); al buscar, "N resultados · M descargados".
 
 ### §10.2 API local
 - `GET /api/state` → `{ok, items, stats, catalog, cliAvailable, serverTime}`; cada item: `{slug, title, status: queued|running|completed|error|canceled, progress, phase, error, addedAt, startedAt, finishedAt}`.

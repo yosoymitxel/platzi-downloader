@@ -820,26 +820,32 @@
   function fillRuta(view, route) {
     setText(view, 'title', route.title || route.id);
     fillCover(view, route);
-    setText(view, 'meta', routeMeta(route));
+    var ids = Array.isArray(route.courses) ? route.courses : [];
+    var list = [];
+    var downloaded = 0;
+    for (var i = 0; i < ids.length; i++) {
+      var c = bySlug[ids[i]];
+      if (!c) continue;
+      list.push(c);
+      if (c.downloaded) downloaded++;
+    }
+    var meta = routeMeta(route);
+    if (downloaded) meta += ' · ' + downloaded + ' de ' + list.length + ' descargados';
+    setText(view, 'meta', meta);
     var pct = routePct(route);
     var bar = hook(view, 'bar');
     if (bar) { bar.hidden = false; bar.style.width = pct + '%'; }
     setText(view, 'pct', pctText(pct));
 
-    var ids = Array.isArray(route.courses) ? route.courses : [];
     var box = listHook(view, 'courses');
-    var count = 0;
     if (box) {
       clearEl(box);
-      for (var i = 0; i < ids.length; i++) {
-        var c = bySlug[ids[i]];
-        if (!c) continue;
-        count++;
-        var card = partial('tpl-course-card', (function (cc) { return function (n) { fillCourseCard(n, cc); }; })(c));
+      for (var k = 0; k < list.length; k++) {
+        var card = partial('tpl-course-card', (function (cc) { return function (n) { fillCourseCard(n, cc); }; })(list[k]));
         if (card) box.appendChild(card);
       }
     }
-    show(hook(view, 'empty'), count === 0);
+    show(hook(view, 'empty'), list.length === 0);
 
     var cont = view.querySelector('a[data-slot="continue"]');
     var target = routeContinue(route);
@@ -869,6 +875,9 @@
       var ca = a.cert ? 1 : 0;
       var cb = b.cert ? 1 : 0;
       if (ca !== cb) return ca - cb;
+      var da = a.downloaded ? 0 : 1;
+      var db = b.downloaded ? 0 : 1;
+      if (da !== db) return da - db;
       return cmpTitle(a.title || a.slug, b.title || b.slug);
     });
   }
@@ -1427,6 +1436,11 @@
     return searchIndex;
   }
 
+  function hitRank(hit) {
+    var c = bySlug[hit.it.slug];
+    return c && c.downloaded ? 0 : 1;
+  }
+
   function searchHits(q) {
     var out = { courses: [], classes: [] };
     var nq = norm(q).trim();
@@ -1439,7 +1453,7 @@
       var hit = { it: it, at: at, len: it.norm.length };
       if (it.type === 'course') out.courses.push(hit); else out.classes.push(hit);
     }
-    function cmp(a, b) { return a.at - b.at || a.len - b.len || cmpTitle(a.it.title, b.it.title); }
+    function cmp(a, b) { return hitRank(a) - hitRank(b) || a.at - b.at || a.len - b.len || cmpTitle(a.it.title, b.it.title); }
     out.courses.sort(cmp);
     out.classes.sort(cmp);
     return out;
@@ -1451,6 +1465,8 @@
     for (var i = 0; i < res.courses.length; i++) all.push({ kind: 'course', hit: res.courses[i] });
     for (var j = 0; j < res.classes.length; j++) all.push({ kind: 'class', hit: res.classes[j] });
     all.sort(function (a, b) {
+      var r = hitRank(a.hit) - hitRank(b.hit);
+      if (r) return r;
       var d = (a.hit.at - b.hit.at) || (a.hit.len - b.hit.len);
       if (d) return d;
       if (a.kind !== b.kind) return a.kind === 'course' ? -1 : 1;
@@ -1915,8 +1931,10 @@
     if (label) label.textContent = n ? 'Descargar ' + n : (data.queued ? 'Ya en cola' : 'Sin pendientes');
     if (n) {
       btn.setAttribute('aria-label', 'Descargar ' + n + (n === 1 ? ' curso pendiente' : ' cursos pendientes') + ' de ' + (route.title || route.id));
-    } else {
+    } else if (data.queued) {
       btn.setAttribute('aria-label', 'Cursos de ' + (route.title || route.id) + ' ya en cola');
+    } else {
+      btn.setAttribute('aria-label', (route.title || route.id) + ' ya está descargada');
     }
   }
 
@@ -1940,10 +1958,13 @@
         if (busy[c.slug]) { queued++; continue; }
         pending.push(c);
       }
-      if (!total || downloaded === total) continue;
+      if (!total) continue;
       rows.push({ route: route, total: total, downloaded: downloaded, queued: queued, pending: pending });
     }
     rows.sort(function (a, b) {
+      var ca = a.pending.length === 0 ? 0 : 1;
+      var cb = b.pending.length === 0 ? 0 : 1;
+      if (ca !== cb) return ca - cb;
       if (b.pending.length !== a.pending.length) return b.pending.length - a.pending.length;
       return cmpTitle(a.route.title || a.route.id, b.route.title || b.route.id);
     });
@@ -1965,6 +1986,9 @@
     setText(node, 'meta', meta);
     var metaEl = hook(node, 'meta');
     if (metaEl) metaEl.hidden = !meta;
+    var downloaded = !!course.downloaded;
+    var chip = hook(node, 'downloaded');
+    if (chip) chip.hidden = !downloaded;
     var name = course.title || course.slug;
     var add = node.querySelector('[data-action="add"]');
     var front = node.querySelector('[data-action="front"]');
@@ -1972,12 +1996,14 @@
       add.setAttribute('data-slug', course.slug);
       add.setAttribute('data-focus', 'course:' + course.slug + ':add');
       add.setAttribute('aria-label', 'Añadir ' + name + ' a la cola');
+      add.hidden = downloaded;
       add.disabled = offline;
     }
     if (front) {
       front.setAttribute('data-slug', course.slug);
       front.setAttribute('data-focus', 'course:' + course.slug + ':front');
       front.setAttribute('aria-label', 'Poner ' + name + ' al frente de la cola');
+      front.hidden = downloaded;
       front.disabled = offline;
     }
   }
@@ -1989,21 +2015,31 @@
       var pool = [];
       for (var i = 0; i < courses.length; i++) {
         var c = courses[i];
-        if (c && typeof c.slug === 'string' && !c.downloaded) pool.push(c);
+        if (c && typeof c.slug === 'string') pool.push(c);
       }
-      pool.sort(function (a, b) { return cmpTitle(a.title || a.slug, b.title || b.slug); });
+      pool.sort(function (a, b) {
+        var da = a.downloaded ? 0 : 1;
+        var db = b.downloaded ? 0 : 1;
+        if (da !== db) return da - db;
+        return cmpTitle(a.title || a.slug, b.title || b.slug);
+      });
       dlCoursePool = pool;
     }
     var busy = dlBusySet();
     var q = norm(dlQuery);
     var matches = [];
-    var available = 0;
+    var matched = 0;
+    var matchedDesc = 0;
+    var downloaded = 0;
+    var pending = 0;
     for (var j = 0; j < dlCoursePool.length; j++) {
       var course = dlCoursePool[j];
       if (busy[course.slug]) continue;
-      available++;
-      if (matches.length >= DL_SUGGEST_MAX) continue;
+      if (course.downloaded) downloaded++; else pending++;
       if (q && norm((course.title || '') + ' ' + course.slug).indexOf(q) < 0) continue;
+      matched++;
+      if (course.downloaded) matchedDesc++;
+      if (matches.length >= DL_SUGGEST_MAX) continue;
       matches.push(course);
     }
     clearEl(box);
@@ -2013,12 +2049,22 @@
       })(matches[k]));
       if (node) box.appendChild(node);
     }
-    setText(view, 'add-count', available + (available === 1 ? ' curso sin descargar' : ' cursos sin descargar'));
+    var count;
+    if (q) {
+      count = matched + (matched === 1 ? ' resultado' : ' resultados');
+      if (matchedDesc) count += ' · ' + (matchedDesc === 1 ? '1 descargado' : matchedDesc + ' descargados');
+    } else {
+      var parts = [];
+      if (downloaded) parts.push(downloaded === 1 ? '1 descargado' : downloaded + ' descargados');
+      if (pending) parts.push(pending + ' sin descargar');
+      count = parts.join(' · ');
+    }
+    setText(view, 'add-count', count);
     var empty = hook(view, 'add-empty');
     if (empty) {
       empty.hidden = matches.length !== 0;
       if (!matches.length) {
-        empty.textContent = q ? 'No hay cursos que coincidan con «' + dlQuery + '».' : 'No quedan cursos sin descargar.';
+        empty.textContent = q ? 'No hay cursos que coincidan con «' + dlQuery + '».' : 'Todos tus cursos están descargados o en cola.';
       }
     }
   }

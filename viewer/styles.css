@@ -846,6 +846,7 @@ main#app { display: block; }
 .course-card-media .cover-fallback { font-size: 2.5rem; }
 
 .course-card[data-state="missing"] .course-card-media { opacity: .55; }
+.course-card[data-state="missing"] .course-card-title { color: var(--ink-2); }
 
 .course-card-title {
   display: -webkit-box;
@@ -1340,6 +1341,8 @@ main#app { display: block; }
   padding: 0 12px;
   font-size: .875rem;
 }
+
+.dl-course .chip-downloaded { margin-right: 8px; }
 
 .dl-note {
   margin-top: 10px;
