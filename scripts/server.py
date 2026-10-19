@@ -20,6 +20,7 @@ import json
 import os
 import re
 import shutil
+import socket
 import subprocess
 import sys
 import threading
@@ -678,10 +679,24 @@ class ViewerHandler(SimpleHTTPRequestHandler):
         return None
 
 
+def port_in_use(host, port):
+    """True si ya hay algo escuchando: evita un segundo worker sobre el mismo estado."""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.settimeout(0.6)
+        try:
+            return sock.connect_ex((host, port)) == 0
+        except OSError:
+            return False
+
+
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
         sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    if port_in_use(HOST, PORT):
+        print(f"El puerto {PORT} ya esta en uso: quiza ya hay un servidor de Platzi Local.")
+        print(f"Abre http://localhost:{PORT}/viewer/ o cierra el otro proceso (o define otro PORT).")
+        return 1
     load_state()
     start_worker()
     if not cli_available():

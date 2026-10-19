@@ -1,10 +1,10 @@
 # PRODUCT — Platzi Local (visor offline)
 
 ## Qué es
-Visor web **local y estático** que reconstruye la experiencia de platzi.com en el navegador de Miguel: navega sus rutas y sus cursos descargados (mp4 + subtítulos `.vtt` es/en/pt) y lleva el progreso en local, todo sin internet.
+Visor web **local y estático** que reconstruye la experiencia de platzi.com: navega las rutas y los cursos descargados (mp4 + subtítulos `.vtt` es/en/pt) y lleva el progreso en local, todo sin internet.
 
 ## Quién y su escena
-- Usuario único: Miguel ("YosoyMitxel"), plan Platzi Expert, Windows + Chrome, biblioteca descargada en `Courses/` de este proyecto.
+- Usuario único por instalación (Miguel, "YosoyMitxel", en el original): plan Platzi Expert, Windows + Chrome, biblioteca descargada en `Courses/` de este proyecto.
 - Escena de uso: sentarse a estudiar, a veces sin conexión estable; quiere "entrar y continuar", no administrar archivos.
 - Idiomas: UI en español; clases con subtítulos en español, inglés y portugués.
 
@@ -12,12 +12,12 @@ Visor web **local y estático** que reconstruye la experiencia de platzi.com en 
 - En segundos: abrir el visor y **continuar la última clase** desde el segundo exacto donde quedó.
 - Encontrar cualquier curso o clase por tres vías: rutas (estructura mental real), búsqueda instantánea, o grilla de sus cursos.
 - Ver la clase con subtítulos, velocidad, autoplay de la siguiente, y que el progreso local persista.
-- **Completar la biblioteca sin salir del visor**: ver qué falta por ruta o por curso, encolarlo, seguir el progreso, cancelar y reordenar.
+- **Completar la biblioteca sin salir del visor**: ver qué falta por ruta o por curso —con lo ya descargado siempre primero—, encolarlo, seguir el progreso, cancelar y reordenar.
 
 ## Fuera de alcance
 - Login, comentarios, exámenes, puntos, gamificación y todo lo social de Platzi.
-- Multiusuario: un solo perfil local, sin cuentas.
-- Producto publicable: es uso personal; no se vende, no se publica, no se despliega en servidor remoto.
+- Multiusuario en una misma instalación: un solo perfil local, sin cuentas.
+- Servicio remoto: no se vende ni se despliega; el repo se comparte para que cada persona levante su propia copia local (catálogo y sesión son de cada cuenta).
 - Dependencias externas: nada de CDNs, fuentes remotas ni frameworks; todo funciona offline.
 
 ## Restricciones técnicas
