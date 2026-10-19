@@ -199,7 +199,7 @@ Sin imagen: bloque `--surface-3` con la inicial del curso grande en `--ink-2` (n
 ## §7 Copy (español, congelado)
 
 ### §7.1 Navegación y botones
-Inicio · Rutas · Mis cursos · Buscar curso o clase… · Continuar · Reproducir · Reanudar · Marcar como visto · Visto · Anterior · Siguiente · Velocidad · Subtítulos · Autoplay siguiente · Reproducir siguiente al terminar · Ver todas las rutas · Ver todos los cursos · Ver diploma · Entendido · Empezar.
+Inicio · Rutas · Mis cursos · Descargas · Buscar curso o clase… · Continuar · Reproducir · Reanudar · Marcar como visto · Visto · Anterior · Siguiente · Velocidad · Subtítulos · Autoplay siguiente · Reproducir siguiente al terminar · Ver todas las rutas · Ver todos los cursos · Ver diploma · Entendido · Empezar · Actualizar catálogo · Recargar visor · Elegir una ruta · Añadir un curso · Añadir · Descargar {n} · Ya en cola · Sin pendientes · Subir · Bajar · Cancelar · Limpiar · Reintentar · Quitar.
 
 ### §7.2 Estados
 - Sin last: "Elige una ruta para empezar" + botón "Explorar rutas".
@@ -208,6 +208,12 @@ Inicio · Rutas · Mis cursos · Buscar curso o clase… · Continuar · Reprodu
 - Error video: "No se pudo cargar el video. Revisa que el archivo exista en Courses/".
 - Banner `file://`: "Estás abriendo el visor como archivo local. Para subtítulos y mejor experiencia ejecuta viewer\\start.cmd." + "Entendido".
 - localStorage no disponible: "Tu progreso no se guardará en esta sesión".
+- Descargas sin servidor: "Las descargas necesitan el servidor local" + "Abre el visor con viewer\\start.cmd".
+- Descargas sin CLI: "No encontré el comando platzi" + "Instálalo o define PLATZI_BIN antes de arrancar el servidor".
+- Cola vacía: "No hay descargas en cola" + "Elige una ruta o añade un curso para empezar." + acciones "Elegir una ruta" (baja a Mis rutas) y "Añadir un curso" (enfoca el buscador).
+- Sin cursos pendientes: "No quedan cursos sin descargar." Rutas completas: "Todas tus rutas están descargadas."
+- Historial: chips "Completado" · "Error" · "Cancelado"; meta con la fecha o el mensaje de error.
+- Catálogo: "Actualizando el catálogo…" · "Catálogo actualizado. Recarga el visor para verlo." · resumen "… · catálogo pendiente de actualizar".
 
 ### §7.3 Chips
 Aprobado · En curso · Descargado · En cola · Sin descargar.
@@ -226,16 +232,43 @@ Aprobado · En curso · Descargado · En cola · Sin descargar.
 - Alt de portadas: título del curso (o `alt=""` si hay texto adyacente idéntico).
 
 ## §9 Integración y pruebas
-- `viewer/start.cmd` (lo escribe el integrador): `cd` a la raíz del proyecto, `python -m http.server 8787 --bind 127.0.0.1` en background y abrir `http://localhost:8787/viewer/`. La raíz se sirve completa para que `../Courses/…` resuelva.
-- Con `file://` (abrir `viewer/index.html`): todo debe funcionar salvo subtítulos (CORS) → banner §7.2.
+- `viewer/start.cmd` (lo escribe el integrador): `cd` a la raíz del proyecto, `python scripts/server.py` y abre `http://localhost:8787/viewer/`. La raíz se sirve completa (salvo `scripts/`, `logs/` y `.git/`) para que `../Courses/…` resuelva.
+- Con `file://` (abrir `viewer/index.html`): todo debe funcionar salvo subtítulos (CORS) y descargas → banners §7.2.
 - Criterios de aceptación del conjunto:
-  1. Con el server: Home renderiza (con o sin last), navegación por las 7 vistas sin errores de consola.
+  1. Con el server: Home renderiza (con o sin last), navegación por las 8 vistas sin errores de consola.
   2. Aula: video carga y reanuda; terminar una clase la marca vista y avanza; subtítulos cambian; velocidad persiste tras recargar.
   3. Un curso sin descargar no rompe nada (chip En cola, empty state).
   4. Con DevTools en offline: todo sigue funcionando (excepto portadas que no se hayan podido descargar → fallback).
-  5. Teclado: recorrer topbar → cards → aula sin ratón; atajos del aula operativos.
+  5. Teclado: recorrer topbar → cards → aula sin ratón; atajos del aula operativos. Descargas: reordenar y cancelar sin perder el foco.
   6. Móvil 390px: sin overflow horizontal; tap targets ≥44px.
+  7. Descargas: "traer rutas" encola solo lo pendiente en orden; el progreso avanza por clase; cancelar corta el proceso; "Actualizar catálogo" se bloquea con la cola activa.
 - La UI y la lógica deben poder abrirse con datos reales sin tocar el otro archivo; cualquier hook faltante es un bug del responsable de la vista, no del consumidor.
 
-## §10 Fuera de alcance
-Login, comentarios, exámenes, notas de clase, descarga desde el visor, player propio con skin custom (se usan controles nativos + barra secundaria), sincronizar progreso con Platzi, multiperfil, i18n.
+## §10 Descargas (servidor local)
+
+La vista `#/descargas` requiere `scripts/server.py`, que arranca `viewer/start.cmd`. Con `file://` se renderiza en modo lectura: catálogo local, acciones deshabilitadas y banner de §7.2.
+
+### §10.1 Contrato de la vista
+- Plantillas: `tpl-descargas`, `tpl-dl-item`, `tpl-dl-route`, `tpl-dl-course`, `tpl-dl-history`.
+- Hooks: `summary`, `notice`/`notice-text`, `offline`, `cli-warning`, `active`/`active-title`/`active-bar`/`active-fill`/`active-pct`/`active-phase`, listas `queue`, `routes`, `courses`, `history`, `queue-empty`, `routes-empty`, `add-empty` y región viva `live`.
+- Sondeo de `/api/state` cada 1.5 s; se pausa con `document.hidden` y se detiene al salir de la vista.
+- Foco: cada control lleva `data-focus`; tras cada render se restaura el foco y, si el control desapareció, cae al siguiente del mismo grupo.
+- Rutas: cada una muestra descargados/total de sus cursos y encola solo los pendientes que no estén ya en la cola.
+- Cursos manuales: buscador sobre los no descargados; "Añadir" va al final y "al frente" (icono) después del que corre.
+
+### §10.2 API local
+- `GET /api/state` → `{ok, items, stats, catalog, cliAvailable, serverTime}`; cada item: `{slug, title, status: queued|running|completed|error|canceled, progress, phase, error, addedAt, startedAt, finishedAt}`.
+- `POST /api/enqueue {items:[{slug,title}], position: back|front}` · `POST /api/reorder {slug, direction: up|down}`.
+- `POST /api/cancel {slug}` · `POST /api/remove {slug}` · `POST /api/clear`.
+- `POST /api/refresh` regenera `viewer/data.js` con `scripts/viewer_data.py`; responde 409 si hay cola activa.
+- Errores: `{ok:false, error}` con 4xx/5xx. Respuestas `no-store`.
+
+### §10.3 Reglas del servidor
+- Escucha solo en `127.0.0.1`; valida `Origin` y `Host`; bloquea `/scripts/`, `/logs/`, `/.git*` y traversal.
+- Slug validado con `^[a-z0-9][a-z0-9-]{0,80}$`; el CLI se lanza con lista de argumentos, sin shell.
+- Progreso: cuenta `[DOWNLOADING-VIDEO]` contra el total que reporta el propio CLI (`| Total | n |`). No se guardan líneas crudas (evita filtrar el saludo con el nombre).
+- Cancelación: `taskkill /T /F` del árbol del proceso. Estado en `scripts/download_state.json` (runtime, ignorado por git).
+- Un worker secuencial: la cola corre en orden; "al frente" inserta después del que está corriendo.
+
+## §11 Fuera de alcance
+Login, comentarios, exámenes, notas de clase, player propio con skin custom (se usan controles nativos + barra secundaria), sincronizar progreso con Platzi, multiperfil, i18n, descargas simultáneas (un solo worker), reintentos automáticos y programación de descargas por horario.

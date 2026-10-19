@@ -1622,6 +1622,727 @@
     afterRoute();
   }
 
+  /* ---------- descargas ---------- */
+
+  var DL_POLL_MS = 1500;
+  var DL_HISTORY_MAX = 8;
+  var DL_SUGGEST_MAX = 10;
+
+  var dlView = null;
+  var dlTimer = null;
+  var dlState = null;
+  var dlOffline = false;
+  var dlBusy = false;
+  var dlQuery = '';
+  var dlNotice = '';
+  var dlNoticeReload = false;
+  var dlPrevStatus = null;
+  var dlPrevBusySig = null;
+  var dlPrevQueueSig = null;
+  var dlPrevHistorySig = null;
+  var dlPrevRefreshing = false;
+  var dlCoursePool = null;
+
+  function dlHasServer() {
+    return window.location.protocol !== 'file:';
+  }
+
+  function dlApi(path, body) {
+    var opts = {
+      method: body ? 'POST' : 'GET',
+      headers: { 'Accept': 'application/json' },
+      cache: 'no-store'
+    };
+    if (body) {
+      opts.headers['Content-Type'] = 'application/json';
+      opts.body = JSON.stringify(body);
+    }
+    return fetch('/api' + path, opts).then(function (res) {
+      return res.text().then(function (text) {
+        var data = null;
+        try { data = text ? JSON.parse(text) : null; } catch (e) { data = null; }
+        if (!res.ok || !data || data.ok === false) {
+          throw new Error((data && data.error) ? data.error : 'El servidor respondió con error ' + res.status + '.');
+        }
+        return data;
+      });
+    });
+  }
+
+  function dlItemsByStatus(status) {
+    var out = [];
+    var items = (dlState && Array.isArray(dlState.items)) ? dlState.items : [];
+    for (var i = 0; i < items.length; i++) {
+      if (items[i] && items[i].status === status) out.push(items[i]);
+    }
+    return out;
+  }
+
+  function dlBusySet() {
+    var set = Object.create(null);
+    var items = (dlState && Array.isArray(dlState.items)) ? dlState.items : [];
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      if (it && (it.status === 'queued' || it.status === 'running')) set[it.slug] = true;
+    }
+    return set;
+  }
+
+  function dlTitleOf(slug) {
+    var c = bySlug[slug];
+    return (c && c.title) ? c.title : slug;
+  }
+
+  function dlCourseMeta(course) {
+    var n = totalClasses(course);
+    var sec = (isNum(course.durationSec) && course.durationSec > 0) ? course.durationSec
+      : (isNum(course.hours) ? course.hours * 3600 : null);
+    var dur = fmtDuration(sec);
+    var parts = [];
+    if (n > 0) parts.push(n + (n === 1 ? ' clase' : ' clases'));
+    if (dur) parts.push(dur);
+    return parts.join(' · ');
+  }
+
+  function dlMetaOf(slug) {
+    var c = bySlug[slug];
+    return c ? dlCourseMeta(c) : '';
+  }
+
+  function dlDate(ms) {
+    if (!isNum(ms) || ms <= 0) return '';
+    var d = new Date(ms);
+    var now = new Date();
+    var hm = pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+    if (d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth() && d.getDate() === now.getDate()) {
+      return 'Hoy, ' + hm;
+    }
+    return d.getDate() + ' ' + MONTHS[d.getMonth()] + ', ' + hm;
+  }
+
+  function dlCaptureFocus() {
+    var el = document.activeElement;
+    if (!el || !dlView || !dlView.contains(el)) return '';
+    return el.getAttribute ? (el.getAttribute('data-focus') || '') : '';
+  }
+
+  function dlRestoreFocus(key) {
+    if (!key || !dlView) return;
+    var active = document.activeElement;
+    if (active && active !== document.body && !dlView.contains(active)) return;
+    var nodes = dlView.querySelectorAll('[data-focus]');
+    var target = null;
+    var i;
+    for (i = 0; i < nodes.length; i++) {
+      if (nodes[i].getAttribute('data-focus') === key && !nodes[i].disabled) { target = nodes[i]; break; }
+    }
+    if (!target) {
+      var parts = key.split(':');
+      var prefix = parts[0] + ':';
+      var slug = parts[1] || '';
+      if (prefix === 'queue:' && slug) {
+        var alts = ['down', 'up', 'cancel'];
+        for (var a = 0; a < alts.length && !target; a++) {
+          for (i = 0; i < nodes.length; i++) {
+            if (nodes[i].getAttribute('data-focus') === 'queue:' + slug + ':' + alts[a] && !nodes[i].disabled) {
+              target = nodes[i];
+              break;
+            }
+          }
+        }
+      }
+      if (!target) {
+        for (i = 0; i < nodes.length; i++) {
+          if (nodes[i].getAttribute('data-focus').indexOf(prefix) === 0 && !nodes[i].disabled) {
+            target = nodes[i];
+            break;
+          }
+        }
+      }
+    }
+    if (!target) {
+      var kind = key.split(':')[0];
+      if (kind === 'queue') target = document.getElementById('dl-queue-title');
+      else if (kind === 'history') target = document.getElementById('dl-history-title');
+      else target = appEl;
+    }
+    if (target && target.focus) {
+      try { target.focus({ preventScroll: true }); } catch (e) { target.focus(); }
+    }
+  }
+
+  function dlGoAdd(view) {
+    var box = view.querySelector('.dl-add');
+    var input = view.querySelector('[data-control="search"]');
+    if (box && box.scrollIntoView) {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      try { box.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+      catch (e) { box.scrollIntoView(); }
+    }
+    if (input) {
+      try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); }
+    }
+  }
+
+  function dlGoRoutes(view) {
+    var box = view.querySelector('.dl-routes');
+    if (box && box.scrollIntoView) {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      try { box.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+      catch (e) { box.scrollIntoView(); }
+    }
+    var title = document.getElementById('dl-routes-title');
+    if (title && title.focus) {
+      try { title.focus({ preventScroll: true }); } catch (e) { title.focus(); }
+    }
+  }
+
+  function dlRoutePending(route) {
+    var out = [];
+    var busy = dlBusySet();
+    var ids = Array.isArray(route && route.courses) ? route.courses : [];
+    for (var i = 0; i < ids.length; i++) {
+      var c = bySlug[ids[i]];
+      if (!c || c.downloaded || busy[c.slug]) continue;
+      out.push(c);
+    }
+    return out;
+  }
+
+  function dlRenderSummary(view, items, offline, catalog) {
+    var el = hook(view, 'summary');
+    if (!el) return;
+    if (offline) { el.textContent = 'Sin conexión con el servidor local.'; return; }
+    var counts = { queued: 0, running: 0, completed: 0, error: 0 };
+    var fresh = false;
+    var lastRefresh = (catalog && catalog.lastRefresh) ? catalog.lastRefresh : 0;
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      if (counts[it.status] != null) counts[it.status]++;
+      if (it.status === 'completed' && (it.finishedAt || 0) > lastRefresh) fresh = true;
+    }
+    var parts = [];
+    if (counts.running) parts.push(counts.running + ' descargando');
+    if (counts.queued) parts.push(counts.queued + ' en cola');
+    if (counts.completed) parts.push(counts.completed + (counts.completed === 1 ? ' completado' : ' completados'));
+    if (counts.error) parts.push(counts.error + (counts.error === 1 ? ' con error' : ' con error'));
+    var text = parts.length ? parts.join(' · ') : 'Sin descargas todavía.';
+    if (fresh && !counts.running && !counts.queued) text += ' · catálogo pendiente de actualizar';
+    el.textContent = text;
+  }
+
+  function dlRenderActive(view, running) {
+    var box = hook(view, 'active');
+    if (!box) return;
+    var active = running.length ? running[0] : null;
+    box.hidden = !active;
+    if (!active) return;
+    setText(view, 'active-title', active.title || dlTitleOf(active.slug));
+    var pct = clamp(isNum(active.progress) ? active.progress : 0, 0, 100);
+    var fill = hook(view, 'active-fill');
+    if (fill) fill.style.width = pct + '%';
+    var bar = hook(view, 'active-bar');
+    if (bar) {
+      bar.setAttribute('aria-valuenow', String(pct));
+      bar.setAttribute('aria-valuetext', pct + ' por ciento');
+    }
+    setText(view, 'active-pct', pct + '%');
+    setText(view, 'active-phase', active.phase || 'Preparando');
+  }
+
+  function dlFillQueueItem(node, item, index, total, offline) {
+    setText(node, 'pos', String(index + 1));
+    setText(node, 'title', item.title || dlTitleOf(item.slug));
+    var meta = dlMetaOf(item.slug);
+    setText(node, 'meta', meta);
+    var metaEl = hook(node, 'meta');
+    if (metaEl) metaEl.hidden = !meta;
+    var name = item.title || item.slug;
+    var up = node.querySelector('[data-action="up"]');
+    var down = node.querySelector('[data-action="down"]');
+    var cancel = node.querySelector('[data-action="cancel"]');
+    if (up) {
+      up.setAttribute('data-slug', item.slug);
+      up.setAttribute('data-focus', 'queue:' + item.slug + ':up');
+      up.setAttribute('aria-label', 'Subir ' + name);
+      up.disabled = offline || index === 0;
+    }
+    if (down) {
+      down.setAttribute('data-slug', item.slug);
+      down.setAttribute('data-focus', 'queue:' + item.slug + ':down');
+      down.setAttribute('aria-label', 'Bajar ' + name);
+      down.disabled = offline || index === total - 1;
+    }
+    if (cancel) {
+      cancel.setAttribute('data-slug', item.slug);
+      cancel.setAttribute('data-focus', 'queue:' + item.slug + ':cancel');
+      cancel.setAttribute('aria-label', 'Cancelar ' + name);
+      cancel.disabled = offline;
+    }
+  }
+
+  function dlRenderQueue(view, queued, offline) {
+    var box = listHook(view, 'queue');
+    var empty = hook(view, 'queue-empty');
+    if (!box) return;
+    clearEl(box);
+    for (var i = 0; i < queued.length; i++) {
+      var node = partial('tpl-dl-item', (function (it, index, total) {
+        return function (n) { dlFillQueueItem(n, it, index, total, offline); };
+      })(queued[i], i, queued.length));
+      if (node) box.appendChild(node);
+    }
+    if (empty) empty.hidden = queued.length !== 0;
+    setText(view, 'queue-count', queued.length ? queued.length + (queued.length === 1 ? ' curso' : ' cursos') : '');
+  }
+
+  function dlFillRoute(node, data, offline) {
+    var route = data.route;
+    setText(node, 'title', route.title || route.id);
+    var meta = data.downloaded + ' de ' + data.total + ' descargados';
+    if (data.queued) meta += ' · ' + data.queued + ' en cola';
+    setText(node, 'meta', meta);
+    var pct = data.total ? Math.round((data.downloaded / data.total) * 100) : 0;
+    var bar = hook(node, 'bar');
+    if (bar) bar.style.width = pct + '%';
+    var btn = node.querySelector('[data-control="route-download"]');
+    var label = hook(node, 'label');
+    if (!btn) return;
+    var n = data.pending.length;
+    btn.setAttribute('data-route', route.id);
+    btn.setAttribute('data-focus', 'route:' + route.id + ':download');
+    btn.disabled = offline || n === 0;
+    if (label) label.textContent = n ? 'Descargar ' + n : (data.queued ? 'Ya en cola' : 'Sin pendientes');
+    if (n) {
+      btn.setAttribute('aria-label', 'Descargar ' + n + (n === 1 ? ' curso pendiente' : ' cursos pendientes') + ' de ' + (route.title || route.id));
+    } else {
+      btn.setAttribute('aria-label', 'Cursos de ' + (route.title || route.id) + ' ya en cola');
+    }
+  }
+
+  function dlRenderRoutes(view, offline) {
+    var box = listHook(view, 'routes');
+    if (!box) return;
+    var busy = dlBusySet();
+    var rows = [];
+    for (var i = 0; i < routeList.length; i++) {
+      var route = routeList[i];
+      if (!route || !Array.isArray(route.courses)) continue;
+      var total = 0;
+      var downloaded = 0;
+      var queued = 0;
+      var pending = [];
+      for (var j = 0; j < route.courses.length; j++) {
+        var c = bySlug[route.courses[j]];
+        if (!c) continue;
+        total++;
+        if (c.downloaded) { downloaded++; continue; }
+        if (busy[c.slug]) { queued++; continue; }
+        pending.push(c);
+      }
+      if (!total || downloaded === total) continue;
+      rows.push({ route: route, total: total, downloaded: downloaded, queued: queued, pending: pending });
+    }
+    rows.sort(function (a, b) {
+      if (b.pending.length !== a.pending.length) return b.pending.length - a.pending.length;
+      return cmpTitle(a.route.title || a.route.id, b.route.title || b.route.id);
+    });
+    clearEl(box);
+    for (var k = 0; k < rows.length; k++) {
+      var node = partial('tpl-dl-route', (function (data) {
+        return function (n) { dlFillRoute(n, data, offline); };
+      })(rows[k]));
+      if (node) box.appendChild(node);
+    }
+    var empty = hook(view, 'routes-empty');
+    if (empty) empty.hidden = rows.length !== 0;
+    setText(view, 'routes-count', rows.length ? rows.length + (rows.length === 1 ? ' ruta' : ' rutas') : '');
+  }
+
+  function dlFillCourse(node, course, offline) {
+    setText(node, 'title', course.title || course.slug);
+    var meta = dlCourseMeta(course);
+    setText(node, 'meta', meta);
+    var metaEl = hook(node, 'meta');
+    if (metaEl) metaEl.hidden = !meta;
+    var name = course.title || course.slug;
+    var add = node.querySelector('[data-action="add"]');
+    var front = node.querySelector('[data-action="front"]');
+    if (add) {
+      add.setAttribute('data-slug', course.slug);
+      add.setAttribute('data-focus', 'course:' + course.slug + ':add');
+      add.setAttribute('aria-label', 'Añadir ' + name + ' a la cola');
+      add.disabled = offline;
+    }
+    if (front) {
+      front.setAttribute('data-slug', course.slug);
+      front.setAttribute('data-focus', 'course:' + course.slug + ':front');
+      front.setAttribute('aria-label', 'Poner ' + name + ' al frente de la cola');
+      front.disabled = offline;
+    }
+  }
+
+  function dlRenderCourses(view, offline) {
+    var box = listHook(view, 'courses');
+    if (!box) return;
+    if (!dlCoursePool) {
+      var pool = [];
+      for (var i = 0; i < courses.length; i++) {
+        var c = courses[i];
+        if (c && typeof c.slug === 'string' && !c.downloaded) pool.push(c);
+      }
+      pool.sort(function (a, b) { return cmpTitle(a.title || a.slug, b.title || b.slug); });
+      dlCoursePool = pool;
+    }
+    var busy = dlBusySet();
+    var q = norm(dlQuery);
+    var matches = [];
+    var available = 0;
+    for (var j = 0; j < dlCoursePool.length; j++) {
+      var course = dlCoursePool[j];
+      if (busy[course.slug]) continue;
+      available++;
+      if (matches.length >= DL_SUGGEST_MAX) continue;
+      if (q && norm((course.title || '') + ' ' + course.slug).indexOf(q) < 0) continue;
+      matches.push(course);
+    }
+    clearEl(box);
+    for (var k = 0; k < matches.length; k++) {
+      var node = partial('tpl-dl-course', (function (course) {
+        return function (n) { dlFillCourse(n, course, offline); };
+      })(matches[k]));
+      if (node) box.appendChild(node);
+    }
+    setText(view, 'add-count', available + (available === 1 ? ' curso sin descargar' : ' cursos sin descargar'));
+    var empty = hook(view, 'add-empty');
+    if (empty) {
+      empty.hidden = matches.length !== 0;
+      if (!matches.length) {
+        empty.textContent = q ? 'No hay cursos que coincidan con «' + dlQuery + '».' : 'No quedan cursos sin descargar.';
+      }
+    }
+  }
+
+  function dlFillHistory(node, item, offline) {
+    var status = item.status;
+    var chip = hook(node, 'status');
+    if (chip) {
+      chip.className = 'dl-status ' + (status === 'completed' ? 'dl-status-ok' : status === 'error' ? 'dl-status-error' : 'dl-status-canceled');
+      chip.textContent = status === 'completed' ? 'Completado' : status === 'error' ? 'Error' : 'Cancelado';
+    }
+    setText(node, 'title', item.title || dlTitleOf(item.slug));
+    var meta = '';
+    if (status === 'error' && item.error) meta = item.error;
+    else if (item.finishedAt) meta = dlDate(item.finishedAt);
+    var metaEl = hook(node, 'meta');
+    if (metaEl) { metaEl.textContent = meta; metaEl.hidden = !meta; }
+    var name = item.title || item.slug;
+    var retry = node.querySelector('[data-action="retry"]');
+    var remove = node.querySelector('[data-action="remove"]');
+    if (retry) {
+      retry.setAttribute('data-slug', item.slug);
+      retry.setAttribute('data-focus', 'history:' + item.slug + ':retry');
+      retry.setAttribute('aria-label', 'Volver a descargar ' + name);
+      retry.disabled = offline;
+    }
+    if (remove) {
+      remove.setAttribute('data-slug', item.slug);
+      remove.setAttribute('data-focus', 'history:' + item.slug + ':remove');
+      remove.setAttribute('aria-label', 'Quitar ' + name + ' de la lista');
+      remove.disabled = offline;
+    }
+  }
+
+  function dlRenderHistory(view, history, offline) {
+    var section = hook(view, 'history');
+    var box = listHook(view, 'history');
+    if (!section || !box) return;
+    var shown = history.slice(0, DL_HISTORY_MAX);
+    clearEl(box);
+    for (var i = 0; i < shown.length; i++) {
+      var node = partial('tpl-dl-history', (function (item) {
+        return function (n) { dlFillHistory(n, item, offline); };
+      })(shown[i]));
+      if (node) box.appendChild(node);
+    }
+    section.hidden = shown.length === 0;
+  }
+
+
+
+  function dlUpdateNotice(view) {
+    var box = hook(view, 'notice');
+    var text = hook(view, 'notice-text');
+    var reload = view.querySelector('[data-control="reload"]');
+    if (box) box.hidden = !dlNotice;
+    if (text) text.textContent = dlNotice || '';
+    if (reload) reload.hidden = !dlNoticeReload;
+  }
+
+  function dlUpdateRefresh(view, offline, items) {
+    var btn = view.querySelector('[data-control="refresh"]');
+    var label = hook(view, 'refresh-label');
+    if (!btn) return;
+    var catalog = (dlState && dlState.catalog) ? dlState.catalog : {};
+    var active = false;
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].status === 'queued' || items[i].status === 'running') { active = true; break; }
+    }
+    var refreshing = !!catalog.refreshing;
+    btn.disabled = offline || active || refreshing;
+    if (label) label.textContent = refreshing ? 'Actualizando…' : 'Actualizar catálogo';
+    if (active && !refreshing) btn.setAttribute('title', 'Espera a que termine la cola para actualizar el catálogo.');
+    else btn.removeAttribute('title');
+  }
+
+  function dlAnnounce(view, items, offline) {
+    var live = hook(view, 'live');
+    if (!live) return;
+    if (offline) { dlPrevStatus = null; return; }
+    var map = Object.create(null);
+    for (var i = 0; i < items.length; i++) {
+      if (items[i] && items[i].slug) map[items[i].slug] = items[i].status;
+    }
+    if (!dlPrevStatus) { dlPrevStatus = map; return; }
+    var messages = [];
+    for (var j = 0; j < items.length; j++) {
+      var it = items[j];
+      var before = dlPrevStatus[it.slug];
+      if (before === it.status) continue;
+      var name = it.title || it.slug;
+      if (it.status === 'running') messages.push('Descargando ' + name + '.');
+      else if (it.status === 'completed') messages.push(name + ' completado.');
+      else if (it.status === 'error') messages.push(name + ' falló: ' + (it.error || 'error desconocido') + '.');
+      else if (it.status === 'canceled') messages.push(name + ' cancelado.');
+    }
+    dlPrevStatus = map;
+    if (messages.length) live.textContent = messages.join(' ');
+  }
+
+  function dlApplyState(view, data) {
+    if (!view) return;
+    var focusKey = dlCaptureFocus();
+    if (data) {
+      dlState = data;
+      dlOffline = false;
+    }
+    var offline = dlOffline || !dlHasServer();
+    var items = (dlState && Array.isArray(dlState.items)) ? dlState.items : [];
+    var running = [];
+    var queued = [];
+    var history = [];
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      if (!it || typeof it.slug !== 'string') continue;
+      if (it.status === 'running') running.push(it);
+      else if (it.status === 'queued') queued.push(it);
+      else history.push(it);
+    }
+    history.sort(function (a, b) { return (b.finishedAt || 0) - (a.finishedAt || 0); });
+
+    var catalog = (dlState && dlState.catalog) ? dlState.catalog : {};
+    var wasRefreshing = dlPrevRefreshing;
+    dlPrevRefreshing = !!catalog.refreshing;
+    if (wasRefreshing && !dlPrevRefreshing) {
+      if (catalog.lastRefreshOk) {
+        dlNotice = 'Catálogo actualizado. Recarga el visor para verlo.';
+        dlNoticeReload = true;
+      } else {
+        dlNotice = 'No se pudo actualizar el catálogo. Revisa la consola del servidor.';
+        dlNoticeReload = false;
+      }
+    }
+
+    dlRenderSummary(view, items, offline, catalog);
+
+    var banner = hook(view, 'offline');
+    if (banner) banner.hidden = !offline;
+
+    var cli = hook(view, 'cli-warning');
+    if (cli) cli.hidden = offline || !dlState || dlState.cliAvailable !== false;
+
+    dlRenderActive(view, running);
+
+    var queueSig = (offline ? 'offline' : 'online') + '|';
+    for (var q = 0; q < queued.length; q++) queueSig += queued[q].slug + '|';
+    if (queueSig !== dlPrevQueueSig) {
+      dlPrevQueueSig = queueSig;
+      dlRenderQueue(view, queued, offline);
+    }
+
+    var historySig = (offline ? 'offline' : 'online') + '|';
+    for (var h = 0; h < history.length; h++) historySig += history[h].slug + ':' + history[h].status + '|';
+    if (historySig !== dlPrevHistorySig) {
+      dlPrevHistorySig = historySig;
+      dlRenderHistory(view, history, offline);
+    }
+
+    var busySig = (offline ? 'offline' : 'online') + '|';
+    for (var b = 0; b < queued.length; b++) busySig += queued[b].slug + '|';
+    for (var r = 0; r < running.length; r++) busySig += running[r].slug + '|';
+    if (busySig !== dlPrevBusySig) {
+      dlPrevBusySig = busySig;
+      dlRenderRoutes(view, offline);
+      dlRenderCourses(view, offline);
+    }
+
+    dlUpdateNotice(view);
+    dlUpdateRefresh(view, offline, items);
+    dlAnnounce(view, items, offline);
+    if (focusKey) dlRestoreFocus(focusKey);
+  }
+
+  function dlRefreshState(view) {
+    if (!view || dlBusy || !dlHasServer()) return;
+    dlApi('/state').then(function (data) {
+      dlApplyState(view, data);
+    }).catch(function () {
+      dlOffline = true;
+      dlApplyState(view, null);
+    });
+  }
+
+  function dlStartPolling(view) {
+    if (dlTimer) window.clearInterval(dlTimer);
+    dlTimer = window.setInterval(function () {
+      if (document.hidden) return;
+      dlRefreshState(view);
+    }, DL_POLL_MS);
+  }
+
+  function stopDownloadsPolling() {
+    if (dlTimer) { window.clearInterval(dlTimer); dlTimer = null; }
+    dlView = null;
+    dlBusy = false;
+  }
+
+  function dlAction(path, body) {
+    if (!dlView || !dlHasServer() || dlOffline || dlBusy) return;
+    dlBusy = true;
+    dlApi(path, body).then(function (data) {
+      dlBusy = false;
+      dlNotice = '';
+      dlNoticeReload = false;
+      dlApplyState(dlView, data);
+    }).catch(function (err) {
+      dlBusy = false;
+      dlNotice = (err && err.message) ? err.message : 'No se pudo completar la acción.';
+      dlNoticeReload = false;
+      dlApplyState(dlView, dlState);
+    });
+  }
+
+  function dlRefreshCatalog() {
+    if (!dlView || !dlHasServer() || dlOffline || dlBusy) return;
+    dlBusy = true;
+    dlApi('/refresh', {}).then(function (data) {
+      dlBusy = false;
+      dlNotice = 'Actualizando el catálogo…';
+      dlNoticeReload = false;
+      dlApplyState(dlView, data);
+    }).catch(function (err) {
+      dlBusy = false;
+      dlNotice = (err && err.message) ? err.message : 'No se pudo actualizar el catálogo.';
+      dlNoticeReload = false;
+      dlApplyState(dlView, dlState);
+    });
+  }
+
+  function initDescargas(view) {
+    view.addEventListener('click', function (e) {
+      var btn = (e.target && e.target.closest) ? e.target.closest('button') : null;
+      if (!btn || !view.contains(btn) || btn.disabled) return;
+      var action = btn.getAttribute('data-action');
+      var control = btn.getAttribute('data-control');
+      var slug = btn.getAttribute('data-slug');
+      var routeId = btn.getAttribute('data-route');
+      var i;
+
+      if (control === 'refresh') { dlRefreshCatalog(); return; }
+      if (control === 'reload') { window.location.reload(); return; }
+      if (control === 'go-add') { dlGoAdd(view); return; }
+      if (control === 'go-routes') { dlGoRoutes(view); return; }
+      if (control === 'cancel-active') {
+        var running = dlItemsByStatus('running');
+        if (running.length) dlAction('/cancel', { slug: running[0].slug });
+        return;
+      }
+      if (control === 'clear-history') { dlAction('/clear', {}); return; }
+      if (control === 'route-download') {
+        var route = routeId ? byRouteId[routeId] : null;
+        if (!route) return;
+        var pending = dlRoutePending(route);
+        if (!pending.length) return;
+        var items = [];
+        for (i = 0; i < pending.length; i++) {
+          items.push({ slug: pending[i].slug, title: pending[i].title || pending[i].slug });
+        }
+        dlAction('/enqueue', { items: items, position: 'back' });
+        return;
+      }
+      if (action === 'up' || action === 'down') {
+        dlAction('/reorder', { slug: slug, direction: action });
+        return;
+      }
+      if (action === 'cancel') { dlAction('/cancel', { slug: slug }); return; }
+      if (action === 'add' || action === 'front') {
+        var course = slug ? bySlug[slug] : null;
+        if (!course) return;
+        dlAction('/enqueue', {
+          items: [{ slug: course.slug, title: course.title || course.slug }],
+          position: action === 'front' ? 'front' : 'back'
+        });
+        return;
+      }
+      if (action === 'retry') {
+        var retryCourse = slug ? bySlug[slug] : null;
+        if (!retryCourse) return;
+        dlAction('/enqueue', {
+          items: [{ slug: retryCourse.slug, title: retryCourse.title || retryCourse.slug }],
+          position: 'back'
+        });
+        return;
+      }
+      if (action === 'remove') { dlAction('/remove', { slug: slug }); return; }
+    });
+
+    var search = view.querySelector('[data-control="search"]');
+    if (search) {
+      search.value = '';
+      search.addEventListener('input', function () {
+        dlQuery = search.value || '';
+        dlRenderCourses(view, dlOffline);
+      });
+    }
+  }
+
+  function renderDescargas() {
+    setTitle('Descargas · Platzi Local');
+    renderShell('descargas');
+    stopDownloadsPolling();
+    dlQuery = '';
+    dlNotice = '';
+    dlNoticeReload = false;
+    dlPrevStatus = null;
+    dlPrevBusySig = null;
+    dlPrevQueueSig = null;
+    dlPrevHistorySig = null;
+    dlPrevRefreshing = !!(dlState && dlState.catalog && dlState.catalog.refreshing);
+    dlOffline = !dlHasServer();
+    mount('tpl-descargas', function (view) {
+      dlView = view;
+      initDescargas(view);
+      if (!dlHasServer()) {
+        dlApplyState(view, null);
+        return;
+      }
+      if (dlState) dlApplyState(view, dlState);
+      dlRefreshState(view);
+      dlStartPolling(view);
+    });
+    afterRoute();
+  }
+
   /* ---------- router ---------- */
 
   function currentPath() {
@@ -1636,6 +2357,7 @@
 
   function renderRoute() {
     teardownAula();
+    stopDownloadsPolling();
     closeSuggest();
     if (!DATA || !Array.isArray(DATA.courses)) {
       setTitle('Platzi Local');
@@ -1654,6 +2376,7 @@
     if (seg === '') { renderHome(); return; }
     if (seg === 'rutas') { renderRutas(); return; }
     if (seg === 'cursos') { renderCursos(); return; }
+    if (seg === 'descargas') { renderDescargas(); return; }
     if (seg === 'ruta') {
       var rid = decodeSeg(parts[1] || '');
       var route = rid ? byRouteId[rid] : null;

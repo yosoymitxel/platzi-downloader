@@ -4,8 +4,10 @@ Visor web local para estudiar los cursos de Platzi descargados en `Courses/` con
 
 ## Arranque
 
-1. Doble clic en **`start.cmd`** → abre `http://localhost:8787/viewer/` (requiere Python en el PATH).
-2. Alternativa sin servidor: abrir `viewer\index.html` directamente. Todo funciona **excepto los subtítulos** (el navegador bloquea `.vtt` en `file://`), verás un aviso.
+1. Doble clic en **`start.cmd`** → lanza `scripts\server.py` y abre `http://localhost:8787/viewer/` (requiere Python en el PATH).
+2. Alternativa sin servidor: abrir `viewer\index.html` directamente. Todo funciona **excepto los subtítulos** (el navegador bloquea `.vtt` en `file://`) y la pestaña **Descargas** (modo lectura), verás un aviso.
+
+El servidor es solo local (`127.0.0.1`): sirve el visor, la carpeta `Courses\` y una API en `/api/*` para la cola de descargas.
 
 ## Requisitos de datos
 
@@ -19,9 +21,10 @@ python scripts\viewer_data.py
 
 ## Cómo funciona
 
-- Todo es estático: `index.html` + `styles.css` + `app.js` + `data.js`. Sin frameworks, sin CDN, sin build.
+- El visor es estático: `index.html` + `styles.css` + `app.js` + `data.js`. Sin frameworks, sin CDN, sin build.
 - El **progreso** (visto + posición de cada clase, velocidad, subtítulos) se guarda en `localStorage` del navegador (clave `platziLocal.v1`). El estado de Platzi descargado se muestra solo como historial de referencia.
 - La búsqueda indexa cursos y clases en el cliente.
+- La pestaña **Descargas** habla con `scripts/server.py` (cola persistida en `scripts/download_state.json`, un curso a la vez, progreso por clase). "Actualizar catálogo" ejecuta `viewer_data.py` cuando la cola está vacía.
 
 ## Atajos del reproductor
 

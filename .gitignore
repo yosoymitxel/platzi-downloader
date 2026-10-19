@@ -15,6 +15,10 @@ desktop.ini
 __pycache__/
 *.pyc
 
+# Estado runtime de la cola de descargas
+scripts/download_state.json
+scripts/download_state.json.tmp
+
 # Artefactos de skills de diseño (locales, no forman parte del producto)
 .impeccable/
 .taste-skill/
