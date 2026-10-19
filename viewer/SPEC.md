@@ -97,7 +97,7 @@ Convención: la UI puede añadir clases y estructura **alrededor**, pero estos h
 | `tpl-cursos` | `…view-cursos` | `[data-filters]` con `button[data-filter="all|progress|cert|downloaded|queued|missing"]`, `[data-list=courses]`, `[data-slot=count]`, `[data-slot=empty]` |
 | `tpl-curso` | `…view-curso` | `[data-slot=title]`, `[data-slot=cover]`, `[data-slot=chips]`, `[data-slot=progress-text]`, `[data-slot=bar]`, `a[data-slot=continue]`, `[data-slot=continue-label]`, `[data-slot=platzi]`, `a[data-slot=diploma]` (oculto si no hay), `[data-list=modules]`, `[data-slot=empty]` (curso sin descargar) |
 | `tpl-module` (partial) | `details.module` | `summary` con `[data-slot=name]`, `[data-slot=count]`, `[data-list=classes]` |
-| `tpl-aula` | `…view-aula` | `video#player[controls][playsinline][preload=metadata]`, `[data-slot=class-title]`, `[data-slot=module-name]`, `a[data-slot=course-link]`, `[data-slot=progress-text]`, `button[data-control=prev]`, `button[data-control=next]`, `button[data-control=mark]` (label en `[data-slot=mark-label]`), `select[data-control=speed]`, `select[data-control=captions]`, `label`+`input[type=checkbox][data-control=autoplay]`, `[data-list=classes]` (sidebar), `[data-slot=error]` (oculto; estado de error de video) |
+| `tpl-aula` | `…view-aula` | `video#player[controls][playsinline][preload=metadata]`, `[data-slot=class-title]`, `[data-slot=module-name]`, `a[data-slot=course-link]`, `[data-slot=progress-text]`, `button[data-control=prev]`, `button[data-control=next]`, `button[data-control=mark]` (label en `[data-slot=mark-label]`), `select[data-control=speed]`, `select[data-control=captions]`, `label`+`input[type=checkbox][data-control=autoplay]`, `button[data-control=mute]` (con `[data-icon=on|off]`), `input[type=range][data-control=volume]`, `button[data-control=fullscreen]`, `button[data-control=pip]` (oculto si no hay soporte), `[data-list=classes]` (sidebar), `[data-slot=error]` (oculto; estado de error de video) |
 | `tpl-buscar` | `…view-buscar` | `[data-slot=q]`, `[data-list=courses]`, `[data-list=classes]`, `[data-slot=empty]` |
 
 ### §4.2 Partials
@@ -140,6 +140,10 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 - Velocidad: select con `0.75/1/1.25/1.5/1.75/2`; aplica `video.playbackRate`; persiste en `prefs.speed`.
 - Subtítulos: select "Desactivados/Español/English/Português"; persiste; aplica a `textTracks`.
 - Autoplay siguiente: checkbox, persiste.
+- Volumen: slider `input[type=range][data-control=volume]` (0-1) + botón `[data-control=mute]` (toggle `video.muted`); arrastrar a 0 silencia y subir desmuta; sincroniza `video.volume`/`muted` y persiste en `prefs.volume`.
+- Pantalla completa: botón `[data-control=fullscreen]`; llama a la misma lógica que la tecla `f`.
+- Picture in picture: botón `[data-control=pip]`; se oculta (`hidden`) si el navegador no lo soporta; `aria-pressed` según el estado.
+- Subtítulos: además del select, `video::cue` con fondo semitransparente, texto blanco y `font-size: 1.4em`.
 - Playlist lateral: `tpl-class-row` por clase; la actual con `data-current`, `aria-current="true"`; click navega. La lista hace scroll hasta la fila actual.
 - Atajos de teclado (ignorar cuando el foco está en input/select/textarea): `espacio`/`k` play-pausa, `←/→` ±5 s, `j/l` ±10 s, `↑/↓` volumen ±5%, `m` mute, `f` pantalla completa, `c` ciclar subtítulos, `n`/`p` siguiente/anterior.
 - Título: `document.title` = "<clase> · <curso> · Platzi Local".
@@ -199,7 +203,7 @@ Sin imagen: bloque `--surface-3` con la inicial del curso grande en `--ink-2` (n
 ## §7 Copy (español, congelado)
 
 ### §7.1 Navegación y botones
-Inicio · Rutas · Mis cursos · Descargas · Buscar curso o clase… · Continuar · Reproducir · Reanudar · Marcar como visto · Visto · Anterior · Siguiente · Velocidad · Subtítulos · Autoplay siguiente · Reproducir siguiente al terminar · Ver todas las rutas · Ver todos los cursos · Ver diploma · Entendido · Empezar · Actualizar catálogo · Recargar visor · Elegir una ruta · Añadir un curso · Añadir · Descargar {n} · Ya en cola · Sin pendientes · Subir · Bajar · Cancelar · Limpiar · Reintentar · Quitar.
+Inicio · Rutas · Mis cursos · Descargas · Buscar curso o clase… · Continuar · Reproducir · Reanudar · Marcar como visto · Visto · Anterior · Siguiente · Velocidad · Subtítulos · Autoplay siguiente · Silenciar · Volumen · Pantalla completa · Picture in picture · Reproducir siguiente al terminar · Ver todas las rutas · Ver todos los cursos · Ver diploma · Entendido · Empezar · Actualizar catálogo · Recargar visor · Elegir una ruta · Añadir un curso · Añadir · Descargar {n} · Ya en cola · Sin pendientes · Subir · Bajar · Cancelar · Limpiar · Reintentar · Quitar.
 
 ### §7.2 Estados
 - Sin last: "Elige una ruta para empezar" + botón "Explorar rutas".
@@ -236,7 +240,7 @@ Aprobado · En curso · Descargado · En cola · Sin descargar.
 - Con `file://` (abrir `viewer/index.html`): todo debe funcionar salvo subtítulos (CORS) y descargas → banners §7.2.
 - Criterios de aceptación del conjunto:
   1. Con el server: Home renderiza (con o sin last), navegación por las 8 vistas sin errores de consola.
-  2. Aula: video carga y reanuda; terminar una clase la marca vista y avanza; subtítulos cambian; velocidad persiste tras recargar.
+  2. Aula: video carga y reanuda; terminar una clase la marca vista y avanza; subtítulos cambian; velocidad persiste tras recargar; volumen con slider y silencio; pantalla completa y PiP operativos.
   3. Un curso sin descargar no rompe nada (chip En cola, empty state).
   4. Con DevTools en offline: todo sigue funcionando (excepto portadas que no se hayan podido descargar → fallback).
   5. Teclado: recorrer topbar → cards → aula sin ratón; atajos del aula operativos. Descargas: reordenar y cancelar sin perder el foco.

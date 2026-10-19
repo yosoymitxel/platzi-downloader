@@ -887,6 +887,12 @@ main#app { display: block; }
   background: #000;
 }
 
+#player::cue {
+  background-color: rgba(0, 0, 0, .78);
+  color: #fff;
+  font-size: 1.4em;
+}
+
 .video-error {
   margin-top: 12px;
   padding: 14px 16px;
@@ -957,6 +963,16 @@ main#app { display: block; }
 .check-field input[type="checkbox"] {
   width: 18px;
   height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.volume { display: inline-flex; align-items: center; gap: 8px; }
+
+.volume input[type="range"] {
+  width: 104px;
+  height: 4px;
   margin: 0;
   accent-color: var(--accent);
   cursor: pointer;

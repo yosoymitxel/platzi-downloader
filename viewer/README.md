@@ -41,6 +41,8 @@ python scripts\viewer_data.py
 | `c` | Ciclar subtítulos |
 | `n` / `p` | Siguiente / anterior clase |
 
+Además de los atajos: volumen con slider y botón de silencio, pantalla completa y Picture in picture, en la barra bajo el video.
+
 ## Problemas comunes
 
 - **Al arrancar dice que el puerto ya está en uso** → es el guard: solo puede haber un servidor a la vez (dos workers comparten la cola). Usa el que ya está en `http://localhost:8787/viewer/` o ciérralo antes.

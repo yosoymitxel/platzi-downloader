@@ -1313,6 +1313,69 @@
       });
     }
 
+    var muteBtn = view.querySelector('[data-control="mute"]');
+    var volRange = view.querySelector('[data-control="volume"]');
+    var fsBtn = view.querySelector('[data-control="fullscreen"]');
+    var pipBtn = view.querySelector('[data-control="pip"]');
+
+    function paintVolume() {
+      var v = aula && aula.video;
+      if (!v || !volRange || !muteBtn) return;
+      volRange.value = String(v.muted ? 0 : clamp01(v.volume));
+      muteBtn.setAttribute('aria-pressed', v.muted ? 'true' : 'false');
+      var on = muteBtn.querySelector('[data-icon="on"]');
+      var off = muteBtn.querySelector('[data-icon="off"]');
+      if (on) on.hidden = !!v.muted;
+      if (off) off.hidden = !v.muted;
+    }
+
+    if (muteBtn) {
+      muteBtn.addEventListener('click', function () {
+        var v = aula && aula.video;
+        if (!v) return;
+        v.muted = !v.muted;
+        paintVolume();
+      });
+    }
+    if (volRange) {
+      volRange.addEventListener('input', function () {
+        var v = aula && aula.video;
+        if (!v) return;
+        var val = parseFloat(volRange.value);
+        if (!isNum(val)) val = 1;
+        v.volume = clamp01(val);
+        v.muted = v.volume <= 0;
+        paintVolume();
+      });
+    }
+    if (fsBtn) fsBtn.addEventListener('click', function () { aulaFullscreen(); });
+
+    var pipOk = false;
+    try { pipOk = !!document.pictureInPictureEnabled && !!(video && video.requestPictureInPicture); } catch (e) { pipOk = false; }
+    if (pipBtn) {
+      if (!pipOk) {
+        pipBtn.hidden = true;
+      } else {
+        pipBtn.addEventListener('click', function () {
+          var v = aula && aula.video;
+          if (!v) return;
+          try {
+            if (document.pictureInPictureElement) {
+              var q1 = document.exitPictureInPicture();
+              if (q1 && q1.catch) q1.catch(function () {});
+            } else if (v.requestPictureInPicture) {
+              var q2 = v.requestPictureInPicture();
+              if (q2 && q2.catch) q2.catch(function () {});
+            }
+          } catch (e) { /* PiP no disponible */ }
+        });
+        if (video) {
+          video.addEventListener('enterpictureinpicture', function () { pipBtn.setAttribute('aria-pressed', 'true'); });
+          video.addEventListener('leavepictureinpicture', function () { pipBtn.setAttribute('aria-pressed', 'false'); });
+        }
+      }
+    }
+
     if (video) {
       clearEl(video);
       var srcEl = document.createElement('source');
@@ -1337,6 +1400,7 @@
 
       video.playbackRate = speed;
       video.volume = clamp01(state.prefs.volume);
+      paintVolume();
       applyCaptions(state.prefs.captions, video, view, false);
 
       video.addEventListener('loadedmetadata', function () {
@@ -1355,6 +1419,7 @@
       video.addEventListener('error', aulaVideoError);
       video.addEventListener('volumechange', function () {
         state.prefs.volume = clamp01(video.volume);
+        paintVolume();
         save();
       });
       video.load();
