@@ -6,6 +6,7 @@
 <meta name="color-scheme" content="dark">
 <title>Platzi Local</title>
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="vendor/plyr/plyr.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -58,10 +59,6 @@
   <symbol id="ic-top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="m6.5 11.5 5.5-5.5 5.5 5.5"/></symbol>
   <symbol id="ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12"/><path d="m18 6-12 12"/></symbol>
   <symbol id="ic-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 1 0-2.3 6.2"/><path d="M20 4.5v7h-7"/></symbol>
-  <symbol id="ic-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5.5 6.5 9H3.5v6h3L11 18.5z"/><path d="M15 9.5a4 4 0 0 1 0 5"/><path d="M17.5 7a7.5 7.5 0 0 1 0 10"/></symbol>
-  <symbol id="ic-volume-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5.5 6.5 9H3.5v6h3L11 18.5z"/><path d="m15.5 9.5 5 5"/><path d="m20.5 9.5-5 5"/></symbol>
-  <symbol id="ic-fullscreen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9"/><path d="M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9"/><path d="M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15"/><path d="M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/></symbol>
-  <symbol id="ic-pip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><rect x="12.5" y="12.5" width="6" height="4.5" rx="1"/></symbol>
 </svg>
 
 <div id="templates" hidden>
@@ -176,11 +173,16 @@
               <svg class="icon" aria-hidden="true"><use href="#ic-play"></use></svg>
               <span data-slot="continue-label">Continuar</span>
             </a>
+            <button class="btn-ghost" type="button" data-control="download-course" hidden>
+              <svg class="icon" aria-hidden="true"><use href="#ic-queue"></use></svg>
+              <span data-slot="download-label">Descargar curso</span>
+            </button>
             <a class="diploma-link" data-slot="diploma" href="#" target="_blank" rel="noopener" hidden>
               <svg class="icon" aria-hidden="true"><use href="#ic-diploma"></use></svg>
               <span>Ver diploma</span>
             </a>
           </div>
+          <p class="sr-only" role="status" data-slot="download-status"></p>
           <p class="curso-platzi" data-slot="platzi"></p>
         </div>
         <div class="curso-cover">
@@ -210,7 +212,7 @@
     <section class="view view-aula">
       <div class="aula-layout">
         <div class="aula-main">
-          <video id="player" controls playsinline preload="metadata"></video>
+          <video id="player" playsinline preload="metadata"></video>
           <p class="video-error" data-slot="error" hidden>No se pudo cargar el video. Revisa que el archivo exista en Courses/.</p>
           <div class="aula-info">
             <h1 class="aula-title" data-slot="class-title"></h1>
@@ -232,42 +234,15 @@
               <span data-slot="mark-label">Marcar como visto</span>
             </button>
             <label class="field">
-              <span>Velocidad</span>
-              <select data-control="speed">
-                <option value="0.75">0.75x</option>
-                <option value="1" selected>1x</option>
-                <option value="1.25">1.25x</option>
-                <option value="1.5">1.5x</option>
-                <option value="1.75">1.75x</option>
-                <option value="2">2x</option>
-              </select>
-            </label>
-            <label class="field">
               <span>Subtítulos</span>
               <select data-control="captions">
-                <option value="off" selected>Desactivados</option>
-                <option value="es">Español</option>
-                <option value="en">English</option>
-                <option value="pt">Português</option>
+                <option value="off">Desactivados</option>
               </select>
             </label>
             <label class="check-field">
               <input type="checkbox" data-control="autoplay" checked>
               <span>Autoplay siguiente</span>
             </label>
-            <div class="volume">
-              <button class="btn-ghost" type="button" data-control="mute" aria-pressed="false" aria-label="Silenciar">
-                <svg class="icon" data-icon="on" aria-hidden="true"><use href="#ic-volume"></use></svg>
-                <svg class="icon" data-icon="off" aria-hidden="true" hidden><use href="#ic-volume-mute"></use></svg>
-              </button>
-              <input type="range" data-control="volume" min="0" max="1" step="0.05" value="1" aria-label="Volumen">
-            </div>
-            <button class="btn-ghost" type="button" data-control="fullscreen" aria-label="Pantalla completa">
-              <svg class="icon" aria-hidden="true"><use href="#ic-fullscreen"></use></svg>
-            </button>
-            <button class="btn-ghost" type="button" data-control="pip" aria-label="Picture in picture" aria-pressed="false">
-              <svg class="icon" aria-hidden="true"><use href="#ic-pip"></use></svg>
-            </button>
           </div>
         </div>
         <aside class="aula-side" aria-label="Clases del curso">
@@ -529,6 +504,7 @@
 
 </div>
 
+<script src="vendor/plyr/plyr.min.js" defer></script>
 <script src="data.js" defer></script>
 <script src="app.js" defer></script>
 </body>

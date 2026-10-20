@@ -27,7 +27,7 @@ Sigue «Empezar de cero» del `README.md`:
 
 ## Arquitectura
 
-- `viewer/`: estático, sin build. `app.js` es ES5 sin módulos, router por hash (`#/`, `#/rutas`, `#/cursos`, `#/curso/<slug>`, `#/aula/<slug>/<n>`, `#/descargas`). `viewer/SPEC.md` es el contrato de UI; si cambias algo visible, actualízalo. `viewer/README.md` explica el uso.
+- `viewer/`: estático, sin build. `app.js` es ES5 sin módulos, router por hash (`#/`, `#/rutas`, `#/cursos`, `#/curso/<slug>`, `#/aula/<slug>/<n>`, `#/descargas`). El aula usa Plyr 3.8.5 (MIT) vendoreado en `viewer/vendor/plyr/`; no hay CDN. `viewer/SPEC.md` es el contrato de UI; si cambias algo visible, actualízalo. `viewer/README.md` explica el uso.
 - `scripts/server.py`: sirve el repo y expone `/api/*` para la cola; un worker secuencial lanza el CLI (sin shell). Estado runtime en `scripts/download_state.json` (ignorado por git).
 - `scripts/platzi_*.py`: scrapers del catálogo (Playwright + la sesión del CLI). `scripts/build_queue.py` y `download_queue.ps1`: lote histórico.
 - El catálogo se genera por cuenta: los JSON de `scripts\` y `viewer\data.js` son datos del usuario, no constantes del proyecto.

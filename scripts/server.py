@@ -17,6 +17,7 @@ Variables de entorno:
 from __future__ import annotations
 
 import json
+import mimetypes
 import os
 import re
 import shutil
@@ -594,6 +595,10 @@ class ViewerHandler(SimpleHTTPRequestHandler):
         if self._blocked(path) or ".." in path.split("/"):
             self._error(404, "Ruta no encontrada.")
             return
+        if self.headers.get("Range"):
+            target = self.translate_path(parsed.path)
+            if os.path.isfile(target) and self._send_range(target):
+                return
         super().do_GET()
 
     def do_HEAD(self):
@@ -605,6 +610,10 @@ class ViewerHandler(SimpleHTTPRequestHandler):
         if self._blocked(path) or ".." in path.split("/"):
             self._error(404, "Ruta no encontrada.")
             return
+        if self.headers.get("Range"):
+            target = self.translate_path(parsed.path)
+            if os.path.isfile(target) and self._send_range(target, head_only=True):
+                return
         super().do_HEAD()
 
     def do_POST(self):
@@ -678,7 +687,66 @@ class ViewerHandler(SimpleHTTPRequestHandler):
         # El visor se edita a mano: sin esto el navegador sirve copias viejas.
         if not urlparse(self.path).path.startswith("/api/"):
             self.send_header("Cache-Control", "no-cache")
+            self.send_header("Accept-Ranges", "bytes")
         super().end_headers()
+
+    def _range_bounds(self, size, header):
+        match = re.fullmatch(r"bytes=(\d*)-(\d*)", (header or "").strip())
+        if not match or (not match.group(1) and not match.group(2)):
+            return None
+        first, last = match.group(1), match.group(2)
+        if not first:
+            length = int(last)
+            if length <= 0:
+                return None
+            return max(0, size - length), size - 1
+        start = int(first)
+        if start >= size:
+            return start, start
+        end = int(last) if last else size - 1
+        if end < start:
+            return None
+        return start, end
+
+    def _send_range(self, file_path, head_only=False):
+        """Responde 206 para que Chrome pueda buscar dentro del video."""
+        try:
+            size = os.path.getsize(file_path)
+        except OSError:
+            return False
+        bounds = self._range_bounds(size, self.headers.get("Range"))
+        if bounds is None:
+            return False
+        start, end = bounds
+        if start >= size:
+            self.send_response(416)
+            self.send_header("Content-Range", "bytes */%d" % size)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return True
+        end = min(end, size - 1)
+        length = end - start + 1
+        self.send_response(206)
+        self.send_header("Content-Type", mimetypes.guess_type(file_path)[0] or "application/octet-stream")
+        self.send_header("Content-Length", str(length))
+        self.send_header("Content-Range", "bytes %d-%d/%d" % (start, end, size))
+        self.send_header("Last-Modified", self.date_time_string(os.path.getmtime(file_path)))
+        self.end_headers()
+        if head_only:
+            return True
+        try:
+            with open(file_path, "rb") as handle:
+                handle.seek(start)
+                remaining = length
+                while remaining > 0:
+                    chunk = handle.read(min(65536, remaining))
+                    if not chunk:
+                        break
+                    self.wfile.write(chunk)
+                    remaining -= len(chunk)
+        except (BrokenPipeError, ConnectionResetError):
+            pass
+        return True
 
     def list_directory(self, path):
         self._error(404, "Ruta no encontrada.")

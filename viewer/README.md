@@ -7,7 +7,7 @@ Las descargas las hace el CLI [`platzi`](https://github.com/ivansaul/platzi-down
 ## Arranque
 
 1. Doble clic en **`start.cmd`** → lanza `scripts\server.py` y abre `http://localhost:8787/viewer/` (requiere Python en el PATH).
-2. Alternativa sin servidor: abrir `viewer\index.html` directamente. Todo funciona **excepto los subtítulos** (el navegador bloquea `.vtt` en `file://`) y la pestaña **Descargas** (modo lectura), verás un aviso.
+2. Alternativa sin servidor: abrir `viewer\index.html` directamente. Todo funciona **excepto los subtítulos** (el navegador bloquea `.vtt` en `file://`) y la pestaña **Descargas** (modo lectura), verás un aviso. En ese modo el aula usa los controles nativos del navegador.
 
 El servidor es solo local (`127.0.0.1`): sirve el visor, la carpeta `Courses\` y una API en `/api/*` para la cola de descargas.
 
@@ -23,10 +23,10 @@ python scripts\viewer_data.py
 
 ## Cómo funciona
 
-- El visor es estático: `index.html` + `styles.css` + `app.js` + `data.js`. Sin frameworks, sin CDN, sin build.
-- El **progreso** (visto + posición de cada clase, velocidad, subtítulos) se guarda en `localStorage` del navegador (clave `platziLocal.v1`). El estado de Platzi descargado se muestra solo como historial de referencia.
+- El visor es estático: `index.html` + `styles.css` + `app.js` + `data.js`. Sin frameworks, sin CDN, sin build. El reproductor es **Plyr 3.8.5** (MIT), vendoreado en `viewer/vendor/plyr/`.
+- El **progreso** (visto + posición de cada clase, velocidad, subtítulos, volumen) se guarda en `localStorage` del navegador (clave `platziLocal.v1`). El estado de Platzi descargado se muestra solo como historial de referencia.
 - La búsqueda indexa cursos y clases en el cliente.
-- La pestaña **Descargas** habla con `scripts/server.py` (cola persistida en `scripts/download_state.json`, un curso a la vez, progreso por clase). Prioriza lo descargado: «Mis rutas» lista primero las completas y trae los pendientes en un clic; el buscador de cursos incluye los descargados, marcados. "Actualizar catálogo" ejecuta `viewer_data.py` cuando la cola está vacía.
+- La pestaña **Descargas** habla con `scripts/server.py` (cola persistida en `scripts/download_state.json`, un curso a la vez, progreso por clase). Prioriza lo descargado: «Mis rutas» lista primero las completas y trae los pendientes en un clic; el buscador de cursos incluye los descargados, marcados. En la ficha de un curso sin descargar, **Descargar curso** lo encola y el botón pasa a «En cola» o «Descargando…». "Actualizar catálogo" ejecuta `viewer_data.py` cuando la cola está vacía.
 
 ## Atajos del reproductor
 
@@ -41,11 +41,11 @@ python scripts\viewer_data.py
 | `c` | Ciclar subtítulos |
 | `n` / `p` | Siguiente / anterior clase |
 
-Además de los atajos: volumen con slider y botón de silencio, pantalla completa y Picture in picture, en la barra bajo el video.
+La barra de Plyr, bajo el video, trae play/pausa, progreso, tiempo, volumen, subtítulos, velocidad, PiP y pantalla completa. La fila propia queda con Anterior/Siguiente, Marcar como visto, Subtítulos (idioma) y Autoplay.
 
 ## Problemas comunes
 
 - **Al arrancar dice que el puerto ya está en uso** → es el guard: solo puede haber un servidor a la vez (dos workers comparten la cola). Usa el que ya está en `http://localhost:8787/viewer/` o ciérralo antes.
-- **No aparecen los subtítulos** → estás en `file://`; usa `start.cmd`.
+- **No aparecen los subtítulos** → estás en `file://`; usa `start.cmd`. En `file://` el aula también usa los controles nativos porque Plyr se activa con el servidor.
 - **Faltan portadas** → vuelve a ejecutar `python scripts\viewer_data.py` (o ignóralas: hay fallback tipográfico).
 - **Un curso recién descargado no aparece completo** → regenera `data.js`.

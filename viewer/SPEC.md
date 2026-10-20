@@ -9,13 +9,13 @@ Contrato de construcción del visor local. **Este documento manda.** Tres constr
 | Datos | `scripts/viewer_data.py` → genera `viewer/data.js`, `viewer/assets/covers/`, `viewer/assets/rutas/` |
 | Integrador (sesión principal) | `viewer/start.cmd`, `viewer/README.md`, ajustes de integración |
 
-Objetivo: ver los cursos descargados en `Courses/` con la experiencia más parecida posible a platzi.com, 100% offline, en HTML/CSS/JS vanilla **sin build step y sin dependencias**.
+Objetivo: ver los cursos descargados en `Courses/` con la experiencia más parecida posible a platzi.com, 100% offline, en HTML/CSS/JS vanilla **sin build step ni servicios externos**. El único componente de terceros es Plyr 3.8.5 (MIT), vendoreado en `viewer/vendor/plyr/`.
 
 ---
 
 ## §1 Arquitectura
 
-- SPA de una sola página con **router por hash**. `index.html` contiene: barra superior estática, `<main id="app">`, un contenedor oculto `#templates` con todos los `<template>`, y dos scripts al final: `data.js` y `app.js` (ambos `defer`; no módulos ES para que funcione también en `file://`).
+- SPA de una sola página con **router por hash**. `index.html` contiene: barra superior estática, `<main id="app">`, un contenedor oculto `#templates` con todos los `<template>`, la hoja `vendor/plyr/plyr.css` y tres scripts al final: `vendor/plyr/plyr.min.js`, `data.js` y `app.js` (los dos últimos `defer` y sin módulos ES para que funcione también en `file://`; Plyr es UMD).
 - `app.js` renderiza cada vista clonando su template desde `#templates` y rellenando solo los hooks `[data-slot]` / `[data-list]` definidos en §4. La UI define el markup y las clases; la lógica **nunca** crea markup nuevo salvo: `<track>`s dentro del `<video>`, nodos clonados de partials, e iconos `<svg><use href="#ic-…">` cambiando el `href` del `use`.
 - Rutas del router:
   - `#/` → Inicio
@@ -95,9 +95,9 @@ Convención: la UI puede añadir clases y estructura **alrededor**, pero estos h
 | `tpl-rutas` | `…view-rutas` | `[data-list=routes]`, `[data-slot=empty]` |
 | `tpl-ruta` | `…view-ruta` | `[data-slot=title]`, `[data-slot=cover]` (img o fallback), `[data-slot=meta]` (ej. "23 cursos · 44 h"), `[data-slot=bar]` (ancho %), `[data-slot=pct]`, `a[data-slot=continue]`, `[data-list=courses]`, `[data-slot=empty]` |
 | `tpl-cursos` | `…view-cursos` | `[data-filters]` con `button[data-filter="all|progress|cert|downloaded|queued|missing"]`, `[data-list=courses]`, `[data-slot=count]`, `[data-slot=empty]` |
-| `tpl-curso` | `…view-curso` | `[data-slot=title]`, `[data-slot=cover]`, `[data-slot=chips]`, `[data-slot=progress-text]`, `[data-slot=bar]`, `a[data-slot=continue]`, `[data-slot=continue-label]`, `[data-slot=platzi]`, `a[data-slot=diploma]` (oculto si no hay), `[data-list=modules]`, `[data-slot=empty]` (curso sin descargar) |
+| `tpl-curso` | `…view-curso` | `[data-slot=title]`, `[data-slot=cover]`, `[data-slot=chips]`, `[data-slot=progress-text]`, `[data-slot=bar]`, `a[data-slot=continue]`, `[data-slot=continue-label]`, `[data-slot=platzi]`, `button[data-control=download-course]` con `[data-slot=download-label]` (oculto si ya está descargado o sin servidor), `[data-slot=download-status]` (`role=status`), `a[data-slot=diploma]` (oculto si no hay), `[data-list=modules]`, `[data-slot=empty]` (curso sin descargar) |
 | `tpl-module` (partial) | `details.module` | `summary` con `[data-slot=name]`, `[data-slot=count]`, `[data-list=classes]` |
-| `tpl-aula` | `…view-aula` | `video#player[controls][playsinline][preload=metadata]`, `[data-slot=class-title]`, `[data-slot=module-name]`, `a[data-slot=course-link]`, `[data-slot=progress-text]`, `button[data-control=prev]`, `button[data-control=next]`, `button[data-control=mark]` (label en `[data-slot=mark-label]`), `select[data-control=speed]`, `select[data-control=captions]`, `label`+`input[type=checkbox][data-control=autoplay]`, `button[data-control=mute]` (con `[data-icon=on|off]`), `input[type=range][data-control=volume]`, `button[data-control=fullscreen]`, `button[data-control=pip]` (oculto si no hay soporte), `[data-list=classes]` (sidebar), `[data-slot=error]` (oculto; estado de error de video) |
+| `tpl-aula` | `…view-aula` | `video#player[playsinline][preload=metadata]` (sin `controls`; Plyr los monta, y en `file://` se restauran los nativos), `[data-slot=class-title]`, `[data-slot=module-name]`, `a[data-slot=course-link]`, `[data-slot=progress-text]`, `button[data-control=prev]`, `button[data-control=next]`, `button[data-control=mark]` (label en `[data-slot=mark-label]`), `select[data-control=captions]` (label "Subtítulos"), `label`+`input[type=checkbox][data-control=autoplay]`, `[data-list=classes]` (sidebar), `[data-slot=error]` (oculto; estado de error de video) |
 | `tpl-buscar` | `…view-buscar` | `[data-slot=q]`, `[data-list=courses]`, `[data-list=classes]`, `[data-slot=empty]` |
 
 ### §4.2 Partials
@@ -127,24 +127,27 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 - Progreso local: `vistas/total` = clases con `done` / (`classesTotal`), barra = fracción. Si no descargado: sin barra, mostrar `[data-slot=empty]` ("Este curso aún no se ha descargado" + chip cola si aplica) y deshabilitar continue.
 - `platzi` (snapshot): "En Platzi: 7/13 · sep 2026" en `[data-slot=platzi]`; si hay cert: fecha + `[data-slot=diploma]` visible ("Ver diploma", target `_blank`).
 - Continue: primera clase no vista; label "Continuar" (o "Reproducir" si no hay ninguna vista; "Reanudar" si la primera no vista tiene `pos>0`). Link a `#/aula/<slug>/<n>`.
+- Descargar: `button[data-control=download-course]` visible solo si `!course.downloaded` y hay servidor (`http(s)`). Al pulsarlo, `POST /api/enqueue {items:[{slug,title}], position:"back"}`; mientras responde, label "Encolando…"; después, "En cola" o "Descargando…" (según el item devuelto) y queda deshabilitado. Al entrar, `GET /api/state` ajusta el label si el curso ya está en cola o corriendo. El resultado se anuncia en `[data-slot=download-status]`. Si falla, vuelve a "Descargar curso" y anuncia el error de §7.2.
 - Módulos: `tpl-module` por módulo, `<details open>` para todos si hay ≤3 módulos; con más, solo el que contiene la clase actual (o el primero); el summary muestra "N clases". Clases: `tpl-class-row` con icono `ic-check` si `done` (y `data-done="true"`), si no `ic-play`; `data-current="true"` en la última vista/posición.
 
 ### §5.4 Aula (reproductor)
 - Construye la playlist aplanada del curso (módulos→clases, n=1..N). Resuelve `n` (clamp 1..N; inválido → 1).
-- `<video>`: inserta `<source src=encode(f.src) type="video/mp4">`; para cada sub en `f.subs` inserta `<track kind="subtitles" srclang="es|en|pt" label="Español|English|Português" src=encode(sub)>`. Si `prefs.captions !== "off"`, activar ese track; si no, `textTracks[i].mode="disabled"`.
+- `<video id="player" playsinline preload="metadata">` sin `controls`. Antes de inicializar el reproductor inserta `<source src=encode(f.src) type="video/mp4">` y, por cada sub en `f.subs`, `<track kind="subtitles" srclang="es|en|pt" label="Español|English|Português" src=encode(sub)>`. La preferencia `prefs.captions` decide el track activo (`off` = todos `disabled`).
+- Reproductor: **Plyr 3.8.5** vendoreado (`vendor/plyr/plyr.min.js`, `plyr.css`, `plyr.svg`; MIT). Aporta play/pausa, progreso, tiempo, volumen, silencio, subtítulos, menú de velocidad, PiP y pantalla completa. Config: `controls` con esa lista, `settings:['speed']`, `speed.options = [0.75,1,1.25,1.5,1.75,2]`, `keyboard:{focused:false, global:false}` (los atajos globales son del visor), `storage.enabled:false` (manda `prefs`) e `i18n` en español (§7.1).
+- Preferencias: la velocidad inicial va a `video.playbackRate` y a `speed.selected`; el volumen a `volume`; los subtítulos a `captions.active`/`captions.language`. Los eventos `ratechange`, `volumechange`, `captionsenabled`, `captionsdisabled` y `languagechange` actualizan `state.prefs` (guardado con debounce de 250 ms).
 - Carga: `video.load()`. Errores (`video.error`, `source` 404): mostrar `[data-slot=error]` ("No se pudo cargar el video — revisa que el archivo exista") y desactivar autoplay-next.
 - Reanudar: al `loadedmetadata`, si `pos>5` y `pos < duration-10` → `currentTime = pos`. Guardar `pos` cada `timeupdate` (~5 s) y en `pause`/`beforeunload` (usar `visibilitychange`).
 - `ended`: marcar `done=true` (salvo que el usuario haya desmarcado manualmente esa reproducción), y si `prefs.autoplayNext` → navegar a `n+1` (si no hay siguiente: quedarse; clase queda vista).
 - "Marcar como visto": toggle `done`. Label: "Marcar como visto" / "Visto ✓" (usa `[data-slot=mark-label]`).
 - `data-control=prev|next`: navegan `n∓1` (clamp; deshabilitados en extremos).
-- Velocidad: select con `0.75/1/1.25/1.5/1.75/2`; aplica `video.playbackRate`; persiste en `prefs.speed`.
-- Subtítulos: select "Desactivados/Español/English/Português"; persiste; aplica a `textTracks`.
+- Velocidad: menú Ajustes de Plyr (0.75–2); aplica `video.playbackRate`; persiste en `prefs.speed`.
+- Subtítulos: selector visible `select[data-control=captions]` en la barra secundaria (Desactivados + los idiomas con track en esa clase) y menú CC de Plyr; ambos sincronizados. Persiste en `prefs.captions`; la tecla `c` cicla `off → es → en → pt` con `toggleCaptions`/`language`. Para leer el estado, `captions.active` manda sobre `currentTrack` (que conserva el último índice al desactivar).
 - Autoplay siguiente: checkbox, persiste.
-- Volumen: slider `input[type=range][data-control=volume]` (0-1) + botón `[data-control=mute]` (toggle `video.muted`); arrastrar a 0 silencia y subir desmuta; sincroniza `video.volume`/`muted` y persiste en `prefs.volume`.
-- Pantalla completa: botón `[data-control=fullscreen]`; llama a la misma lógica que la tecla `f`.
-- Picture in picture: botón `[data-control=pip]`; se oculta (`hidden`) si el navegador no lo soporta; `aria-pressed` según el estado.
-- Subtítulos: además del select, `video::cue` con fondo semitransparente, texto blanco y `font-size: 1.4em`.
-- Playlist lateral: `tpl-class-row` por clase; la actual con `data-current`, `aria-current="true"`; click navega. La lista hace scroll hasta la fila actual.
+- Pantalla completa: la tecla `f` y el botón de Plyr llaman a `player.fullscreen.toggle()`; sin Plyr, `video.requestFullscreen()`.
+- Picture in picture: lo aporta Plyr (`controls` incluye `pip`); sin Plyr se usa el botón nativo de Chrome.
+- Fallback: si `window.Plyr` no cargó o el protocolo es `file://`, se restauran los `controls` nativos del `<video>` y se aplican subtítulos/prefs a mano; la barra secundaria no cambia.
+- Teardown: al salir del aula se llama `player.destroy()` antes de limpiar el `<video>`; sin Plyr no hay nada que destruir.
+- Playlist lateral: `tpl-class-row` por clase; la actual con `data-current`, `aria-current="true"` y el fondo en la fila completa (incluye la barra de progreso); click navega. La cabecera muestra el título del curso en hasta 2 líneas; la lista no tiene scroll horizontal, cada fila recorta el título con elipsis y la lista hace scroll hasta la fila actual.
 - Atajos de teclado (ignorar cuando el foco está en input/select/textarea): `espacio`/`k` play-pausa, `←/→` ±5 s, `j/l` ±10 s, `↑/↓` volumen ±5%, `m` mute, `f` pantalla completa, `c` ciclar subtítulos, `n`/`p` siguiente/anterior.
 - Título: `document.title` = "<clase> · <curso> · Platzi Local".
 
@@ -176,6 +179,7 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 - Un solo ground con superficies separadas **por pasos de tono**, nunca por líneas/sombras. Sombra solo en lo que flota de verdad (dropdown de búsqueda).
 - Tipografía: `"Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif`. h1 clamp(1.75rem,3vw,2.5rem)/700; h2 1.375rem/700; cuerpo 1rem/1.55; meta 0.875rem `--ink-2`. Nada de uppercase con tracking.
 - Botones: `.btn` verde `--accent` texto `--accent-ink` 700, radio `--radius-sm`; `.btn-ghost` transparente texto `--ink`; `.btn[disabled]` opacidad 45% y `cursor:not-allowed`.
+- Plyr: `--plyr-color-main: var(--accent)`, controles sobre negro, radio `--radius-sm`; los menús usan las superficies del tema. No se re-skinea más allá de eso.
 - Barras de progreso: `.progressbar` 6px, track `--surface-3`, relleno `--accent`, `border-radius:999px`, transición de ancho 300ms.
 - Chips: pill `--surface-2` texto `--ink-2`; `.chip-cert` fondo `--gold` texto `#3a2f00`; `.chip-progress` borde… no: fondo `--surface-3` texto `--accent`; demás neutros.
 - Foco: `:focus-visible` outline 2px `--focus` offset 2px.
@@ -187,7 +191,7 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 - **Home**: (1) héroe de continuar: superficie ancha con título de clase grande, meta, CTA verde; a su derecha una columna "Rutas activas" (filas con barra + %); (2) "Tus cursos" grilla de cards (auto-fill minmax(220px,1fr), máx 12); el héroe y las rutas no comparten composición.
 - **Rutas**: lista de filas (no grilla): miniatura 16:9 96px + título + meta + barra + % + chevron.
 - **Curso**: banda héroe (portada a la derecha 16:9 ~380px, texto a la izquierda: título, chips, progreso, CTA) y debajo la lista de módulos a 860px centrados; aside no — una columna.
-- **Aula**: video 16:9 en columna izquierda (flex 1, máx ~900px) + barra de controles secundaria (prev/next/mark/velocidad/subs/autoplay) **debajo del video**; sidebar derecha 360px con cabecera del curso (progreso) y playlist scrolleable; en <960px la sidebar pasa debajo.
+- **Aula**: video 16:9 en columna izquierda (flex 1, máx ~900px) con la barra de Plyr; debajo, barra secundaria propia (prev/next/mark/subtítulos/autoplay); sidebar derecha 360px con cabecera del curso (progreso) y playlist scrolleable; en <960px la sidebar pasa debajo.
 - **Cursos/buscar**: fila de filtros (pills `aria-pressed`) + grilla de cards; resultados de búsqueda en filas.
 - **Course card**: portada 16:9 arriba (o fallback tipográfico con la inicial en `--surface-3`), título 2 líneas máx, meta, chips, progreso local fino. Hover: `--surface-2` + translateY(-2px) suave. `data-state="missing"` → portada y título atenuados (el descargado destaca).
 
@@ -203,11 +207,15 @@ Sin imagen: bloque `--surface-3` con la inicial del curso grande en `--ink-2` (n
 ## §7 Copy (español, congelado)
 
 ### §7.1 Navegación y botones
-Inicio · Rutas · Mis cursos · Descargas · Buscar curso o clase… · Continuar · Reproducir · Reanudar · Marcar como visto · Visto · Anterior · Siguiente · Velocidad · Subtítulos · Autoplay siguiente · Silenciar · Volumen · Pantalla completa · Picture in picture · Reproducir siguiente al terminar · Ver todas las rutas · Ver todos los cursos · Ver diploma · Entendido · Empezar · Actualizar catálogo · Recargar visor · Elegir una ruta · Añadir un curso · Añadir · Descargar {n} · Ya en cola · Sin pendientes · Subir · Bajar · Cancelar · Limpiar · Reintentar · Quitar.
+Inicio · Rutas · Mis cursos · Descargas · Buscar curso o clase… · Continuar · Reproducir · Reanudar · Marcar como visto · Visto · Anterior · Siguiente · Subtítulos · Desactivados · Español · English · Português · Autoplay siguiente · Reproducir siguiente al terminar · Ver todas las rutas · Ver todos los cursos · Ver diploma · Descargar curso · Encolando… · En cola · Descargando… · Entendido · Empezar · Actualizar catálogo · Recargar visor · Elegir una ruta · Añadir un curso · Añadir · Descargar {n} · Ya en cola · Sin pendientes · Subir · Bajar · Cancelar · Limpiar · Reintentar · Quitar.
+
+Plyr (i18n propio): Reproducir · Pausar · Reiniciar · Retroceder {n}s · Avanzar {n}s · Buscar · Reproducido · Cargado · Volumen · Silenciar · Activar sonido · Activar subtítulos · Desactivar subtítulos · Subtítulos · Ajustes · Velocidad · Normal · Imagen en imagen · Pantalla completa · Salir de pantalla completa · Desactivado.
 
 ### §7.2 Estados
 - Sin last: "Elige una ruta para empezar" + botón "Explorar rutas".
 - Curso sin descargar: "Este curso aún no se ha descargado" (+ chip "En cola" si `queued`).
+- Curso encolado: "«{curso}» añadido a la cola de descargas." (`role=status`; al entrar ya en cola no se anuncia nada).
+- Error al encolar: "No se pudo encolar. Revisa que el servidor local esté activo."
 - Buscar vacío: "Sin resultados para «{q}»". Catálogo vacío (hipotético): "Todavía no hay cursos en el catálogo".
 - Error video: "No se pudo cargar el video. Revisa que el archivo exista en Courses/".
 - Banner `file://`: "Estás abriendo el visor como archivo local. Para subtítulos y mejor experiencia ejecuta viewer\\start.cmd." + "Entendido".
@@ -232,20 +240,22 @@ Aprobado · En curso · Descargado · En cola · Sin descargar.
 - Todo lo clickeable es `<a>`/`<button>`; iconos decorativos `aria-hidden`; botones de icono con `aria-label`.
 - Contraste ≥4.5:1 en texto corrido (revisar `--ink-2` sobre `--surface`); ≥3:1 en texto grande.
 - Navegación con teclado completa; foco visible; `aria-current` en nav/clase actual; listas semánticas (`ol`/`ul`).
-- Video: subtítulos nativos; controles nativos de Chrome (estándar, no re-inventar) + controles secundarios propios.
+- Video: subtítulos nativos; Plyr vendoreado (controles estándar, i18n en español) + barra secundaria propia, sin duplicar controles.
 - Alt de portadas: título del curso (o `alt=""` si hay texto adyacente idéntico).
 
 ## §9 Integración y pruebas
 - `viewer/start.cmd` (lo escribe el integrador): `cd` a la raíz del proyecto, `python scripts/server.py` y abre `http://localhost:8787/viewer/`. La raíz se sirve completa (salvo `scripts/`, `logs/` y `.git/`) para que `../Courses/…` resuelva. Solo un servidor a la vez: si el puerto ya está en uso, `server.py` avisa y no arranca (un segundo worker competiría por la misma cola). Los archivos estáticos se sirven con `Cache-Control: no-cache`: una recarga normal trae la versión editada del visor.
+- Los MP4 se sirven con `Accept-Ranges: bytes`: `Range` válido → 206 con `Content-Range`, rango insatisfecho → 416, sin cabecera → 200 completo. Sin esto Chrome marca el video como no buscable y rompe el seek/reanudar.
 - Con `file://` (abrir `viewer/index.html`): todo debe funcionar salvo subtítulos (CORS) y descargas → banners §7.2.
 - Criterios de aceptación del conjunto:
   1. Con el server: Home renderiza (con o sin last), navegación por las 8 vistas sin errores de consola.
-  2. Aula: video carga y reanuda; terminar una clase la marca vista y avanza; subtítulos cambian; velocidad persiste tras recargar; volumen con slider y silencio; pantalla completa y PiP operativos.
+  2. Aula: video carga y reanuda; terminar una clase la marca vista y avanza; los subtítulos cambian desde el selector y desde el botón CC de Plyr (y ambos quedan sincronizados); la velocidad (menú Ajustes) y el volumen persisten tras recargar; pantalla completa y PiP operativos; el seek funciona (rangos HTTP).
   3. Un curso sin descargar no rompe nada (chip En cola, empty state).
   4. Con DevTools en offline: todo sigue funcionando (excepto portadas que no se hayan podido descargar → fallback).
   5. Teclado: recorrer topbar → cards → aula sin ratón; atajos del aula operativos. Descargas: reordenar y cancelar sin perder el foco.
   6. Móvil 390px: sin overflow horizontal; tap targets ≥44px.
   7. Descargas: "traer rutas" encola solo lo pendiente en orden; el progreso avanza por clase; cancelar corta el proceso; "Actualizar catálogo" se bloquea con la cola activa.
+  8. Curso: "Descargar curso" encola ese curso y pasa a "En cola"/"Descargando…"; el botón no aparece si ya está descargado ni en `file://`; un fallo de red lo deja reintentar y lo anuncia.
 - La UI y la lógica deben poder abrirse con datos reales sin tocar el otro archivo; cualquier hook faltante es un bug del responsable de la vista, no del consumidor.
 
 ## §10 Descargas (servidor local)
@@ -275,4 +285,4 @@ La vista `#/descargas` requiere `scripts/server.py`, que arranca `viewer/start.c
 - Un worker secuencial: la cola corre en orden; "al frente" inserta después del que está corriendo.
 
 ## §11 Fuera de alcance
-Login, comentarios, exámenes, notas de clase, player propio con skin custom (se usan controles nativos + barra secundaria), sincronizar progreso con Platzi, multiperfil, i18n, descargas simultáneas (un solo worker), reintentos automáticos y programación de descargas por horario.
+Login, comentarios, exámenes, notas de clase, skins de Plyr más allá del acento, sincronizar progreso con Platzi, multiperfil, i18n, descargas simultáneas (un solo worker), reintentos automáticos y programación de descargas por horario.

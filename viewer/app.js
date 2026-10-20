@@ -1,5 +1,5 @@
 /* Platzi Local — comportamiento del visor offline (ver viewer/SPEC.md §5).
-   Vanilla, sin módulos ni dependencias: tiene que correr también con file://. */
+   Vanilla + Plyr vendoreado (sin build); con file:// usa los controles nativos. */
 (function () {
   'use strict';
 
@@ -7,6 +7,44 @@
   var SPEEDS = [0.75, 1, 1.25, 1.5, 1.75, 2];
   var LANGS = ['es', 'en', 'pt'];
   var TRACK_LABEL = { es: 'Español', en: 'English', pt: 'Português' };
+  var PLYR_I18N = {
+    restart: 'Reiniciar',
+    rewind: 'Retroceder {seektime}s',
+    play: 'Reproducir',
+    pause: 'Pausar',
+    fastForward: 'Avanzar {seektime}s',
+    seek: 'Buscar',
+    seekLabel: '{currentTime} de {duration}',
+    played: 'Reproducido',
+    buffered: 'Cargado',
+    currentTime: 'Tiempo actual',
+    duration: 'Duración',
+    volume: 'Volumen',
+    mute: 'Silenciar',
+    unmute: 'Activar sonido',
+    enableCaptions: 'Activar subtítulos',
+    disableCaptions: 'Desactivar subtítulos',
+    download: 'Descargar',
+    enterFullscreen: 'Pantalla completa',
+    exitFullscreen: 'Salir de pantalla completa',
+    frameTitle: 'Reproductor de {title}',
+    captions: 'Subtítulos',
+    settings: 'Ajustes',
+    pip: 'Imagen en imagen',
+    menuBack: 'Volver al menú anterior',
+    speed: 'Velocidad',
+    normal: 'Normal',
+    quality: 'Calidad',
+    loop: 'Repetir',
+    start: 'Inicio',
+    end: 'Fin',
+    all: 'Todo',
+    reset: 'Restablecer',
+    disabled: 'Desactivado',
+    enabled: 'Activado',
+    advertisement: 'Anuncio',
+    qualityBadge: { 2160: '4K', 1440: 'HD', 1080: 'HD', 720: 'HD', 576: 'SD', 480: 'SD' }
+  };
   var MSG_STORAGE = 'Tu progreso no se guardará en esta sesión';
   var MSG_VIDEO = 'No se pudo cargar el video. Revisa que el archivo exista en Courses/.';
 
@@ -1034,6 +1072,8 @@
       }
     }
 
+    courseDownloadAction(view, course);
+
     var mods = Array.isArray(course.modules) ? course.modules : [];
     var current = courseCurrentIndex(course);
     var fl = flatClasses(course);
@@ -1049,6 +1089,59 @@
       }
     }
     show(hook(view, 'empty'), !downloaded);
+  }
+
+  function courseDownloadAction(view, course) {
+    var btn = view.querySelector('[data-control="download-course"]');
+    if (!btn) return;
+    var status = hook(view, 'download-status');
+    var name = course.title || course.slug;
+
+    function labelDownload(text, disabled) {
+      setLabel(btn, text);
+      btn.disabled = !!disabled;
+    }
+    function paintQueued(item) {
+      var running = item && item.status === 'running';
+      labelDownload(running ? 'Descargando…' : 'En cola', true);
+      btn.setAttribute('aria-label', (running ? 'Descargando ' : 'En cola: ') + name);
+    }
+    function findItem(data) {
+      var items = (data && Array.isArray(data.items)) ? data.items : [];
+      for (var i = 0; i < items.length; i++) {
+        if (items[i] && items[i].slug === course.slug) return items[i];
+      }
+      return null;
+    }
+
+    if (course.downloaded || !dlHasServer()) {
+      btn.hidden = true;
+      return;
+    }
+    btn.hidden = false;
+    labelDownload('Descargar curso', false);
+    btn.setAttribute('aria-label', 'Descargar ' + name);
+
+    dlApi('/state').then(function (data) {
+      var item = findItem(data);
+      if (item && (item.status === 'queued' || item.status === 'running')) paintQueued(item);
+    }).catch(function () { /* sin servidor: queda el botón para reintentar */ });
+
+    btn.addEventListener('click', function () {
+      if (btn.disabled) return;
+      btn.disabled = true;
+      setLabel(btn, 'Encolando…');
+      if (status) status.textContent = '';
+      dlApi('/enqueue', { items: [{ slug: course.slug, title: name }], position: 'back' })
+        .then(function (data) {
+          paintQueued(findItem(data) || { status: 'queued' });
+          if (status) status.textContent = '«' + name + '» añadido a la cola de descargas.';
+        })
+        .catch(function () {
+          labelDownload('Descargar curso', false);
+          if (status) status.textContent = 'No se pudo encolar. Revisa que el servidor local esté activo.';
+        });
+    });
   }
 
   function renderCurso(course) {
@@ -1090,10 +1183,12 @@
         catch (e) { /* pista sin cargar */ }
       }
     }
-    if (view) {
-      var sel = view.querySelector('select[data-control="captions"]');
-      if (sel && sel.value !== lang) sel.value = lang;
-    }
+    syncCaptionsUI(view, lang);
+  }
+
+  function syncCaptionsUI(view, lang) {
+    var sel = view ? view.querySelector('select[data-control="captions"]') : null;
+    if (sel && sel.value !== lang) sel.value = lang;
   }
 
   function saveAulaTick(video) {
@@ -1126,6 +1221,9 @@
       var t = NaN;
       try { t = a.video.currentTime; } catch (e) { t = NaN; }
       if (isNum(t) && t > 0) setPos(a.slug, a.src, t);
+    }
+    if (a.player && typeof a.player.destroy === 'function') {
+      try { a.player.destroy(); } catch (e) { /* Plyr ya destruido */ }
     }
   }
 
@@ -1209,7 +1307,9 @@
 
   function aulaFullscreen() {
     var a = aula;
-    if (!a || !a.video) return;
+    if (!a) return;
+    if (a.player && a.player.fullscreen) { a.player.fullscreen.toggle(); return; }
+    if (!a.video) return;
     try {
       if (document.fullscreenElement) {
         var q1 = document.exitFullscreen();
@@ -1225,9 +1325,36 @@
     var a = aula;
     if (!a) return;
     var seq = ['off'].concat(a.subLangs || []);
+    if (a.player) {
+      var active = !!(a.player.captions && a.player.captions.active);
+      var cur = (active && a.player.currentTrack >= 0) ? (a.player.language || 'off') : 'off';
+      var idx = seq.indexOf(cur);
+      var next = seq[(idx + 1) % seq.length];
+      if (next === 'off') a.player.toggleCaptions(false);
+      else {
+        a.player.language = next;
+        a.player.toggleCaptions(true);
+      }
+      state.prefs.captions = next;
+      save();
+      syncCaptionsUI(a.view, next);
+      return;
+    }
     var i = seq.indexOf(state.prefs.captions);
     var nxt = seq[(i + 1) % seq.length];
     applyCaptions(nxt, a.video, a.view, true);
+  }
+
+  function syncCaptionsPref() {
+    var a = aula;
+    if (!a || !a.player) return;
+    var active = !!(a.player.captions && a.player.captions.active);
+    var lang = (active && a.player.currentTrack >= 0) ? (a.player.language || 'es') : 'off';
+    if (state.prefs.captions !== lang) {
+      state.prefs.captions = lang;
+      save();
+    }
+    syncCaptionsUI(a.view, lang);
   }
 
   function buildAula(view, course, n, item, fl) {
@@ -1235,8 +1362,6 @@
     var prevBtn = view.querySelector('[data-control="prev"]');
     var nextBtn = view.querySelector('[data-control="next"]');
     var markBtn = view.querySelector('[data-control="mark"]');
-    var speedSel = view.querySelector('select[data-control="speed"]');
-    var capsSel = view.querySelector('select[data-control="captions"]');
     var autoplay = view.querySelector('input[data-control="autoplay"]');
     var errorEl = hook(view, 'error');
 
@@ -1289,91 +1414,12 @@
 
     var speed = aulaValidSpeed(state.prefs.speed);
     if (speed !== state.prefs.speed) { state.prefs.speed = speed; save(); }
-    if (speedSel) {
-      speedSel.value = String(speed);
-      speedSel.addEventListener('change', function () {
-        var v = parseFloat(speedSel.value);
-        if (!isNum(v) || v <= 0) v = 1;
-        state.prefs.speed = v;
-        if (video) video.playbackRate = v;
-        save();
-      });
-    }
-    if (capsSel) {
-      capsSel.value = state.prefs.captions;
-      capsSel.addEventListener('change', function () {
-        applyCaptions(capsSel.value, video, view, true);
-      });
-    }
     if (autoplay) {
       autoplay.checked = !!state.prefs.autoplayNext;
       autoplay.addEventListener('change', function () {
         state.prefs.autoplayNext = !!autoplay.checked;
         save();
       });
-    }
-
-    var muteBtn = view.querySelector('[data-control="mute"]');
-    var volRange = view.querySelector('[data-control="volume"]');
-    var fsBtn = view.querySelector('[data-control="fullscreen"]');
-    var pipBtn = view.querySelector('[data-control="pip"]');
-
-    function paintVolume() {
-      var v = aula && aula.video;
-      if (!v || !volRange || !muteBtn) return;
-      volRange.value = String(v.muted ? 0 : clamp01(v.volume));
-      muteBtn.setAttribute('aria-pressed', v.muted ? 'true' : 'false');
-      var on = muteBtn.querySelector('[data-icon="on"]');
-      var off = muteBtn.querySelector('[data-icon="off"]');
-      if (on) on.hidden = !!v.muted;
-      if (off) off.hidden = !v.muted;
-    }
-
-    if (muteBtn) {
-      muteBtn.addEventListener('click', function () {
-        var v = aula && aula.video;
-        if (!v) return;
-        v.muted = !v.muted;
-        paintVolume();
-      });
-    }
-    if (volRange) {
-      volRange.addEventListener('input', function () {
-        var v = aula && aula.video;
-        if (!v) return;
-        var val = parseFloat(volRange.value);
-        if (!isNum(val)) val = 1;
-        v.volume = clamp01(val);
-        v.muted = v.volume <= 0;
-        paintVolume();
-      });
-    }
-    if (fsBtn) fsBtn.addEventListener('click', function () { aulaFullscreen(); });
-
-    var pipOk = false;
-    try { pipOk = !!document.pictureInPictureEnabled && !!(video && video.requestPictureInPicture); } catch (e) { pipOk = false; }
-    if (pipBtn) {
-      if (!pipOk) {
-        pipBtn.hidden = true;
-      } else {
-        pipBtn.addEventListener('click', function () {
-          var v = aula && aula.video;
-          if (!v) return;
-          try {
-            if (document.pictureInPictureElement) {
-              var q1 = document.exitPictureInPicture();
-              if (q1 && q1.catch) q1.catch(function () {});
-            } else if (v.requestPictureInPicture) {
-              var q2 = v.requestPictureInPicture();
-              if (q2 && q2.catch) q2.catch(function () {});
-            }
-          } catch (e) { /* PiP no disponible */ }
-        });
-        if (video) {
-          video.addEventListener('enterpictureinpicture', function () { pipBtn.setAttribute('aria-pressed', 'true'); });
-          video.addEventListener('leavepictureinpicture', function () { pipBtn.setAttribute('aria-pressed', 'false'); });
-        }
-      }
     }
 
     if (video) {
@@ -1398,14 +1444,75 @@
         aula.subLangs.push(code);
       }
 
+      var captionsSel = view.querySelector('select[data-control="captions"]');
+      if (captionsSel) {
+        for (var ci = 0; ci < aula.subLangs.length; ci++) {
+          var ccode = aula.subLangs[ci];
+          var copt = document.createElement('option');
+          copt.value = ccode;
+          copt.textContent = TRACK_LABEL[ccode];
+          captionsSel.appendChild(copt);
+        }
+        var prefLang = state.prefs.captions;
+        captionsSel.value = (prefLang === 'off' || aula.subLangs.indexOf(prefLang) >= 0) ? prefLang : 'off';
+        captionsSel.addEventListener('change', function () {
+          if (!aula) return;
+          var lang = captionsSel.value;
+          var a = aula;
+          if (a.player) {
+            if (lang === 'off') a.player.toggleCaptions(false);
+            else {
+              a.player.language = lang;
+              a.player.toggleCaptions(true);
+            }
+            state.prefs.captions = lang;
+            save();
+          } else {
+            applyCaptions(lang, a.video, a.view, true);
+          }
+        });
+      }
+
       video.playbackRate = speed;
       video.volume = clamp01(state.prefs.volume);
-      paintVolume();
-      applyCaptions(state.prefs.captions, video, view, false);
+
+      if (window.Plyr && location.protocol !== 'file:') {
+        try {
+          var player = new window.Plyr(video, {
+            controls: ['play-large', 'play', 'progress', 'current-time', 'duration', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
+            settings: ['speed'],
+            speed: { selected: speed, options: SPEEDS },
+            volume: clamp01(state.prefs.volume),
+            invertTime: false,
+            toggleInvert: true,
+            keyboard: { focused: false, global: false },
+            tooltips: { controls: true, seek: true },
+            storage: { enabled: false },
+            title: item.title || '',
+            iconUrl: 'vendor/plyr/plyr.svg',
+            i18n: PLYR_I18N,
+            captions: {
+              active: state.prefs.captions !== 'off',
+              language: state.prefs.captions !== 'off' ? state.prefs.captions : 'auto',
+              update: true
+            }
+          });
+          aula.player = player;
+          player.on('captionsenabled', syncCaptionsPref);
+          player.on('captionsdisabled', syncCaptionsPref);
+          player.on('languagechange', syncCaptionsPref);
+        } catch (e) {
+          aula.player = null;
+        }
+      }
+      if (!aula.player) {
+        video.setAttribute('controls', 'controls');
+        applyCaptions(state.prefs.captions, video, view, false);
+      }
 
       video.addEventListener('loadedmetadata', function () {
-        /* Chrome auto-activa una pista al cargar metadatos: reaplicar preferencia */
-        applyCaptions(state.prefs.captions, video, view, false);
+        /* Con Plyr manda su módulo de subtítulos; sin Plyr, reaplicar la preferencia. */
+        if (!aula || !aula.player) applyCaptions(state.prefs.captions, video, view, false);
         var e = getEntry(course.slug, item.src);
         var pos = (e && isNum(e.pos)) ? e.pos : 0;
         var dur = video.duration;
@@ -1419,8 +1526,11 @@
       video.addEventListener('error', aulaVideoError);
       video.addEventListener('volumechange', function () {
         state.prefs.volume = clamp01(video.volume);
-        paintVolume();
         save();
+      });
+      video.addEventListener('ratechange', function () {
+        var r = video.playbackRate;
+        if (isNum(r) && r > 0 && state.prefs.speed !== r) { state.prefs.speed = r; save(); }
       });
       video.load();
     } else {

@@ -719,7 +719,7 @@ main#app { display: block; }
    Fila de clase (módulos y playlist del aula)
    ============================================================ */
 
-.class-row { position: relative; }
+.class-row { position: relative; min-width: 0; }
 
 .class-link {
   display: flex;
@@ -765,7 +765,11 @@ main#app { display: block; }
 .class-row[data-done="true"] .class-icon { color: var(--accent); }
 .class-row[data-done="true"] .class-title { color: var(--ink-2); }
 
-.class-row[data-current="true"] .class-link { background: var(--surface-2); }
+.class-row[data-current="true"] {
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+}
+.class-row[data-current="true"] .class-link { background: transparent; }
 .class-row[data-current="true"] .class-icon { background: var(--accent); color: var(--accent-ink); }
 .class-row[data-current="true"] .class-title { color: var(--ink); font-weight: 600; }
 
@@ -893,6 +897,18 @@ main#app { display: block; }
   font-size: 1.4em;
 }
 
+/* Reproductor Plyr (vendoreado; ver viewer/SPEC.md §5.4) */
+.aula-main .plyr {
+  --plyr-color-main: var(--accent);
+  --plyr-video-background: #000;
+  --plyr-font-family: inherit;
+  --plyr-control-radius: 6px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.plyr__captions { font-size: 1.35rem; }
+
 .video-error {
   margin-top: 12px;
   padding: 14px 16px;
@@ -912,18 +928,20 @@ main#app { display: block; }
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 6px;
   margin-top: 16px;
   padding: 10px 12px;
   border-radius: var(--radius);
   background: var(--surface);
 }
 
+.aula-controls .btn-ghost { padding: 0 10px; }
+
 .aula-nav { display: flex; gap: 4px; }
 
 .aula-controls [data-control="mark"][aria-pressed="true"] { color: var(--accent); }
 
-.field { display: inline-flex; align-items: center; gap: 8px; }
+.field { display: inline-flex; align-items: center; gap: 6px; }
 
 .field > span {
   color: var(--ink-2);
@@ -933,7 +951,7 @@ main#app { display: block; }
 
 .field select {
   height: 38px;
-  padding: 0 30px 0 12px;
+  padding: 0 28px 0 10px;
   border: 0;
   border-radius: var(--radius-sm);
   background-color: var(--surface-3);
@@ -954,8 +972,8 @@ main#app { display: block; }
   align-items: center;
   gap: 8px;
   height: 44px;
-  padding: 0 6px;
-  font-size: .875rem;
+  padding: 0 2px;
+  font-size: .8125rem;
   font-weight: 600;
   cursor: pointer;
 }
@@ -963,16 +981,6 @@ main#app { display: block; }
 .check-field input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  margin: 0;
-  accent-color: var(--accent);
-  cursor: pointer;
-}
-
-.volume { display: inline-flex; align-items: center; gap: 8px; }
-
-.volume input[type="range"] {
-  width: 104px;
-  height: 4px;
   margin: 0;
   accent-color: var(--accent);
   cursor: pointer;
@@ -989,11 +997,13 @@ main#app { display: block; }
 .aula-side-head { margin-bottom: 12px; }
 
 .aula-course-link {
-  display: block;
-  font-weight: 700;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+  font-weight: 700;
   transition: color .15s ease-out;
 }
 
@@ -1008,11 +1018,15 @@ main#app { display: block; }
 
 .playlist {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   align-content: start;
   gap: 2px;
   max-height: calc(100svh - 320px);
   min-height: 180px;
+  overflow-x: hidden;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-3) transparent;
 }
 
 /* ============================================================
