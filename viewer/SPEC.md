@@ -147,7 +147,7 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 - Picture in picture: lo aporta Plyr (`controls` incluye `pip`); sin Plyr se usa el botón nativo de Chrome.
 - Fallback: si `window.Plyr` no cargó o el protocolo es `file://`, se restauran los `controls` nativos del `<video>` y se aplican subtítulos/prefs a mano; la barra secundaria no cambia.
 - Teardown: al salir del aula se llama `player.destroy()` antes de limpiar el `<video>`; sin Plyr no hay nada que destruir.
-- Playlist lateral: `tpl-class-row` por clase; la actual con `data-current`, `aria-current="true"` y el fondo en la fila completa (incluye la barra de progreso); click navega. La cabecera muestra el título del curso en hasta 2 líneas; la lista no tiene scroll horizontal, cada fila recorta el título con elipsis y la lista hace scroll hasta la fila actual.
+- Playlist lateral: `tpl-class-row` por clase; la actual con `data-current`, `aria-current="true"` y el fondo en la fila completa (incluye la barra de progreso); click navega. La barra de progreso vive dentro de su fila y usa el fondo del contenedor, así solo se ve cuando hay avance; la fila actual mantiene la pista visible. La cabecera muestra el título del curso en hasta 2 líneas; la lista no tiene scroll horizontal, cada fila recorta el título con elipsis y la lista hace scroll hasta la fila actual.
 - Atajos de teclado (ignorar cuando el foco está en input/select/textarea): `espacio`/`k` play-pausa, `←/→` ±5 s, `j/l` ±10 s, `↑/↓` volumen ±5%, `m` mute, `f` pantalla completa, `c` ciclar subtítulos, `n`/`p` siguiente/anterior.
 - Título: `document.title` = "<clase> · <curso> · Platzi Local".
 

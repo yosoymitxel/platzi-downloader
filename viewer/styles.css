@@ -777,7 +777,10 @@ main#app { display: block; }
   display: block;
   height: 3px;
   margin: 0 12px 6px 54px;
+  background: var(--surface);
 }
+
+.class-row[data-current="true"] .class-bar { background: var(--surface-3); }
 
 /* ============================================================
    Catálogo de cursos
