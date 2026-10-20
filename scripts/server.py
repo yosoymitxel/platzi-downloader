@@ -674,6 +674,12 @@ class ViewerHandler(SimpleHTTPRequestHandler):
         except Exception:
             self._error(500, "Error interno del servidor.")
 
+    def end_headers(self):
+        # El visor se edita a mano: sin esto el navegador sirve copias viejas.
+        if not urlparse(self.path).path.startswith("/api/"):
+            self.send_header("Cache-Control", "no-cache")
+        super().end_headers()
+
     def list_directory(self, path):
         self._error(404, "Ruta no encontrada.")
         return None

@@ -236,7 +236,7 @@ Aprobado · En curso · Descargado · En cola · Sin descargar.
 - Alt de portadas: título del curso (o `alt=""` si hay texto adyacente idéntico).
 
 ## §9 Integración y pruebas
-- `viewer/start.cmd` (lo escribe el integrador): `cd` a la raíz del proyecto, `python scripts/server.py` y abre `http://localhost:8787/viewer/`. La raíz se sirve completa (salvo `scripts/`, `logs/` y `.git/`) para que `../Courses/…` resuelva. Solo un servidor a la vez: si el puerto ya está en uso, `server.py` avisa y no arranca (un segundo worker competiría por la misma cola).
+- `viewer/start.cmd` (lo escribe el integrador): `cd` a la raíz del proyecto, `python scripts/server.py` y abre `http://localhost:8787/viewer/`. La raíz se sirve completa (salvo `scripts/`, `logs/` y `.git/`) para que `../Courses/…` resuelva. Solo un servidor a la vez: si el puerto ya está en uso, `server.py` avisa y no arranca (un segundo worker competiría por la misma cola). Los archivos estáticos se sirven con `Cache-Control: no-cache`: una recarga normal trae la versión editada del visor.
 - Con `file://` (abrir `viewer/index.html`): todo debe funcionar salvo subtítulos (CORS) y descargas → banners §7.2.
 - Criterios de aceptación del conjunto:
   1. Con el server: Home renderiza (con o sin last), navegación por las 8 vistas sin errores de consola.
