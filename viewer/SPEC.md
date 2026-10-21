@@ -40,7 +40,8 @@ window.PLATZI_LOCAL = {
   ],
   courses: [  // array; el orden no importa (la lógica indexa por slug)
     {
-      slug:"openclaw-2026", title:"Curso de OpenClaw", folder:"Curso de OpenClaw"|null,
+      slug:"openclaw-2026", url:"https://platzi.com/cursos/openclaw-2026/",
+      title:"Curso de OpenClaw", folder:"Curso de OpenClaw"|null,
       routes:["ainative"], hours:2.5|null, category:"..."|null,
       cert:{ date:"2026-09-26", url:"https://platzi.com/p/..." }|null,
       platzi:{ done:10, total:13, at:"2026-09-28", last:"Ataques de..." }|null,
@@ -59,6 +60,7 @@ window.PLATZI_LOCAL = {
 Reglas de datos:
 - `downloaded` = existe carpeta con ≥1 mp4. Cursos sin carpeta → `downloaded:false`, `modules:[]`.
 - `queued` = está en `scripts/cola_descarga.json` y no está descargado.
+- `url` = página original del curso en Platzi (`https://platzi.com/cursos/<slug>/`); la escribe `viewer_data.py`. La UI no la inventa: si falta, el enlace se oculta.
 - `src`/`subs` son rutas **relativas a `viewer/`** (empiezan con `../Courses/`), con `/` como separador, tal cual en disco (sin URL-encode; la lógica las codifica al usarlas, §6.2).
 - `hours` viene del scrape de rutas; puede ser `null`.
 - `durationSec` de clase viene de ffprobe; puede ser `null`.
@@ -93,9 +95,9 @@ Convención: la UI puede añadir clases y estructura **alrededor**, pero estos h
 |---|---|---|
 | `tpl-home` | `section.view.view-home` | `[data-slot=resume-title]`, `[data-slot=resume-meta]`, `a[data-slot=resume-link]`, `[data-slot=resume-empty]` (bloque alterno oculto), `[data-list=routes]`, `[data-list=courses]`, `a[data-slot=all-routes]` (→`#/rutas`), `a[data-slot=all-courses]` (→`#/cursos`) |
 | `tpl-rutas` | `…view-rutas` | `[data-list=routes]`, `[data-slot=empty]` |
-| `tpl-ruta` | `…view-ruta` | `[data-slot=title]`, `[data-slot=cover]` (img o fallback), `[data-slot=meta]` (ej. "23 cursos · 44 h"), `[data-slot=bar]` (ancho %), `[data-slot=pct]`, `a[data-slot=continue]`, `[data-list=courses]`, `[data-slot=empty]` |
-| `tpl-cursos` | `…view-cursos` | `[data-filters]` con `button[data-filter="all|progress|cert|downloaded|queued|missing"]`, `[data-list=courses]`, `[data-slot=count]`, `[data-slot=empty]` |
-| `tpl-curso` | `…view-curso` | `[data-slot=title]`, `[data-slot=cover]`, `[data-slot=chips]`, `[data-slot=progress-text]`, `[data-slot=bar]`, `a[data-slot=continue]`, `[data-slot=continue-label]`, `[data-slot=platzi]`, `button[data-control=download-course]` con `[data-slot=download-label]` (oculto si ya está descargado o sin servidor), `[data-slot=download-status]` (`role=status`), `a[data-slot=diploma]` (oculto si no hay), `[data-list=modules]`, `[data-slot=empty]` (curso sin descargar) |
+| `tpl-ruta` | `…view-ruta` | `[data-slot=title]`, `[data-slot=cover]` (img o fallback), `[data-slot=meta]` (ej. "23 cursos · 44 h"), `[data-slot=bar]` (ancho %), `[data-slot=pct]`, `a[data-slot=continue]`, `[data-filters]` con los pills de §5.5 y `span[data-filter-count]`, `[data-slot=count]`, `[data-list=courses]`, `[data-slot=empty]` |
+| `tpl-cursos` | `…view-cursos` | `[data-filters]` con `button[data-filter="all|progress|cert|downloaded|queued|missing"]` y su `span[data-filter-count="<filtro>"]`, `[data-list=courses]`, `[data-slot=count]`, `[data-slot=empty]` |
+| `tpl-curso` | `…view-curso` | `[data-slot=title]`, `[data-slot=cover]`, `[data-slot=chips]`, `[data-slot=progress-text]`, `[data-slot=bar]`, `a[data-slot=continue]`, `[data-slot=continue-label]`, `[data-slot=platzi]`, `button[data-control=download-course]` con `[data-slot=download-label]` (oculto si ya está descargado o sin servidor), `[data-slot=download-status]` (`role=status`), `a[data-slot=platzi-link]` (oculto si falta `url`), `a[data-slot=diploma]` (oculto si no hay), `[data-list=modules]`, `[data-slot=empty]` (curso sin descargar) |
 | `tpl-module` (partial) | `details.module` | `summary` con `[data-slot=name]`, `[data-slot=count]`, `[data-list=classes]` |
 | `tpl-aula` | `…view-aula` | `video#player[playsinline][preload=metadata]` (sin `controls`; Plyr los monta, y en `file://` se restauran los nativos), `[data-slot=class-title]`, `[data-slot=module-name]`, `a[data-slot=course-link]`, `[data-slot=progress-text]`, `button[data-control=prev]`, `button[data-control=next]`, `button[data-control=mark]` (label en `[data-slot=mark-label]`), `select[data-control=captions]` (label "Subtítulos"), `label`+`input[type=checkbox][data-control=autoplay]`, `[data-list=classes]` (sidebar), `[data-slot=error]` (oculto; estado de error de video) |
 | `tpl-buscar` | `…view-buscar` | `[data-slot=q]`, `[data-list=courses]`, `[data-list=classes]`, `[data-slot=empty]` |
@@ -108,7 +110,7 @@ Convención: la UI puede añadir clases y estructura **alrededor**, pero estos h
 - Chips: la UI define `.chip` + modificadores `.chip-cert`, `.chip-progress`, `.chip-queued`, `.chip-downloaded`, `.chip-missing` (markup libre; la lógica crea `span.chip.<mod>` con el texto de §7.3).
 
 ### §4.3 Iconos
-La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `ic-play` (triángulo relleno), `ic-check`, `ic-chevron`, `ic-search`, `ic-queue` (nube/flecha abajo), `ic-diploma`, `ic-back`. Un solo trazo/grosor consistente; nada de emoji ni glifos unicode como iconos.
+La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `ic-play` (triángulo relleno), `ic-check`, `ic-chevron`, `ic-search`, `ic-queue` (nube/flecha abajo), `ic-diploma`, `ic-external` (enlace externo), `ic-back`. Un solo trazo/grosor consistente; nada de emoji ni glifos unicode como iconos.
 
 ## §5 Comportamientos (los implementa `app.js`)
 
@@ -121,6 +123,7 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 ### §5.2 Rutas y ruta
 - `#/rutas`: `tpl-route-card` por ruta (orden: pct desc). Barra = pct. Meta: "N cursos · H h" (omitir h si null).
 - `#/ruta/<id>`: cabecera + lista de `tpl-course-card` en el **orden de `route.courses`** (orden de aprendizaje). Si hay descargados, la meta añade "· N de M descargados". Los no descargados se ven apagados (portada y título) sin reordenar. `[data-slot=continue]` → curso descargado con actividad local más reciente, o primero descargado; oculto si ninguno.
+- `#/ruta/<id>` repite los filtros de §5.5 sobre los cursos de esa ruta: mismos pills, mismos conteos (calculados solo sobre la ruta) y la misma combinación con Y. La selección se reinicia al cambiar de ruta. `[data-slot=count]` muestra "N cursos" del resultado.
 
 ### §5.3 Curso
 - Chips (pueden coexistir, en este orden): `Aprobado` (cert), `En curso` (platzi.done>0 o local>0), `Descargado`, `En cola`, `Sin descargar`.
@@ -128,6 +131,7 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 - `platzi` (snapshot): "En Platzi: 7/13 · sep 2026" en `[data-slot=platzi]`; si hay cert: fecha + `[data-slot=diploma]` visible ("Ver diploma", target `_blank`).
 - Continue: primera clase no vista; label "Continuar" (o "Reproducir" si no hay ninguna vista; "Reanudar" si la primera no vista tiene `pos>0`). Link a `#/aula/<slug>/<n>`.
 - Descargar: `button[data-control=download-course]` visible solo si `!course.downloaded` y hay servidor (`http(s)`). Al pulsarlo, `POST /api/enqueue {items:[{slug,title}], position:"back"}`; mientras responde, label "Encolando…"; después, "En cola" o "Descargando…" (según el item devuelto) y queda deshabilitado. Al entrar, `GET /api/state` ajusta el label si el curso ya está en cola o corriendo. El resultado se anuncia en `[data-slot=download-status]`. Si falla, vuelve a "Descargar curso" y anuncia el error de §7.2.
+- Enlace original: `a[data-slot=platzi-link]` visible si `course.url`; `href` = esa URL, `target="_blank"`, `rel="noopener noreferrer"`; se oculta y se quita el `href` si falta. Texto de §7.1.
 - Módulos: `tpl-module` por módulo, `<details open>` para todos si hay ≤3 módulos; con más, solo el que contiene la clase actual (o el primero); el summary muestra "N clases". Clases: `tpl-class-row` con icono `ic-check` si `done` (y `data-done="true"`), si no `ic-play`; `data-current="true"` en la última vista/posición.
 
 ### §5.4 Aula (reproductor)
@@ -152,7 +156,7 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 - Título: `document.title` = "<clase> · <curso> · Platzi Local".
 
 ### §5.5 Cursos (catálogo) y búsqueda
-- Filtros: all (todo), progress (`platzi.done>0` o local>0 y sin cert), cert, downloaded, queued, missing. Filtro activo: `aria-pressed="true"`.
+- Filtros: all (todo), progress (`platzi.done>0` o local>0 y sin cert), cert, downloaded, queued, missing. Cada pill es un interruptor: `aria-pressed="true"` si está activo, y varios pueden estarlo a la vez. Los activos se combinan con **Y** (p. ej. "En curso" + "Sin descargar" = en curso y sin descargar); "Todos" limpia la selección y solo está pulsado cuando no hay ninguno. Cada pill muestra su total en `[data-filter-count]` (all = total del ámbito: catálogo o ruta); los conteos se calculan con la misma condición del filtro y no cambian al combinar.
 - Orden del catálogo: certificados al final; antes, descargados primero; dentro de cada grupo, título alfabético. Contador "N cursos".
 - Búsqueda: `#search-input` con dropdown (`#search-results`): máx 8 resultados mezclando cursos (título) y clases (título de clase), con navegación ↑/↓/Enter/Escape; Enter con texto → `#/buscar/<q>`. Los resultados de cursos descargados van primero (relevancia como desempate). Vista `#/buscar/<q>`: sección "Cursos" (cards) + "Clases" (result-class, máx 100). Normalización para buscar: minúsculas y sin acentos (NFD + strip diacríticos). Sin resultados → `[data-slot=empty]`.
 - `#/cursos`: `[data-slot=count]`; grid con todos.
@@ -190,9 +194,9 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 - **Topbar** (~56px): marca "Platzi" + "Local" (segunda palabra en verde); nav 3 links (activo = texto blanco + barra inferior verde 2px, no color suelto); buscador a la derecha; `#resume-chip` pill con `ic-play`.
 - **Home**: (1) héroe de continuar: superficie ancha con título de clase grande, meta, CTA verde; a su derecha una columna "Rutas activas" (filas con barra + %); (2) "Tus cursos" grilla de cards (auto-fill minmax(220px,1fr), máx 12); el héroe y las rutas no comparten composición.
 - **Rutas**: lista de filas (no grilla): miniatura 16:9 96px + título + meta + barra + % + chevron.
-- **Curso**: banda héroe (portada a la derecha 16:9 ~380px, texto a la izquierda: título, chips, progreso, CTA) y debajo la lista de módulos a 860px centrados; aside no — una columna.
+- **Curso**: banda héroe (portada a la derecha 16:9 ~380px, texto a la izquierda: título, chips, progreso, CTA) y debajo la lista de módulos a 860px centrados; aside no — una columna. En la fila de acciones, "Ver en Platzi" es un enlace neutro con icono; "Ver diploma" conserva el dorado.
 - **Aula**: video 16:9 en columna izquierda (flex 1, máx ~900px) con la barra de Plyr; debajo, barra secundaria propia (prev/next/mark/subtítulos/autoplay); sidebar derecha 360px con cabecera del curso (progreso) y playlist scrolleable; en <960px la sidebar pasa debajo.
-- **Cursos/buscar**: fila de filtros (pills `aria-pressed`) + grilla de cards; resultados de búsqueda en filas.
+- **Cursos/buscar**: fila de filtros (pills `aria-pressed` con contador) + grilla de cards; resultados de búsqueda en filas.
 - **Course card**: portada 16:9 arriba (o fallback tipográfico con la inicial en `--surface-3`), título 2 líneas máx, meta, chips, progreso local fino. Hover: `--surface-2` + translateY(-2px) suave. `data-state="missing"` → portada y título atenuados (el descargado destaca).
 
 ### §6.3 Fallback de portada
@@ -207,7 +211,7 @@ Sin imagen: bloque `--surface-3` con la inicial del curso grande en `--ink-2` (n
 ## §7 Copy (español, congelado)
 
 ### §7.1 Navegación y botones
-Inicio · Rutas · Mis cursos · Descargas · Buscar curso o clase… · Continuar · Reproducir · Reanudar · Marcar como visto · Visto · Anterior · Siguiente · Subtítulos · Desactivados · Español · English · Português · Autoplay siguiente · Reproducir siguiente al terminar · Ver todas las rutas · Ver todos los cursos · Ver diploma · Descargar curso · Encolando… · En cola · Descargando… · Entendido · Empezar · Actualizar catálogo · Recargar visor · Elegir una ruta · Añadir un curso · Añadir · Descargar {n} · Ya en cola · Sin pendientes · Subir · Bajar · Cancelar · Limpiar · Reintentar · Quitar.
+Inicio · Rutas · Mis cursos · Descargas · Buscar curso o clase… · Todos · En curso · Aprobado · Descargado · En cola · Sin descargar · Abrir ruta {ruta} · Continuar · Reproducir · Reanudar · Marcar como visto · Visto · Anterior · Siguiente · Subtítulos · Desactivados · Español · English · Português · Autoplay siguiente · Reproducir siguiente al terminar · Ver todas las rutas · Ver todos los cursos · Ver diploma · Ver en Platzi · Descargar curso · Encolando… · En cola · Descargando… · Entendido · Empezar · Actualizar catálogo · Recargar visor · Elegir una ruta · Añadir un curso · Añadir · Descargar {n} · Ya en cola · Sin pendientes · Subir · Bajar · Cancelar · Limpiar · Reintentar · Quitar.
 
 Plyr (i18n propio): Reproducir · Pausar · Reiniciar · Retroceder {n}s · Avanzar {n}s · Buscar · Reproducido · Cargado · Volumen · Silenciar · Activar sonido · Activar subtítulos · Desactivar subtítulos · Subtítulos · Ajustes · Velocidad · Normal · Imagen en imagen · Pantalla completa · Salir de pantalla completa · Desactivado.
 
@@ -217,6 +221,7 @@ Plyr (i18n propio): Reproducir · Pausar · Reiniciar · Retroceder {n}s · Avan
 - Curso encolado: "«{curso}» añadido a la cola de descargas." (`role=status`; al entrar ya en cola no se anuncia nada).
 - Error al encolar: "No se pudo encolar. Revisa que el servidor local esté activo."
 - Buscar vacío: "Sin resultados para «{q}»". Catálogo vacío (hipotético): "Todavía no hay cursos en el catálogo".
+- Filtros sin resultados: "Ningún curso coincide con este filtro" (uno activo) o "Ningún curso coincide con estos filtros" (dos o más). Ruta sin cursos: "Esta ruta todavía no tiene cursos".
 - Error video: "No se pudo cargar el video. Revisa que el archivo exista en Courses/".
 - Banner `file://`: "Estás abriendo el visor como archivo local. Para subtítulos y mejor experiencia ejecuta viewer\\start.cmd." + "Entendido".
 - localStorage no disponible: "Tu progreso no se guardará en esta sesión".
@@ -264,10 +269,10 @@ La vista `#/descargas` requiere `scripts/server.py`, que arranca `viewer/start.c
 
 ### §10.1 Contrato de la vista
 - Plantillas: `tpl-descargas`, `tpl-dl-item`, `tpl-dl-route`, `tpl-dl-course`, `tpl-dl-history`.
-- Hooks: `summary`, `notice`/`notice-text`, `offline`, `cli-warning`, `active`/`active-title`/`active-bar`/`active-fill`/`active-pct`/`active-phase`, listas `queue`, `routes`, `courses`, `history`, `queue-empty`, `routes-empty`, `add-empty` y región viva `live`.
+- Hooks: `summary`, `notice`/`notice-text`, `offline`, `cli-warning`, `active`/`active-title`/`active-bar`/`active-fill`/`active-pct`/`active-phase`, listas `queue`, `routes`, `courses`, `history`, `queue-empty`, `routes-empty`, `add-empty` y región viva `live`. Cada fila de `routes` lleva `a[data-slot=route-link]` (título de la ruta, enlaza a `#/ruta/<id>`) además del botón de descarga de la propia fila.
 - Sondeo de `/api/state` cada 1.5 s; se pausa con `document.hidden` y se detiene al salir de la vista.
 - Foco: cada control lleva `data-focus`; tras cada render se restaura el foco y, si el control desapareció, cae al siguiente del mismo grupo.
-- Rutas: cada una muestra descargados/total de sus cursos y encola solo los pendientes que no estén ya en la cola. Las completas también se listan (arriba, con "Sin pendientes"); el resto después, por pendientes desc.
+- Rutas: cada una muestra descargados/total de sus cursos y encola solo los pendientes que no estén ya en la cola. Las completas también se listan (arriba, con "Sin pendientes"); el resto después, por pendientes desc. El título de la ruta es un enlace directo a `#/ruta/<id>`; la descarga sigue en su botón. El enlace conserva el foco tras el sondeo (`data-focus="route:<id>:open"`).
 - Cursos manuales: buscador sobre todo el catálogo, descargados primero y marcados con el chip "Descargado" (sin botones); "Añadir" va al final y "al frente" (icono) después del que corre. Contador: "N descargados · M sin descargar" (omitir el 0); al buscar, "N resultados · M descargados".
 
 ### §10.2 API local

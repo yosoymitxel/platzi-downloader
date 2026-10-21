@@ -7,6 +7,7 @@
 <title>Platzi Local</title>
 <script>window.PROBE_MODE = "main";</script>
 <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<link rel="stylesheet" href="vendor/plyr/plyr.css">
 <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -24,6 +25,7 @@
       <a href="#/" data-nav="inicio" aria-current="page">Inicio</a>
       <a href="#/rutas" data-nav="rutas">Rutas</a>
       <a href="#/cursos" data-nav="cursos">Mis cursos</a>
+      <a href="#/descargas" data-nav="descargas">Descargas</a>
     </nav>
 
     <div id="searchbox" role="search">
@@ -53,6 +55,12 @@
   <symbol id="ic-queue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5v9.5"/><path d="m8 10.5 4 4 4-4"/><path d="M5 19.5h14"/></symbol>
   <symbol id="ic-diploma" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9.5" r="5.5"/><path d="M9 14.2 7.5 21l4.5-2.6L16.5 21 15 14.2"/></symbol>
   <symbol id="ic-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5"/><path d="m11.5 5.5-6.5 6.5 6.5 6.5"/></symbol>
+  <symbol id="ic-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14.5 6-6 6 6"/></symbol>
+  <symbol id="ic-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></symbol>
+  <symbol id="ic-top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="m6.5 11.5 5.5-5.5 5.5 5.5"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12"/><path d="m18 6-12 12"/></symbol>
+  <symbol id="ic-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 1 0-2.3 6.2"/><path d="M20 4.5v7h-7"/></symbol>
+  <symbol id="ic-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.5h5.5V10"/><path d="m19.5 4.5-8.5 8.5"/><path d="M18.5 14v5.5h-14v-14H10"/></symbol>
 </svg>
 
 <div id="templates" hidden>
@@ -69,6 +77,10 @@
             <svg class="icon" aria-hidden="true"><use href="#ic-play"></use></svg>
             <span>Continuar</span>
           </a>
+          <div class="empty-state resume-empty" data-slot="resume-empty" hidden>
+            <p>Elige una ruta para empezar</p>
+            <a class="btn" href="#/rutas">Explorar rutas</a>
+          </div>
         </section>
         <aside class="home-routes">
           <div class="section-head">
@@ -77,10 +89,6 @@
           </div>
           <div class="route-list" data-list="routes"></div>
         </aside>
-      </div>
-      <div class="empty-state resume-empty" data-slot="resume-empty" hidden>
-        <p>Elige una ruta para empezar</p>
-        <a class="btn" href="#/rutas">Explorar rutas</a>
       </div>
       <section class="home-courses">
         <div class="section-head">
@@ -124,8 +132,21 @@
           <img data-slot="cover" alt="">
         </div>
       </div>
-      <div class="course-grid" data-list="courses"></div>
-      <div class="empty-state" data-slot="empty" hidden></div>
+      <div class="ruta-cursos">
+        <div class="ruta-cursos-head">
+          <div class="filters" data-filters role="group" aria-label="Filtrar cursos de esta ruta">
+            <button class="filter" type="button" data-filter="all" aria-pressed="true">Todos <span class="filter-count" data-filter-count="all"></span></button>
+            <button class="filter" type="button" data-filter="progress" aria-pressed="false">En curso <span class="filter-count" data-filter-count="progress"></span></button>
+            <button class="filter" type="button" data-filter="cert" aria-pressed="false">Aprobado <span class="filter-count" data-filter-count="cert"></span></button>
+            <button class="filter" type="button" data-filter="downloaded" aria-pressed="false">Descargado <span class="filter-count" data-filter-count="downloaded"></span></button>
+            <button class="filter" type="button" data-filter="queued" aria-pressed="false">En cola <span class="filter-count" data-filter-count="queued"></span></button>
+            <button class="filter" type="button" data-filter="missing" aria-pressed="false">Sin descargar <span class="filter-count" data-filter-count="missing"></span></button>
+          </div>
+          <p class="cursos-count" data-slot="count"></p>
+        </div>
+        <div class="course-grid" data-list="courses"></div>
+        <div class="empty-state" data-slot="empty" hidden></div>
+      </div>
     </section>
   </template>
 
@@ -136,12 +157,12 @@
         <p class="cursos-count" data-slot="count"></p>
       </div>
       <div class="filters" data-filters role="group" aria-label="Filtrar cursos">
-        <button class="filter" type="button" data-filter="all" aria-pressed="true">Todos</button>
-        <button class="filter" type="button" data-filter="progress" aria-pressed="false">En curso</button>
-        <button class="filter" type="button" data-filter="cert" aria-pressed="false">Aprobado</button>
-        <button class="filter" type="button" data-filter="downloaded" aria-pressed="false">Descargado</button>
-        <button class="filter" type="button" data-filter="queued" aria-pressed="false">En cola</button>
-        <button class="filter" type="button" data-filter="missing" aria-pressed="false">Sin descargar</button>
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">Todos <span class="filter-count" data-filter-count="all"></span></button>
+        <button class="filter" type="button" data-filter="progress" aria-pressed="false">En curso <span class="filter-count" data-filter-count="progress"></span></button>
+        <button class="filter" type="button" data-filter="cert" aria-pressed="false">Aprobado <span class="filter-count" data-filter-count="cert"></span></button>
+        <button class="filter" type="button" data-filter="downloaded" aria-pressed="false">Descargado <span class="filter-count" data-filter-count="downloaded"></span></button>
+        <button class="filter" type="button" data-filter="queued" aria-pressed="false">En cola <span class="filter-count" data-filter-count="queued"></span></button>
+        <button class="filter" type="button" data-filter="missing" aria-pressed="false">Sin descargar <span class="filter-count" data-filter-count="missing"></span></button>
       </div>
       <div class="course-grid" data-list="courses"></div>
       <div class="empty-state" data-slot="empty" hidden>Todavía no hay cursos en el catálogo</div>
@@ -167,11 +188,20 @@
               <svg class="icon" aria-hidden="true"><use href="#ic-play"></use></svg>
               <span data-slot="continue-label">Continuar</span>
             </a>
+            <button class="btn-ghost" type="button" data-control="download-course" hidden>
+              <svg class="icon" aria-hidden="true"><use href="#ic-queue"></use></svg>
+              <span data-slot="download-label">Descargar curso</span>
+            </button>
+            <a class="platzi-link" data-slot="platzi-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+              <svg class="icon" aria-hidden="true"><use href="#ic-external"></use></svg>
+              <span>Ver en Platzi</span>
+            </a>
             <a class="diploma-link" data-slot="diploma" href="#" target="_blank" rel="noopener" hidden>
               <svg class="icon" aria-hidden="true"><use href="#ic-diploma"></use></svg>
               <span>Ver diploma</span>
             </a>
           </div>
+          <p class="sr-only" role="status" data-slot="download-status"></p>
           <p class="curso-platzi" data-slot="platzi"></p>
         </div>
         <div class="curso-cover">
@@ -201,7 +231,7 @@
     <section class="view view-aula">
       <div class="aula-layout">
         <div class="aula-main">
-          <video id="player" controls playsinline preload="metadata"></video>
+          <video id="player" playsinline preload="metadata"></video>
           <p class="video-error" data-slot="error" hidden>No se pudo cargar el video. Revisa que el archivo exista en Courses/.</p>
           <div class="aula-info">
             <h1 class="aula-title" data-slot="class-title"></h1>
@@ -223,23 +253,9 @@
               <span data-slot="mark-label">Marcar como visto</span>
             </button>
             <label class="field">
-              <span>Velocidad</span>
-              <select data-control="speed">
-                <option value="0.75">0.75x</option>
-                <option value="1" selected>1x</option>
-                <option value="1.25">1.25x</option>
-                <option value="1.5">1.5x</option>
-                <option value="1.75">1.75x</option>
-                <option value="2">2x</option>
-              </select>
-            </label>
-            <label class="field">
               <span>Subtítulos</span>
               <select data-control="captions">
-                <option value="off" selected>Desactivados</option>
-                <option value="es">Español</option>
-                <option value="en">English</option>
-                <option value="pt">Português</option>
+                <option value="off">Desactivados</option>
               </select>
             </label>
             <label class="check-field">
@@ -331,8 +347,186 @@
     </li>
   </template>
 
+  <template id="tpl-descargas">
+    <section class="view view-descargas">
+      <div class="dl-head">
+        <div class="dl-head-text">
+          <h1>Descargas</h1>
+          <p class="dl-summary" data-slot="summary">Conectando con el servidor local…</p>
+        </div>
+        <div class="dl-head-actions">
+          <button class="btn-ghost" type="button" data-control="refresh" data-focus="control:refresh">
+            <svg class="icon" aria-hidden="true"><use href="#ic-refresh"></use></svg>
+            <span data-slot="refresh-label">Actualizar catálogo</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dl-notice" data-slot="notice" hidden>
+        <p data-slot="notice-text"></p>
+        <button class="section-link" type="button" data-control="reload" data-focus="control:reload" hidden>Recargar visor</button>
+      </div>
+
+      <div class="dl-banner" data-slot="offline" hidden>
+        <p class="dl-banner-title">Las descargas necesitan el servidor local</p>
+        <p class="dl-banner-text">Abre el visor con <code>viewer\start.cmd</code>. Sin servidor puedes seguir viendo tus cursos, pero no descargar ni cancelar.</p>
+      </div>
+
+      <div class="dl-banner dl-banner-warn" data-slot="cli-warning" hidden>
+        <p class="dl-banner-title">No encontré el comando <code>platzi</code></p>
+        <p class="dl-banner-text">Instálalo o define <code>PLATZI_BIN</code> antes de arrancar el servidor.</p>
+      </div>
+
+      <section class="dl-now" data-slot="active" hidden aria-labelledby="dl-now-title">
+        <div class="dl-now-head">
+          <h2 class="dl-now-title" id="dl-now-title" data-slot="active-title"></h2>
+          <button class="btn-ghost dl-danger" type="button" data-control="cancel-active" data-focus="control:cancel-active">
+            <svg class="icon" aria-hidden="true"><use href="#ic-x"></use></svg>
+            <span>Cancelar</span>
+          </button>
+        </div>
+        <div class="dl-now-meter">
+          <div class="progressbar dl-bar" role="progressbar" aria-label="Progreso de la descarga" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-slot="active-bar">
+            <span class="progressbar-fill" data-slot="active-fill"></span>
+          </div>
+          <span class="pct" data-slot="active-pct">0%</span>
+        </div>
+        <p class="dl-phase" data-slot="active-phase"></p>
+      </section>
+
+      <div class="dl-layout">
+        <div class="dl-col">
+          <section class="dl-queue" aria-labelledby="dl-queue-title">
+            <div class="section-head">
+              <h2 id="dl-queue-title" tabindex="-1">Cola</h2>
+              <span class="dl-count" data-slot="queue-count"></span>
+            </div>
+            <ol class="dl-list" data-list="queue"></ol>
+            <div class="empty-state dl-empty" data-slot="queue-empty" hidden>
+              <p>No hay descargas en cola</p>
+              <p class="dl-empty-text">Elige una ruta o añade un curso para empezar.</p>
+              <div class="dl-empty-actions">
+                <button class="btn" type="button" data-control="go-routes" data-focus="control:go-routes">Elegir una ruta</button>
+                <button class="btn-ghost" type="button" data-control="go-add" data-focus="control:go-add">Añadir un curso</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="dl-add" aria-labelledby="dl-add-title">
+            <div class="section-head">
+              <h2 id="dl-add-title">Añadir un curso</h2>
+              <span class="dl-count" data-slot="add-count"></span>
+            </div>
+            <label class="dl-search">
+              <svg class="icon" aria-hidden="true"><use href="#ic-search"></use></svg>
+              <span class="sr-only">Buscar curso para descargar</span>
+              <input type="search" data-control="search" placeholder="Buscar por título o slug…" autocomplete="off" spellcheck="false">
+            </label>
+            <ul class="dl-list dl-course-list" data-list="courses"></ul>
+            <p class="dl-note" data-slot="add-empty" hidden></p>
+          </section>
+
+          <section class="dl-history" data-slot="history" hidden aria-labelledby="dl-history-title">
+            <div class="section-head">
+              <h2 id="dl-history-title" tabindex="-1">Recientes</h2>
+              <button class="section-link" type="button" data-control="clear-history" data-focus="control:clear">Limpiar</button>
+            </div>
+            <ul class="dl-list" data-list="history"></ul>
+          </section>
+        </div>
+
+        <aside class="dl-routes" aria-labelledby="dl-routes-title">
+          <div class="section-head">
+            <h2 id="dl-routes-title" tabindex="-1">Mis rutas</h2>
+            <span class="dl-count" data-slot="routes-count"></span>
+          </div>
+          <ul class="dl-list dl-route-list" data-list="routes"></ul>
+          <p class="dl-note" data-slot="routes-empty" hidden>No hay rutas con cursos en el catálogo.</p>
+        </aside>
+      </div>
+
+      <div class="sr-only" aria-live="polite" data-slot="live"></div>
+    </section>
+  </template>
+
+  <template id="tpl-dl-item">
+    <li class="dl-item">
+      <span class="dl-pos" data-slot="pos" aria-hidden="true"></span>
+      <div class="dl-item-main">
+        <p class="dl-item-title" data-slot="title"></p>
+        <p class="dl-item-meta" data-slot="meta"></p>
+      </div>
+      <div class="dl-item-actions">
+        <button class="icon-btn" type="button" data-action="up" aria-label="Subir">
+          <svg class="icon" aria-hidden="true"><use href="#ic-up"></use></svg>
+        </button>
+        <button class="icon-btn" type="button" data-action="down" aria-label="Bajar">
+          <svg class="icon" aria-hidden="true"><use href="#ic-down"></use></svg>
+        </button>
+        <button class="icon-btn icon-btn-danger" type="button" data-action="cancel" aria-label="Cancelar descarga">
+          <svg class="icon" aria-hidden="true"><use href="#ic-x"></use></svg>
+        </button>
+      </div>
+    </li>
+  </template>
+
+  <template id="tpl-dl-route">
+    <li class="dl-route">
+      <div class="dl-route-main">
+        <a class="dl-route-title" data-slot="route-link" href="#/rutas">
+          <span data-slot="title"></span>
+          <svg class="icon dl-route-chev" aria-hidden="true"><use href="#ic-chevron"></use></svg>
+        </a>
+        <p class="dl-route-meta" data-slot="meta"></p>
+        <div class="progressbar dl-route-bar" aria-hidden="true"><span class="progressbar-fill" data-slot="bar"></span></div>
+      </div>
+      <button class="btn-ghost dl-route-btn" type="button" data-control="route-download">
+        <svg class="icon" aria-hidden="true"><use href="#ic-queue"></use></svg>
+        <span data-slot="label"></span>
+      </button>
+    </li>
+  </template>
+
+  <template id="tpl-dl-course">
+    <li class="dl-item dl-course">
+      <div class="dl-item-main">
+        <p class="dl-item-title" data-slot="title"></p>
+        <p class="dl-item-meta" data-slot="meta"></p>
+      </div>
+      <div class="dl-item-actions">
+        <span class="chip chip-downloaded" data-slot="downloaded" hidden>Descargado</span>
+        <button class="btn-ghost dl-add-btn" type="button" data-action="add">
+          <svg class="icon" aria-hidden="true"><use href="#ic-queue"></use></svg>
+          <span>Añadir</span>
+        </button>
+        <button class="icon-btn" type="button" data-action="front" aria-label="Poner al frente de la cola">
+          <svg class="icon" aria-hidden="true"><use href="#ic-top"></use></svg>
+        </button>
+      </div>
+    </li>
+  </template>
+
+  <template id="tpl-dl-history">
+    <li class="dl-item dl-history-item">
+      <span class="dl-status" data-slot="status"></span>
+      <div class="dl-item-main">
+        <p class="dl-item-title" data-slot="title"></p>
+        <p class="dl-item-meta" data-slot="meta"></p>
+      </div>
+      <div class="dl-item-actions">
+        <button class="icon-btn" type="button" data-action="retry" aria-label="Volver a descargar">
+          <svg class="icon" aria-hidden="true"><use href="#ic-refresh"></use></svg>
+        </button>
+        <button class="icon-btn icon-btn-danger" type="button" data-action="remove" aria-label="Quitar de la lista">
+          <svg class="icon" aria-hidden="true"><use href="#ic-x"></use></svg>
+        </button>
+      </div>
+    </li>
+  </template>
+
 </div>
 
+<script src="vendor/plyr/plyr.min.js" defer></script>
 <script src="data.js" defer></script>
 <script src="seed.js" defer></script>
 <script src="../app.js" defer></script>

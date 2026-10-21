@@ -200,7 +200,8 @@
         count: txt($('[data-slot="count"]')),
         cards: cards.length,
         order: $$('[data-slot="title"]', $('[data-list="courses"]')).map(txt),
-        pressed: $$('[data-filter]').map(function (b) { return attr(b, 'data-filter') + '=' + attr(b, 'aria-pressed'); })
+        pressed: $$('[data-filter]').map(function (b) { return attr(b, 'data-filter') + '=' + attr(b, 'aria-pressed'); }),
+        filterCounts: $$('[data-filter-count]').map(function (s) { return attr(s, 'data-filter-count') + '=' + txt(s); })
       });
     }, 220);
 
@@ -218,22 +219,78 @@
 
     step('filtro-missing', function () { var b = $('[data-filter="missing"]'); if (b) b.click(); }, 220);
     step('filtro-missing-read', function () {
-      rec('filtroMissing', { count: txt($('[data-slot="count"]')), cards: $$('[data-list="courses"] .course-card').length });
+      rec('filtroMissing', {
+        count: txt($('[data-slot="count"]')),
+        cards: $$('[data-list="courses"] .course-card').length,
+        pressed: $$('[data-filter]').map(function (b) { return attr(b, 'data-filter') + '=' + attr(b, 'aria-pressed'); })
+      });
     }, 180);
 
     step('filtro-progress', function () { var b = $('[data-filter="progress"]'); if (b) b.click(); }, 220);
     step('filtro-progress-read', function () {
-      rec('filtroProgress', { count: txt($('[data-slot="count"]')), titles: $$('[data-slot="title"]', $('[data-list="courses"]')).map(txt) });
+      rec('filtroProgress', {
+        count: txt($('[data-slot="count"]')),
+        titles: $$('[data-slot="title"]', $('[data-list="courses"]')).map(txt),
+        pressed: $$('[data-filter]').map(function (b) { return attr(b, 'data-filter') + '=' + attr(b, 'aria-pressed'); })
+      });
     }, 180);
 
     step('filtro-cert', function () { var b = $('[data-filter="cert"]'); if (b) b.click(); }, 220);
     step('filtro-cert-read', function () {
-      rec('filtroCert', { count: txt($('[data-slot="count"]')), titles: $$('[data-slot="title"]', $('[data-list="courses"]')).map(txt) });
+      var empty = $('[data-slot="empty"]');
+      rec('filtroCert', {
+        count: txt($('[data-slot="count"]')),
+        cards: $$('[data-list="courses"] .course-card').length,
+        empty: txt(empty),
+        emptyHidden: empty ? empty.hidden : null,
+        pressed: $$('[data-filter]').map(function (b) { return attr(b, 'data-filter') + '=' + attr(b, 'aria-pressed'); })
+      });
     }, 180);
 
     step('filtro-all', function () { var b = $('[data-filter="all"]'); if (b) b.click(); }, 220);
     step('filtro-all-read', function () {
       rec('filtroAll', { count: txt($('[data-slot="count"]')), cards: $$('[data-list="courses"] .course-card').length });
+    }, 180);
+
+    step('ruta-filtros', function () { go('#/ruta/desarrollo-web'); }, 300);
+    step('ruta-filtros-read', function () {
+      rec('rutaFiltros', {
+        title: document.title,
+        count: txt($('[data-slot="count"]')),
+        cards: $$('[data-list="courses"] .course-card').length,
+        filterCounts: $$('[data-filter-count]').map(function (s) { return attr(s, 'data-filter-count') + '=' + txt(s); }),
+        pressed: $$('[data-filter]').map(function (b) { return attr(b, 'data-filter') + '=' + attr(b, 'aria-pressed'); })
+      });
+    }, 200);
+
+    step('ruta-filtro-progress', function () { var b = $('[data-filter="progress"]'); if (b) b.click(); }, 220);
+    step('ruta-filtro-progress-read', function () {
+      rec('rutaFiltroProgress', {
+        count: txt($('[data-slot="count"]')),
+        cards: $$('[data-list="courses"] .course-card').length,
+        pressed: $$('[data-filter]').map(function (b) { return attr(b, 'data-filter') + '=' + attr(b, 'aria-pressed'); })
+      });
+    }, 180);
+
+    step('ruta-filtro-missing', function () { var b = $('[data-filter="missing"]'); if (b) b.click(); }, 220);
+    step('ruta-filtro-missing-read', function () {
+      var empty = $('[data-slot="empty"]');
+      rec('rutaFiltroMissing', {
+        count: txt($('[data-slot="count"]')),
+        cards: $$('[data-list="courses"] .course-card').length,
+        empty: txt(empty),
+        emptyHidden: empty ? empty.hidden : null,
+        pressed: $$('[data-filter]').map(function (b) { return attr(b, 'data-filter') + '=' + attr(b, 'aria-pressed'); })
+      });
+    }, 180);
+
+    step('ruta-filtro-all', function () { var b = $('[data-filter="all"]'); if (b) b.click(); }, 220);
+    step('ruta-filtro-all-read', function () {
+      rec('rutaFiltroAll', {
+        count: txt($('[data-slot="count"]')),
+        cards: $$('[data-list="courses"] .course-card').length,
+        pressed: $$('[data-filter]').map(function (b) { return attr(b, 'data-filter') + '=' + attr(b, 'aria-pressed'); })
+      });
     }, 180);
 
     step('curso-claude', function () { go('#/curso/claude-code'); }, 350);
@@ -255,6 +312,9 @@
         continueDisabled: attr($('a[data-slot="continue"]', view), 'aria-disabled'),
         platzi: txt($('[data-slot="platzi"]', view)),
         platziHidden: $('[data-slot="platzi"]', view) ? $('[data-slot="platzi"]', view).hidden : null,
+        platziLinkHidden: $('a[data-slot="platzi-link"]', view) ? $('a[data-slot="platzi-link"]', view).hidden : null,
+        platziLinkHref: attr($('a[data-slot="platzi-link"]', view), 'href'),
+        platziLinkText: txt($('a[data-slot="platzi-link"]', view)),
         diplomaHidden: $('a[data-slot="diploma"]', view) ? $('a[data-slot="diploma"]', view).hidden : null,
         emptyHidden: $('[data-slot="empty"]', view) ? $('[data-slot="empty"]', view).hidden : null,
         moduleCount: mods.length,
@@ -280,7 +340,9 @@
         continueAttrDisabled: attr($('a[data-slot="continue"]', view), 'disabled'),
         progressbarHidden: bar && bar.parentElement ? bar.parentElement.hidden : null,
         progressTextHidden: $('[data-slot="progress-text"]', view) ? $('[data-slot="progress-text"]', view).hidden : null,
-        platziHidden: $('[data-slot="platzi"]', view) ? $('[data-slot="platzi"]', view).hidden : null
+        platziHidden: $('[data-slot="platzi"]', view) ? $('[data-slot="platzi"]', view).hidden : null,
+        platziLinkHidden: $('a[data-slot="platzi-link"]', view) ? $('a[data-slot="platzi-link"]', view).hidden : null,
+        platziLinkHref: attr($('a[data-slot="platzi-link"]', view), 'href')
       });
     }, 200);
 

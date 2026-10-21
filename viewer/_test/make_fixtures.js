@@ -29,9 +29,10 @@ nodata = withProbe(nodata, '../probe.js');
 
 // nostorage: localStorage bloqueado
 const blocker = '<script>window.PROBE_MODE = "nostorage";\ntry { Object.defineProperty(window, "localStorage", { configurable: true, get: function () { throw new Error("localStorage bloqueado"); } }); } catch (e) {}</script>';
-let nostorage = shift(html, '../');
-nostorage = nostorage.replace('<script src="data.js" defer></script>', blocker + '\n<script src="data.js" defer></script>');
-nostorage = withProbe(nostorage, 'probe.js');
+let nostorage = shift(html, '../../');
+nostorage = nostorage.replace('<script src="data.js" defer></script>',
+  blocker + '\n<script src="../data.js" defer></script>');
+nostorage = withProbe(nostorage, '../probe.js');
 
 fs.writeFileSync(path.join(__dirname, 'index.html'), main, 'utf8');
 fs.mkdirSync(path.join(__dirname, 'nodata'), { recursive: true });

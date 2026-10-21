@@ -3,7 +3,7 @@ window.PLATZI_LOCAL = {
   "stats": {
     "courses": 5,
     "downloaded": 4,
-    "classes": 15,
+    "classes": 22,
     "durationSec": 36000
   },
   "routes": [
@@ -57,6 +57,7 @@ window.PLATZI_LOCAL = {
   "courses": [
     {
       "slug": "claude-code",
+      "url": "https://platzi.com/cursos/claude-code/",
       "title": "Curso de Claude Code",
       "folder": "Curso de Claude Code",
       "routes": [
@@ -196,6 +197,81 @@ window.PLATZI_LOCAL = {
                 "en": "../../Courses/Curso de Claude Code/02-Módulo 2 Implementación Backend/02-Revisión de seguridad automática con Claude Code_en.vtt",
                 "pt": "../../Courses/Curso de Claude Code/02-Módulo 2 Implementación Backend/02-Revisión de seguridad automática con Claude Code_pt.vtt"
               }
+            },
+            {
+              "src": "../../Courses/Curso de Claude Code/02-Módulo 2 Implementación Backend/03-Ratings en frontend con datos mock y Claude Code.mp4",
+              "title": "Ratings en frontend con datos mock y Claude Code",
+              "durationSec": 615,
+              "subs": {
+                "es": "../../Courses/Curso de Claude Code/02-Módulo 2 Implementación Backend/03-Ratings en frontend con datos mock y Claude Code_es.vtt",
+                "en": "../../Courses/Curso de Claude Code/02-Módulo 2 Implementación Backend/03-Ratings en frontend con datos mock y Claude Code_en.vtt",
+                "pt": "../../Courses/Curso de Claude Code/02-Módulo 2 Implementación Backend/03-Ratings en frontend con datos mock y Claude Code_pt.vtt"
+              }
+            },
+            {
+              "src": "../../Courses/Curso de Claude Code/02-Módulo 2 Implementación Backend/04-Integración full stack con add dir en Claude Code.mp4",
+              "title": "Integración full stack con add dir en Claude Code",
+              "durationSec": 690,
+              "subs": {
+                "es": "../../Courses/Curso de Claude Code/02-Módulo 2 Implementación Backend/04-Integración full stack con add dir en Claude Code_es.vtt",
+                "en": "../../Courses/Curso de Claude Code/02-Módulo 2 Implementación Backend/04-Integración full stack con add dir en Claude Code_en.vtt",
+                "pt": "../../Courses/Curso de Claude Code/02-Módulo 2 Implementación Backend/04-Integración full stack con add dir en Claude Code_pt.vtt"
+              }
+            }
+          ]
+        },
+        {
+          "name": "03-Módulo 3 Gestión de Contexto y Comandos",
+          "classes": [
+            {
+              "src": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/01-Playwright Notion y Linear como MCPs en Claude Code.mp4",
+              "title": "Playwright Notion y Linear como MCPs en Claude Code",
+              "durationSec": 690,
+              "subs": {
+                "es": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/01-Playwright Notion y Linear como MCPs en Claude Code_es.vtt",
+                "en": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/01-Playwright Notion y Linear como MCPs en Claude Code_en.vtt",
+                "pt": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/01-Playwright Notion y Linear como MCPs en Claude Code_pt.vtt"
+              }
+            },
+            {
+              "src": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/02-Control de costos y modelos en Claude Code.mp4",
+              "title": "Control de costos y modelos en Claude Code",
+              "durationSec": 765,
+              "subs": {
+                "es": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/02-Control de costos y modelos en Claude Code_es.vtt",
+                "en": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/02-Control de costos y modelos en Claude Code_en.vtt",
+                "pt": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/02-Control de costos y modelos en Claude Code_pt.vtt"
+              }
+            },
+            {
+              "src": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/03-Instala Claude Code en GitHub Actions.mp4",
+              "title": "Instala Claude Code en GitHub Actions",
+              "durationSec": 840,
+              "subs": {
+                "es": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/03-Instala Claude Code en GitHub Actions_es.vtt",
+                "en": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/03-Instala Claude Code en GitHub Actions_en.vtt",
+                "pt": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/03-Instala Claude Code en GitHub Actions_pt.vtt"
+              }
+            },
+            {
+              "src": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/04-Cómo invocar Claude Code desde un pull request.mp4",
+              "title": "Cómo invocar Claude Code desde un pull request",
+              "durationSec": 915,
+              "subs": {
+                "es": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/04-Cómo invocar Claude Code desde un pull request_es.vtt",
+                "en": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/04-Cómo invocar Claude Code desde un pull request_en.vtt",
+                "pt": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/04-Cómo invocar Claude Code desde un pull request_pt.vtt"
+              }
+            },
+            {
+              "src": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/05-Qué aprendiste sobre desarrollo conversacional.mp4",
+              "title": "Qué aprendiste sobre desarrollo conversacional",
+              "durationSec": 990,
+              "subs": {
+                "es": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/05-Qué aprendiste sobre desarrollo conversacional_es.vtt",
+                "en": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/05-Qué aprendiste sobre desarrollo conversacional_en.vtt",
+                "pt": "../../Courses/Curso de Claude Code/03-Módulo 3 Gestión de Contexto y Comandos/05-Qué aprendiste sobre desarrollo conversacional_pt.vtt"
+              }
             }
           ]
         }
@@ -203,6 +279,7 @@ window.PLATZI_LOCAL = {
     },
     {
       "slug": "ingles-a1",
+      "url": "https://platzi.com/cursos/ingles-a1/",
       "title": "Curso de Inglés Básico A1 para Principiantes",
       "folder": "Curso de Inglés Básico A1 para Principiantes",
       "routes": [
@@ -257,6 +334,7 @@ window.PLATZI_LOCAL = {
     },
     {
       "slug": "owasp",
+      "url": "https://platzi.com/cursos/owasp/",
       "title": "Curso de OWASP Top 10 Riesgos en Aplicaciones",
       "folder": null,
       "routes": [
@@ -281,6 +359,7 @@ window.PLATZI_LOCAL = {
     },
     {
       "slug": "nulos",
+      "url": "https://platzi.com/cursos/nulos/",
       "title": "Curso sin metadatos",
       "folder": null,
       "routes": [
@@ -331,6 +410,7 @@ window.PLATZI_LOCAL = {
     },
     {
       "slug": "roto",
+      "url": "https://platzi.com/cursos/roto/",
       "title": "Curso con video roto",
       "folder": null,
       "routes": [],

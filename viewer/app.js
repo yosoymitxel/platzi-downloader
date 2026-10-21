@@ -855,17 +855,22 @@
     return t ? { course: best, item: t.item } : null;
   }
 
-  function fillRuta(view, route) {
-    setText(view, 'title', route.title || route.id);
-    fillCover(view, route);
+  function routeCourseList(route) {
     var ids = Array.isArray(route.courses) ? route.courses : [];
     var list = [];
-    var downloaded = 0;
     for (var i = 0; i < ids.length; i++) {
       var c = bySlug[ids[i]];
-      if (!c) continue;
-      list.push(c);
-      if (c.downloaded) downloaded++;
+      if (c) list.push(c);
+    }
+    return list;
+  }
+
+  function fillRuta(view, route, list) {
+    setText(view, 'title', route.title || route.id);
+    fillCover(view, route);
+    var downloaded = 0;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].downloaded) downloaded++;
     }
     var meta = routeMeta(route);
     if (downloaded) meta += ' · ' + downloaded + ' de ' + list.length + ' descargados';
@@ -875,15 +880,24 @@
     if (bar) { bar.hidden = false; bar.style.width = pct + '%'; }
     setText(view, 'pct', pctText(pct));
 
+    var filtered = list.filter(function (c) { return courseMatchesAll(c, rutaFilters); });
     var box = listHook(view, 'courses');
     if (box) {
       clearEl(box);
-      for (var k = 0; k < list.length; k++) {
-        var card = partial('tpl-course-card', (function (cc) { return function (n) { fillCourseCard(n, cc); }; })(list[k]));
+      for (var k = 0; k < filtered.length; k++) {
+        var card = partial('tpl-course-card', (function (cc) { return function (n) { fillCourseCard(n, cc); }; })(filtered[k]));
         if (card) box.appendChild(card);
       }
     }
-    show(hook(view, 'empty'), list.length === 0);
+    setText(view, 'count', filtered.length + (filtered.length === 1 ? ' curso' : ' cursos'));
+    paintFilterCounts(view, list);
+    var emptyEl = hook(view, 'empty');
+    if (emptyEl) {
+      var msg = list.length === 0 ? 'Esta ruta todavía no tiene cursos' : cursosEmptyMessage(rutaFilters);
+      if (emptyEl.textContent !== msg) emptyEl.textContent = msg;
+      emptyEl.hidden = filtered.length !== 0;
+    }
+    paintFilterButtons(view, rutaFilters);
 
     var cont = view.querySelector('a[data-slot="continue"]');
     var target = routeContinue(route);
@@ -900,13 +914,26 @@
   function renderRuta(route) {
     setTitle((route.title || route.id || 'Ruta') + ' · Platzi Local');
     renderShell('rutas');
-    mount('tpl-ruta', function (view) { fillRuta(view, route); });
+    rutaFilters = [];
+    var list = routeCourseList(route);
+    mount('tpl-ruta', function (view) {
+      var btns = view.querySelectorAll('[data-filter]');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+          rutaFilters = toggleFilter(rutaFilters, this.getAttribute('data-filter'));
+          fillRuta(view, route, list);
+        });
+      }
+      fillRuta(view, route, list);
+    });
     afterRoute();
   }
 
   /* ---------- catálogo ---------- */
 
-  var cursoFilter = 'all';
+  var cursoFilters = [];
+  var rutaFilters = [];
+  var CURSO_FILTERS = ['all', 'progress', 'cert', 'downloaded', 'queued', 'missing'];
 
   function sortedCatalog() {
     return courses.slice().sort(function (a, b) {
@@ -929,9 +956,59 @@
     return true;
   }
 
+  /* Varios filtros activos se combinan con Y: cada uno debe cumplirse. */
+  function courseMatchesAll(course, filters) {
+    for (var i = 0; i < filters.length; i++) {
+      if (!courseMatches(course, filters[i])) return false;
+    }
+    return true;
+  }
+
+  /* "Todos" no se acumula: limpia la selección. */
+  function toggleFilter(filters, key) {
+    if (!key || key === 'all') return [];
+    for (var i = 0; i < filters.length; i++) {
+      if (filters[i] === key) {
+        filters.splice(i, 1);
+        return filters;
+      }
+    }
+    filters.push(key);
+    return filters;
+  }
+
+  function paintFilterButtons(view, filters) {
+    var btns = view.querySelectorAll('[data-filter]');
+    for (var b = 0; b < btns.length; b++) {
+      var key = btns[b].getAttribute('data-filter');
+      var on = key === 'all' ? filters.length === 0 : filters.indexOf(key) >= 0;
+      btns[b].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+  }
+
+  function paintFilterCounts(view, scope) {
+    var counts = { all: scope.length };
+    for (var f = 1; f < CURSO_FILTERS.length; f++) {
+      var key = CURSO_FILTERS[f];
+      counts[key] = 0;
+      for (var c = 0; c < scope.length; c++) {
+        if (courseMatches(scope[c], key)) counts[key]++;
+      }
+    }
+    var countEls = view.querySelectorAll('[data-filter-count]');
+    for (var e = 0; e < countEls.length; e++) {
+      var k = countEls[e].getAttribute('data-filter-count');
+      countEls[e].textContent = isNum(counts[k]) ? String(counts[k]) : '';
+    }
+  }
+
+  function cursosEmptyMessage(filters) {
+    return filters.length > 1 ? 'Ningún curso coincide con estos filtros' : 'Ningún curso coincide con este filtro';
+  }
+
   function updateCursosList(view) {
     var box = listHook(view, 'courses');
-    var filtered = sortedCatalog().filter(function (c) { return courseMatches(c, cursoFilter); });
+    var filtered = sortedCatalog().filter(function (c) { return courseMatchesAll(c, cursoFilters); });
     if (box) {
       clearEl(box);
       for (var i = 0; i < filtered.length; i++) {
@@ -940,16 +1017,14 @@
       }
     }
     setText(view, 'count', filtered.length + (filtered.length === 1 ? ' curso' : ' cursos'));
+    paintFilterCounts(view, courses);
     var emptyEl = hook(view, 'empty');
     if (emptyEl) {
-      var msg = courses.length === 0 ? 'Todavía no hay cursos en el catálogo' : 'Ningún curso coincide con este filtro';
+      var msg = courses.length === 0 ? 'Todavía no hay cursos en el catálogo' : cursosEmptyMessage(cursoFilters);
       if (emptyEl.textContent !== msg) emptyEl.textContent = msg;
       emptyEl.hidden = filtered.length !== 0;
     }
-    var btns = view.querySelectorAll('[data-filter]');
-    for (var b = 0; b < btns.length; b++) {
-      btns[b].setAttribute('aria-pressed', btns[b].getAttribute('data-filter') === cursoFilter ? 'true' : 'false');
-    }
+    paintFilterButtons(view, cursoFilters);
   }
 
   function renderCursos() {
@@ -959,7 +1034,7 @@
       var btns = view.querySelectorAll('[data-filter]');
       for (var i = 0; i < btns.length; i++) {
         btns[i].addEventListener('click', function () {
-          cursoFilter = this.getAttribute('data-filter') || 'all';
+          cursoFilters = toggleFilter(cursoFilters, this.getAttribute('data-filter'));
           updateCursosList(view);
         });
       }
@@ -1050,6 +1125,18 @@
       } else {
         diploma.hidden = true;
         diploma.removeAttribute('href');
+      }
+    }
+
+    var platziLink = view.querySelector('a[data-slot="platzi-link"]');
+    if (platziLink) {
+      var courseUrl = (typeof course.url === 'string') ? course.url : '';
+      if (courseUrl) {
+        platziLink.hidden = false;
+        platziLink.setAttribute('href', courseUrl);
+      } else {
+        platziLink.hidden = true;
+        platziLink.removeAttribute('href');
       }
     }
 
@@ -2090,6 +2177,12 @@
   function dlFillRoute(node, data, offline) {
     var route = data.route;
     setText(node, 'title', route.title || route.id);
+    var open = node.querySelector('a[data-slot="route-link"]');
+    if (open) {
+      open.setAttribute('href', hrefRuta(route.id));
+      open.setAttribute('data-focus', 'route:' + route.id + ':open');
+      open.setAttribute('aria-label', 'Abrir ruta ' + (route.title || route.id));
+    }
     var meta = data.downloaded + ' de ' + data.total + ' descargados';
     if (data.queued) meta += ' · ' + data.queued + ' en cola';
     setText(node, 'meta', meta);

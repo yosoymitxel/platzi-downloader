@@ -76,6 +76,7 @@ const data = {
   courses: [
     {
       slug: 'claude-code',
+      url: 'https://platzi.com/cursos/claude-code/',
       title: 'Curso de Claude Code',
       folder: 'Curso de Claude Code',
       routes: ['ai-native', 'desarrollo-web'],
@@ -93,6 +94,7 @@ const data = {
     },
     {
       slug: 'ingles-a1',
+      url: 'https://platzi.com/cursos/ingles-a1/',
       title: 'Curso de Inglés Básico A1 para Principiantes',
       folder: 'Curso de Inglés Básico A1 para Principiantes',
       routes: ['fundamentos', 'ingles'],
@@ -110,6 +112,7 @@ const data = {
     },
     {
       slug: 'owasp',
+      url: 'https://platzi.com/cursos/owasp/',
       title: 'Curso de OWASP Top 10 Riesgos en Aplicaciones',
       folder: null,
       routes: ['ai-native'],
@@ -127,6 +130,7 @@ const data = {
     },
     {
       slug: 'nulos',
+      url: 'https://platzi.com/cursos/nulos/',
       title: 'Curso sin metadatos',
       folder: null,
       routes: ['desarrollo-web'],
@@ -144,6 +148,7 @@ const data = {
     },
     {
       slug: 'roto',
+      url: 'https://platzi.com/cursos/roto/',
       title: 'Curso con video roto',
       folder: null,
       routes: [],

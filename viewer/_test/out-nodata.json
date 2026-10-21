@@ -25,5 +25,18 @@
   ],
   "missingHooks": []
  },
- "events": []
+ "events": [
+  {
+   "type": "log:network",
+   "level": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+   "url": "http://127.0.0.1:8787/viewer/_test/nodata/vendor/plyr/plyr.css"
+  },
+  {
+   "type": "log:network",
+   "level": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+   "url": "http://127.0.0.1:8787/viewer/_test/nodata/vendor/plyr/plyr.min.js"
+  }
+ ]
 }

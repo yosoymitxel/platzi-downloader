@@ -26,7 +26,8 @@ python scripts\viewer_data.py
 - El visor es estático: `index.html` + `styles.css` + `app.js` + `data.js`. Sin frameworks, sin CDN, sin build. El reproductor es **Plyr 3.8.5** (MIT), vendoreado en `viewer/vendor/plyr/`.
 - El **progreso** (visto + posición de cada clase, velocidad, subtítulos, volumen) se guarda en `localStorage` del navegador (clave `platziLocal.v1`). El estado de Platzi descargado se muestra solo como historial de referencia.
 - La búsqueda indexa cursos y clases en el cliente.
-- La pestaña **Descargas** habla con `scripts/server.py` (cola persistida en `scripts/download_state.json`, un curso a la vez, progreso por clase). Prioriza lo descargado: «Mis rutas» lista primero las completas y trae los pendientes en un clic; el buscador de cursos incluye los descargados, marcados. En la ficha de un curso sin descargar, **Descargar curso** lo encola y el botón pasa a «En cola» o «Descargando…». "Actualizar catálogo" ejecuta `viewer_data.py` cuando la cola está vacía.
+- Los filtros de **Mis cursos** (estado y descarga) se combinan entre sí con «Y»: «En curso» + «Sin descargar» deja solo los cursos que cumplen ambas. Cada ruta repite los mismos filtros sobre sus propios cursos.
+- La pestaña **Descargas** habla con `scripts/server.py` (cola persistida en `scripts/download_state.json`, un curso a la vez, progreso por clase). Prioriza lo descargado: «Mis rutas» lista primero las completas y trae los pendientes en un clic; el título de cada ruta abre su ficha. El buscador de cursos incluye los descargados, marcados. En la ficha de un curso sin descargar, **Descargar curso** lo encola y el botón pasa a «En cola» o «Descargando…». Cada ficha guarda el enlace original al curso en Platzi (**Ver en Platzi**). "Actualizar catálogo" ejecuta `viewer_data.py` cuando la cola está vacía.
 
 ## Atajos del reproductor
 

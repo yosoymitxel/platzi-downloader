@@ -59,6 +59,7 @@
   <symbol id="ic-top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="m6.5 11.5 5.5-5.5 5.5 5.5"/></symbol>
   <symbol id="ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12"/><path d="m18 6-12 12"/></symbol>
   <symbol id="ic-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 1 0-2.3 6.2"/><path d="M20 4.5v7h-7"/></symbol>
+  <symbol id="ic-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.5h5.5V10"/><path d="m19.5 4.5-8.5 8.5"/><path d="M18.5 14v5.5h-14v-14H10"/></symbol>
 </svg>
 
 <div id="templates" hidden>
@@ -130,8 +131,21 @@
           <img data-slot="cover" alt="">
         </div>
       </div>
-      <div class="course-grid" data-list="courses"></div>
-      <div class="empty-state" data-slot="empty" hidden></div>
+      <div class="ruta-cursos">
+        <div class="ruta-cursos-head">
+          <div class="filters" data-filters role="group" aria-label="Filtrar cursos de esta ruta">
+            <button class="filter" type="button" data-filter="all" aria-pressed="true">Todos <span class="filter-count" data-filter-count="all"></span></button>
+            <button class="filter" type="button" data-filter="progress" aria-pressed="false">En curso <span class="filter-count" data-filter-count="progress"></span></button>
+            <button class="filter" type="button" data-filter="cert" aria-pressed="false">Aprobado <span class="filter-count" data-filter-count="cert"></span></button>
+            <button class="filter" type="button" data-filter="downloaded" aria-pressed="false">Descargado <span class="filter-count" data-filter-count="downloaded"></span></button>
+            <button class="filter" type="button" data-filter="queued" aria-pressed="false">En cola <span class="filter-count" data-filter-count="queued"></span></button>
+            <button class="filter" type="button" data-filter="missing" aria-pressed="false">Sin descargar <span class="filter-count" data-filter-count="missing"></span></button>
+          </div>
+          <p class="cursos-count" data-slot="count"></p>
+        </div>
+        <div class="course-grid" data-list="courses"></div>
+        <div class="empty-state" data-slot="empty" hidden></div>
+      </div>
     </section>
   </template>
 
@@ -142,12 +156,12 @@
         <p class="cursos-count" data-slot="count"></p>
       </div>
       <div class="filters" data-filters role="group" aria-label="Filtrar cursos">
-        <button class="filter" type="button" data-filter="all" aria-pressed="true">Todos</button>
-        <button class="filter" type="button" data-filter="progress" aria-pressed="false">En curso</button>
-        <button class="filter" type="button" data-filter="cert" aria-pressed="false">Aprobado</button>
-        <button class="filter" type="button" data-filter="downloaded" aria-pressed="false">Descargado</button>
-        <button class="filter" type="button" data-filter="queued" aria-pressed="false">En cola</button>
-        <button class="filter" type="button" data-filter="missing" aria-pressed="false">Sin descargar</button>
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">Todos <span class="filter-count" data-filter-count="all"></span></button>
+        <button class="filter" type="button" data-filter="progress" aria-pressed="false">En curso <span class="filter-count" data-filter-count="progress"></span></button>
+        <button class="filter" type="button" data-filter="cert" aria-pressed="false">Aprobado <span class="filter-count" data-filter-count="cert"></span></button>
+        <button class="filter" type="button" data-filter="downloaded" aria-pressed="false">Descargado <span class="filter-count" data-filter-count="downloaded"></span></button>
+        <button class="filter" type="button" data-filter="queued" aria-pressed="false">En cola <span class="filter-count" data-filter-count="queued"></span></button>
+        <button class="filter" type="button" data-filter="missing" aria-pressed="false">Sin descargar <span class="filter-count" data-filter-count="missing"></span></button>
       </div>
       <div class="course-grid" data-list="courses"></div>
       <div class="empty-state" data-slot="empty" hidden>Todavía no hay cursos en el catálogo</div>
@@ -177,6 +191,10 @@
               <svg class="icon" aria-hidden="true"><use href="#ic-queue"></use></svg>
               <span data-slot="download-label">Descargar curso</span>
             </button>
+            <a class="platzi-link" data-slot="platzi-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+              <svg class="icon" aria-hidden="true"><use href="#ic-external"></use></svg>
+              <span>Ver en Platzi</span>
+            </a>
             <a class="diploma-link" data-slot="diploma" href="#" target="_blank" rel="noopener" hidden>
               <svg class="icon" aria-hidden="true"><use href="#ic-diploma"></use></svg>
               <span>Ver diploma</span>
@@ -454,7 +472,10 @@
   <template id="tpl-dl-route">
     <li class="dl-route">
       <div class="dl-route-main">
-        <p class="dl-route-title" data-slot="title"></p>
+        <a class="dl-route-title" data-slot="route-link" href="#/rutas">
+          <span data-slot="title"></span>
+          <svg class="icon dl-route-chev" aria-hidden="true"><use href="#ic-chevron"></use></svg>
+        </a>
         <p class="dl-route-meta" data-slot="meta"></p>
         <div class="progressbar dl-route-bar" aria-hidden="true"><span class="progressbar-fill" data-slot="bar"></span></div>
       </div>

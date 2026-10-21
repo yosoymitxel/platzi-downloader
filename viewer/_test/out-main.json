@@ -2,7 +2,9 @@
  "url": "http://127.0.0.1:8787/viewer/_test/index.html",
  "report": {
   "mode": "main",
-  "errors": [],
+  "errors": [
+   "step aula-speed: Cannot read properties of null (reading 'value')"
+  ],
   "warnings": [],
   "steps": [
    {
@@ -89,7 +91,7 @@
     "data": {
      "title": "Desarrollo Web · Platzi Local",
      "h1": "Desarrollo Web",
-     "meta": "3 cursos · 44 h",
+     "meta": "3 cursos · 44 h · 2 de 2 descargados",
      "pct": "45%",
      "bar": "width: 45%;",
      "continueHref": "#/aula/claude-code/1",
@@ -117,8 +119,8 @@
      "order": [
       "Curso con video roto",
       "Curso de Claude Code",
-      "Curso de OWASP Top 10 Riesgos en Aplicaciones",
       "Curso sin metadatos",
+      "Curso de OWASP Top 10 Riesgos en Aplicaciones",
       "Curso de Inglés Básico A1 para Principiantes"
      ],
      "pressed": [
@@ -128,6 +130,14 @@
       "downloaded=false",
       "queued=false",
       "missing=false"
+     ],
+     "filterCounts": [
+      "all=5",
+      "progress=2",
+      "cert=1",
+      "downloaded=4",
+      "queued=1",
+      "missing=1"
      ]
     }
    },
@@ -150,25 +160,48 @@
     "name": "filtroMissing",
     "data": {
      "count": "1 curso",
-     "cards": 1
+     "cards": 1,
+     "pressed": [
+      "all=false",
+      "progress=false",
+      "cert=false",
+      "downloaded=false",
+      "queued=true",
+      "missing=true"
+     ]
     }
    },
    {
     "name": "filtroProgress",
     "data": {
-     "count": "2 cursos",
+     "count": "1 curso",
      "titles": [
-      "Curso de Claude Code",
       "Curso de OWASP Top 10 Riesgos en Aplicaciones"
+     ],
+     "pressed": [
+      "all=false",
+      "progress=true",
+      "cert=false",
+      "downloaded=false",
+      "queued=true",
+      "missing=true"
      ]
     }
    },
    {
     "name": "filtroCert",
     "data": {
-     "count": "1 curso",
-     "titles": [
-      "Curso de Inglés Básico A1 para Principiantes"
+     "count": "0 cursos",
+     "cards": 0,
+     "empty": "Ningún curso coincide con estos filtros",
+     "emptyHidden": false,
+     "pressed": [
+      "all=false",
+      "progress=true",
+      "cert=true",
+      "downloaded=false",
+      "queued=true",
+      "missing=true"
      ]
     }
    },
@@ -177,6 +210,77 @@
     "data": {
      "count": "5 cursos",
      "cards": 5
+    }
+   },
+   {
+    "name": "rutaFiltros",
+    "data": {
+     "title": "Desarrollo Web · Platzi Local",
+     "count": "2 cursos",
+     "cards": 2,
+     "filterCounts": [
+      "all=2",
+      "progress=1",
+      "cert=0",
+      "downloaded=2",
+      "queued=0",
+      "missing=0"
+     ],
+     "pressed": [
+      "all=true",
+      "progress=false",
+      "cert=false",
+      "downloaded=false",
+      "queued=false",
+      "missing=false"
+     ]
+    }
+   },
+   {
+    "name": "rutaFiltroProgress",
+    "data": {
+     "count": "1 curso",
+     "cards": 1,
+     "pressed": [
+      "all=false",
+      "progress=true",
+      "cert=false",
+      "downloaded=false",
+      "queued=false",
+      "missing=false"
+     ]
+    }
+   },
+   {
+    "name": "rutaFiltroMissing",
+    "data": {
+     "count": "0 cursos",
+     "cards": 0,
+     "empty": "Ningún curso coincide con estos filtros",
+     "emptyHidden": false,
+     "pressed": [
+      "all=false",
+      "progress=true",
+      "cert=false",
+      "downloaded=false",
+      "queued=false",
+      "missing=true"
+     ]
+    }
+   },
+   {
+    "name": "rutaFiltroAll",
+    "data": {
+     "count": "2 cursos",
+     "cards": 2,
+     "pressed": [
+      "all=true",
+      "progress=false",
+      "cert=false",
+      "downloaded=false",
+      "queued=false",
+      "missing=false"
+     ]
     }
    },
    {
@@ -196,18 +300,23 @@
      "continueDisabled": null,
      "platzi": "En Platzi: 7/13 · sep 2026",
      "platziHidden": false,
+     "platziLinkHidden": false,
+     "platziLinkHref": "https://platzi.com/cursos/claude-code/",
+     "platziLinkText": "Ver en Platzi",
      "diplomaHidden": true,
      "emptyHidden": true,
-     "moduleCount": 2,
+     "moduleCount": 3,
      "modulesOpen": [
+      true,
       true,
       true
      ],
      "moduleCounts": [
       "9 clases",
-      "2 clases"
+      "4 clases",
+      "5 clases"
      ],
-     "rowTotal": 11,
+     "rowTotal": 18,
      "doneRow": {
       "title": "Cómo entender un codebase nuevo con Claude Code",
       "icon": "#ic-check",
@@ -236,7 +345,9 @@
      "continueAttrDisabled": "",
      "progressbarHidden": true,
      "progressTextHidden": true,
-     "platziHidden": false
+     "platziHidden": false,
+     "platziLinkHidden": false,
+     "platziLinkHref": "https://platzi.com/cursos/owasp/"
     }
    },
    {
@@ -277,12 +388,12 @@
     "name": "buscarClaude",
     "data": {
      "courses": 1,
-     "classes": 12,
+     "classes": 18,
      "first": {
-      "title": "Novedades de Claude Code 20 y Sonnet 45",
+      "title": "Instala Claude Code en GitHub Actions",
       "course": "Curso de Claude Code",
-      "time": "12:45",
-      "href": "#/aula/claude-code/8"
+      "time": "14:00",
+      "href": "#/aula/claude-code/16"
      }
     }
    },
@@ -344,16 +455,16 @@
      "markLabel": "Marcar como visto",
      "markPressed": "false",
      "errorVisible": false,
-     "speedSelect": "1.5",
+     "speedSelect": null,
      "captionsSelect": "es",
      "autoplayChecked": false,
-     "playlist": 11,
+     "playlist": 18,
      "currentRowIndex": 0,
      "currentAria": "true",
      "video": {
       "readyState": 4,
       "duration": 89.550011,
-      "currentTime": 0,
+      "currentTime": 42,
       "playbackRate": 1,
       "volume": 0.25,
       "muted": false,
@@ -409,15 +520,7 @@
    {
     "name": "aulaSaveTick",
     "data": {
-     "pos": 42
-    }
-   },
-   {
-    "name": "aulaSpeed",
-    "data": {
-     "playbackRate": 2,
-     "pref": 1.5,
-     "select": "2"
+     "pos": 89.550011
     }
    },
    {
@@ -435,8 +538,8 @@
     "name": "aulaKeys",
     "data": {
      "right": 0,
-     "j": 0,
-     "l": 0,
+     "j": -10,
+     "l": 10,
      "volume": 0.2,
      "muted": true,
      "captionsAfterC": "en",
@@ -472,8 +575,8 @@
     "name": "aulaClamp",
     "data": {
      "hash": "#/aula/claude-code/999",
-     "classTitle": "Revisión de seguridad automática con Claude Code",
-     "lastTitle": "Revisión de seguridad automática con Claude Code",
+     "classTitle": "Qué aprendiste sobre desarrollo conversacional",
+     "lastTitle": "Qué aprendiste sobre desarrollo conversacional",
      "nextDisabled": true,
      "prevDisabled": false
     }
@@ -528,7 +631,7 @@
    {
     "name": "flush",
     "data": {
-     "pos": null,
+     "pos": 55,
      "hash": "#/aula/claude-code/7"
     }
    },
@@ -536,8 +639,8 @@
     "name": "homeFinal",
     "data": {
      "chipHidden": false,
-     "chipText": "Retomar · Qué hace único a Claude Code",
-     "resumeTitle": "Qué hace único a Claude Code",
+     "chipText": "Retomar · Cómo crear subagentes especializados en…",
+     "resumeTitle": "Cómo crear subagentes especializados en Claude Code",
      "resumeMeta": "Curso de Claude Code · 01-Módulo 1 DiscoveryAnálisisPlanning",
      "homeCourses": 5
     }
@@ -547,16 +650,22 @@
  },
  "events": [
   {
-   "type": "log:intervention",
-   "level": "info",
-   "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113",
-   "url": "http://127.0.0.1:8787/viewer/_test/index.html"
+   "type": "log:network",
+   "level": "error",
+   "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
+   "url": "http://127.0.0.1:8787/viewer/_test/vendor/plyr/plyr.css"
   },
   {
    "type": "log:network",
    "level": "error",
    "text": "Failed to load resource: the server responded with a status of 404 (File not found)",
-   "url": "http://127.0.0.1:8787/viewer/_test/assets/covers/ingles-a1.jpg"
+   "url": "http://127.0.0.1:8787/viewer/_test/vendor/plyr/plyr.min.js"
+  },
+  {
+   "type": "log:intervention",
+   "level": "info",
+   "text": "Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113",
+   "url": "http://127.0.0.1:8787/viewer/_test/index.html"
   },
   {
    "type": "log:network",

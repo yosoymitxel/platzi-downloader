@@ -393,6 +393,7 @@ def main():
             total_duration += course_secs or 0
         courses.append({
             "slug": slug,
+            "url": "https://platzi.com/cursos/%s/" % slug,
             "title": title,
             "folder": folder_name,
             "routes": slug_routes.get(slug, []),

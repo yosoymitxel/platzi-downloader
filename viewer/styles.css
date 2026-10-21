@@ -639,7 +639,18 @@ main#app { display: block; }
 .ruta-hero .btn,
 .curso-actions { margin-top: 22px; }
 
-.view-ruta .course-grid { margin-top: 32px; }
+.ruta-cursos { margin-top: 32px; }
+
+.ruta-cursos-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 24px;
+}
+
+.ruta-cursos-head .filters { margin-bottom: 0; }
 
 /* ============================================================
    Vista de curso
@@ -663,6 +674,17 @@ main#app { display: block; }
   flex-wrap: wrap;
   gap: 16px;
 }
+
+.platzi-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-2);
+  font-size: .9375rem;
+  font-weight: 600;
+}
+
+.platzi-link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 
 .diploma-link {
   display: inline-flex;
@@ -802,6 +824,9 @@ main#app { display: block; }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
 
 .filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   height: 36px;
   padding: 0 14px;
   border-radius: 999px;
@@ -815,6 +840,14 @@ main#app { display: block; }
 .filter:hover { background: var(--surface-2); color: var(--ink); }
 
 .filter[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+
+.filter-count {
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.filter[aria-pressed="true"] .filter-count { color: inherit; opacity: .8; }
 
 .course-grid {
   display: grid;
@@ -1298,9 +1331,24 @@ main#app { display: block; }
 .dl-route-main { min-width: 0; }
 
 .dl-route-title {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 4px;
+  max-width: 100%;
   font-weight: 600;
   overflow-wrap: anywhere;
 }
+
+.dl-route-title:hover { color: var(--accent); }
+
+.dl-route-chev {
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+  color: var(--ink-2);
+}
+
+.dl-route-title:hover .dl-route-chev { color: var(--accent); }
 
 .dl-route-meta {
   margin-top: 2px;
