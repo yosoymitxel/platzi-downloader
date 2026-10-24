@@ -211,7 +211,7 @@ Sin imagen: bloque `--surface-3` con la inicial del curso grande en `--ink-2` (n
 ## §7 Copy (español, congelado)
 
 ### §7.1 Navegación y botones
-Inicio · Rutas · Mis cursos · Descargas · Buscar curso o clase… · Todos · En curso · Aprobado · Descargado · En cola · Sin descargar · Abrir ruta {ruta} · Continuar · Reproducir · Reanudar · Marcar como visto · Visto · Anterior · Siguiente · Subtítulos · Desactivados · Español · English · Português · Autoplay siguiente · Reproducir siguiente al terminar · Ver todas las rutas · Ver todos los cursos · Ver diploma · Ver en Platzi · Descargar curso · Encolando… · En cola · Descargando… · Entendido · Empezar · Actualizar catálogo · Recargar visor · Elegir una ruta · Añadir un curso · Añadir · Descargar {n} · Ya en cola · Sin pendientes · Subir · Bajar · Cancelar · Limpiar · Reintentar · Quitar.
+Inicio · Rutas · Mis cursos · Descargas · Buscar curso o clase… · Todos · En curso · Aprobado · Descargado · En cola · Sin descargar · Abrir ruta {ruta} · Continuar · Reproducir · Reanudar · Marcar como visto · Visto · Anterior · Siguiente · Subtítulos · Desactivados · Español · English · Português · Autoplay siguiente · Reproducir siguiente al terminar · Ver todas las rutas · Ver todos los cursos · Ver diploma · Ver en Platzi · Descargar curso · Encolando… · En cola · Descargando… · Entendido · Empezar · Actualizar catálogo · Recargar visor · Elegir una ruta · Añadir un curso · Añadir · Descargar {n} · Ya en cola · Sin pendientes · Subir · Bajar · Cancelar · Limpiar · Reintentar · Quitar · Comprobar sesión.
 
 Plyr (i18n propio): Reproducir · Pausar · Reiniciar · Retroceder {n}s · Avanzar {n}s · Buscar · Reproducido · Cargado · Volumen · Silenciar · Activar sonido · Activar subtítulos · Desactivar subtítulos · Subtítulos · Ajustes · Velocidad · Normal · Imagen en imagen · Pantalla completa · Salir de pantalla completa · Desactivado.
 
@@ -227,6 +227,7 @@ Plyr (i18n propio): Reproducir · Pausar · Reiniciar · Retroceder {n}s · Avan
 - localStorage no disponible: "Tu progreso no se guardará en esta sesión".
 - Descargas sin servidor: "Las descargas necesitan el servidor local" + "Abre el visor con viewer\\start.cmd".
 - Descargas sin CLI: "No encontré el comando platzi" + "Instálalo o define PLATZI_BIN antes de arrancar el servidor".
+- Sesión de Platzi no iniciada: "La sesión de Platzi no está iniciada" + "Ejecuta platzi login en la terminal y vuelve a intentar. La sesión se gestiona en la terminal; no depende del navegador que uses para el visor." + botón "Comprobar sesión".
 - Cola vacía: "No hay descargas en cola" + "Elige una ruta o añade un curso para empezar." + acciones "Elegir una ruta" (baja a Mis rutas) y "Añadir un curso" (enfoca el buscador).
 - Sin cursos pendientes: "Todos tus cursos están descargados o en cola." Sin rutas con cursos: "No hay rutas con cursos en el catálogo."
 - Historial: chips "Completado" · "Error" · "Cancelado"; meta con la fecha o el mensaje de error.
@@ -269,14 +270,15 @@ La vista `#/descargas` requiere `scripts/server.py`, que arranca `viewer/start.c
 
 ### §10.1 Contrato de la vista
 - Plantillas: `tpl-descargas`, `tpl-dl-item`, `tpl-dl-route`, `tpl-dl-course`, `tpl-dl-history`.
-- Hooks: `summary`, `notice`/`notice-text`, `offline`, `cli-warning`, `active`/`active-title`/`active-bar`/`active-fill`/`active-pct`/`active-phase`, listas `queue`, `routes`, `courses`, `history`, `queue-empty`, `routes-empty`, `add-empty` y región viva `live`. Cada fila de `routes` lleva `a[data-slot=route-link]` (título de la ruta, enlaza a `#/ruta/<id>`) además del botón de descarga de la propia fila.
+- Hooks: `summary`, `notice`/`notice-text`, `offline`, `cli-warning`, `session-warning`, `session-status`, `active`/`active-title`/`active-bar`/`active-fill`/`active-pct`/`active-phase`, listas `queue`, `routes`, `courses`, `history`, `queue-empty`, `routes-empty`, `add-empty` y región viva `live`. Cada fila de `routes` lleva `a[data-slot=route-link]` (título de la ruta, enlaza a `#/ruta/<id>`) además del botón de descarga de la propia fila.
 - Sondeo de `/api/state` cada 1.5 s; se pausa con `document.hidden` y se detiene al salir de la vista.
 - Foco: cada control lleva `data-focus`; tras cada render se restaura el foco y, si el control desapareció, cae al siguiente del mismo grupo.
 - Rutas: cada una muestra descargados/total de sus cursos y encola solo los pendientes que no estén ya en la cola. Las completas también se listan (arriba, con "Sin pendientes"); el resto después, por pendientes desc. El título de la ruta es un enlace directo a `#/ruta/<id>`; la descarga sigue en su botón. El enlace conserva el foco tras el sondeo (`data-focus="route:<id>:open"`).
 - Cursos manuales: buscador sobre todo el catálogo, descargados primero y marcados con el chip "Descargado" (sin botones); "Añadir" va al final y "al frente" (icono) después del que corre. Contador: "N descargados · M sin descargar" (omitir el 0); al buscar, "N resultados · M descargados".
 
 ### §10.2 API local
-- `GET /api/state` → `{ok, items, stats, catalog, cliAvailable, serverTime}`; cada item: `{slug, title, status: queued|running|completed|error|canceled, progress, phase, error, addedAt, startedAt, finishedAt}`.
+- `GET /api/state` → `{ok, items, stats, catalog, session, cliAvailable, serverTime}`; cada item: `{slug, title, status: queued|running|completed|error|canceled, progress, phase, error, addedAt, startedAt, finishedAt}`. `session` = `{checkedAt, loggedIn, message}`.
+- `GET /api/session` → `{ok, session, cliAvailable, serverTime}`. `POST /api/session/check` ejecuta una comprobación de la sesión de Platzi y devuelve el mismo formato.
 - `POST /api/enqueue {items:[{slug,title}], position: back|front}` · `POST /api/reorder {slug, direction: up|down}`.
 - `POST /api/cancel {slug}` · `POST /api/remove {slug}` · `POST /api/clear`.
 - `POST /api/refresh` regenera `viewer/data.js` con `scripts/viewer_data.py`; responde 409 si hay cola activa.

@@ -354,6 +354,8 @@
           <p class="dl-summary" data-slot="summary">Conectando con el servidor local…</p>
         </div>
         <div class="dl-head-actions">
+          <span class="dl-session-status" data-slot="session-status">Sesión: sin comprobar</span>
+          <button class="btn-ghost" type="button" data-control="check-session" data-focus="control:check-session">Comprobar sesión</button>
           <button class="btn-ghost" type="button" data-control="refresh" data-focus="control:refresh">
             <svg class="icon" aria-hidden="true"><use href="#ic-refresh"></use></svg>
             <span data-slot="refresh-label">Actualizar catálogo</span>
@@ -374,6 +376,12 @@
       <div class="dl-banner dl-banner-warn" data-slot="cli-warning" hidden>
         <p class="dl-banner-title">No encontré el comando <code>platzi</code></p>
         <p class="dl-banner-text">Instálalo o define <code>PLATZI_BIN</code> antes de arrancar el servidor.</p>
+      </div>
+
+      <div class="dl-banner dl-banner-warn" data-slot="session-warning" hidden>
+        <p class="dl-banner-title">La sesión de Platzi no está iniciada</p>
+        <p class="dl-banner-text">Ejecuta <code>platzi login</code> en la terminal y vuelve a intentar. La sesión se gestiona en la terminal; no depende del navegador que uses para el visor.</p>
+        <button class="btn-ghost" type="button" data-control="check-session" data-focus="control:check-session">Comprobar sesión</button>
       </div>
 
       <section class="dl-now" data-slot="active" hidden aria-labelledby="dl-now-title">

@@ -1224,9 +1224,9 @@
           paintQueued(findItem(data) || { status: 'queued' });
           if (status) status.textContent = '«' + name + '» añadido a la cola de descargas.';
         })
-        .catch(function () {
+        .catch(function (err) {
           labelDownload('Descargar curso', false);
-          if (status) status.textContent = 'No se pudo encolar. Revisa que el servidor local esté activo.';
+          if (status) status.textContent = (err && err.message) ? err.message : 'No se pudo encolar. Revisa que el servidor local esté activo.';
         });
     });
   }
@@ -2475,6 +2475,20 @@
     var cli = hook(view, 'cli-warning');
     if (cli) cli.hidden = offline || !dlState || dlState.cliAvailable !== false;
 
+    var session = (dlState && dlState.session) ? dlState.session : null;
+    var sessionBanner = hook(view, 'session-warning');
+    if (sessionBanner) {
+      var loggedOut = !!(session && session.loggedIn === false);
+      sessionBanner.hidden = offline || !loggedOut;
+    }
+    var sessionStatus = hook(view, 'session-status');
+    if (sessionStatus) {
+      if (offline) sessionStatus.textContent = 'Sesión: sin conexión';
+      else if (!session || session.loggedIn === null) sessionStatus.textContent = 'Sesión: sin comprobar';
+      else if (session.loggedIn === true) sessionStatus.textContent = 'Sesión: iniciada';
+      else sessionStatus.textContent = 'Sesión: no iniciada';
+    }
+
     dlRenderActive(view, running);
 
     var queueSig = (offline ? 'offline' : 'online') + '|';
@@ -2582,6 +2596,25 @@
         return;
       }
       if (control === 'clear-history') { dlAction('/clear', {}); return; }
+      if (control === 'check-session') {
+        if (!dlView || !dlHasServer() || dlBusy) return;
+        dlBusy = true;
+        dlApi('/session/check', {}).then(function (data) {
+          dlBusy = false;
+          if (data && data.session) {
+            if (dlState) dlState.session = data.session;
+            dlApplyState(dlView, dlState);
+          } else {
+            dlRefreshState(dlView);
+          }
+        }).catch(function (err) {
+          dlBusy = false;
+          dlNotice = (err && err.message) ? err.message : 'No se pudo comprobar la sesión.';
+          dlNoticeReload = false;
+          dlApplyState(dlView, dlState);
+        });
+        return;
+      }
       if (control === 'route-download') {
         var route = routeId ? byRouteId[routeId] : null;
         if (!route) return;

@@ -46,6 +46,7 @@ except json.JSONDecodeError:
 
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,80}$")
 ERROR_RE = re.compile(r"\b(error|traceback|exception|failed|fallo|falló)\b", re.I)
+LOGIN_RE = re.compile(r"login first|inicia sesi[oó]n|not (logged|authenticated|authorized)|unauthorized|401|403", re.I)
 TOTAL_RE = re.compile(r"\|\s*total\s*\|\s*(\d+)\s*\|", re.I)
 VIDEO_RE = re.compile(r"\[DOWNLOADING-VIDEO\]", re.I)
 SUBS_RE = re.compile(r"\[DOWNLOADING-SUBS\]", re.I)
@@ -77,6 +78,7 @@ CURRENT_PROC = None
 STATE = {
     "items": [],
     "catalog": {"refreshing": False, "lastRefresh": None, "lastRefreshOk": None},
+    "session": {"checkedAt": None, "loggedIn": None, "message": ""},
 }
 
 
@@ -194,6 +196,12 @@ def load_state():
         "lastRefresh": catalog.get("lastRefresh"),
         "lastRefreshOk": catalog.get("lastRefreshOk"),
     }
+    session = raw.get("session") if isinstance(raw.get("session"), dict) else {}
+    STATE["session"] = {
+        "checkedAt": session.get("checkedAt"),
+        "loggedIn": session.get("loggedIn"),
+        "message": str(session.get("message") or "")[:300],
+    }
     normalize_order()
 
 
@@ -210,7 +218,9 @@ def snapshot():
         "items": items,
         "stats": stats,
         "catalog": catalog,
+        "session": dict(STATE["session"]),
         "cliAvailable": cli_available(),
+        "stateFile": str(STATE_PATH),
         "serverTime": now_ms(),
     }
 
@@ -340,6 +350,50 @@ def clear_history():
         save_state_locked()
 
 
+def check_session():
+    checked_at = now_ms()
+    if not cli_available():
+        result = {"checkedAt": checked_at, "loggedIn": False, "message": "No se encontró el comando platzi en PATH."}
+        with LOCK:
+            STATE["session"] = dict(result)
+            save_state_locked()
+        return dict(result)
+    command = [PLATZI_BIN] + PLATZI_PREFIX + ["download", "https://platzi.com/cursos/__platzi_local_probe__/"]
+    output = ""
+    try:
+        proc = subprocess.run(
+            command,
+            cwd=str(ROOT),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=30,
+            check=False,
+        )
+        output = proc.stdout or ""
+    except subprocess.TimeoutExpired as exc:
+        output = (exc.stdout or "") if isinstance(exc.stdout, str) else ""
+        output += "\nTiempo de espera agotado al comprobar la sesión."
+    except OSError as exc:
+        output = f"No se pudo ejecutar platzi: {exc}"
+    logged_in = LOGIN_RE.search(output) is None
+    msg = ""
+    for line in output.splitlines():
+        if LOGIN_RE.search(line) or ERROR_RE.search(line):
+            msg = clean_line(line)
+    if not logged_in:
+        msg = msg or "La sesión de Platzi no está iniciada. Ejecuta platzi login."
+    else:
+        msg = ""
+    result = {"checkedAt": now_ms(), "loggedIn": logged_in, "message": msg[:300]}
+    with LOCK:
+        STATE["session"] = dict(result)
+        save_state_locked()
+    return dict(result)
+
+
 def refresh_catalog():
     with LOCK:
         if STATE["catalog"].get("refreshing"):
@@ -425,6 +479,9 @@ def worker_loop():
 
         command = build_command(slug)
         last_error = ""
+        login_failed = False
+        total_lessons = 0
+        videos_seen = 0
         proc = None
         returncode = -1
         try:
@@ -473,8 +530,10 @@ def worker_loop():
                         if total_lessons:
                             phase = f"{phase} · clase {max(1, videos_seen)} de {total_lessons}"
                         set_progress(slug, progress, phase)
-                    if ERROR_RE.search(line) and "info: hi" not in line.lower():
+                    if "info: hi" not in line.lower() and (LOGIN_RE.search(line) or ERROR_RE.search(line)):
                         last_error = clean_line(line)
+                        if LOGIN_RE.search(line):
+                            login_failed = True
                     if phase:
                         moment = now_ms()
                         if moment - last_save >= PROGRESS_SAVE_MS:
@@ -503,16 +562,32 @@ def worker_loop():
             if item is not None:
                 if item.get("status") == "canceled":
                     item["finishedAt"] = item.get("finishedAt") or now_ms()
-                elif returncode == 0:
-                    item["status"] = "completed"
-                    item["progress"] = 100
-                    item["phase"] = "Completado"
+                elif login_failed or (last_error and LOGIN_RE.search(last_error)):
+                    item["status"] = "error"
+                    item["phase"] = "Error"
+                    item["error"] = last_error or "La sesión de Platzi no está iniciada. Ejecuta platzi login."
                     item["finishedAt"] = now_ms()
-                else:
+                    STATE["session"]["loggedIn"] = False
+                    STATE["session"]["checkedAt"] = now_ms()
+                    STATE["session"]["message"] = item["error"]
+                elif returncode != 0:
                     item["status"] = "error"
                     item["phase"] = "Error"
                     item["error"] = last_error or f"El comando terminó con código {returncode}."
                     item["finishedAt"] = now_ms()
+                elif last_error and videos_seen == 0 and total_lessons == 0:
+                    item["status"] = "error"
+                    item["phase"] = "Error"
+                    item["error"] = last_error
+                    item["finishedAt"] = now_ms()
+                else:
+                    item["status"] = "completed"
+                    item["progress"] = 100
+                    item["phase"] = "Completado"
+                    item["finishedAt"] = now_ms()
+                    STATE["session"]["loggedIn"] = True
+                    STATE["session"]["checkedAt"] = now_ms()
+                    STATE["session"]["message"] = ""
                 normalize_order()
                 save_state_locked()
         last_save = 0
@@ -585,6 +660,11 @@ class ViewerHandler(SimpleHTTPRequestHandler):
             return
         if path == "/api/state":
             self._send_json(snapshot())
+            return
+        if path == "/api/session":
+            with LOCK:
+                session = dict(STATE["session"])
+            self._send_json({"ok": True, "session": session, "cliAvailable": cli_available(), "serverTime": now_ms()})
             return
         if path == "/api":
             self._send_json({"ok": True, "endpoints": ["state", "enqueue", "reorder", "cancel", "remove", "clear", "refresh"]})
@@ -671,6 +751,11 @@ class ViewerHandler(SimpleHTTPRequestHandler):
                 self._read_json()
                 clear_history()
                 self._send_json(snapshot())
+                return
+            if path == "/api/session/check":
+                self._read_json()
+                result = check_session()
+                self._send_json({"ok": True, "session": result, "cliAvailable": cli_available(), "serverTime": now_ms()})
                 return
             if path == "/api/refresh":
                 self._read_json()
