@@ -12,6 +12,22 @@ Necesitas Windows, Python 3.9 o superior, ffmpeg y el CLI de Platzi.
 
 El visor se abre en el navegador. Para iniciarlo más adelante, ejecuta `viewer\start.cmd`.
 
+## Capturas del visor
+
+Estas capturas se generaron con el visor de pruebas y datos de demostración; no representan una cuenta real.
+
+### Inicio
+
+![Pantalla de inicio](docs/screenshots/inicio.png)
+
+### Explorar rutas
+
+![Exploración de rutas](docs/screenshots/explorar-rutas.png)
+
+### Descargas
+
+![Panel de descargas](docs/screenshots/descargas.png)
+
 ## Descargar y explorar
 
 - En **Descargas**, añade cursos o rutas a la cola y controla las descargas.
