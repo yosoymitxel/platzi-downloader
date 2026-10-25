@@ -761,56 +761,6 @@ class ViewerHandler(SimpleHTTPRequestHandler):
                 return
         super().do_HEAD()
 
-def import_mis_ruta(raw_url):
-    """Lee cursos de una ruta compartida /mis-rutas/<id>/ sin alterar la biblioteca."""
-    url = str(raw_url or "").strip()
-    parsed = urlparse(url)
-    if parsed.scheme != "https" or parsed.hostname not in ("platzi.com", "www.platzi.com"):
-        raise ApiError(400, "Usa una URL https://platzi.com/mis-rutas/ID/.")
-    match = re.fullmatch(r"/mis-rutas/(\d+)/?", parsed.path)
-    if not match or parsed.query or parsed.fragment:
-        raise ApiError(400, "La URL debe tener el formato https://platzi.com/mis-rutas/ID/.")
-
-    from playwright.sync_api import sync_playwright
-    from sync_public_catalog import read_cookies
-
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, channel="chromium")
-        try:
-            context = browser.new_context(locale="es-ES")
-            cookies = read_cookies()
-            if cookies:
-                context.add_cookies(cookies)
-            page = context.new_page()
-            response = page.goto(url, wait_until="domcontentloaded", timeout=90000)
-            page.wait_for_timeout(1800)
-            if response and response.status >= 400:
-                raise ApiError(502, "Platzi respondió HTTP " + str(response.status) + " al abrir esa ruta.")
-            result = page.evaluate(r"""() => {
-              const trim = (v) => (v || '').replace(/\s+/g, ' ').trim();
-              const title = trim(document.querySelector('h1')?.innerText) || trim(document.title) || 'Ruta de Platzi';
-              const courses = new Map();
-              for (const a of document.querySelectorAll('a[href]')) {
-                let u;
-                try { u = new URL(a.getAttribute('href'), location.href); } catch (_) { continue; }
-                if (u.hostname !== 'platzi.com' && u.hostname !== 'www.platzi.com') continue;
-                const m = u.pathname.match(/^\/cursos\/([a-z0-9][a-z0-9-]*)\/?$/i);
-                if (!m) continue;
-                const slug = m[1].toLowerCase();
-                if (courses.has(slug)) continue;
-                const card = a.closest('article, li, [class*="course"], [data-testid*="course"]') || a;
-                const heading = trim(card.querySelector('h2,h3,h4')?.innerText) || trim(a.getAttribute('aria-label')) || trim(a.innerText) || slug;
-                courses.set(slug, {slug, title: heading.slice(0, 180), url: 'https://platzi.com/cursos/' + slug + '/'});
-              }
-              return {title, courses: Array.from(courses.values())};
-            }""")
-            if not isinstance(result, dict) or not result.get("courses"):
-                raise ApiError(422, "No encontré cursos en esa página. Comprueba que la ruta sea visible con tu sesión de Platzi.")
-            return {"title": result.get("title") or "Ruta de Platzi", "url": url, "courses": result["courses"][:MAX_ENQUEUE]}
-        finally:
-            browser.close()
-
-
     def do_POST(self):
         if not self._same_origin():
             self._error(403, "Origen no permitido.")
@@ -961,6 +911,56 @@ def import_mis_ruta(raw_url):
     def list_directory(self, path):
         self._error(404, "Ruta no encontrada.")
         return None
+
+
+def import_mis_ruta(raw_url):
+    """Lee cursos de una ruta compartida /mis-rutas/<id>/ sin alterar la biblioteca."""
+    url = str(raw_url or "").strip()
+    parsed = urlparse(url)
+    if parsed.scheme != "https" or parsed.hostname not in ("platzi.com", "www.platzi.com"):
+        raise ApiError(400, "Usa una URL https://platzi.com/mis-rutas/ID/.")
+    match = re.fullmatch(r"/mis-rutas/(\d+)/?", parsed.path)
+    if not match or parsed.query or parsed.fragment:
+        raise ApiError(400, "La URL debe tener el formato https://platzi.com/mis-rutas/ID/.")
+
+    from playwright.sync_api import sync_playwright
+    from sync_public_catalog import read_cookies
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False, channel="chromium")
+        try:
+            context = browser.new_context(locale="es-ES")
+            cookies = read_cookies()
+            if cookies:
+                context.add_cookies(cookies)
+            page = context.new_page()
+            response = page.goto(url, wait_until="domcontentloaded", timeout=90000)
+            page.wait_for_timeout(1800)
+            if response and response.status >= 400:
+                raise ApiError(502, "Platzi respondió HTTP " + str(response.status) + " al abrir esa ruta.")
+            result = page.evaluate(r"""() => {
+              const trim = (v) => (v || '').replace(/\s+/g, ' ').trim();
+              const title = trim(document.querySelector('h1')?.innerText) || trim(document.title) || 'Ruta de Platzi';
+              const courses = new Map();
+              for (const a of document.querySelectorAll('a[href]')) {
+                let u;
+                try { u = new URL(a.getAttribute('href'), location.href); } catch (_) { continue; }
+                if (u.hostname !== 'platzi.com' && u.hostname !== 'www.platzi.com') continue;
+                const m = u.pathname.match(/^\/cursos\/([a-z0-9][a-z0-9-]*)\/?$/i);
+                if (!m) continue;
+                const slug = m[1].toLowerCase();
+                if (courses.has(slug)) continue;
+                const card = a.closest('article, li, [class*="course"], [data-testid*="course"]') || a;
+                const heading = trim(card.querySelector('h2,h3,h4')?.innerText) || trim(a.getAttribute('aria-label')) || trim(a.innerText) || slug;
+                courses.set(slug, {slug, title: heading.slice(0, 180), url: 'https://platzi.com/cursos/' + slug + '/'});
+              }
+              return {title, courses: Array.from(courses.values())};
+            }""")
+            if not isinstance(result, dict) or not result.get("courses"):
+                raise ApiError(422, "No encontré cursos en esa página. Comprueba que la ruta sea visible con tu sesión de Platzi.")
+            return {"title": result.get("title") or "Ruta de Platzi", "url": url, "courses": result["courses"][:MAX_ENQUEUE]}
+        finally:
+            browser.close()
 
 
 def port_in_use(host, port):
