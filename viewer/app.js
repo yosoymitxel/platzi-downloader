@@ -1138,6 +1138,17 @@
     if (refreshButton) refreshButton.disabled = !publicCatalogAvailable || !!sync.running;
   }
 
+  function pollExploreCourseState(view) {
+    window.setTimeout(function () {
+      if (!view || !document.body.contains(view)) return;
+      syncPublicQueueState(function () {
+        if (!document.body.contains(view)) return;
+        paintExplore(view);
+        pollExploreCourseState(view);
+      });
+    }, 2000);
+  }
+
   function pollPublicCatalog(view) {
     if (!view || !document.body.contains(view)) return;
     window.setTimeout(function () {
@@ -1318,6 +1329,7 @@
         if (!document.body.contains(root)) return;
         syncPublicQueueState(function(){ if(document.body.contains(root)) paintExplore(root); });
         paintExplore(root);
+        pollExploreCourseState(root);
         if (sync && sync.running) pollPublicCatalog(root);
       });
     });
