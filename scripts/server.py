@@ -650,6 +650,17 @@ def worker_loop():
                 normalize_order()
                 save_state_locked()
         last_save = 0
+        # Al terminar toda la cola, reconstruye la biblioteca local desde los archivos
+        # descargados. Así el siguiente render/recargado comparte el mismo estado.
+        with LOCK:
+            refresh_after_download = (
+                item is not None
+                and item.get("status") == "completed"
+                and not any(it.get("status") in ("queued", "running") for it in STATE["items"])
+                and not STATE["catalog"].get("refreshing")
+            )
+        if refresh_after_download:
+            refresh_catalog()
 
 
 def start_worker():
