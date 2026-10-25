@@ -1019,13 +1019,9 @@
     if (title) title.textContent = importedRoute.title || 'Ruta de Platzi';
     var localBySlug = Object.create(null);
     for (var i = 0; i < courses.length; i++) if (courses[i] && courses[i].slug) localBySlug[courses[i].slug] = courses[i];
-    var queue = Object.create(null);
-    if (Array.isArray(window.__platziQueueState)) {
-      window.__platziQueueState.forEach(function (item) { if (item && item.slug && ['queued', 'running'].indexOf(item.status) >= 0) queue[item.slug] = true; });
-    }
     var pending = importedRoute.courses.filter(function (c) {
       var local = localBySlug[c.slug];
-      return !(local && local.downloaded) && !queue[c.slug];
+      return !(local && local.downloaded);
     });
     importedRoute.pending = pending;
     if (count) count.textContent = importedRoute.courses.length + ' cursos encontrados · ' + pending.length + ' por añadir (sin contar los ya descargados o en cola).';
