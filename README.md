@@ -87,6 +87,14 @@ Puedes saltarte la lectura con **`setup.cmd`**: verifica Python, el CLI, ffmpeg,
 └── PRODUCT.md               Brief del producto
 ```
 
+## Explorar el catálogo público
+
+La vista **Explorar** consulta una caché SQLite local del catálogo público de Platzi. La primera sincronización y las actualizaciones se lanzan desde esa vista con **Actualizar catálogo público**: se leen el catálogo general, los lanzamientos y las rutas públicas. La sincronización puede abrir una ventana de Chromium y requiere internet; no descarga vídeos.
+
+El buscador combina cursos y clases de tu biblioteca con los cursos públicos guardados en SQLite. Los cursos de tu biblioteca mantienen la ficha y el progreso locales; los que solo aparecen en el catálogo público abren la página oficial de Platzi. La caché no se versiona y se reconstruye por instalación.
+
+Para sincronizar manualmente, ejecuta **python scripts\sync_public_catalog.py** desde la raíz con Playwright y Chromium instalados. Si no hay conexión o todavía no se sincronizó, tus cursos descargados siguen funcionando offline; las novedades públicas y cursos ajenos a tu biblioteca necesitan una caché previa o internet.
+
 ## Usar el visor
 
 ```
