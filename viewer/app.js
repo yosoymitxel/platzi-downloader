@@ -64,7 +64,17 @@
   var publicCatalogSyncState = { running: false, startedAt: null, finishedAt: null, ok: null, error: '' };
   var publicCatalogError = '';
   var importedRoute = null;
+
   var importingRoute = false;
+  var exploreUi = {
+    latest: { query: '', filters: [], limit: 20 },
+    routes: { query: '', sort: 'title', limit: 20 },
+    courses: { query: '', filters: [], limit: 20 }
+  };
+  var courseServerState = Object.create(null);
+  var lastSeenLocalRefresh = null;
+  var localRefreshSeenRunning = false;
+  var EXPLORE_FILTERS = ['all', 'downloaded', 'cert', 'queued', 'missing'];
 
   /* ---------- formato y utilidades ---------- */
 
@@ -609,22 +619,91 @@
   }
 
   function syncPublicQueueState(callback) {
-    if (!publicCourses.length || typeof window.fetch !== 'function') { if (callback) callback(); return; }
+    if (typeof window.fetch !== 'function') { if (callback) callback(); return; }
     window.fetch('/api/state', {cache: 'no-store'}).then(function (r) {
-      if (!r.ok) throw new Error('No se pudo leer la cola');
+      if (!r.ok) throw new Error('No se pudo leer el estado de los cursos');
       return r.json();
     }).then(function (data) {
-      var queued = Object.create(null);
+      var localCatalogState = data.catalog || {};
+      if (lastSeenLocalRefresh === null) lastSeenLocalRefresh = localCatalogState.lastRefresh || null;
+      if (localCatalogState.refreshing) {
+        localRefreshSeenRunning = true;
+      } else if (localRefreshSeenRunning && localCatalogState.lastRefresh &&
+          localCatalogState.lastRefresh !== lastSeenLocalRefresh && localCatalogState.lastRefreshOk) {
+        // El servidor ya regeneró viewer/data.js tras la descarga; recargar incorpora
+        // módulos/clases recién descargados además de sus estados.
+        window.location.reload();
+        return;
+      }
+      if (localCatalogState.lastRefresh) lastSeenLocalRefresh = localCatalogState.lastRefresh;
+      courseServerState = Object.create(null);
       (Array.isArray(data.items) ? data.items : []).forEach(function (item) {
-        if (item && item.slug && (item.status === 'queued' || item.status === 'running')) queued[item.slug] = true;
+        if (item && item.slug && ['queued', 'running', 'completed', 'error', 'canceled'].indexOf(item.status) >= 0) {
+          courseServerState[item.slug] = item.status;
+        }
       });
-      publicCourses.forEach(function (course) {
-        var local = bySlug[course.slug];
-        if (local) local.queued = !!queued[course.slug];
-        else course.queued = !!queued[course.slug];
-      });
+      function apply(course) {
+        if (!course || !course.slug) return;
+        var status = courseServerState[course.slug];
+        if (status === 'queued' || status === 'running') course.queued = true;
+        else course.queued = false;
+        // Una descarga completada en esta sesión se refleja también en Explorar.
+        if (status === 'completed') course.downloaded = true;
+      }
+      courses.forEach(apply);
+      publicCourses.forEach(apply);
       if (callback) callback();
     }).catch(function () { if (callback) callback(); });
+  }
+
+  function exploreCourseState(raw) {
+    var course = raw || {};
+    var local = course.slug ? bySlug[course.slug] : null;
+    var merged = local || course;
+    var status = course.slug ? courseServerState[course.slug] : null;
+    return {
+      downloaded: !!merged.downloaded || status === 'completed',
+      cert: !!merged.cert,
+      queued: status === 'queued' || status === 'running' || (!!merged.queued && !status),
+      progress: courseInProgress(merged)
+    };
+  }
+
+  function exploreCourseMatches(raw, filters, query) {
+    var title = norm((raw && (raw.title || raw.slug)) || '');
+    if (query && title.indexOf(norm(query)) < 0) return false;
+    var status = exploreCourseState(raw);
+    for (var i = 0; i < filters.length; i++) {
+      var f = filters[i];
+      if (f === 'downloaded' && !status.downloaded) return false;
+      if (f === 'cert' && !status.cert) return false;
+      if (f === 'queued' && !status.queued) return false;
+      if (f === 'missing' && status.downloaded) return false;
+    }
+    return true;
+  }
+
+  function toggleExploreFilter(filters, key) {
+    if (!key || key === 'all') return [];
+    var at = filters.indexOf(key);
+    if (at >= 0) filters.splice(at, 1); else filters.push(key);
+    return filters;
+  }
+
+  function paintExploreFilterButtons(view, block, filters) {
+    var buttons = view.querySelectorAll('[data-explore-block="' + block + '"][data-explore-filter]');
+    for (var i = 0; i < buttons.length; i++) {
+      var key = buttons[i].getAttribute('data-explore-filter');
+      buttons[i].setAttribute('aria-pressed', (key === 'all' ? !filters.length : filters.indexOf(key) >= 0) ? 'true' : 'false');
+    }
+  }
+
+  function appendExploreMore(view, block, shown, total, onMore) {
+    var button = view.querySelector('[data-explore-more="' + block + '"]');
+    if (!button) return;
+    button.hidden = shown >= total;
+    button.textContent = 'Mostrar más (' + Math.min(20, Math.max(0, total - shown)) + ' de ' + total + ')';
+    button.onclick = onMore;
   }
 
   function fillCourseCard(card, course) {
@@ -632,8 +711,17 @@
     var link = card.querySelector('a[data-slot="link"]') || hook(card, 'link');
     if (course.publicOnly) {
       var localCourse = bySlug[course.slug];
-      if (localCourse) { fillCourseCard(card, localCourse); return; }
-      card.setAttribute('data-state', course.queued ? 'queued' : 'public');
+      if (localCourse) {
+        var localStatus = courseServerState[course.slug];
+        if (localStatus === 'completed') localCourse.downloaded = true;
+        if (localStatus === 'queued' || localStatus === 'running') localCourse.queued = true;
+        else if (localStatus) localCourse.queued = false;
+        fillCourseCard(card, localCourse); return;
+      }
+      var mergedStatus = exploreCourseState(course);
+      course.downloaded = mergedStatus.downloaded;
+      course.queued = mergedStatus.queued;
+      card.setAttribute('data-state', course.downloaded ? 'downloaded' : (course.queued ? 'queued' : 'public'));
       if (link) {
         link.setAttribute('href', hrefCurso(course.slug));
         link.removeAttribute('target');
@@ -648,8 +736,8 @@
       setText(card, 'meta', publicMeta.join(' · ') || 'Catálogo público de Platzi');
       var publicStatus = hook(card, 'status');
       if (publicStatus) {
-        clearEl(publicStatus);
-        publicStatus.appendChild(chipNode(course.queued ? 'queued' : 'public'));
+        fillChips(publicStatus, course);
+        if (!course.downloaded && !course.queued) publicStatus.appendChild(chipNode('public'));
       }
       setProgress(card, 0, false);
       return;
@@ -981,48 +1069,98 @@
       }
     }
 
+    var routeState = exploreUi.routes;
+    var routeQuery = norm(routeState.query);
+    var filteredRoutes = routes.filter(function (route) {
+      return !routeQuery || norm((route.title || '') + ' ' + (route.description || '')).indexOf(routeQuery) >= 0;
+    });
+    filteredRoutes.sort(function (x, y) {
+      if (routeState.sort === 'count') return (Number(y.coursesCount || 0) - Number(x.coursesCount || 0)) || cmpTitle(x.title || x.id, y.title || y.id);
+      return cmpTitle(x.title || x.id, y.title || y.id);
+    });
     var routeBox = listHook(view, 'public-routes');
+    var visibleRoutes = filteredRoutes.slice(0, routeState.limit);
     if (routeBox) {
       clearEl(routeBox);
-      routes.forEach(function (r) {
-        var card = partial('tpl-route-card', function (node) { fillPublicRouteCard(node, r); });
+      visibleRoutes.forEach(function (route) {
+        var card = partial('tpl-route-card', function (node) { fillPublicRouteCard(node, route); });
         if (card) routeBox.appendChild(card);
       });
     }
     var routesEmpty = hook(view, 'routes-empty');
-    if (routesEmpty) routesEmpty.hidden = routes.length > 0;
+    if (routesEmpty) {
+      routesEmpty.textContent = routes.length ? 'No hay rutas que coincidan con la búsqueda.' : 'No hay rutas públicas en la caché. Actualiza el catálogo.';
+      routesEmpty.hidden = filteredRoutes.length > 0;
+    }
+    setText(view, 'routes-count', filteredRoutes.length + ' rutas');
+    appendExploreMore(view, 'routes', visibleRoutes.length, filteredRoutes.length, function () {
+      routeState.limit += 20; paintExplore(view);
+    });
+
+    var allPublicCourses = publicCourses.slice();
+    var publicCourseCount = hook(view, 'public-course-count');
+    if (publicCourseCount) publicCourseCount.textContent = allPublicCourses.length + ' cursos';
+    var courseStateUi = exploreUi.courses;
+    var filteredPublicCourses = allPublicCourses.filter(function (course) {
+      return exploreCourseMatches(course, courseStateUi.filters, courseStateUi.query);
+    });
     var publicCoursesBox = listHook(view, 'public-courses');
+    var visiblePublicCourses = filteredPublicCourses.slice(0, courseStateUi.limit);
     if (publicCoursesBox) {
       clearEl(publicCoursesBox);
-      var publicCourseCount = hook(view, 'public-course-count');
-      if (publicCourseCount) publicCourseCount.textContent = count + (count === 1 ? ' curso' : ' cursos');
-      publicCourses.forEach(function (c) {
-        var card = partial('tpl-course-card', function (node) { fillCourseCard(node, c); });
+      visiblePublicCourses.forEach(function (course) {
+        var card = partial('tpl-course-card', function (node) { fillCourseCard(node, course); });
         if (card) publicCoursesBox.appendChild(card);
       });
     }
+    setText(view, 'public-course-count', filteredPublicCourses.length + ' cursos');
     var publicCoursesEmpty = hook(view, 'public-courses-empty');
-    if (publicCoursesEmpty) publicCoursesEmpty.hidden = publicCourses.length > 0;
+    if (publicCoursesEmpty) {
+      publicCoursesEmpty.textContent = allPublicCourses.length ? 'Ningún curso coincide con los filtros.' : 'No hay cursos públicos en la caché. Actualiza el catálogo.';
+      publicCoursesEmpty.hidden = filteredPublicCourses.length > 0;
+    }
+    paintExploreFilterButtons(view, 'courses', courseStateUi.filters);
+    appendExploreMore(view, 'courses', visiblePublicCourses.length, filteredPublicCourses.length, function () {
+      courseStateUi.limit += 20; paintExplore(view);
+    });
 
+    var latestState = exploreUi.latest;
+    var normalizedLatest = latest.map(normalizePublicCourse);
+    var filteredLatest = normalizedLatest.filter(function (course) {
+      return exploreCourseMatches(course, latestState.filters, latestState.query);
+    });
     var latestBox = listHook(view, 'latest');
+    var visibleLatest = filteredLatest.slice(0, latestState.limit);
     if (latestBox) {
       clearEl(latestBox);
-      for (var i = 0; i < latest.length; i++) {
-        var item = normalizePublicCourse(latest[i]);
-        var card = partial('tpl-course-card', (function (c) {
-          return function (node) { fillCourseCard(node, c); };
-        })(item));
+      visibleLatest.forEach(function (course) {
+        var card = partial('tpl-course-card', function (node) { fillCourseCard(node, course); });
         if (card) latestBox.appendChild(card);
-      }
+      });
     }
     var latestEmpty = hook(view, 'latest-empty');
     if (latestEmpty) {
-      latestEmpty.textContent = data.syncedAt ? 'No se encontraron lanzamientos en la última sincronización.' : 'Sincroniza el catálogo para mostrar cursos nuevos.';
-      latestEmpty.hidden = latest.length > 0;
+      latestEmpty.textContent = data.syncedAt ? 'No hay lanzamientos que coincidan con los filtros.' : 'Sincroniza el catálogo para mostrar cursos nuevos.';
+      latestEmpty.hidden = filteredLatest.length > 0;
     }
+    paintExploreFilterButtons(view, 'latest', latestState.filters);
+    appendExploreMore(view, 'latest', visibleLatest.length, filteredLatest.length, function () {
+      latestState.limit += 20; paintExplore(view);
+    });
 
     var refreshButton = view.querySelector('[data-control="catalog-refresh"]');
     if (refreshButton) refreshButton.disabled = !publicCatalogAvailable || !!sync.running;
+  }
+
+  function pollExploreCourseState(view) {
+    window.setTimeout(function () {
+      if (!view || !document.body.contains(view)) return;
+      syncPublicQueueState(function () {
+        if (!document.body.contains(view)) return;
+        paintExplore(view);
+        pollExploreCourseState(view);
+      });
+    }, 2000);
   }
 
   function pollPublicCatalog(view) {
@@ -1162,6 +1300,34 @@
     setTitle('Explorar · Platzi Local');
     renderShell('explorar');
     var view = mount('tpl-explorar', function (root) {
+      root.addEventListener('input', function (event) {
+        var target = event.target;
+        var block = target && target.getAttribute('data-explore-search');
+        if (!block || !exploreUi[block]) return;
+        exploreUi[block].query = target.value || '';
+        exploreUi[block].limit = 20;
+        paintExplore(root);
+        var again = root.querySelector('[data-explore-search="' + block + '"]');
+        if (again) { again.focus(); try { again.setSelectionRange(again.value.length, again.value.length); } catch (_) {} }
+      });
+      root.addEventListener('change', function (event) {
+        var target = event.target;
+        if (target && target.matches('[data-explore-sort="routes"]')) {
+          exploreUi.routes.sort = target.value || 'title';
+          exploreUi.routes.limit = 20;
+          paintExplore(root);
+        }
+      });
+      root.addEventListener('click', function (event) {
+        var button = event.target && event.target.closest ? event.target.closest('[data-explore-filter]') : null;
+        if (!button || !root.contains(button)) return;
+        var block = button.getAttribute('data-explore-block');
+        var key = button.getAttribute('data-explore-filter');
+        if (!exploreUi[block] || !exploreUi[block].filters) return;
+        exploreUi[block].filters = toggleExploreFilter(exploreUi[block].filters, key);
+        exploreUi[block].limit = 20;
+        paintExplore(root);
+      });
       var refreshButton = root.querySelector('[data-control="catalog-refresh"]');
       if (refreshButton) refreshButton.addEventListener('click', function () { startPublicCatalogSync(root); });
       var importForm = root.querySelector('[data-form="import-route"]');
@@ -1177,6 +1343,7 @@
         if (!document.body.contains(root)) return;
         syncPublicQueueState(function(){ if(document.body.contains(root)) paintExplore(root); });
         paintExplore(root);
+        pollExploreCourseState(root);
         if (sync && sync.running) pollPublicCatalog(root);
       });
     });

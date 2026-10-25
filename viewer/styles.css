@@ -1593,3 +1593,13 @@ main#app { display: block; }
   .route-card:hover,
   .course-card:hover { transform: none; }
 }
+
+/* Controles independientes de Explorar */
+.explore-tools { display: grid; justify-items: start; gap: 10px; min-width: 0; }
+.explore-tools .filters { margin: 0; }
+.explore-tools .dl-search { width: 100%; margin: 0; }
+.explore-tools .field { max-width: 100%; }
+.explore-tools select { max-width: 100%; }
+.explore-section > [data-explore-more] { justify-self: start; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
