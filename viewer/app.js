@@ -1021,7 +1021,7 @@
     for (var i = 0; i < courses.length; i++) if (courses[i] && courses[i].slug) localBySlug[courses[i].slug] = courses[i];
     var pending = importedRoute.courses.filter(function (c) {
       var local = localBySlug[c.slug];
-      return !(local && local.downloaded);
+      return !(local && local.downloaded) && !c.queued;
     });
     importedRoute.pending = pending;
     if (count) count.textContent = importedRoute.courses.length + ' cursos encontrados · ' + pending.length + ' por añadir (sin contar los ya descargados o en cola).';
@@ -1096,7 +1096,9 @@
       });
     }).then(function (payload) {
       if (status) status.textContent = 'Listo: ' + payload.added + ' cursos añadidos a la cola de Descargas.';
-      importedRoute.pending = [];
+      var queuedSlugs = Object.create(null);
+      items.forEach(function (item) { queuedSlugs[item.slug] = true; });
+      importedRoute.courses.forEach(function (course) { if (queuedSlugs[course.slug]) course.queued = true; });
       paintImportedRoute(view);
     }).catch(function (error) {
       if (status) status.textContent = 'No se pudo añadir la ruta: ' + (error.message || 'error desconocido');
