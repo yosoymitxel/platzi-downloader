@@ -37,6 +37,24 @@ def collect_page(page: Any, url: str, source: str) -> dict[str, list[dict[str, A
     page.goto(url, wait_until="domcontentloaded", timeout=90000)
     page.wait_for_timeout(2200)
 
+    # La vista Explorar muestra inicialmente solo unas pocas rutas. Expandir
+    # "Ver más" antes de recorrer el DOM para incluir las demás rutas visibles.
+    if source == "explore":
+        for _ in range(12):
+            expanded = page.evaluate(
+                """() => {
+                    const trim = (v) => (v || '').replace(/\\s+/g, ' ').trim().toLowerCase();
+                    const button = Array.from(document.querySelectorAll('button, [role="button"]'))
+                        .find((el) => trim(el.innerText).replace('expand_more', '').trim() === 'ver más');
+                    if (!button || button.disabled) return false;
+                    button.click();
+                    return true;
+                }"""
+            )
+            if not expanded:
+                break
+            page.wait_for_timeout(350)
+
     previous = -1
     stable = 0
     for _ in range(10):
