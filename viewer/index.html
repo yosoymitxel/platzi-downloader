@@ -23,6 +23,7 @@
     <nav id="mainnav" aria-label="Principal">
       <a href="#/" data-nav="inicio" aria-current="page">Inicio</a>
       <a href="#/rutas" data-nav="rutas">Rutas</a>
+      <a href="#/explorar" data-nav="explorar">Explorar</a>
       <a href="#/cursos" data-nav="cursos">Mis cursos</a>
       <a href="#/descargas" data-nav="descargas">Descargas</a>
     </nav>
@@ -95,6 +96,39 @@
           <a class="section-link" data-slot="all-courses" href="#/cursos">Ver todos los cursos</a>
         </div>
         <div class="course-grid" data-list="courses"></div>
+      </section>
+    </section>
+  </template>
+
+  <template id="tpl-explorar">
+    <section class="view view-explorar">
+      <header class="explore-head">
+        <div class="explore-intro">
+          <h1>Explorar</h1>
+          <p>Catálogo público de Platzi, separado de tu biblioteca local.</p>
+        </div>
+        <div class="explore-actions">
+          <p class="explore-status" data-slot="sync-status">Comprobando catálogo…</p>
+          <button class="btn" type="button" data-control="catalog-refresh">Actualizar catálogo público</button>
+        </div>
+      </header>
+      <p class="explore-summary" data-slot="summary"></p>
+      <div class="empty-state explore-notice" data-slot="notice" role="status"></div>
+      <section class="explore-section">
+        <div class="section-head">
+          <h2>Últimos cursos</h2>
+          <a class="section-link" href="https://platzi.com/agenda/" target="_blank" rel="noopener noreferrer">Ver lanzamientos</a>
+        </div>
+        <div class="course-grid" data-list="latest"></div>
+        <div class="empty-state" data-slot="latest-empty" hidden></div>
+      </section>
+      <section class="explore-section">
+        <div class="section-head">
+          <h2>Rutas públicas</h2>
+          <a class="section-link" href="https://platzi.com/cursos/explora/" target="_blank" rel="noopener noreferrer">Ver catálogo oficial</a>
+        </div>
+        <div class="route-list" data-list="public-routes"></div>
+        <div class="empty-state" data-slot="routes-empty" hidden></div>
       </section>
     </section>
   </template>

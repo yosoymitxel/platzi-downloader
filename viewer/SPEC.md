@@ -19,7 +19,8 @@ Objetivo: ver los cursos descargados en `Courses/` con la experiencia más parec
 - `app.js` renderiza cada vista clonando su template desde `#templates` y rellenando solo los hooks `[data-slot]` / `[data-list]` definidos en §4. La UI define el markup y las clases; la lógica **nunca** crea markup nuevo salvo: `<track>`s dentro del `<video>`, nodos clonados de partials, e iconos `<svg><use href="#ic-…">` cambiando el `href` del `use`.
 - Rutas del router:
   - `#/` → Inicio
-  - `#/rutas` → todas las rutas
+  - `#/rutas` → rutas de tu cuenta
+  - `#/explorar` → cursos recientes y rutas públicas de Platzi (requiere sincronización online opcional)
   - `#/ruta/<routeId>` → detalle de ruta
   - `#/cursos` → catálogo completo con filtros
   - `#/curso/<slug>` → detalle de curso
@@ -93,6 +94,7 @@ Convención: la UI puede añadir clases y estructura **alrededor**, pero estos h
 ### §4.1 Vistas (template → root)
 | Template | Root | Hooks obligatorios |
 |---|---|---|
+| `tpl-explorar` | `section.view.view-explorar` | `[data-slot=sync-status]`, `[data-slot=summary]`, `[data-slot=notice]`, `[data-list=latest]`, `[data-slot=latest-empty]`, `[data-list=public-routes]`, `[data-slot=routes-empty]`, botón `[data-control=catalog-refresh]` |
 | `tpl-home` | `section.view.view-home` | `[data-slot=resume-title]`, `[data-slot=resume-meta]`, `a[data-slot=resume-link]`, `[data-slot=resume-empty]` (bloque alterno oculto), `[data-list=routes]`, `[data-list=courses]`, `a[data-slot=all-routes]` (→`#/rutas`), `a[data-slot=all-courses]` (→`#/cursos`) |
 | `tpl-rutas` | `…view-rutas` | `[data-list=routes]`, `[data-slot=empty]` |
 | `tpl-ruta` | `…view-ruta` | `[data-slot=title]`, `[data-slot=cover]` (img o fallback), `[data-slot=meta]` (ej. "23 cursos · 44 h"), `[data-slot=bar]` (ancho %), `[data-slot=pct]`, `a[data-slot=continue]`, `[data-filters]` con los pills de §5.5 y `span[data-filter-count]`, `[data-slot=count]`, `[data-list=courses]`, `[data-slot=empty]` |
@@ -158,7 +160,7 @@ La UI define un sprite `<svg id="icons" style="display:none">` con `<symbol>`: `
 ### §5.5 Cursos (catálogo) y búsqueda
 - Filtros: all (todo), progress (`platzi.done>0` o local>0 y sin cert), cert, downloaded, queued, missing. Cada pill es un interruptor: `aria-pressed="true"` si está activo, y varios pueden estarlo a la vez. Los activos se combinan con **Y** (p. ej. "En curso" + "Sin descargar" = en curso y sin descargar); "Todos" limpia la selección y solo está pulsado cuando no hay ninguno. Cada pill muestra su total en `[data-filter-count]` (all = total del ámbito: catálogo o ruta); los conteos se calculan con la misma condición del filtro y no cambian al combinar.
 - Orden del catálogo: certificados al final; antes, descargados primero; dentro de cada grupo, título alfabético. Contador "N cursos".
-- Búsqueda: `#search-input` con dropdown (`#search-results`): máx 8 resultados mezclando cursos (título) y clases (título de clase), con navegación ↑/↓/Enter/Escape; Enter con texto → `#/buscar/<q>`. Los resultados de cursos descargados van primero (relevancia como desempate). Vista `#/buscar/<q>`: sección "Cursos" (cards) + "Clases" (result-class, máx 100). Normalización para buscar: minúsculas y sin acentos (NFD + strip diacríticos). Sin resultados → `[data-slot=empty]`.
+- Búsqueda: `#search-input` con dropdown (`#search-results`): máx. 8 resultados mezclando cursos y clases locales con cursos públicos de la caché SQLite; navegación ↑/↓/Enter/Escape. Orden: cursos descargados, biblioteca personal y catálogo público. Los resultados públicos abren la página oficial en otra pestaña; las fichas locales conservan el progreso. Vista `#/buscar/<q>`: sección "Cursos" (cards) + "Clases" (result-class, máx. 100). Normalización: minúsculas y sin acentos (NFD + strip diacríticos). Sin resultados → `[data-slot=empty]`.
 - `#/cursos`: `[data-slot=count]`; grid con todos.
 
 ### §5.6 Utilidades de la lógica
@@ -277,6 +279,8 @@ La vista `#/descargas` requiere `scripts/server.py`, que arranca `viewer/start.c
 - Cursos manuales: buscador sobre todo el catálogo, descargados primero y marcados con el chip "Descargado" (sin botones); "Añadir" va al final y "al frente" (icono) después del que corre. Contador: "N descargados · M sin descargar" (omitir el 0); al buscar, "N resultados · M descargados".
 
 ### §10.2 API local
+- `GET /api/catalog` devuelve la caché SQLite: catálogo público, últimos cursos, rutas públicas, recuentos y estado de sincronización.
+- `POST /api/catalog/refresh` inicia en segundo plano la actualización pública desde Platzi; abre Chromium si hace falta, no descarga vídeos y no modifica el progreso personal.
 - `GET /api/state` → `{ok, items, stats, catalog, session, cliAvailable, serverTime}`; cada item: `{slug, title, status: queued|running|completed|error|canceled, progress, phase, error, addedAt, startedAt, finishedAt}`. `session` = `{checkedAt, loggedIn, message}`.
 - `GET /api/session` → `{ok, session, cliAvailable, serverTime}`. `POST /api/session/check` ejecuta una comprobación de la sesión de Platzi y devuelve el mismo formato.
 - `POST /api/enqueue {items:[{slug,title}], position: back|front}` · `POST /api/reorder {slug, direction: up|down}`.

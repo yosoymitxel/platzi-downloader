@@ -29,11 +29,14 @@ import time
 from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import unquote, urlparse
+from urllib.parse import parse_qs, unquote, urlparse
+
+from catalog_db import get_catalog_payload
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_PATH = ROOT / "scripts" / "download_state.json"
 VIEWER_DATA = ROOT / "scripts" / "viewer_data.py"
+PUBLIC_CATALOG_SCRIPT = ROOT / "scripts" / "sync_public_catalog.py"
 HOST = "127.0.0.1"
 PORT = int(os.environ.get("PORT", "8787"))
 PLATZI_BIN = os.environ.get("PLATZI_BIN", "platzi")
@@ -80,6 +83,9 @@ STATE = {
     "catalog": {"refreshing": False, "lastRefresh": None, "lastRefreshOk": None},
     "session": {"checkedAt": None, "loggedIn": None, "message": ""},
 }
+
+PUBLIC_CATALOG_SYNC_LOCK = threading.Lock()
+PUBLIC_CATALOG_SYNC = {"running": False, "startedAt": None, "finishedAt": None, "ok": None, "error": ""}
 
 
 class ApiError(Exception):
@@ -394,6 +400,59 @@ def check_session():
     return dict(result)
 
 
+def public_catalog_sync_snapshot():
+    with PUBLIC_CATALOG_SYNC_LOCK:
+        return dict(PUBLIC_CATALOG_SYNC)
+
+
+def start_public_catalog_sync():
+    with PUBLIC_CATALOG_SYNC_LOCK:
+        if PUBLIC_CATALOG_SYNC["running"]:
+            raise ApiError(409, "Ya se está actualizando el catálogo público.")
+        PUBLIC_CATALOG_SYNC.update({
+            "running": True,
+            "startedAt": now_ms(),
+            "finishedAt": None,
+            "ok": None,
+            "error": "",
+        })
+
+    def run():
+        ok = False
+        error = ""
+        try:
+            proc = subprocess.run(
+                [sys.executable, str(PUBLIC_CATALOG_SCRIPT)],
+                cwd=str(ROOT),
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=900,
+                check=False,
+            )
+            output = proc.stdout or ""
+            ok = proc.returncode == 0
+            if not ok:
+                error = output.strip()[-700:] or "No se pudo actualizar el catálogo público."
+            elif output.strip():
+                print(output.strip()[-1200:])
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            error = str(exc)[:700]
+        finally:
+            with PUBLIC_CATALOG_SYNC_LOCK:
+                PUBLIC_CATALOG_SYNC.update({
+                    "running": False,
+                    "finishedAt": now_ms(),
+                    "ok": ok,
+                    "error": error,
+                })
+
+    threading.Thread(target=run, name="public-catalog-sync", daemon=True).start()
+    return public_catalog_sync_snapshot()
+
+
 def refresh_catalog():
     with LOCK:
         if STATE["catalog"].get("refreshing"):
@@ -661,13 +720,19 @@ class ViewerHandler(SimpleHTTPRequestHandler):
         if path == "/api/state":
             self._send_json(snapshot())
             return
+        if path == "/api/catalog":
+            self._send_json({"ok": True, "catalog": get_catalog_payload(), "sync": public_catalog_sync_snapshot()})
+            return
+        if path.startswith("/api/catalog/"):
+            self._error(404, "Ruta no encontrada.")
+            return
         if path == "/api/session":
             with LOCK:
                 session = dict(STATE["session"])
             self._send_json({"ok": True, "session": session, "cliAvailable": cli_available(), "serverTime": now_ms()})
             return
         if path == "/api":
-            self._send_json({"ok": True, "endpoints": ["state", "enqueue", "reorder", "cancel", "remove", "clear", "refresh"]})
+            self._send_json({"ok": True, "endpoints": ["state", "catalog", "catalog/refresh", "enqueue", "reorder", "cancel", "remove", "clear", "refresh"]})
             return
         if path.startswith("/api/"):
             self._error(404, "Ruta no encontrada.")
@@ -756,6 +821,11 @@ class ViewerHandler(SimpleHTTPRequestHandler):
                 self._read_json()
                 result = check_session()
                 self._send_json({"ok": True, "session": result, "cliAvailable": cli_available(), "serverTime": now_ms()})
+                return
+            if path == "/api/catalog/refresh":
+                self._read_json()
+                sync = start_public_catalog_sync()
+                self._send_json({"ok": True, "sync": sync}, 202)
                 return
             if path == "/api/refresh":
                 self._read_json()

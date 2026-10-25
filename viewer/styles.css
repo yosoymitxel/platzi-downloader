@@ -417,6 +417,21 @@ main#app { display: block; }
 .view-aula,
 .view-buscar { display: block; }
 
+.view-explorar { display: grid; gap: 28px; }
+.explore-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.explore-intro { min-width: 0; }
+.explore-intro h1 { margin: 0 0 7px; font-size: clamp(1.7rem, 3vw, 2.25rem); letter-spacing: -0.035em; }
+.explore-intro p { margin: 0; color: var(--muted); max-width: 58ch; line-height: 1.55; }
+.explore-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 9px; flex: 0 0 auto; }
+.explore-actions .btn { white-space: nowrap; }
+.explore-status { margin: 0; color: var(--muted); font-size: .82rem; text-align: right; }
+.explore-summary { margin: -14px 0 0; color: var(--muted); font-size: .9rem; }
+.explore-notice { padding: 14px 16px; text-align: left; line-height: 1.5; }
+.explore-section { display: grid; gap: 14px; min-width: 0; }
+.explore-section > .section-head { margin-bottom: 0; }
+.course-card[data-state="public"] .course-card-status { opacity: 1; }
+.chip-public { color: var(--ink-2); background: var(--surface-2); }
+
 .ruta-hero-text,
 .curso-hero-text { min-width: 0; }
 
@@ -1519,6 +1534,10 @@ main#app { display: block; }
 
   .dl-head { flex-direction: column; }
   .dl-head-actions { padding-top: 0; }
+  .explore-head { flex-direction: column; gap: 15px; }
+  .explore-actions { align-items: flex-start; width: 100%; }
+  .explore-status { text-align: left; }
+  .explore-actions .btn { white-space: normal; }
   .dl-now-head { flex-direction: column; }
   .dl-now-head .btn-ghost { align-self: flex-start; }
 
