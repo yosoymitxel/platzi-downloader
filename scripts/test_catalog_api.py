@@ -28,6 +28,19 @@ class PublicCatalogApiTests(unittest.TestCase):
         self.httpd.server_close()
         self.thread.join(timeout=2)
 
+    def test_import_route_rejects_non_platzi_urls_and_wrong_paths(self):
+        for url in (
+            "http://platzi.com/mis-rutas/774593/",
+            "https://example.com/mis-rutas/774593/",
+            "https://platzi.com/cursos/python/",
+            "https://platzi.com/mis-rutas/abc/",
+            "https://platzi.com/mis-rutas/774593/?next=1",
+        ):
+            with self.subTest(url=url):
+                with self.assertRaises(server.ApiError) as error:
+                    server.import_mis_ruta(url)
+                self.assertEqual(error.exception.status, 400)
+
     def test_get_catalog_returns_sqlite_payload_and_sync_state(self):
         catalog = {
             "syncedAt": "2026-10-25T00:00:00Z",

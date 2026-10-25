@@ -63,6 +63,8 @@
   var publicCatalogAvailable = false;
   var publicCatalogSyncState = { running: false, startedAt: null, finishedAt: null, ok: null, error: '' };
   var publicCatalogError = '';
+  var importedRoute = null;
+  var importingRoute = false;
 
   /* ---------- formato y utilidades ---------- */
 
@@ -968,22 +970,6 @@
       latestEmpty.hidden = latest.length > 0;
     }
 
-    var routeBox = listHook(view, 'public-routes');
-    if (routeBox) {
-      clearEl(routeBox);
-      for (var j = 0; j < routes.length; j++) {
-        var routeCard = partial('tpl-route-card', (function (r) {
-          return function (node) { fillPublicRouteCard(node, r); };
-        })(routes[j]));
-        if (routeCard) routeBox.appendChild(routeCard);
-      }
-    }
-    var routesEmpty = hook(view, 'routes-empty');
-    if (routesEmpty) {
-      routesEmpty.textContent = data.syncedAt ? 'No se encontraron rutas públicas en la última sincronización.' : 'Sincroniza el catálogo para mostrar las rutas públicas.';
-      routesEmpty.hidden = routes.length > 0;
-    }
-
     var refreshButton = view.querySelector('[data-control="catalog-refresh"]');
     if (refreshButton) refreshButton.disabled = !publicCatalogAvailable || !!sync.running;
   }
@@ -1022,13 +1008,123 @@
     });
   }
 
+  function paintImportedRoute(view) {
+    if (!view) return;
+    var status = hook(view, 'import-status');
+    var preview = hook(view, 'import-preview');
+    var title = hook(view, 'import-title');
+    var count = hook(view, 'import-count');
+    var list = listHook(view, 'import-courses');
+    var enqueueButton = view.querySelector('[data-control="enqueue-imported-route"]');
+    if (preview) preview.hidden = !importedRoute;
+    if (!importedRoute) return;
+    if (title) title.textContent = importedRoute.title || 'Ruta de Platzi';
+    var localBySlug = Object.create(null);
+    for (var i = 0; i < courses.length; i++) if (courses[i] && courses[i].slug) localBySlug[courses[i].slug] = courses[i];
+    var pending = importedRoute.courses.filter(function (c) {
+      var local = localBySlug[c.slug];
+      return !(local && local.downloaded) && !c.queued;
+    });
+    importedRoute.pending = pending;
+    if (count) count.textContent = importedRoute.courses.length + ' cursos encontrados · ' + pending.length + ' por añadir (sin contar los ya descargados o en cola).';
+    if (list) {
+      clearEl(list);
+      importedRoute.courses.slice(0, 12).forEach(function (course) {
+        var li = document.createElement('li');
+        li.textContent = course.title || course.slug;
+        list.appendChild(li);
+      });
+      if (importedRoute.courses.length > 12) {
+        var more = document.createElement('li');
+        more.textContent = 'Y ' + (importedRoute.courses.length - 12) + ' cursos más…';
+        list.appendChild(more);
+      }
+    }
+    if (enqueueButton) {
+      enqueueButton.disabled = importingRoute || pending.length === 0;
+      enqueueButton.textContent = pending.length ? 'Añadir ' + pending.length + ' cursos a Descargas' : 'No hay cursos pendientes';
+    }
+    if (status && !importingRoute && !status.textContent) status.textContent = 'Ruta lista para descargar.';
+  }
+
+  function importRouteFromExplore(view) {
+    var input = view.querySelector('#public-route-url');
+    var status = hook(view, 'import-status');
+    var button = view.querySelector('[data-control="import-route"]');
+    var url = input ? input.value.trim() : '';
+    if (!url || importingRoute) return;
+    importingRoute = true;
+    importedRoute = null;
+    if (status) status.textContent = 'Abriendo la ruta y leyendo sus cursos…';
+    if (button) button.disabled = true;
+    paintImportedRoute(view);
+    window.fetch('/api/import-route', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({url: url})
+    }).then(function (response) {
+      return response.json().then(function (payload) {
+        if (!response.ok || !payload.ok) throw new Error(payload.error || ('Error HTTP ' + response.status));
+        return payload.route;
+      });
+    }).then(function (route) {
+      importedRoute = route;
+      if (status) status.textContent = 'Ruta leída. Revisa los cursos antes de añadirlos a la cola.';
+    }).catch(function (error) {
+      if (status) status.textContent = 'No se pudo leer la ruta: ' + (error.message || 'error desconocido');
+    }).finally(function () {
+      importingRoute = false;
+      if (button) button.disabled = false;
+      paintImportedRoute(view);
+    });
+  }
+
+  function enqueueImportedRouteFromExplore(view) {
+    if (!importedRoute || importingRoute || !Array.isArray(importedRoute.pending) || !importedRoute.pending.length) return;
+    var status = hook(view, 'import-status');
+    var button = view.querySelector('[data-control="enqueue-imported-route"]');
+    var items = importedRoute.pending.map(function (c) { return {slug: c.slug, title: c.title}; });
+    importingRoute = true;
+    if (button) button.disabled = true;
+    if (status) status.textContent = 'Añadiendo cursos a la cola de descargas…';
+    window.fetch('/api/enqueue', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({items: items, position: 'back'})
+    }).then(function (response) {
+      return response.json().then(function (payload) {
+        if (!response.ok || !payload.ok) throw new Error(payload.error || ('Error HTTP ' + response.status));
+        return payload;
+      });
+    }).then(function (payload) {
+      if (status) status.textContent = 'Listo: ' + payload.added + ' cursos añadidos a la cola de Descargas.';
+      var queuedSlugs = Object.create(null);
+      items.forEach(function (item) { queuedSlugs[item.slug] = true; });
+      importedRoute.courses.forEach(function (course) { if (queuedSlugs[course.slug]) course.queued = true; });
+      paintImportedRoute(view);
+    }).catch(function (error) {
+      if (status) status.textContent = 'No se pudo añadir la ruta: ' + (error.message || 'error desconocido');
+    }).finally(function () {
+      importingRoute = false;
+      paintImportedRoute(view);
+    });
+  }
+
   function renderExplorar() {
     setTitle('Explorar · Platzi Local');
     renderShell('explorar');
     var view = mount('tpl-explorar', function (root) {
       var refreshButton = root.querySelector('[data-control="catalog-refresh"]');
       if (refreshButton) refreshButton.addEventListener('click', function () { startPublicCatalogSync(root); });
+      var importForm = root.querySelector('[data-form="import-route"]');
+      if (importForm) importForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        importRouteFromExplore(root);
+      });
+      var enqueueImported = root.querySelector('[data-control="enqueue-imported-route"]');
+      if (enqueueImported) enqueueImported.addEventListener('click', function () { enqueueImportedRouteFromExplore(root); });
       paintExplore(root);
+      paintImportedRoute(root);
       fetchPublicCatalog(function (_data, _error, sync) {
         if (!document.body.contains(root)) return;
         paintExplore(root);

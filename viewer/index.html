@@ -122,13 +122,26 @@
         <div class="course-grid" data-list="latest"></div>
         <div class="empty-state" data-slot="latest-empty" hidden></div>
       </section>
-      <section class="explore-section">
+      <section class="explore-section explore-import">
         <div class="section-head">
-          <h2>Rutas públicas</h2>
-          <a class="section-link" href="https://platzi.com/cursos/explora/" target="_blank" rel="noopener noreferrer">Ver catálogo oficial</a>
+          <h2>Descargar una ruta de Platzi</h2>
+          <a class="section-link" href="https://platzi.com/mis-rutas/" target="_blank" rel="noopener noreferrer">Abrir Mis rutas</a>
         </div>
-        <div class="route-list" data-list="public-routes"></div>
-        <div class="empty-state" data-slot="routes-empty" hidden></div>
+        <p>Pega el enlace de una ruta compartida, por ejemplo https://platzi.com/mis-rutas/774593/. Se leerán sus cursos y podrás añadir los pendientes a la cola de descargas existente.</p>
+        <form class="route-import-form" data-form="import-route">
+          <label for="public-route-url">URL de la ruta</label>
+          <div class="route-import-controls">
+            <input id="public-route-url" name="url" type="url" inputmode="url" autocomplete="url" placeholder="https://platzi.com/mis-rutas/774593/" required>
+            <button class="btn" type="submit" data-control="import-route">Leer ruta</button>
+          </div>
+        </form>
+        <p class="explore-import-status" data-slot="import-status" role="status" aria-live="polite"></p>
+        <div class="explore-import-preview" data-slot="import-preview" hidden>
+          <strong data-slot="import-title"></strong>
+          <p data-slot="import-count"></p>
+          <ul data-list="import-courses"></ul>
+          <button class="btn" type="button" data-control="enqueue-imported-route" disabled>Añadir cursos a Descargas</button>
+        </div>
       </section>
     </section>
   </template>
