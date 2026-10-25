@@ -599,17 +599,45 @@
 
   function hrefCurso(slug) { return '#/curso/' + encodeSeg(slug); }
   function hrefRuta(id) { return '#/ruta/' + encodeSeg(id); }
+  function hrefPublicRuta(id) { return '#/ruta-publica/' + encodeSeg(id); }
   function hrefAula(slug, n) { return '#/aula/' + encodeSeg(slug) + '/' + n; }
+
+  function publicCourseForSlug(slug) {
+    if (bySlug[slug]) return bySlug[slug];
+    for (var i = 0; i < publicCourses.length; i++) if (publicCourses[i] && publicCourses[i].slug === slug) return publicCourses[i];
+    return null;
+  }
+
+  function syncPublicQueueState(callback) {
+    if (!publicCourses.length || typeof window.fetch !== 'function') { if (callback) callback(); return; }
+    window.fetch('/api/state', {cache: 'no-store'}).then(function (r) {
+      if (!r.ok) throw new Error('No se pudo leer la cola');
+      return r.json();
+    }).then(function (data) {
+      var queued = Object.create(null);
+      (Array.isArray(data.items) ? data.items : []).forEach(function (item) {
+        if (item && item.slug && (item.status === 'queued' || item.status === 'running')) queued[item.slug] = true;
+      });
+      publicCourses.forEach(function (course) {
+        var local = bySlug[course.slug];
+        if (local) local.queued = !!queued[course.slug];
+        else course.queued = !!queued[course.slug];
+      });
+      if (callback) callback();
+    }).catch(function () { if (callback) callback(); });
+  }
 
   function fillCourseCard(card, course) {
     if (!card || !course) return;
     var link = card.querySelector('a[data-slot="link"]') || hook(card, 'link');
     if (course.publicOnly) {
-      card.setAttribute('data-state', 'public');
+      var localCourse = bySlug[course.slug];
+      if (localCourse) { fillCourseCard(card, localCourse); return; }
+      card.setAttribute('data-state', course.queued ? 'queued' : 'public');
       if (link) {
-        link.setAttribute('href', course.url || ('https://platzi.com/cursos/' + encodeSeg(course.slug) + '/'));
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
+        link.setAttribute('href', hrefCurso(course.slug));
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
       }
       fillCover(card, course);
       setText(card, 'title', course.title || course.slug);
@@ -621,7 +649,7 @@
       var publicStatus = hook(card, 'status');
       if (publicStatus) {
         clearEl(publicStatus);
-        publicStatus.appendChild(chipNode('public'));
+        publicStatus.appendChild(chipNode(course.queued ? 'queued' : 'public'));
       }
       setProgress(card, 0, false);
       return;
@@ -903,13 +931,13 @@
   function fillPublicRouteCard(card, route) {
     if (!card || !route) return;
     if (card.tagName === 'A') {
-      card.setAttribute('href', route.url || 'https://platzi.com/cursos/explora/');
-      card.setAttribute('target', '_blank');
-      card.setAttribute('rel', 'noopener noreferrer');
+      card.setAttribute('href', hrefPublicRuta(route.id));
+      card.removeAttribute('target');
+      card.removeAttribute('rel');
     }
     fillCover(card, route);
     setText(card, 'title', route.title || route.id);
-    setText(card, 'meta', route.description || 'Ruta del catálogo público de Platzi');
+    setText(card, 'meta', route.description || 'Ruta pública de Platzi');
     var progress = card.querySelector('.route-progress');
     if (progress) progress.hidden = true;
   }
@@ -952,6 +980,29 @@
         notice.textContent = 'El contenido público es una caché local actualizable. Tus cursos, progreso y rutas personales siguen separados.';
       }
     }
+
+    var routeBox = listHook(view, 'public-routes');
+    if (routeBox) {
+      clearEl(routeBox);
+      routes.forEach(function (r) {
+        var card = partial('tpl-route-card', function (node) { fillPublicRouteCard(node, r); });
+        if (card) routeBox.appendChild(card);
+      });
+    }
+    var routesEmpty = hook(view, 'routes-empty');
+    if (routesEmpty) routesEmpty.hidden = routes.length > 0;
+    var publicCoursesBox = listHook(view, 'public-courses');
+    if (publicCoursesBox) {
+      clearEl(publicCoursesBox);
+      var publicCourseCount = hook(view, 'public-course-count');
+      if (publicCourseCount) publicCourseCount.textContent = count + (count === 1 ? ' curso' : ' cursos');
+      publicCourses.forEach(function (c) {
+        var card = partial('tpl-course-card', function (node) { fillCourseCard(node, c); });
+        if (card) publicCoursesBox.appendChild(card);
+      });
+    }
+    var publicCoursesEmpty = hook(view, 'public-courses-empty');
+    if (publicCoursesEmpty) publicCoursesEmpty.hidden = publicCourses.length > 0;
 
     var latestBox = listHook(view, 'latest');
     if (latestBox) {
@@ -1029,16 +1080,13 @@
     if (count) count.textContent = importedRoute.courses.length + ' cursos encontrados · ' + pending.length + ' por añadir (sin contar los ya descargados o en cola).';
     if (list) {
       clearEl(list);
-      importedRoute.courses.slice(0, 12).forEach(function (course) {
-        var li = document.createElement('li');
-        li.textContent = course.title || course.slug;
-        list.appendChild(li);
+      importedRoute.courses.forEach(function(course){
+        var known=publicCourseForSlug(course.slug);
+        if(!known){known=normalizePublicCourse(course);publicCourses.push(known);}
+        else if(!bySlug[course.slug]){if(course.title)known.title=course.title;if(course.url)known.url=course.url;if(course.cover&&!known.cover)known.cover=course.cover;}
+        var card=partial('tpl-course-card',function(node){fillCourseCard(node,known);});
+        if(card)list.appendChild(card);
       });
-      if (importedRoute.courses.length > 12) {
-        var more = document.createElement('li');
-        more.textContent = 'Y ' + (importedRoute.courses.length - 12) + ' cursos más…';
-        list.appendChild(more);
-      }
     }
     if (enqueueButton) {
       enqueueButton.disabled = importingRoute || pending.length === 0;
@@ -1127,6 +1175,7 @@
       paintImportedRoute(root);
       fetchPublicCatalog(function (_data, _error, sync) {
         if (!document.body.contains(root)) return;
+        syncPublicQueueState(function(){ if(document.body.contains(root)) paintExplore(root); });
         paintExplore(root);
         if (sync && sync.running) pollPublicCatalog(root);
       });
@@ -1182,7 +1231,7 @@
     var ids = Array.isArray(route.courses) ? route.courses : [];
     var list = [];
     for (var i = 0; i < ids.length; i++) {
-      var c = bySlug[ids[i]];
+      var c = bySlug[ids[i]] || publicCourseForSlug(ids[i]);
       if (c) list.push(c);
     }
     return list;
@@ -1248,6 +1297,47 @@
         });
       }
       fillRuta(view, route, list);
+    });
+    afterRoute();
+  }
+
+  function renderPublicRuta(routeId) {
+    var routes = publicCatalog && Array.isArray(publicCatalog.routes) ? publicCatalog.routes : [];
+    var route = null;
+    for (var i = 0; i < routes.length; i++) if (String(routes[i].id) === String(routeId)) { route = routes[i]; break; }
+    if (!route) { redirectTo('#/explorar'); return; }
+    setTitle((route.title || route.id) + ' · Explorar · Platzi Local');
+    renderShell('explorar');
+    rutaFilters = [];
+    mount('tpl-ruta', function (view) {
+      setText(view, 'title', route.title || route.id);
+      fillCover(view, route);
+      setText(view, 'meta', 'Leyendo cursos de Platzi…');
+      window.fetch('/api/import-route', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url:route.url})})
+      .then(function (r) { return r.json().then(function (p) { if (!r.ok || !p.ok) throw new Error(p.error || ('HTTP '+r.status)); return p.route; }); })
+      .then(function (details) {
+        var ids = [];
+        (details.courses || []).forEach(function (raw) {
+          var c = normalizePublicCourse(raw), existing = publicCourseForSlug(c.slug);
+          if (!existing) { publicCourses.push(c); existing = c; }
+          else if (!bySlug[c.slug]) { if(c.title)existing.title=c.title; if(c.url)existing.url=c.url; if(c.cover&&!existing.cover)existing.cover=c.cover; }
+          ids.push(existing.slug);
+        });
+        route.courses = ids; route.coursesCount = ids.length; route.title = details.title || route.title;
+        setText(view, 'title', route.title); setText(view, 'meta', routeMeta(route) + ' · Ruta pública');
+        var list = routeCourseList(route);
+        function paint() {
+          var filtered = list.filter(function(c){return courseMatchesAll(c,rutaFilters);});
+          var box = listHook(view,'courses'); if(box) { clearEl(box); filtered.forEach(function(c){var card=partial('tpl-course-card',function(node){fillCourseCard(node,c);});if(card)box.appendChild(card);}); }
+          setText(view,'count',filtered.length+(filtered.length===1?' curso':' cursos'));
+          paintFilterCounts(view,list); paintFilterButtons(view,rutaFilters);
+          var empty=hook(view,'empty'); if(empty){empty.textContent=list.length?cursosEmptyMessage(rutaFilters):'No se encontraron cursos en esta ruta pública.';empty.hidden=filtered.length>0;}
+        }
+        var bar=hook(view,'bar'); if(bar)bar.hidden=true; show(hook(view,'pct'),false);
+        var cont=view.querySelector('a[data-slot="continue"]'); if(cont)cont.hidden=true;
+        view.querySelectorAll('[data-filter]').forEach(function(btn){btn.addEventListener('click',function(){rutaFilters=toggleFilter(rutaFilters,this.getAttribute('data-filter'));paint();});});
+        paint();
+      }).catch(function(error){setText(view,'meta','No se pudo cargar el detalle de la ruta.');var empty=hook(view,'empty');if(empty){empty.textContent=error.message||'No se pudo leer la ruta de Platzi.';empty.hidden=false;}});
     });
     afterRoute();
   }
@@ -3080,15 +3170,21 @@
       var rid = decodeSeg(parts[1] || '');
       var route = rid ? byRouteId[rid] : null;
       if (!route) { redirectTo('#/'); return; }
-      renderRuta(route);
+      renderRuta(route); return;
+    }
+    if (seg === 'ruta-publica') {
+      var publicRid = decodeSeg(parts[1] || '');
+      if (!publicRid) { redirectTo('#/explorar'); return; }
+      if (!publicCatalogAvailable) fetchPublicCatalog(function(_data,error){if(error)redirectTo('#/explorar');else renderPublicRuta(publicRid);});
+      else renderPublicRuta(publicRid);
       return;
     }
     if (seg === 'curso') {
       var cslug = decodeSeg(parts[1] || '');
-      var course = cslug ? bySlug[cslug] : null;
+      var course = cslug ? (bySlug[cslug] || publicCourseForSlug(cslug)) : null;
+      if (!course && cslug) { fetchPublicCatalog(function(){var found=publicCourseForSlug(cslug);if(found)renderCurso(found);else redirectTo('#/');});return; }
       if (!course) { redirectTo('#/'); return; }
-      renderCurso(course);
-      return;
+      renderCurso(course); return;
     }
     if (seg === 'aula') {
       var aslug = decodeSeg(parts[1] || '');
