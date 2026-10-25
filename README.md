@@ -10,17 +10,28 @@ Este proyecto se apoya en el CLI **[`platzi`](https://github.com/ivansaul/platzi
 
 Requisitos: Windows con **Python 3.9+**, **ffmpeg** en el PATH (lo usa el CLI) y navegador para el login.
 
-1. Instala el CLI (una sola vez):
+1. Instala el CLI (una sola vez).
 
-   ```
-   pip install -U platzi
+   **Si usas Python 3.9 en Windows**, ejecuta estos comandos juntos para evitar que `pip` intente compilar `greenlet` con Visual Studio:
+
+   ```bat
+   python -m pip install --upgrade pip
+   python -m pip install --upgrade --only-binary=greenlet "greenlet==3.2.4" platzi
    ```
 
-   (también vale `uv tool install platzi` o `pipx install platzi`). Y su navegador:
+   En otras versiones de Python puedes usar:
 
+   ```bat
+   python -m pip install --upgrade platzi
    ```
-   playwright install chromium
+
+   (también vale `uv tool install platzi` o `pipx install platzi`, si esos entornos usan una versión de Python compatible). Instala el navegador de Playwright con el mismo Python:
+
+   ```bat
+   python -m playwright install chromium
    ```
+
+   **Por qué existe el paso especial:** `greenlet 3.2.5` no publica ruedas binarias para Windows/Python 3.9; sin fijar la versión, `pip` intenta compilar C++ y puede fallar con compiladores antiguos como Visual Studio 2017. `greenlet 3.2.4` sí publica la rueda de Windows para Python 3.9.
 
 2. Inicia sesión con **tu** cuenta:
 
@@ -32,13 +43,21 @@ Requisitos: Windows con **Python 3.9+**, **ffmpeg** en el PATH (lo usa el CLI) y
 
 3. Dependencias de los scripts del visor (solo si instalaste el CLI aislado con uv/pipx):
 
+   En Python 3.9 sobre Windows, mantén también la versión de `greenlet` fijada:
+
+   ```bat
+   python -m pip install --only-binary=greenlet "greenlet==3.2.4" playwright
    ```
-   pip install playwright
+
+   En Python 3.10 o superior:
+
+   ```bat
+   python -m pip install playwright
    ```
 
 4. Genera **tu** catálogo (una vez, y de nuevo cuando tu cuenta cambie):
 
-   ```
+   ```bat
    python scripts\platzi_cursos.py
    python scripts\platzi_rutas.py
    python scripts\platzi_certificados.py
@@ -47,7 +66,7 @@ Requisitos: Windows con **Python 3.9+**, **ffmpeg** en el PATH (lo usa el CLI) y
 
 5. Arranca el visor:
 
-   ```
+   ```bat
    viewer\start.cmd
    ```
 
@@ -123,7 +142,7 @@ Desde el visor: **Descargas → Mis rutas → Descargar N**, o busca un curso su
 
 Para el lote histórico (la cola de `scripts/cola_descarga.json`):
 
-```
+```powershell
 # Toda la cola sin certificados
 pwsh -File scripts\download_queue.ps1
 
@@ -145,4 +164,4 @@ No. Nada de modelos ni claves: descargar, generar el catálogo y estudiar funcio
 
 ## Qué se versiona
 
-El código, los scripts, el catálogo (`viewer/assets/`), `viewer/data.js` y el estado de la cola. `Courses/`, `logs/` y `scripts/download_state.json` (runtime) quedan fuera. El detalle del visor está en `viewer/README.md` y el contrato en `viewer/SPEC.md`.
+El código, los scripts, el catálogo (`viewer/assets/`), `viewer/data.js` y el estado de la cola. `Courses/`, `logs/` y `scripts/download_state.json` (runtime) quedan fuera.
