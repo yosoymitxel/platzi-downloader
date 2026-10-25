@@ -67,8 +67,8 @@
 
   var importingRoute = false;
   var exploreUi = {
-    latest: { query: '', filters: [], limit: 20 },
-    routes: { query: '', sort: 'title', limit: 20 },
+    latest: { query: '', filters: [], limit: Infinity },
+    routes: { query: '', sort: 'title', filters: [], limit: Infinity },
     courses: { query: '', filters: [], limit: 20 }
   };
   var courseServerState = Object.create(null);
@@ -1074,6 +1074,13 @@
     var filteredRoutes = routes.filter(function (route) {
       return !routeQuery || norm((route.title || '') + ' ' + (route.description || '')).indexOf(routeQuery) >= 0;
     });
+    filteredRoutes = filteredRoutes.filter(function (route) {
+      var routeFilters = routeState.filters || [];
+      var courseCount = Number(route.coursesCount || 0);
+      if (routeFilters.indexOf('with-courses') >= 0 && !(courseCount > 0)) return false;
+      if (routeFilters.indexOf('without-courses') >= 0 && courseCount > 0) return false;
+      return true;
+    });
     filteredRoutes.sort(function (x, y) {
       if (routeState.sort === 'count') return (Number(y.coursesCount || 0) - Number(x.coursesCount || 0)) || cmpTitle(x.title || x.id, y.title || y.id);
       return cmpTitle(x.title || x.id, y.title || y.id);
@@ -1093,9 +1100,6 @@
       routesEmpty.hidden = filteredRoutes.length > 0;
     }
     setText(view, 'routes-count', filteredRoutes.length + ' rutas');
-    appendExploreMore(view, 'routes', visibleRoutes.length, filteredRoutes.length, function () {
-      routeState.limit += 20; paintExplore(view);
-    });
 
     var allPublicCourses = publicCourses.slice();
     var publicCourseCount = hook(view, 'public-course-count');
@@ -1120,6 +1124,7 @@
       publicCoursesEmpty.hidden = filteredPublicCourses.length > 0;
     }
     paintExploreFilterButtons(view, 'courses', courseStateUi.filters);
+    paintExploreFilterButtons(view, 'routes', routeState.filters || []);
     appendExploreMore(view, 'courses', visiblePublicCourses.length, filteredPublicCourses.length, function () {
       courseStateUi.limit += 20; paintExplore(view);
     });
@@ -1144,9 +1149,6 @@
       latestEmpty.hidden = filteredLatest.length > 0;
     }
     paintExploreFilterButtons(view, 'latest', latestState.filters);
-    appendExploreMore(view, 'latest', visibleLatest.length, filteredLatest.length, function () {
-      latestState.limit += 20; paintExplore(view);
-    });
 
     var refreshButton = view.querySelector('[data-control="catalog-refresh"]');
     if (refreshButton) refreshButton.disabled = !publicCatalogAvailable || !!sync.running;
@@ -1305,7 +1307,7 @@
         var block = target && target.getAttribute('data-explore-search');
         if (!block || !exploreUi[block]) return;
         exploreUi[block].query = target.value || '';
-        exploreUi[block].limit = 20;
+        if (block === 'courses') exploreUi[block].limit = 20;
         paintExplore(root);
         var again = root.querySelector('[data-explore-search="' + block + '"]');
         if (again) { again.focus(); try { again.setSelectionRange(again.value.length, again.value.length); } catch (_) {} }
@@ -1314,7 +1316,6 @@
         var target = event.target;
         if (target && target.matches('[data-explore-sort="routes"]')) {
           exploreUi.routes.sort = target.value || 'title';
-          exploreUi.routes.limit = 20;
           paintExplore(root);
         }
       });
@@ -1323,8 +1324,12 @@
         if (!button || !root.contains(button)) return;
         var block = button.getAttribute('data-explore-block');
         var key = button.getAttribute('data-explore-filter');
-        if (!exploreUi[block] || !exploreUi[block].filters) return;
-        exploreUi[block].filters = toggleExploreFilter(exploreUi[block].filters, key);
+        if (!exploreUi[block]) return;
+        if (block === 'routes') {
+          exploreUi.routes.filters = toggleExploreFilter(exploreUi.routes.filters || [], key);
+        } else if (exploreUi[block].filters) {
+          exploreUi[block].filters = toggleExploreFilter(exploreUi[block].filters, key);
+        } else return;
         exploreUi[block].limit = 20;
         paintExplore(root);
       });
