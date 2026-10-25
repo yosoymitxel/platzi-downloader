@@ -21,3 +21,17 @@ jobs:
         run: python -m unittest discover -s scripts -p "test_public_catalog.py" -v
       - name: Check viewer JavaScript syntax
         run: node --check viewer/app.js
+
+  windows-python39-install:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - name: Install CLI with the Python 3.9 Windows wheel
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade --only-binary=greenlet "greenlet==3.2.4" platzi
+      - name: Verify imports
+        run: python -c "import greenlet, playwright; print('greenlet', greenlet.__version__); print('Playwright import OK')"
