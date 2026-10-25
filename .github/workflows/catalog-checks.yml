@@ -1,0 +1,23 @@
+name: Catalog and viewer checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Compile Python modules
+        run: python -m py_compile scripts/catalog_db.py scripts/sync_public_catalog.py scripts/server.py scripts/test_public_catalog.py
+      - name: Test SQLite catalog
+        run: python -m unittest discover -s scripts -p "test_public_catalog.py" -v
+      - name: Check viewer JavaScript syntax
+        run: node --check viewer/app.js
