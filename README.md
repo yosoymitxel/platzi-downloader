@@ -79,6 +79,8 @@ Puedes saltarte la lectura con **`setup.cmd`**: verifica Python, el CLI, ffmpeg,
 │   ├── build_queue.py       Cruza progreso, certificados y rutas para armar la cola
 │   ├── plan_expansion.py    Propone cursos nuevos según afinidad de rutas
 │   ├── viewer_data.py       Regenera viewer/data.js desde los JSON
+│   ├── catalog_db.py        Almacén y consultas SQLite del catálogo público
+│   ├── sync_public_catalog.py Sincroniza cursos recientes, catálogo y rutas públicas
 │   ├── platzi_*.py          Scrapers de cursos, rutas, certificados y portadas
 │   ├── sondeos/             Respuestas crudas y planes ya procesados (histórico)
 │   └── *.json               Estado: cola, progreso, certificados, catálogo
