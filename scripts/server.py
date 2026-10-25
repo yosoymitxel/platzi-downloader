@@ -811,7 +811,7 @@ def import_mis_ruta(raw_url):
             browser.close()
 
 
-        def do_POST(self):
+    def do_POST(self):
         if not self._same_origin():
             self._error(403, "Origen no permitido.")
             return
