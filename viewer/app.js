@@ -736,8 +736,8 @@
       setText(card, 'meta', publicMeta.join(' · ') || 'Catálogo público de Platzi');
       var publicStatus = hook(card, 'status');
       if (publicStatus) {
-        clearEl(publicStatus);
-        publicStatus.appendChild(chipNode(course.queued ? 'queued' : 'public'));
+        fillChips(publicStatus, course);
+        if (!course.downloaded && !course.queued) publicStatus.appendChild(chipNode('public'));
       }
       setProgress(card, 0, false);
       return;
