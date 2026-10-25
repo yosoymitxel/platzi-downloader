@@ -763,9 +763,6 @@ class ViewerHandler(SimpleHTTPRequestHandler):
 
 def import_mis_ruta(raw_url):
     """Lee cursos de una ruta compartida /mis-rutas/<id>/ sin alterar la biblioteca."""
-    from playwright.sync_api import sync_playwright
-    from sync_public_catalog import read_cookies
-
     url = str(raw_url or "").strip()
     parsed = urlparse(url)
     if parsed.scheme != "https" or parsed.hostname not in ("platzi.com", "www.platzi.com"):
@@ -773,6 +770,9 @@ def import_mis_ruta(raw_url):
     match = re.fullmatch(r"/mis-rutas/(\d+)/?", parsed.path)
     if not match or parsed.query or parsed.fragment:
         raise ApiError(400, "La URL debe tener el formato https://platzi.com/mis-rutas/ID/.")
+
+    from playwright.sync_api import sync_playwright
+    from sync_public_catalog import read_cookies
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False, channel="chromium")
