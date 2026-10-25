@@ -72,6 +72,8 @@
     courses: { query: '', filters: [], limit: 20 }
   };
   var courseServerState = Object.create(null);
+  var lastSeenLocalRefresh = null;
+  var localRefreshSeenRunning = false;
   var EXPLORE_FILTERS = ['all', 'downloaded', 'cert', 'queued', 'missing'];
 
   /* ---------- formato y utilidades ---------- */
@@ -622,6 +624,18 @@
       if (!r.ok) throw new Error('No se pudo leer el estado de los cursos');
       return r.json();
     }).then(function (data) {
+      var localCatalogState = data.catalog || {};
+      if (lastSeenLocalRefresh === null) lastSeenLocalRefresh = localCatalogState.lastRefresh || null;
+      if (localCatalogState.refreshing) {
+        localRefreshSeenRunning = true;
+      } else if (localRefreshSeenRunning && localCatalogState.lastRefresh &&
+          localCatalogState.lastRefresh !== lastSeenLocalRefresh && localCatalogState.lastRefreshOk) {
+        // El servidor ya regeneró viewer/data.js tras la descarga; recargar incorpora
+        // módulos/clases recién descargados además de sus estados.
+        window.location.reload();
+        return;
+      }
+      if (localCatalogState.lastRefresh) lastSeenLocalRefresh = localCatalogState.lastRefresh;
       courseServerState = Object.create(null);
       (Array.isArray(data.items) ? data.items : []).forEach(function (item) {
         if (item && item.slug && ['queued', 'running', 'completed', 'error', 'canceled'].indexOf(item.status) >= 0) {
