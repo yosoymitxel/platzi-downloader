@@ -28,7 +28,8 @@ Sigue «Empezar de cero» del `README.md`:
 ## Arquitectura
 
 - `viewer/`: estático, sin build. `app.js` es ES5 sin módulos, router por hash (`#/`, `#/rutas`, `#/cursos`, `#/curso/<slug>`, `#/aula/<slug>/<n>`, `#/descargas`). El aula usa Plyr 3.8.5 (MIT) vendoreado en `viewer/vendor/plyr/`; no hay CDN. `viewer/SPEC.md` es el contrato de UI; si cambias algo visible, actualízalo. `viewer/README.md` explica el uso.
-- `scripts/server.py`: sirve el repo y expone `/api/*` para la cola; un worker secuencial lanza el CLI (sin shell). Estado runtime en `scripts/download_state.json` (ignorado por git).
+- `scripts/server.py`: sirve el repo y expone `/api/*` para la cola y el catálogo público; un worker secuencial lanza el CLI (sin shell). Estado runtime en `scripts/download_state.json` (ignorado por git).
+- `scripts/catalog_db.py` mantiene el catálogo público en SQLite local; `scripts/sync_public_catalog.py` lo actualiza desde páginas públicas de Platzi. La base `scripts/public_catalog.sqlite3` se genera localmente y no se versiona.
 - `scripts/platzi_*.py`: scrapers del catálogo (Playwright + la sesión del CLI). `scripts/build_queue.py` y `download_queue.ps1`: lote histórico.
 - El catálogo se genera por cuenta: los JSON de `scripts\` y `viewer\data.js` son datos del usuario, no constantes del proyecto.
 
@@ -37,5 +38,6 @@ Sigue «Empezar de cero» del `README.md`:
 - No commitear `Courses/`, `logs/`, `.tmp/`, `__pycache__/` ni `download_state.json` (ya están en `.gitignore`).
 - No debilitar la seguridad de `server.py`: solo `127.0.0.1`, validación de `Origin`/`Host`, `shell=False`, bloqueo de `/scripts/`, `/logs/`, `/.git*/`.
 - No correr dos servidores a la vez ni `download_queue.ps1` con la cola del visor activa.
+- La búsqueda combina la biblioteca local con el catálogo público almacenado en SQLite. Los cursos públicos no se deben marcar como descargados ni abrir como fichas locales.
 - Al tocar UI o copy en `viewer/`: carga las skills **antislop** (modo `during`) y, si están disponibles, **taste-skill** / **impeccable**; cierra con su Delivery Gate.
 - Estilo de la casa: español con acentos, sin emoji, copy congelada en `viewer/SPEC.md` §7. Nada de `innerHTML` con datos dinámicos.
