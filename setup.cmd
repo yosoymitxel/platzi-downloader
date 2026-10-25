@@ -12,6 +12,7 @@ echo  Verifico lo necesario para descargar tus cursos y verlos sin conexion.
 echo.
 
 set "PENDIENTE="
+set "PYVER="
 
 rem ----- Python -----
 where python >nul 2>nul
@@ -19,21 +20,35 @@ if errorlevel 1 (
   echo  [x] Python no esta en el PATH. Instalalo desde https://www.python.org/downloads/
   set "PENDIENTE=1"
 ) else (
+  for /f "delims=" %%v in ('python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.version_info[1]))" 2^>nul') do set "PYVER=%%v"
   for /f "delims=" %%v in ('python --version 2^>^&1') do echo  [ok] %%v
+)
+if "%PYVER%"=="3.9" (
+  echo  [!] Python 3.9 en Windows necesita fijar greenlet al instalar el CLI:
+  echo      python -m pip install --upgrade pip
+  echo      python -m pip install --upgrade --only-binary=greenlet "greenlet==3.2.4" platzi
 )
 
 rem ----- CLI platzi -----
 where platzi >nul 2>nul
 if errorlevel 1 (
   echo  [x] No encontre el CLI "platzi". Instalalo con:
-  echo        pip install -U platzi
-  echo      o, si usas uv:  uv tool install platzi
+  if "%PYVER%"=="3.9" (
+    echo      python -m pip install --upgrade --only-binary=greenlet "greenlet==3.2.4" platzi
+  ) else (
+    echo      python -m pip install --upgrade platzi
+    echo      o, si usas uv:  uv tool install platzi
+  )
   set "PENDIENTE=1"
 ) else (
   platzi --help >nul 2>nul
   if errorlevel 1 (
     echo  [!] El comando platzi existe pero no responde. Reinstalalo:
-    echo        pip install -U platzi
+    if "%PYVER%"=="3.9" (
+      echo      python -m pip install --upgrade --only-binary=greenlet "greenlet==3.2.4" platzi
+    ) else (
+      echo      python -m pip install --upgrade platzi
+    )
   ) else (
     echo  [ok] CLI platzi
   )
@@ -52,8 +67,12 @@ rem ----- Playwright -----
 python -c "import playwright" >nul 2>nul
 if errorlevel 1 (
   echo  [!] Playwright no esta disponible para este Python; los scripts del catalogo lo usan:
-  echo        pip install playwright
-  echo        playwright install chromium
+  if "%PYVER%"=="3.9" (
+    echo      python -m pip install --only-binary=greenlet "greenlet==3.2.4" playwright
+  ) else (
+    echo      python -m pip install playwright
+  )
+  echo      python -m playwright install chromium
 ) else (
   echo  [ok] Playwright
 )
@@ -63,7 +82,7 @@ if exist "%LOCALAPPDATA%\Platzi\Platzi\state.json" (
   echo  [ok] Sesion de Platzi guardada
 ) else (
   echo  [x] No hay sesion de Platzi. Inicia sesion con tu cuenta:
-  echo        platzi login
+  echo      platzi login
   set "PENDIENTE=1"
 )
 
@@ -77,10 +96,10 @@ if defined CATALOGO (
   echo  [ok] Catalogo de tu cuenta
 ) else (
   echo  [x] Falta tu catalogo; generalo con tu sesion:
-  echo        python scripts\platzi_cursos.py
-  echo        python scripts\platzi_rutas.py
-  echo        python scripts\platzi_certificados.py
-  echo        python scripts\viewer_data.py
+  echo      python scripts\platzi_cursos.py
+  echo      python scripts\platzi_rutas.py
+  echo      python scripts\platzi_certificados.py
+  echo      python scripts\viewer_data.py
   set "PENDIENTE=1"
 )
 
