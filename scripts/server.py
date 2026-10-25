@@ -914,54 +914,68 @@ class ViewerHandler(SimpleHTTPRequestHandler):
 
 
 def import_mis_ruta(raw_url):
-    """Lee cursos de una ruta compartida /mis-rutas/<id>/ sin alterar la biblioteca."""
+    """Extrae cursos de una ruta pública o personal de Platzi."""
     url = str(raw_url or "").strip()
     parsed = urlparse(url)
     if parsed.scheme != "https" or parsed.hostname not in ("platzi.com", "www.platzi.com"):
-        raise ApiError(400, "Usa una URL https://platzi.com/mis-rutas/ID/.")
-    match = re.fullmatch(r"/mis-rutas/(\d+)/?", parsed.path)
+        raise ApiError(400, "Usa una URL HTTPS de platzi.com.")
+    match = (
+        re.fullmatch(r"/mis-rutas/(\d+)/?", parsed.path)
+        or re.fullmatch(r"/(?:ruta|rutas)/([a-z0-9][a-z0-9-]{0,100})/?", parsed.path, re.I)
+    )
     if not match or parsed.query or parsed.fragment:
-        raise ApiError(400, "La URL debe tener el formato https://platzi.com/mis-rutas/ID/.")
-
+        raise ApiError(400, "Usa /mis-rutas/ID/ o una ruta pública /ruta/SLUG/ de Platzi.")
     from playwright.sync_api import sync_playwright
     from sync_public_catalog import read_cookies
-
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False, channel="chromium")
         try:
             context = browser.new_context(locale="es-ES")
             cookies = read_cookies()
-            if cookies:
-                context.add_cookies(cookies)
+            if cookies: context.add_cookies(cookies)
             page = context.new_page()
             response = page.goto(url, wait_until="domcontentloaded", timeout=90000)
             page.wait_for_timeout(1800)
             if response and response.status >= 400:
                 raise ApiError(502, "Platzi respondió HTTP " + str(response.status) + " al abrir esa ruta.")
-            result = page.evaluate(r"""() => {
+            result = page.evaluate(r"""async () => {
               const trim = (v) => (v || '').replace(/\s+/g, ' ').trim();
-              const title = trim(document.querySelector('h1')?.innerText) || trim(document.title) || 'Ruta de Platzi';
+              const title = trim(document.querySelector('h1')?.innerText) ||
+                trim(document.title).replace(/\s*[|·-]\s*Platzi.*$/i, '') || 'Ruta de Platzi';
               const courses = new Map();
+              let previous = -1;
+              for (let i = 0; i < 8; i++) {
+                window.scrollTo(0, document.body.scrollHeight);
+                await new Promise(resolve => setTimeout(resolve, 350));
+                const count = document.querySelectorAll('a[href]').length;
+                if (count === previous) break;
+                previous = count;
+              }
+              window.scrollTo(0, 0);
               for (const a of document.querySelectorAll('a[href]')) {
                 let u;
                 try { u = new URL(a.getAttribute('href'), location.href); } catch (_) { continue; }
-                if (u.hostname !== 'platzi.com' && u.hostname !== 'www.platzi.com') continue;
+                if (!/(^|\.)platzi\.com$/i.test(u.hostname)) continue;
                 const m = u.pathname.match(/^\/cursos\/([a-z0-9][a-z0-9-]*)\/?$/i);
                 if (!m) continue;
                 const slug = m[1].toLowerCase();
                 if (courses.has(slug)) continue;
-                const card = a.closest('article, li, [class*="course"], [data-testid*="course"]') || a;
-                const heading = trim(card.querySelector('h2,h3,h4')?.innerText) || trim(a.getAttribute('aria-label')) || trim(a.innerText) || slug;
-                courses.set(slug, {slug, title: heading.slice(0, 180), url: 'https://platzi.com/cursos/' + slug + '/'});
+                const card = a.closest('article, li, [class*="course"], [data-testid*="course"]') || a.parentElement || a;
+                const heading = trim(card.querySelector('h2,h3,h4')?.innerText) ||
+                  trim(a.getAttribute('aria-label')) || trim(a.getAttribute('title')) || trim(a.innerText) || slug;
+                const img = card.querySelector('img');
+                courses.set(slug, {slug, title: heading.slice(0, 180),
+                  url: 'https://platzi.com/cursos/' + slug + '/',
+                  cover: img && (img.currentSrc || img.src) || ''});
               }
               return {title, courses: Array.from(courses.values())};
             }""")
             if not isinstance(result, dict) or not result.get("courses"):
-                raise ApiError(422, "No encontré cursos en esa página. Comprueba que la ruta sea visible con tu sesión de Platzi.")
-            return {"title": result.get("title") or "Ruta de Platzi", "url": url, "courses": result["courses"][:MAX_ENQUEUE]}
+                raise ApiError(422, "No encontré cursos en esa ruta. Comprueba que sea visible con tu sesión de Platzi.")
+            return {"id": match.group(1).lower(), "title": result.get("title") or "Ruta de Platzi",
+                    "url": url, "courses": result["courses"][:MAX_ENQUEUE]}
         finally:
             browser.close()
-
 
 def port_in_use(host, port):
     """True si ya hay algo escuchando: evita un segundo worker sobre el mismo estado."""
