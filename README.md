@@ -97,6 +97,10 @@ El buscador combina cursos y clases de tu biblioteca con los cursos públicos gu
 
 Para sincronizar manualmente, ejecuta **python scripts\sync_public_catalog.py** desde la raíz con Playwright y Chromium instalados. Si no hay conexión o todavía no se sincronizó, tus cursos descargados siguen funcionando offline; las novedades públicas y cursos ajenos a tu biblioteca necesitan una caché previa o internet.
 
+## Importar una ruta compartida para descargarla
+
+En **Explorar → Descargar una ruta de Platzi**, pega el enlace de una ruta compartida como `https://platzi.com/mis-rutas/774593/` y pulsa **Leer ruta**. La aplicación extrae los cursos de esa página; luego puedes añadir los pendientes a la cola de **Descargas** ya existente. No crea una segunda cola ni descarga vídeos desde el scraper. Se requiere internet y, si Platzi restringe la página, tu sesión local válida.
+
 ## Usar el visor
 
 ```
