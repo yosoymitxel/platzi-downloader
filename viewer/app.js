@@ -58,8 +58,59 @@
   var DATA = (typeof window.PLATZI_LOCAL === 'object' && window.PLATZI_LOCAL) ? window.PLATZI_LOCAL : null;
   var courses = (DATA && Array.isArray(DATA.courses)) ? DATA.courses : [];
   var routeList = (DATA && Array.isArray(DATA.routes)) ? DATA.routes : [];
+  var publicCatalog = null;
+  var publicCourses = [];
+  var publicCatalogAvailable = false;
+  var publicCatalogSyncState = { running: false, startedAt: null, finishedAt: null, ok: null, error: '' };
+  var publicCatalogError = '';
 
   /* ---------- formato y utilidades ---------- */
+
+  function normalizePublicCourse(course) {
+    course = course || {};
+    return {
+      publicOnly: true,
+      external: true,
+      slug: String(course.slug || ''),
+      title: String(course.title || course.slug || 'Curso de Platzi'),
+      url: String(course.url || ''),
+      cover: String(course.cover || ''),
+      instructor: String(course.instructor || ''),
+      duration: String(course.duration || ''),
+      lessons: String(course.lessons || ''),
+      isNew: !!course.isNew,
+      source: String(course.source || '')
+    };
+  }
+
+  function fetchPublicCatalog(callback) {
+    if (window.location.protocol === 'file:' || typeof window.fetch !== 'function') {
+      publicCatalogAvailable = false;
+      publicCatalogError = 'Explorar requiere abrir el visor con viewer\\start.cmd.';
+      if (callback) callback(null, new Error(publicCatalogError));
+      return;
+    }
+    window.fetch('/api/catalog', { cache: 'no-store' }).then(function (response) {
+      if (!response.ok) throw new Error('El servidor respondió ' + response.status + '.');
+      return response.json();
+    }).then(function (payload) {
+      if (!payload || payload.ok !== true || !payload.catalog) throw new Error('La respuesta del catálogo no es válida.');
+      publicCatalog = payload.catalog;
+      publicCourses = Array.isArray(publicCatalog.courses) ? publicCatalog.courses.map(normalizePublicCourse) : [];
+      publicCatalogSyncState = payload.sync || publicCatalogSyncState;
+      publicCatalogAvailable = true;
+      publicCatalogError = '';
+      searchIndex = null;
+      if (searchInput && searchInput.value.trim() && searchBox && !searchBox.hidden) {
+        openSuggest(searchSuggest(searchInput.value));
+      }
+      if (callback) callback(publicCatalog, null, publicCatalogSyncState);
+    }).catch(function (error) {
+      publicCatalogAvailable = false;
+      publicCatalogError = (error && error.message) ? error.message : 'No se pudo leer la caché pública.';
+      if (callback) callback(null, error, publicCatalogSyncState);
+    });
+  }
 
   function pad2(n) { return n < 10 ? '0' + n : String(n); }
 
@@ -447,7 +498,7 @@
     return !!(p && isNum(p.done) && p.done > 0);
   }
 
-  var CHIP_TEXT = { cert: 'Aprobado', progress: 'En curso', downloaded: 'Descargado', queued: 'En cola', missing: 'Sin descargar' };
+  var CHIP_TEXT = { cert: 'Aprobado', progress: 'En curso', downloaded: 'Descargado', queued: 'En cola', missing: 'Sin descargar', public: 'En Platzi' };
 
   function chipsFor(course) {
     var out = [];
@@ -487,7 +538,7 @@
     var has = !!(data && typeof data.cover === 'string' && data.cover);
     if (img) {
       if (has) {
-        img.setAttribute('src', encodePath(data.cover));
+        img.setAttribute('src', /^https?:\/\//i.test(data.cover) ? data.cover : encodePath(data.cover));
         img.setAttribute('alt', '');
         img.onerror = function () {
           img.hidden = true;
@@ -550,9 +601,35 @@
 
   function fillCourseCard(card, course) {
     if (!card || !course) return;
-    card.setAttribute('data-state', courseState(course));
     var link = card.querySelector('a[data-slot="link"]') || hook(card, 'link');
-    if (link) link.setAttribute('href', hrefCurso(course.slug));
+    if (course.publicOnly) {
+      card.setAttribute('data-state', 'public');
+      if (link) {
+        link.setAttribute('href', course.url || ('https://platzi.com/cursos/' + encodeSeg(course.slug) + '/'));
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+      fillCover(card, course);
+      setText(card, 'title', course.title || course.slug);
+      var publicMeta = [];
+      if (course.instructor) publicMeta.push(course.instructor);
+      if (course.duration) publicMeta.push(course.duration);
+      if (course.lessons) publicMeta.push(course.lessons);
+      setText(card, 'meta', publicMeta.join(' · ') || 'Catálogo público de Platzi');
+      var publicStatus = hook(card, 'status');
+      if (publicStatus) {
+        clearEl(publicStatus);
+        publicStatus.appendChild(chipNode('public'));
+      }
+      setProgress(card, 0, false);
+      return;
+    }
+    card.setAttribute('data-state', courseState(course));
+    if (link) {
+      link.setAttribute('href', hrefCurso(course.slug));
+      link.removeAttribute('target');
+      link.removeAttribute('rel');
+    }
     fillCover(card, course);
     setText(card, 'title', course.title || course.slug);
     setText(card, 'meta', courseMeta(course));
@@ -603,9 +680,19 @@
     if (!row || !hint) return;
     var link = row.querySelector('a[data-slot="link"]') || hook(row, 'link');
     var isCourse = hint.type === 'course';
-    if (link) link.setAttribute('href', isCourse ? hrefCurso(hint.slug) : hrefAula(hint.slug, hint.n));
+    if (link) {
+      if (isCourse && hint.external) {
+        link.setAttribute('href', hint.url || ('https://platzi.com/cursos/' + encodeSeg(hint.slug) + '/'));
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      } else {
+        link.setAttribute('href', isCourse ? hrefCurso(hint.slug) : hrefAula(hint.slug, hint.n));
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+      }
+    }
     setText(row, 'title', hint.title || '');
-    setText(row, 'course', isCourse ? 'Curso' : (hint.courseTitle || ''));
+    setText(row, 'course', isCourse ? (hint.external ? 'Catálogo público de Platzi' : 'Curso') : (hint.courseTitle || ''));
     setText(row, 'time', isCourse ? '' : fmtTime(hint.time));
   }
 
@@ -808,6 +895,146 @@
     setTitle('Inicio · Platzi Local');
     renderShell('inicio');
     mount('tpl-home', fillHome);
+    afterRoute();
+  }
+
+  function fillPublicRouteCard(card, route) {
+    if (!card || !route) return;
+    if (card.tagName === 'A') {
+      card.setAttribute('href', route.url || 'https://platzi.com/cursos/explora/');
+      card.setAttribute('target', '_blank');
+      card.setAttribute('rel', 'noopener noreferrer');
+    }
+    fillCover(card, route);
+    setText(card, 'title', route.title || route.id);
+    setText(card, 'meta', route.description || 'Ruta del catálogo público de Platzi');
+    var progress = card.querySelector('.route-progress');
+    if (progress) progress.hidden = true;
+  }
+
+  function paintExplore(view) {
+    if (!view || !document.body.contains(view)) return;
+    var data = publicCatalog || { courses: [], latest: [], routes: [], count: 0, routeCount: 0, syncedAt: null };
+    var sync = publicCatalogSyncState || {};
+    var status = hook(view, 'sync-status');
+    var notice = hook(view, 'notice');
+    var summary = hook(view, 'summary');
+    var latest = Array.isArray(data.latest) ? data.latest : [];
+    var routes = Array.isArray(data.routes) ? data.routes : [];
+    var count = isNum(data.count) ? data.count : (Array.isArray(data.courses) ? data.courses.length : 0);
+    var routeCount = isNum(data.routeCount) ? data.routeCount : routes.length;
+
+    if (status) {
+      if (sync.running) status.textContent = 'Actualizando catálogo público…';
+      else if (sync.ok === false && sync.error) status.textContent = 'Falló la última actualización';
+      else if (data.syncedAt) status.textContent = 'Actualizado ' + new Date(data.syncedAt).toLocaleString();
+      else status.textContent = publicCatalogAvailable ? 'Todavía no sincronizado' : 'Requiere el servidor local';
+    }
+    if (summary) {
+      summary.textContent = count + (count === 1 ? ' curso público' : ' cursos públicos') + ' · ' +
+        routeCount + (routeCount === 1 ? ' ruta pública' : ' rutas públicas') +
+        (data.syncedAt ? ' · Caché: ' + new Date(data.syncedAt).toLocaleString() : '');
+    }
+    if (notice) {
+      if (!publicCatalogAvailable) {
+        notice.textContent = publicCatalogError
+          ? 'No se pudo leer el catálogo público: ' + publicCatalogError + ' La biblioteca local sigue disponible.'
+          : 'Para cargar novedades y ampliar el buscador, abre el visor con viewer\\start.cmd. La biblioteca descargada sigue disponible sin conexión.';
+      } else if (sync.running) {
+        notice.textContent = 'Sincronizando cursos y rutas públicas. No se descargan vídeos; el resultado se guarda en SQLite local.';
+      } else if (sync.ok === false && sync.error) {
+        notice.textContent = 'No se pudo actualizar el catálogo. ' + sync.error;
+      } else if (!data.syncedAt && !count && !routes.length) {
+        notice.textContent = 'El catálogo público todavía no está guardado. Pulsa «Actualizar catálogo público» para importar cursos, lanzamientos y rutas desde Platzi.';
+      } else {
+        notice.textContent = 'El contenido público es una caché local actualizable. Tus cursos, progreso y rutas personales siguen separados.';
+      }
+    }
+
+    var latestBox = listHook(view, 'latest');
+    if (latestBox) {
+      clearEl(latestBox);
+      for (var i = 0; i < latest.length; i++) {
+        var item = normalizePublicCourse(latest[i]);
+        var card = partial('tpl-course-card', (function (c) {
+          return function (node) { fillCourseCard(node, c); };
+        })(item));
+        if (card) latestBox.appendChild(card);
+      }
+    }
+    var latestEmpty = hook(view, 'latest-empty');
+    if (latestEmpty) {
+      latestEmpty.textContent = data.syncedAt ? 'No se encontraron lanzamientos en la última sincronización.' : 'Sincroniza el catálogo para mostrar cursos nuevos.';
+      latestEmpty.hidden = latest.length > 0;
+    }
+
+    var routeBox = listHook(view, 'public-routes');
+    if (routeBox) {
+      clearEl(routeBox);
+      for (var j = 0; j < routes.length; j++) {
+        var routeCard = partial('tpl-route-card', (function (r) {
+          return function (node) { fillPublicRouteCard(node, r); };
+        })(routes[j]));
+        if (routeCard) routeBox.appendChild(routeCard);
+      }
+    }
+    var routesEmpty = hook(view, 'routes-empty');
+    if (routesEmpty) {
+      routesEmpty.textContent = data.syncedAt ? 'No se encontraron rutas públicas en la última sincronización.' : 'Sincroniza el catálogo para mostrar las rutas públicas.';
+      routesEmpty.hidden = routes.length > 0;
+    }
+
+    var refreshButton = view.querySelector('[data-control="catalog-refresh"]');
+    if (refreshButton) refreshButton.disabled = !publicCatalogAvailable || !!sync.running;
+  }
+
+  function pollPublicCatalog(view) {
+    if (!view || !document.body.contains(view)) return;
+    window.setTimeout(function () {
+      fetchPublicCatalog(function (_data, _error, sync) {
+        if (!document.body.contains(view)) return;
+        paintExplore(view);
+        if (sync && sync.running) pollPublicCatalog(view);
+      });
+    }, 1500);
+  }
+
+  function startPublicCatalogSync(view) {
+    if (!publicCatalogAvailable || (publicCatalogSyncState && publicCatalogSyncState.running)) return;
+    publicCatalogSyncState = { running: true, startedAt: Date.now(), finishedAt: null, ok: null, error: '' };
+    paintExplore(view);
+    window.fetch('/api/catalog/refresh', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: '{}'
+    }).then(function (response) {
+      return response.json().then(function (payload) {
+        if (!response.ok) throw new Error((payload && payload.error) || ('El servidor respondió ' + response.status + '.'));
+        return payload;
+      });
+    }).then(function (payload) {
+      publicCatalogSyncState = payload.sync || publicCatalogSyncState;
+      paintExplore(view);
+      if (publicCatalogSyncState.running) pollPublicCatalog(view);
+    }).catch(function (error) {
+      publicCatalogSyncState = { running: false, ok: false, error: (error && error.message) || 'No se pudo iniciar la sincronización.' };
+      paintExplore(view);
+    });
+  }
+
+  function renderExplorar() {
+    setTitle('Explorar · Platzi Local');
+    renderShell('explorar');
+    var view = mount('tpl-explorar', function (root) {
+      var refreshButton = root.querySelector('[data-control="catalog-refresh"]');
+      if (refreshButton) refreshButton.addEventListener('click', function () { startPublicCatalogSync(root); });
+      paintExplore(root);
+      fetchPublicCatalog(function (_data, _error, sync) {
+        if (!document.body.contains(root)) return;
+        paintExplore(root);
+        if (sync && sync.running) pollPublicCatalog(root);
+      });
+    });
     afterRoute();
   }
 
@@ -1687,20 +1914,46 @@
   function buildIndex() {
     if (searchIndex) return searchIndex;
     searchIndex = [];
+    var seen = Object.create(null);
     for (var i = 0; i < courses.length; i++) {
       var c = courses[i];
-      searchIndex.push({ type: 'course', norm: norm(c.title), title: c.title || c.slug, slug: c.slug, n: 0, courseTitle: '', time: null });
+      seen[c.slug] = true;
+      searchIndex.push({ type: 'course', norm: norm((c.title || '') + ' ' + (c.slug || '')), title: c.title || c.slug, slug: c.slug, n: 0, courseTitle: '', time: null });
       var fl = flatClasses(c);
       for (var j = 0; j < fl.length; j++) {
         searchIndex.push({ type: 'class', norm: norm(fl[j].title), title: fl[j].title, slug: c.slug, n: fl[j].n, courseTitle: c.title || c.slug, time: fl[j].durationSec });
       }
+    }
+    for (var k = 0; k < publicCourses.length; k++) {
+      var pc = publicCourses[k];
+      if (!pc.slug || seen[pc.slug]) continue;
+      seen[pc.slug] = true;
+      searchIndex.push({
+        type: 'course',
+        norm: norm([pc.title, pc.slug, pc.instructor].join(' ')),
+        title: pc.title || pc.slug,
+        slug: pc.slug,
+        n: 0,
+        courseTitle: '',
+        time: null,
+        external: true,
+        publicOnly: true,
+        url: pc.url,
+        cover: pc.cover,
+        instructor: pc.instructor,
+        duration: pc.duration,
+        lessons: pc.lessons,
+        isNew: pc.isNew
+      });
     }
     return searchIndex;
   }
 
   function hitRank(hit) {
     var c = bySlug[hit.it.slug];
-    return c && c.downloaded ? 0 : 1;
+    if (c && c.downloaded) return 0;
+    if (c) return 1;
+    return hit.it.external ? 2 : 3;
   }
 
   function searchHits(q) {
@@ -1831,8 +2084,10 @@
         if (suggestActive >= 0 && suggestItems[suggestActive]) {
           var a = suggestItems[suggestActive].querySelector('a');
           var href = a ? a.getAttribute('href') : null;
+          var target = a ? a.getAttribute('target') : null;
           closeSuggest();
-          gotoHash(href);
+          if (href && target === '_blank') window.open(href, '_blank', 'noopener,noreferrer');
+          else gotoHash(href);
         } else {
           submitSearch();
         }
@@ -1867,7 +2122,7 @@
       if (cBox) {
         clearEl(cBox);
         for (var i = 0; i < res.courses.length; i++) {
-          var c = bySlug[res.courses[i].it.slug];
+          var c = bySlug[res.courses[i].it.slug] || res.courses[i].it;
           if (!c) continue;
           var card = partial('tpl-course-card', (function (cc) {
             return function (n) { fillCourseCard(n, cc); };
@@ -2722,6 +2977,7 @@
 
     if (seg === '') { renderHome(); return; }
     if (seg === 'rutas') { renderRutas(); return; }
+    if (seg === 'explorar') { renderExplorar(); return; }
     if (seg === 'cursos') { renderCursos(); return; }
     if (seg === 'descargas') { renderDescargas(); return; }
     if (seg === 'ruta') {
@@ -2819,6 +3075,7 @@
     if (storageOK) loadState(); else notice(MSG_STORAGE);
     initBanner();
     initSearch();
+    fetchPublicCatalog();
     if (chipEl) {
       chipEl.addEventListener('click', function () {
         var target = resumeTarget();
