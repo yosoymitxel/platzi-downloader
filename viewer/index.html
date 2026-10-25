@@ -119,17 +119,44 @@
           <h2>Últimos cursos</h2>
           <a class="section-link" href="https://platzi.com/agenda/" target="_blank" rel="noopener noreferrer">Ver lanzamientos</a>
         </div>
+        <div class="explore-tools" data-explore-controls="latest">
+          <label class="dl-search"><span class="sr-only">Buscar últimos cursos</span><input type="search" data-explore-search="latest" placeholder="Buscar en últimos cursos…" autocomplete="off"></label>
+          <div class="filters" role="group" aria-label="Filtrar últimos cursos">
+            <button class="filter" type="button" data-explore-block="latest" data-explore-filter="all" aria-pressed="true">Todos</button>
+            <button class="filter" type="button" data-explore-block="latest" data-explore-filter="downloaded" aria-pressed="false">Descargados</button>
+            <button class="filter" type="button" data-explore-block="latest" data-explore-filter="cert" aria-pressed="false">Aprobados</button>
+            <button class="filter" type="button" data-explore-block="latest" data-explore-filter="queued" aria-pressed="false">En cola</button>
+            <button class="filter" type="button" data-explore-block="latest" data-explore-filter="missing" aria-pressed="false">Sin descargar</button>
+          </div>
+        </div>
         <div class="course-grid" data-list="latest"></div>
+        <button class="btn btn-ghost" type="button" data-explore-more="latest" hidden>Mostrar más</button>
         <div class="empty-state" data-slot="latest-empty" hidden></div>
       </section>
       <section class="explore-section">
-        <div class="section-head"><h2>Rutas de Platzi</h2><a class="section-link" href="https://platzi.com/cursos/explora/" target="_blank" rel="noopener noreferrer">Ver en Platzi</a></div>
+        <div class="section-head"><h2>Rutas de Platzi</h2><p class="cursos-count" data-slot="routes-count"></p><a class="section-link" href="https://platzi.com/cursos/explora/" target="_blank" rel="noopener noreferrer">Ver en Platzi</a></div>
+        <div class="explore-tools" data-explore-controls="routes">
+          <label class="dl-search"><span class="sr-only">Buscar rutas públicas</span><input type="search" data-explore-search="routes" placeholder="Buscar rutas…" autocomplete="off"></label>
+          <label class="field"><span>Ordenar</span><select data-explore-sort="routes"><option value="title">Nombre A–Z</option><option value="count">Más cursos</option></select></label>
+        </div>
         <div class="route-list" data-list="public-routes"></div>
+        <button class="btn btn-ghost" type="button" data-explore-more="routes" hidden>Mostrar más</button>
         <div class="empty-state" data-slot="routes-empty" hidden>No hay rutas públicas en la caché. Actualiza el catálogo.</div>
       </section>
       <section class="explore-section">
         <div class="section-head"><h2>Todos los cursos</h2><p class="cursos-count" data-slot="public-course-count"></p></div>
+        <div class="explore-tools" data-explore-controls="courses">
+          <label class="dl-search"><span class="sr-only">Buscar todos los cursos</span><input type="search" data-explore-search="courses" placeholder="Buscar en todos los cursos…" autocomplete="off"></label>
+          <div class="filters" role="group" aria-label="Filtrar todos los cursos">
+            <button class="filter" type="button" data-explore-block="courses" data-explore-filter="all" aria-pressed="true">Todos</button>
+            <button class="filter" type="button" data-explore-block="courses" data-explore-filter="downloaded" aria-pressed="false">Descargados</button>
+            <button class="filter" type="button" data-explore-block="courses" data-explore-filter="cert" aria-pressed="false">Aprobados</button>
+            <button class="filter" type="button" data-explore-block="courses" data-explore-filter="queued" aria-pressed="false">En cola</button>
+            <button class="filter" type="button" data-explore-block="courses" data-explore-filter="missing" aria-pressed="false">Sin descargar</button>
+          </div>
+        </div>
         <div class="course-grid" data-list="public-courses"></div>
+        <button class="btn btn-ghost" type="button" data-explore-more="courses" hidden>Mostrar más</button>
         <div class="empty-state" data-slot="public-courses-empty" hidden>No hay cursos públicos en la caché. Actualiza el catálogo.</div>
       </section>
       <section class="explore-section explore-import">
