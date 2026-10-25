@@ -62,7 +62,9 @@
   var publicCourses = [];
   var publicCatalogAvailable = false;
   var publicCatalogSyncState = { running: false, startedAt: null, finishedAt: null, ok: null, error: '' };
-  var publicCatalogError = '';\n  var importedRoute = null;\n  var importingRoute = false;
+  var publicCatalogError = '';
+  var importedRoute = null;
+  var importingRoute = false;
 
   /* ---------- formato y utilidades ---------- */
 
