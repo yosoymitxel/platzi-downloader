@@ -130,7 +130,6 @@
           </div>
         </div>
         <div class="course-grid" data-list="latest"></div>
-        <button class="btn btn-ghost" type="button" data-explore-more="latest" hidden>Mostrar más</button>
         <div class="empty-state" data-slot="latest-empty" hidden></div>
       </section>
       <section class="explore-section">
@@ -138,9 +137,13 @@
         <div class="explore-tools" data-explore-controls="routes">
           <label class="dl-search"><span class="sr-only">Buscar rutas públicas</span><input type="search" data-explore-search="routes" placeholder="Buscar rutas…" autocomplete="off"></label>
           <label class="field"><span>Ordenar</span><select data-explore-sort="routes"><option value="title">Nombre A–Z</option><option value="count">Más cursos</option></select></label>
+          <div class="filters" role="group" aria-label="Filtrar rutas públicas">
+            <button class="filter" type="button" data-explore-block="routes" data-explore-filter="all" aria-pressed="true">Todas</button>
+            <button class="filter" type="button" data-explore-block="routes" data-explore-filter="with-courses" aria-pressed="false">Con cursos</button>
+            <button class="filter" type="button" data-explore-block="routes" data-explore-filter="without-courses" aria-pressed="false">Sin cursos</button>
+          </div>
         </div>
         <div class="route-list" data-list="public-routes"></div>
-        <button class="btn btn-ghost" type="button" data-explore-more="routes" hidden>Mostrar más</button>
         <div class="empty-state" data-slot="routes-empty" hidden>No hay rutas públicas en la caché. Actualiza el catálogo.</div>
       </section>
       <section class="explore-section">
